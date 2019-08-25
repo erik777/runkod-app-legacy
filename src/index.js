@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-      <App/>
+      <App store={store}/>
     </ConnectedRouter>
   </Provider>
   , document.getElementById('root')

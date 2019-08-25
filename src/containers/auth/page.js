@@ -1,18 +1,10 @@
-// @flow
-
 import {Component} from 'react';
+
+import PropTypes from 'prop-types';
 
 import {userSession} from '../../blockstack-config';
 
-type Props = {
-  user: string,
-  login(username: string): void,
-  history: {
-    push(path: string): void,
-  }
-};
-
-class AuthPage extends Component<Props> {
+class AuthPage extends Component {
   componentDidMount() {
     const {user, history} = this.props;
 
@@ -37,5 +29,19 @@ class AuthPage extends Component<Props> {
     return null;
   }
 }
+
+
+AuthPage.defaultProps = {
+  user: null,
+};
+
+AuthPage.propTypes = {
+  user: PropTypes.string,
+  login: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
+};
+
 
 export default AuthPage;
