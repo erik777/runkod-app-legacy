@@ -19,7 +19,7 @@ class HomePage extends Component <Props, State> {
 
     if (userSession.isUserSignedIn()) {
       const {history} = this.props;
-      console.log(history.push('/app/editor'));
+      console.log(history.push('/manager'));
       return;
     }
 

@@ -7,7 +7,7 @@ const RADIKS_URL = `https://${window.location.protocol === 'http:' ? 'radiks-dev
 const domain = window.location.origin;
 
 export const userSession = new UserSession({
-  appConfig: new AppConfig(['store_write', 'publish_data'], domain, '/app/auth', '/manifest.json')
+  appConfig: new AppConfig(['store_write', 'publish_data'], domain, '/auth', '/manifest.json')
 });
 
 configure({
