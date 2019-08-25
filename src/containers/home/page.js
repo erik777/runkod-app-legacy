@@ -1,16 +1,25 @@
+// @flow
+
 import React, {Component} from 'react';
 import {Button} from 'react-bootstrap';
 
 import {userSession} from '../../blockstack-config';
 
-class HomePage extends Component {
+type Props = {
+  history: {
+    push(path: string): void,
+  }
+};
+type State = {};
 
-  signIn = (e) => {
+class HomePage extends Component <Props, State> {
+
+  signIn = (e: SyntheticMouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     if (userSession.isUserSignedIn()) {
       const {history} = this.props;
-      history.push('/app/editor');
+      console.log(history.push('/app/editor'));
       return;
     }
 
