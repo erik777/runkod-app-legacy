@@ -1,5 +1,22 @@
 @import 'bootstrap';
+@import 'colors';
 
 html {
   scroll-behavior: smooth;
 }
+
+
+html, body {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+}
+
+@import '../components/pages/home/index';
+@import '../components/pages/auth/index';
+@import '../components/pages/manager/index';

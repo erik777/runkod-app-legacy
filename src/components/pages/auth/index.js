@@ -2,8 +2,9 @@
 eslint-disable jsx-a11y/anchor-is-valid
 */
 
-
 import React, {Component} from 'react';
+
+import {User} from 'radiks';
 
 import PropTypes from 'prop-types';
 
@@ -19,26 +20,32 @@ class AuthPage extends Component {
     }
   }
 
-
-  componentDidMount() {
+  doAuth = async () => {
     const {history} = this.props;
 
     if (userSession.isSignInPending()) {
-      userSession.handlePendingSignIn()
-        .then(userData => {
-          if (userData.username) {
-            const {login} = this.props;
-            login(userData.username);
-            history.push('/manager');
-            return;
-          }
-
-          // if username not exists
-          this.setState(({error: true}));
-        }).catch(() => {
+      let userData;
+      try {
+        userData = await userSession.handlePendingSignIn();
+        await User.createWithCurrentUser();
+      } catch (e) {
         this.setState(({error: true}));
-      });
+        return;
+      }
+
+      if (userData && userData.username) {
+        const {login} = this.props;
+        login(userData.username);
+        history.push('/manager');
+        return;
+      }
+
+      this.setState(({error: true}));
     }
+  };
+
+  componentDidMount() {
+    this.doAuth().then();
   }
 
   signIn = (e) => {
