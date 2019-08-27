@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import connect from 'react-redux/es/connect/connect';
 
-import AuthPage from './page';
+import AuthPage from '../../components/pages/auth';
 
 import {login} from '../../store/user';
 
@@ -14,8 +14,8 @@ class AuthContainer extends Component {
   }
 }
 
-const mapStateToProps = ({user}) => ({
-  user
+const mapStateToProps = () => ({
+
 });
 
 const mapDispatchToProps = dispatch =>

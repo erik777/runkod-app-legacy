@@ -1,7 +1,7 @@
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/USER_LOGOUT';
 
-const initialState = null;
+const initialState = '';
 
 /* Reducer */
 

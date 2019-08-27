@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
 import connect from 'react-redux/es/connect/connect';
-import HomePage from './page';
-import {bindActionCreators} from "redux";
-import {login} from "../../store/user";
+import {bindActionCreators} from 'redux';
+
+import HomePage from '../../components/pages/home';
+
+import {login} from '../../store/user';
 
 class HomeContainer extends Component {
   render() {
