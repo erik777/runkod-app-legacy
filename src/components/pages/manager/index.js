@@ -1,8 +1,12 @@
 import React, {Component} from 'react';
-import {Website} from '../../../model';
-import {Button} from "react-bootstrap";
 
 import PropTypes from 'prop-types';
+
+import {Button} from 'react-bootstrap';
+
+import {Website} from '../../../model';
+
+import {_t} from '../../../i18n';
 
 class ManagerPage extends Component {
 
@@ -16,16 +20,15 @@ class ManagerPage extends Component {
   }
 
   render() {
-
     return (
       <div className="manager-page">
         <div className="header"/>
         <div className="page-content">
           <div className="no-sites">
             <p className="message-header">
-              Nothing here
+              {_t('manager.no-site.message')}
             </p>
-            <Button>Create your first website</Button>
+            <Button>{_t('manager.no-site.button-label')}</Button>
           </div>
         </div>
       </div>
