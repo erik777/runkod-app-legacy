@@ -2,6 +2,16 @@
   .modal-body {
     .domain-input {
       padding: 30px 0 40px 0;
+
+      .form-feedback {
+        height: 2em;
+        display: flex;
+        align-items: center;
+
+        .form-text {
+          margin: 0;
+        }
+      }
     }
   }
 }

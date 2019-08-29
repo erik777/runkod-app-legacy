@@ -12,7 +12,15 @@ import {_t} from '../../../i18n';
 
 import message from '../../helper/message';
 
-import {SUB_DOMAIN_SUFFIX, WEBSITE_STATUS_ON, DEFAULT_BUCKET_NAME} from '../../../constants';
+import {testName, testCustomName} from '../../../helper';
+
+import {
+  NAME_SUFFIX,
+  NAME_MAX_LENGTH,
+  CUSTOM_NAME_MAX_LENGTH,
+  WEBSITE_STATUS_ON,
+  DEFAULT_BUCKET_NAME
+} from '../../../constants';
 
 
 class SiteCreateDialog extends Component {
@@ -48,20 +56,21 @@ class SiteCreateDialog extends Component {
     this.setState({error: ''});
 
     const {name, custom} = this.state;
+    const sName = name.trim();
 
     if (custom) {
-      if (!/^(?!:\/\/)([a-zA-Z0-9]+\.)?[a-zA-Z0-9][a-zA-Z0-9-]+\.[a-zA-Z]{2,6}?$/i.test(name)) {
-        this.setState({error: _t('site-create-dialog.error-not-valid-domain')});
+      if (!testCustomName(sName)) {
+        this.setState({error: _t('site-create-dialog.error-not-valid-name-custom')});
         return;
       }
     } else {
-      if (!/^[a-z][a-z0-9]*$/i.test(name)) {
+      if (!testName(sName)) {
         this.setState({error: _t('site-create-dialog.error-not-valid-name')});
         return;
       }
     }
 
-    const fullName = custom ? name : `${name}${SUB_DOMAIN_SUFFIX}`;
+    const fullName = custom ? sName : `${sName}${NAME_SUFFIX}`;
 
     this.setState({inProgress: true});
 
@@ -98,10 +107,18 @@ class SiteCreateDialog extends Component {
   };
 
   switchToCustomDomain = () => {
+    if (this.state.inProgress) {
+      return;
+    }
+
     this.setState({custom: true, name: '', error: ''});
   };
 
   switchToSubDomain = () => {
+    if (this.state.inProgress) {
+      return;
+    }
+
     this.setState({custom: false, name: '', error: ''});
   };
 
@@ -119,12 +136,12 @@ class SiteCreateDialog extends Component {
             <div className="d-flex justify-content-end">
               {!custom &&
               <Button variant="link" size="sm" onClick={this.switchToCustomDomain}>
-                {_t('site-create-dialog.custom-domain-label')}
+                {_t('site-create-dialog.custom-name-btn-label')}
               </Button>
               }
               {custom &&
               <Button variant="link" size="sm" onClick={this.switchToSubDomain}>
-                {_t('site-create-dialog.sub-domain-label')}
+                {_t('site-create-dialog.name-btn-label')}
               </Button>
               }
             </div>
@@ -132,32 +149,32 @@ class SiteCreateDialog extends Component {
             <div className="domain-input">
               {!custom &&
               <InputGroup>
-                <FormControl autoFocus id="txt-name" placeholder={_t('site-create-dialog.sub-domain-placeholder')}
+                <FormControl autoFocus id="txt-name" maxLength={NAME_MAX_LENGTH}
+                             placeholder={_t('site-create-dialog.name-placeholder')}
                              value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
                 <InputGroup.Append>
-                  <InputGroup.Text>{SUB_DOMAIN_SUFFIX}</InputGroup.Text>
+                  <InputGroup.Text>{NAME_SUFFIX}</InputGroup.Text>
                 </InputGroup.Append>
               </InputGroup>
               }
 
               {custom &&
               <InputGroup>
-                <FormControl autoFocus id="txt-name" placeholder={_t('site-create-dialog.custom-domain-placeholder')}
+                <FormControl autoFocus id="txt-name" maxLength={CUSTOM_NAME_MAX_LENGTH}
+                             placeholder={_t('site-create-dialog.custom-name-placeholder')}
                              value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
               </InputGroup>
               }
 
-              {error &&
-              <FormText className="text-danger">
-                {error}
-              </FormText>
-              }
+              <div className="form-feedback">
+                {error && <FormText className="text-danger">{error}</FormText>}
+              </div>
 
             </div>
 
             <div className="d-flex justify-content-center">
               <Button variant="primary" onClick={this.submit} disabled={inProgress}>
-                {_t('g.submit')}
+                {inProgress ? '...' : _t('g.submit')}
               </Button>
             </div>
 

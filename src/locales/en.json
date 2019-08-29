@@ -15,13 +15,12 @@
   },
   "site-create-dialog": {
     "title": "New Website",
-    "custom-domain-label": "Custom Domain",
-    "sub-domain-label": "Subdomain",
-    "custom-domain-placeholder": "Enter custom domain name",
-    "sub-domain-placeholder": "Enter subdomain name",
-    "check-label": "Check Availability",
-    "error-not-valid-domain": "Not a valid domain name",
+    "name-btn-label": "Subdomain",
+    "custom-name-btn-label": "Custom Domain",
+    "name-placeholder": "Enter subdomain name",
+    "custom-name-placeholder": "Enter custom domain name",
     "error-not-valid-name": "Only letters and numbers are allowed",
+    "error-not-valid-name-custom": "Not a valid domain name",
     "error-not-available": "Name is not available. Please try another one.",
     "success": "Website created"
   }
