@@ -4,22 +4,32 @@ import PropTypes from 'prop-types';
 
 import {Button} from 'react-bootstrap';
 
-import {Website} from '../../../model';
-
 import {_t} from '../../../i18n';
+
+import SiteCreateDialog from '../../dialogs/site-create';
 
 class ManagerPage extends Component {
 
-  fetchWebsites = async () => {
-    const websites = await Website.fetchOwnList({sort: 'createdAt'});
-    console.log(websites);
-  };
+  constructor(props) {
+    super(props);
 
-  componentDidMount() {
-    // this.fetchWebsites();
+    this.state = {
+      createDialog: false
+    }
   }
 
+  showCreateDialog = () => {
+    this.setState({createDialog: true});
+  };
+
+  hideCreateDialog = () => {
+    this.setState({createDialog: false});
+  };
+
   render() {
+
+    const {createDialog} = this.state;
+
     return (
       <div className="manager-page">
         <div className="header"/>
@@ -28,9 +38,10 @@ class ManagerPage extends Component {
             <p className="message-header">
               {_t('manager.no-site.message')}
             </p>
-            <Button>{_t('manager.no-site.button-label')}</Button>
+            <Button onClick={this.showCreateDialog}>{_t('manager.no-site.button-label')}</Button>
           </div>
         </div>
+        {createDialog && <SiteCreateDialog {...this.props} onHide={this.hideCreateDialog}/>}
       </div>
     )
   }

@@ -1,8 +1,28 @@
 {
+  "g": {
+    "yes": "Yes",
+    "no": "No",
+    "cancel": "Cancel",
+    "submit": "Submit",
+    "close": "Close",
+    "server-error": "An error has occurred"
+  },
   "manager": {
     "no-site": {
       "message": "Nothing here",
       "button-label": "Create your first Website!"
     }
+  },
+  "site-create-dialog": {
+    "title": "New Website",
+    "custom-domain-label": "Custom Domain",
+    "sub-domain-label": "Subdomain",
+    "custom-domain-placeholder": "Enter custom domain name",
+    "sub-domain-placeholder": "Enter subdomain name",
+    "check-label": "Check Availability",
+    "error-not-valid-domain": "Not a valid domain name",
+    "error-not-valid-name": "Only letters and numbers are allowed",
+    "error-not-available": "Name is not available. Please try another one.",
+    "success": "Website created"
   }
 }

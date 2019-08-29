@@ -4,11 +4,6 @@ export class Website extends Model {
   static className = 'website';
 
   static schema = {
-    // owner username
-    user: {
-      type: String,
-      decrypted: true,
-    },
     // website (domain) name
     name: {
       type: String,
@@ -19,7 +14,7 @@ export class Website extends Model {
       type: Boolean,
       decrypted: true
     },
-    // Active bucket _id
+    // Active bucket name
     bucket: {
       type: String,
       decrypted: true
@@ -37,11 +32,6 @@ export class Bucket extends Model {
   static className = 'bucket';
 
   static schema = {
-    // Owner username
-    user: {
-      type: String,
-      decrypted: true,
-    },
     // Website _id
     website: {
       type: String,
