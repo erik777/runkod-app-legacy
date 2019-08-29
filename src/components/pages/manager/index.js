@@ -9,17 +9,25 @@ import {_t} from '../../../i18n';
 import NewProjectDialog from '../../dialogs/new-project';
 
 class ProjectList extends Component {
-
+  clicked = (project) => {
+    const {selectProject} = this.props;
+    selectProject(project);
+  };
 
   render() {
     const {projects} = this.props;
-    const {list} = projects;
+    const {list, selected} = projects;
+
 
     return <div className="project-list">
       {
-        list.map((i) => (
-          <div className="project-list-item" key={i._id}>{i.name}</div>
-        ))
+        list.map((i) => {
+          const cls = `project-list-item ${selected && selected._id === i._id ? 'active' : ''}`;
+
+          return <div className={cls} key={i._id} onClick={() => {
+            this.clicked(i);
+          }}>{i.name}</div>
+        })
       }
     </div>
   }
@@ -28,7 +36,8 @@ class ProjectList extends Component {
 ProjectList.defaultProps = {};
 
 ProjectList.propTypes = {
-  projects: PropTypes.instanceOf(Object).isRequired
+  projects: PropTypes.instanceOf(Object).isRequired,
+  selectProject: PropTypes.func.isRequired
 };
 
 
@@ -57,7 +66,8 @@ class ManagerPage extends Component {
     const {newDialog} = this.state;
     const {projects} = this.props;
     const {loading} = projects;
-    const {list} = projects;
+    const {list, selected} = projects;
+
 
     return (
       <div className="manager-page">
@@ -70,6 +80,14 @@ class ManagerPage extends Component {
               {_t('manager.no-project.message')}
             </p>
             <Button onClick={this.showNewProjectDialog}>{_t('manager.no-project.button-label')}</Button>
+          </div>
+          }
+
+          {(!loading && list.length > 0 && selected === null) &&
+          <div className="no-selected-project">
+            <p className="message-header">
+              {_t('manager.no-selected-project.message')}
+            </p>
           </div>
           }
 
@@ -91,6 +109,7 @@ ManagerPage.propTypes = {
   user: PropTypes.string.isRequired,
   projects: PropTypes.instanceOf(Object).isRequired,
   fetchProjects: PropTypes.func.isRequired,
+
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })

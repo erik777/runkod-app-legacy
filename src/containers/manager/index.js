@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import ManagerPage from '../../components/pages/manager';
 
 import {login} from '../../store/user';
-import {fetchProjects} from '../../store/projects';
+import {fetchProjects, selectProject} from '../../store/projects';
 
 class ManagerContainer extends Component {
   render() {
@@ -15,14 +15,15 @@ class ManagerContainer extends Component {
 
 const mapStateToProps = ({user, projects}) => ({
   user,
-  projects
+  projects,
 });
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       login,
-      fetchProjects
+      fetchProjects,
+      selectProject
     },
     dispatch
   );

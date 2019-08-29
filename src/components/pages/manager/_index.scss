@@ -11,7 +11,27 @@
     height: calc(100% - 50px);
     background: $gray-100;
 
-    .no-project {
+
+    .project-list {
+      width: 268px;
+      background: $secondary;
+      height: 100%;
+      padding: 10px 0;
+      float: left;
+
+      .project-list-item {
+        color: $gray-900;
+        padding: 6px 12px;
+        cursor: pointer;
+
+        &.active, &:hover {
+          background-color: darken($secondary, 10);
+        }
+      }
+    }
+
+
+    .no-project, .no-selected-project {
       height: 100%;
       display: flex;
       justify-content: center;
@@ -25,21 +45,9 @@
       }
     }
 
-    .project-list {
-      width: 268px;
-      background: $secondary;
-      height: 100%;
-      padding: 10px 0;
-
-      .project-list-item {
-        color: $gray-900;
-        padding: 6px 12px;
-        cursor: pointer;
-
-        &.active, &:hover {
-          background-color: darken($secondary, 10);
-        }
-      }
+    .no-selected-project {
+      float: right;
+      width: calc(100% - 268px);
     }
   }
 }

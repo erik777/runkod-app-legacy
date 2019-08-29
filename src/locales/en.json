@@ -11,6 +11,9 @@
     "no-project": {
       "message": "Nothing here",
       "button-label": "Create your first Website!"
+    },
+    "no-selected-project": {
+      "message": "Select a project to work with"
     }
   },
   "new-project-dialog": {
