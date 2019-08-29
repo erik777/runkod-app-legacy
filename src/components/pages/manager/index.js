@@ -18,30 +18,29 @@ class ManagerPage extends Component {
     }
   }
 
-  showCreateDialog = () => {
+  showNewProjectDialog = () => {
     this.setState({newDialog: true});
   };
 
-  hideCreateDialog = () => {
+  hideNewProjectDialog = () => {
     this.setState({newDialog: false});
   };
 
   render() {
-
     const {newDialog} = this.state;
 
     return (
       <div className="manager-page">
         <div className="header"/>
         <div className="page-content">
-          <div className="no-sites">
+          <div className="no-project">
             <p className="message-header">
-              {_t('manager.no-site.message')}
+              {_t('manager.no-project.message')}
             </p>
-            <Button onClick={this.showCreateDialog}>{_t('manager.no-site.button-label')}</Button>
+            <Button onClick={this.showNewProjectDialog}>{_t('manager.no-project.button-label')}</Button>
           </div>
         </div>
-        {newDialog && <NewProjectDialog {...this.props} onHide={this.hideCreateDialog}/>}
+        {newDialog && <NewProjectDialog {...this.props} onHide={this.hideNewProjectDialog}/>}
       </div>
     )
   }

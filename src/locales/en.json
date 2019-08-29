@@ -8,7 +8,7 @@
     "server-error": "An error has occurred"
   },
   "manager": {
-    "no-site": {
+    "no-project": {
       "message": "Nothing here",
       "button-label": "Create your first Website!"
     }
