@@ -1,10 +1,10 @@
 import {Model} from 'radiks';
 
-export class Website extends Model {
-  static className = 'website';
+export class Project extends Model {
+  static className = 'projects';
 
   static schema = {
-    // website (domain) name
+    // project (domain) name
     name: {
       type: String,
       decrypted: true
@@ -19,7 +19,7 @@ export class Website extends Model {
       type: String,
       decrypted: true
     },
-    // Website status: 1=on, 2=off, 3=parked
+    // Project status: 1=on, 2=off, 3=parked
     status: {
       type: Number,
       decrypted: true

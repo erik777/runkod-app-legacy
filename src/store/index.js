@@ -4,6 +4,7 @@ import {connectRouter, routerMiddleware} from 'connected-react-router'
 import thunk from 'redux-thunk'
 
 import user from './user';
+import projects from './projects';
 
 const createHistory = require('history').createBrowserHistory;
 
@@ -29,6 +30,7 @@ const composedEnhancers = compose(
 const combinedReducers = combineReducers({
   router: connectRouter(history),
   user,
+  projects,
 });
 
 export default createStore(

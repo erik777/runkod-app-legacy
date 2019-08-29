@@ -17,7 +17,7 @@ export default (state = initialState, action) => {
 }
 
 /* Actions */
-export const login = (username: string): void => {
+export const login = (username) => {
   return async (dispatch) => {
 
     dispatch(loginAct(username));

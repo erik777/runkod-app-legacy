@@ -6,7 +6,7 @@ import {Modal, Button, InputGroup, FormControl, FormText} from 'react-bootstrap'
 
 import to from 'await-to-js';
 
-import {Website} from '../../../model';
+import {Project} from '../../../model';
 
 import {_t} from '../../../i18n';
 
@@ -74,7 +74,7 @@ class NewProjectDialog extends Component {
 
     this.setState({inProgress: true});
 
-    const [, checkList] = await to(Website.fetchList({name: fullName}));
+    const [, checkList] = await to(Project.fetchList({name: fullName}));
 
     if (!checkList) {
       this.setState({error: _t('g.server-error')});
@@ -86,8 +86,8 @@ class NewProjectDialog extends Component {
       return;
     }
 
-    const site = new Website({name: fullName, custom, bucket: DEFAULT_BUCKET_NAME, status: WEBSITE_STATUS_ON});
-    const [err,] = await to(site.save());
+    const p = new Project({name: fullName, custom, bucket: DEFAULT_BUCKET_NAME, status: WEBSITE_STATUS_ON});
+    const [err,] = await to(p.save());
 
     if (err) {
       this.setState({error: _t('g.server-error'), inProgress: false});
@@ -96,10 +96,12 @@ class NewProjectDialog extends Component {
 
     this.setState({inProgress: false});
 
+    message.success(_t('new-project-dialog.success'));
+
     const {onSave} = this.props;
     onSave();
 
-    message.success(_t('new-project-dialog.success'));
+
   };
 
   nameChanged = (e) => {
