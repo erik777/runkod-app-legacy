@@ -13,7 +13,7 @@
       "button-label": "Create your first Website!"
     }
   },
-  "site-create-dialog": {
+  "new-project-dialog": {
     "title": "New Website",
     "name-btn-label": "Subdomain",
     "custom-name-btn-label": "Custom Domain",

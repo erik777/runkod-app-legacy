@@ -6,7 +6,7 @@ import {Button} from 'react-bootstrap';
 
 import {_t} from '../../../i18n';
 
-import SiteCreateDialog from '../../dialogs/site-create';
+import NewProjectDialog from "../../dialogs/new-project";
 
 class ManagerPage extends Component {
 
@@ -14,21 +14,21 @@ class ManagerPage extends Component {
     super(props);
 
     this.state = {
-      createDialog: false
+      newDialog: false
     }
   }
 
   showCreateDialog = () => {
-    this.setState({createDialog: true});
+    this.setState({newDialog: true});
   };
 
   hideCreateDialog = () => {
-    this.setState({createDialog: false});
+    this.setState({newDialog: false});
   };
 
   render() {
 
-    const {createDialog} = this.state;
+    const {newDialog} = this.state;
 
     return (
       <div className="manager-page">
@@ -41,7 +41,7 @@ class ManagerPage extends Component {
             <Button onClick={this.showCreateDialog}>{_t('manager.no-site.button-label')}</Button>
           </div>
         </div>
-        {createDialog && <SiteCreateDialog {...this.props} onHide={this.hideCreateDialog}/>}
+        {newDialog && <NewProjectDialog {...this.props} onHide={this.hideCreateDialog}/>}
       </div>
     )
   }

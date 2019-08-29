@@ -23,7 +23,7 @@ import {
 } from '../../../constants';
 
 
-class SiteCreateDialog extends Component {
+class NewProjectDialog extends Component {
 
   constructor(props) {
     super(props);
@@ -60,12 +60,12 @@ class SiteCreateDialog extends Component {
 
     if (custom) {
       if (!testCustomName(sName)) {
-        this.setState({error: _t('site-create-dialog.error-not-valid-name-custom')});
+        this.setState({error: _t('new-project-dialog.error-not-valid-name-custom')});
         return;
       }
     } else {
       if (!testName(sName)) {
-        this.setState({error: _t('site-create-dialog.error-not-valid-name')});
+        this.setState({error: _t('new-project-dialog.error-not-valid-name')});
         return;
       }
     }
@@ -82,7 +82,7 @@ class SiteCreateDialog extends Component {
     }
 
     if (checkList.length > 0) {
-      this.setState({error: _t('site-create-dialog.error-not-available'), inProgress: false});
+      this.setState({error: _t('new-project-dialog.error-not-available'), inProgress: false});
       return;
     }
 
@@ -99,7 +99,7 @@ class SiteCreateDialog extends Component {
     const {onSave} = this.props;
     onSave();
 
-    message.success(_t('site-create-dialog.success'));
+    message.success(_t('new-project-dialog.success'));
   };
 
   nameChanged = (e) => {
@@ -127,21 +127,21 @@ class SiteCreateDialog extends Component {
 
     return (
       <>
-        <Modal show onHide={this.hide} className="site-create-dialog">
+        <Modal show onHide={this.hide} className="new-project-dialog">
           <Modal.Header closeButton>
-            <Modal.Title>{_t('site-create-dialog.title')}</Modal.Title>
+            <Modal.Title>{_t('new-project-dialog.title')}</Modal.Title>
           </Modal.Header>
           <Modal.Body>
 
             <div className="d-flex justify-content-end">
               {!custom &&
               <Button variant="link" size="sm" onClick={this.switchToCustomDomain}>
-                {_t('site-create-dialog.custom-name-btn-label')}
+                {_t('new-project-dialog.custom-name-btn-label')}
               </Button>
               }
               {custom &&
               <Button variant="link" size="sm" onClick={this.switchToSubDomain}>
-                {_t('site-create-dialog.name-btn-label')}
+                {_t('new-project-dialog.name-btn-label')}
               </Button>
               }
             </div>
@@ -150,7 +150,7 @@ class SiteCreateDialog extends Component {
               {!custom &&
               <InputGroup>
                 <FormControl autoFocus id="txt-name" maxLength={NAME_MAX_LENGTH}
-                             placeholder={_t('site-create-dialog.name-placeholder')}
+                             placeholder={_t('new-project-dialog.name-placeholder')}
                              value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
                 <InputGroup.Append>
                   <InputGroup.Text>{NAME_SUFFIX}</InputGroup.Text>
@@ -161,7 +161,7 @@ class SiteCreateDialog extends Component {
               {custom &&
               <InputGroup>
                 <FormControl autoFocus id="txt-name" maxLength={CUSTOM_NAME_MAX_LENGTH}
-                             placeholder={_t('site-create-dialog.custom-name-placeholder')}
+                             placeholder={_t('new-project-dialog.custom-name-placeholder')}
                              value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
               </InputGroup>
               }
@@ -185,17 +185,17 @@ class SiteCreateDialog extends Component {
   }
 }
 
-SiteCreateDialog.defaultProps = {
+NewProjectDialog.defaultProps = {
   onSave: () => {
   },
   onHide: () => {
   }
 };
 
-SiteCreateDialog.propTypes = {
+NewProjectDialog.propTypes = {
   user: PropTypes.string.isRequired,
   onSave: PropTypes.func,
   onHide: PropTypes.func
 };
 
-export default SiteCreateDialog;
+export default NewProjectDialog;
