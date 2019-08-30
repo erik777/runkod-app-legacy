@@ -1,3 +1,7 @@
+/*
+eslint-disable jsx-a11y/anchor-is-valid
+*/
+
 import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
@@ -32,9 +36,8 @@ class SideMenu extends Component {
 
   render() {
     const {collapsed} = this.state;
-    const {projects} = this.props;
-    const {list, selected} = projects;
-
+    const {projects, project} = this.props;
+    const {list} = projects;
 
     return <div className="side-menu">
 
@@ -52,7 +55,7 @@ class SideMenu extends Component {
         <div className={`menu-items ${collapsed ? 'collapsed' : ''}`}>
           {
             list.map((i) => {
-              const cls = `menu-item ${selected && selected._id === i._id ? 'active' : ''}`;
+              const cls = `menu-item ${project && project._id === i._id ? 'active' : ''}`;
 
               return <div className={cls} key={i._id} onClick={() => {
                 this.clicked(i);
@@ -69,6 +72,7 @@ SideMenu.defaultProps = {};
 
 SideMenu.propTypes = {
   projects: PropTypes.instanceOf(Object).isRequired,
+  project: PropTypes.instanceOf(Object),
   selectProject: PropTypes.func.isRequired
 };
 
@@ -102,8 +106,11 @@ class ManagerPage extends Component {
   render() {
     const {newDialog} = this.state;
     const {projects} = this.props;
+    const {project} = this.props;
+
     const {loading} = projects;
-    const {list, selected} = projects;
+    const {list} = projects;
+
 
     return (
       <div className="manager-page">
@@ -125,7 +132,7 @@ class ManagerPage extends Component {
           }
 
           { /* Projects loaded. Not empty. But not selected. */}
-          {(!loading && list.length > 0 && selected === null) &&
+          {(!loading && list.length > 0 && project === null) &&
           <div className="no-selected-project">
             <p className="message-header">
               {_t('manager.no-selected-project.message')}
@@ -151,8 +158,8 @@ ManagerPage.defaultProps = {};
 ManagerPage.propTypes = {
   user: PropTypes.string.isRequired,
   projects: PropTypes.instanceOf(Object).isRequired,
+  project: PropTypes.instanceOf(Object),
   fetchProjects: PropTypes.func.isRequired,
-
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })
