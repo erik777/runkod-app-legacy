@@ -6,6 +6,8 @@ import {Button} from 'react-bootstrap';
 
 import {_t} from '../../../i18n';
 
+import {plusSvg} from '../../../svg';
+
 import NewProjectDialog from '../../dialogs/new-project';
 
 class ProjectList extends Component {
@@ -62,6 +64,11 @@ class ManagerPage extends Component {
     this.setState({newDialog: false});
   };
 
+  newProjectCreated = () => {
+    const {fetchProjects} = this.props;
+    fetchProjects();
+  };
+
   render() {
     const {newDialog} = this.state;
     const {projects} = this.props;
@@ -71,7 +78,11 @@ class ManagerPage extends Component {
 
     return (
       <div className="manager-page">
-        <div className="header"/>
+        <div className="header">
+          <span />
+
+          <a className="new-project" onClick={this.showNewProjectDialog}>{plusSvg}</a>
+        </div>
         <div className="page-content">
 
           {(!loading && list.length === 0) &&
@@ -97,7 +108,7 @@ class ManagerPage extends Component {
 
         </div>
         {newDialog &&
-        <NewProjectDialog {...this.props} onHide={this.hideNewProjectDialog} onSave={this.hideNewProjectDialog}/>}
+        <NewProjectDialog {...this.props} onHide={this.hideNewProjectDialog} onSave={this.newProjectCreated}/>}
       </div>
     )
   }

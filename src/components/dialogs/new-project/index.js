@@ -101,7 +101,7 @@ class NewProjectDialog extends Component {
     const {onSave} = this.props;
     onSave();
 
-
+    this.hide();
   };
 
   nameChanged = (e) => {
