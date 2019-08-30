@@ -6,38 +6,68 @@ import {Button} from 'react-bootstrap';
 
 import {_t} from '../../../i18n';
 
-import {plusSvg} from '../../../svg';
+import {plusSvg, chevronBottomSvg, chevronRightSvg} from '../../../svg';
 
 import NewProjectDialog from '../../dialogs/new-project';
 
-class ProjectList extends Component {
+class SideMenu extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      collapsed: false
+    }
+  }
+
+  headerClicked = () => {
+    const {collapsed} = this.state;
+    this.setState({collapsed: !collapsed});
+  };
+
   clicked = (project) => {
     const {selectProject} = this.props;
     selectProject(project);
   };
 
   render() {
+    const {collapsed} = this.state;
     const {projects} = this.props;
     const {list, selected} = projects;
 
 
-    return <div className="project-list">
-      {
-        list.map((i) => {
-          const cls = `project-list-item ${selected && selected._id === i._id ? 'active' : ''}`;
+    return <div className="side-menu">
 
-          return <div className={cls} key={i._id} onClick={() => {
-            this.clicked(i);
-          }}>{i.name}</div>
-        })
-      }
+      <div className="menu-toolbar">
+        <a className="btn-new-project" onClick={this.showNewProjectDialog}>
+          {plusSvg} New Project
+        </a>
+      </div>
+
+      <div className="menu-list">
+        <div className="menu-list-header" onClick={this.headerClicked}>
+          {collapsed ? chevronRightSvg : chevronBottomSvg} Projects
+        </div>
+
+        <div className={`menu-items ${collapsed ? 'collapsed' : ''}`}>
+          {
+            list.map((i) => {
+              const cls = `menu-item ${selected && selected._id === i._id ? 'active' : ''}`;
+
+              return <div className={cls} key={i._id} onClick={() => {
+                this.clicked(i);
+              }}>{i.name}</div>
+            })
+          }
+        </div>
+      </div>
     </div>
   }
 }
 
-ProjectList.defaultProps = {};
+SideMenu.defaultProps = {};
 
-ProjectList.propTypes = {
+SideMenu.propTypes = {
   projects: PropTypes.instanceOf(Object).isRequired,
   selectProject: PropTypes.func.isRequired
 };
@@ -75,16 +105,16 @@ class ManagerPage extends Component {
     const {loading} = projects;
     const {list, selected} = projects;
 
-
     return (
       <div className="manager-page">
         <div className="header">
-          <span />
+          <span/>
 
-          <a className="new-project" onClick={this.showNewProjectDialog}>{plusSvg}</a>
         </div>
         <div className="page-content">
 
+
+          { /* Projects loaded. But empty. */}
           {(!loading && list.length === 0) &&
           <div className="no-project">
             <p className="message-header">
@@ -94,6 +124,7 @@ class ManagerPage extends Component {
           </div>
           }
 
+          { /* Projects loaded. Not empty. But not selected. */}
           {(!loading && list.length > 0 && selected === null) &&
           <div className="no-selected-project">
             <p className="message-header">
@@ -102,8 +133,9 @@ class ManagerPage extends Component {
           </div>
           }
 
+          {/* Projects loaded. List not empty. Show side project bar. */}
           {(!loading && list.length > 0) &&
-          <ProjectList projects={projects} {...this.props} />
+          <SideMenu projects={projects} {...this.props} />
           }
 
         </div>

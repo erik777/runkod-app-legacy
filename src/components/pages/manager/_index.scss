@@ -9,37 +9,99 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    .new-project {
-      line-height: 100%;
-      cursor: pointer;
-      svg {
-        width: 24px;
-        height: 24px;
-        color: $white;
-      }
-    }
   }
 
   .page-content {
     height: calc(100% - 50px);
-    background: $gray-100;
+    background: $white;
 
 
-    .project-list {
+    .side-menu {
       width: 268px;
-      background: $secondary;
+      background: $gray-100;
       height: 100%;
-      padding: 10px 0;
+      border-right: 1px solid darken($gray-100, 3);
       float: left;
 
-      .project-list-item {
-        color: $gray-900;
-        padding: 6px 12px;
-        cursor: pointer;
+      .menu-toolbar {
+        background: $gray-100;
+        height: 44px;
+        border-bottom: 1px solid darken($gray-100, 3);
+        display: flex;
+        align-items: center;
 
-        &.active, &:hover {
-          background-color: darken($secondary, 10);
+        .btn-new-project {
+          height: 100%;
+          line-height: 100%;
+          cursor: pointer;
+          color: $primary;
+          font-weight: 400;
+          display: flex;
+          align-items: center;
+          font-size: 14px;
+          padding: 0 18px;
+          width: 100%;
+
+          svg {
+            width: 24px;
+            height: 24px;
+            fill: $primary;
+            margin-right: 10px;
+          }
+
+          &:hover {
+            background-color: lighten($primary, 40);
+          }
+        }
+      }
+
+      .menu-list {
+        .menu-list-header {
+          font-weight: 500;
+          color: $gray-700;
+          padding: 12px 18px;
+          cursor: pointer;
+          font-size: 15px;
+          display: flex;
+          align-items: center;
+
+          svg {
+            width: 24px;
+            height: 24px;
+            fill: $gray-700;
+            margin-right: 10px;
+          }
+
+          &:hover {
+            color: $gray-900;
+
+            svg {
+              fill: $gray-900;
+            }
+          }
+        }
+
+        .menu-items {
+          &.collapsed {
+            display: none;
+          }
+
+          .menu-item {
+            color: $gray-600;
+            padding: 12px 10px 12px 52px;
+            cursor: pointer;
+            font-size: 14px;
+
+            &:hover {
+              background-color: $gray-300;
+            }
+
+            &.active {
+              background-color: lighten($primary, 40);
+              font-weight: 500;
+              color: $primary;
+            }
+          }
         }
       }
     }
