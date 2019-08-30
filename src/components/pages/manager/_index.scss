@@ -15,13 +15,31 @@
     height: calc(100% - 50px);
     background: $white;
 
+    .no-project, .no-selected-project {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      .message-header {
+        font-size: 32px;
+        color: $gray-500;
+        margin-bottom: 20px;
+      }
+    }
+
+    .no-selected-project {
+      float: right;
+      width: calc(100% - 268px);
+    }
 
     .side-menu {
       width: 268px;
       background: $gray-100;
       height: 100%;
-      border-right: 1px solid darken($gray-100, 3);
       float: left;
+      border-right: 1px solid darken($gray-100, 3);
 
       .menu-toolbar {
         background: $gray-100;
@@ -55,75 +73,80 @@
         }
       }
 
-      .menu-list {
-        .menu-list-header {
-          font-weight: 500;
-          color: $gray-700;
-          padding: 12px 18px;
-          cursor: pointer;
-          font-size: 15px;
-          display: flex;
-          align-items: center;
+      .menu-content {
+        height: calc(100% - 44px);
 
-          svg {
-            width: 24px;
-            height: 24px;
-            fill: $gray-700;
-            margin-right: 10px;
-          }
-
-          &:hover {
-            color: $gray-900;
+        .menu-list {
+          .menu-list-header {
+            font-weight: 500;
+            color: $gray-700;
+            padding: 12px 18px;
+            cursor: pointer;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
 
             svg {
-              fill: $gray-900;
+              width: 24px;
+              height: 24px;
+              fill: $gray-700;
+              margin-right: 10px;
             }
-          }
-        }
-
-        .menu-items {
-          &.collapsed {
-            display: none;
-          }
-
-          .menu-item {
-            color: $gray-600;
-            padding: 12px 10px 12px 52px;
-            cursor: pointer;
-            font-size: 14px;
 
             &:hover {
-              background-color: $gray-300;
+              color: $gray-900;
+
+              svg {
+                fill: $gray-900;
+              }
+            }
+          }
+
+          .menu-items {
+            &.collapsed {
+              display: none;
             }
 
-            &.active {
-              background-color: lighten($primary, 40);
-              font-weight: 500;
-              color: $primary;
+            .menu-item {
+              color: $gray-600;
+              padding: 12px 10px 12px 52px;
+              cursor: pointer;
+              font-size: 14px;
+
+              &:hover {
+                background-color: $gray-300;
+              }
+
+              &.active {
+                background-color: lighten($primary, 40);
+                font-weight: 500;
+                color: $primary;
+              }
             }
           }
         }
+
       }
     }
 
-
-    .no-project, .no-selected-project {
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-
-      .message-header {
-        font-size: 32px;
-        color: $gray-500;
-        margin-bottom: 20px;
-      }
-    }
-
-    .no-selected-project {
+    .project {
       float: right;
       width: calc(100% - 268px);
+      height: 100%;
+
+      .toolbar {
+
+        height: 44px;
+        border-bottom: 1px solid darken($gray-100, 3);
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+
+        .project-name{
+          color: $gray-800;
+          font-size: 18px;
+        }
+      }
     }
   }
 }

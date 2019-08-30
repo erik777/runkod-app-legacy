@@ -47,21 +47,23 @@ class SideMenu extends Component {
         </a>
       </div>
 
-      <div className="menu-list">
-        <div className="menu-list-header" onClick={this.headerClicked}>
-          {collapsed ? chevronRightSvg : chevronBottomSvg} Projects
-        </div>
+      <div className="menu-content">
+        <div className="menu-list">
+          <div className="menu-list-header" onClick={this.headerClicked}>
+            {collapsed ? chevronRightSvg : chevronBottomSvg} Projects
+          </div>
 
-        <div className={`menu-items ${collapsed ? 'collapsed' : ''}`}>
-          {
-            list.map((i) => {
-              const cls = `menu-item ${project && project._id === i._id ? 'active' : ''}`;
+          <div className={`menu-items ${collapsed ? 'collapsed' : ''}`}>
+            {
+              list.map((i) => {
+                const cls = `menu-item ${project && project._id === i._id ? 'active' : ''}`;
 
-              return <div className={cls} key={i._id} onClick={() => {
-                this.clicked(i);
-              }}>{i.name}</div>
-            })
-          }
+                return <div className={cls} key={i._id} onClick={() => {
+                  this.clicked(i);
+                }}>{i.name}</div>
+              })
+            }
+          </div>
         </div>
       </div>
     </div>
@@ -118,9 +120,8 @@ class ManagerPage extends Component {
           <span/>
 
         </div>
+
         <div className="page-content">
-
-
           { /* Projects loaded. But empty. */}
           {(!loading && list.length === 0) &&
           <div className="no-project">
@@ -145,9 +146,25 @@ class ManagerPage extends Component {
           <SideMenu projects={projects} {...this.props} />
           }
 
+
+          {project &&
+
+          <div className="project">
+            <div className="toolbar">
+             <span className="project-name"> {project.name}</span>
+            </div>
+
+          </div>
+
+          }
+
         </div>
+
+
         {newDialog &&
         <NewProjectDialog {...this.props} onHide={this.hideNewProjectDialog} onSave={this.newProjectCreated}/>}
+
+
       </div>
     )
   }
