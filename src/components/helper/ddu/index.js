@@ -32,6 +32,22 @@ const resolveDataTransfer = async (dataTransfer) => {
     });
   };
 
+  const readFileBuffer = (file) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = function () {
+        resolve(reader.result)
+      };
+
+      reader.onerror = (err) => {
+        message.error(`Cannot read file ${file.name}`);
+        reject(err);
+      };
+
+      reader.readAsArrayBuffer(file);
+    });
+  };
+
   const fileList = [];
 
   const scan = async (item, path) => {
@@ -39,12 +55,15 @@ const resolveDataTransfer = async (dataTransfer) => {
     if (item.isFile) {
       const [err, file] = await to(readFile(item));
       if (!err) {
-        fileList.push({path, file});
+        const [err, buffer] = await to(readFileBuffer(file));
+        if (!err) {
+          fileList.push({path, name: item.name, type: (file.type || null), size: file.size, buffer});
+        }
       }
     } else if (item.isDirectory) {
       // Get folder contents
       const [err, entries] = await to(readEntries(item));
-      if(!err){
+      if (!err) {
         for (let i = 0; i < entries.length; i++) {
           await to(scan(entries[i], path + item.name + "/"));
         }
@@ -108,7 +127,8 @@ class Ddu extends Component {
     }
 
     resolveDataTransfer(e.dataTransfer).then(files => {
-      console.log(files);
+      const {onDrop} = this.props;
+      onDrop(files);
     })
   };
 
@@ -130,8 +150,8 @@ class Ddu extends Component {
 
 
 Ddu.propTypes = {
-
   children: PropTypes.node.isRequired,
+  onDrop: PropTypes.func.isRequired,
 };
 
 export default Ddu;

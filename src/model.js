@@ -1,7 +1,7 @@
 import {Model} from 'radiks';
 
 export class Project extends Model {
-  static className = 'projects';
+  static className = 'project';
 
   static schema = {
     // project (domain) name
@@ -55,8 +55,17 @@ export class File extends Model {
       type: String,
       decrypted: true
     },
-    // Full file path
-    path: {
+    bucket: {
+      type: String,
+      decrypted: true
+    },
+    // Parent path
+    parent: {
+      type: String,
+      decrypted: true
+    },
+    // Full file path (parent + file name)
+    fullPath: {
       type: String,
       decrypted: true
     },
@@ -76,8 +85,12 @@ export class File extends Model {
       decrypted: true
     },
     // File type
-    mimeType: {
+    type: {
       type: String,
+      decrypted: true
+    },
+    deleted: {
+      type: Number,
       decrypted: true
     }
   }

@@ -7,14 +7,22 @@ import {uploadSvg} from '../../../svg';
 import Ddu from '../../helper/ddu';
 
 class Browser extends Component {
+
+  onDrop = (files) => {
+    const {setQueue, startQueue} = this.props;
+    setQueue(files);
+    startQueue()
+  };
+
   render() {
 
     const {files} = this.props;
     const {list, loading} = files;
     const noFile = !loading && list.length === 0;
 
+
     return (
-      <Ddu>
+      <Ddu onDrop={this.onDrop}>
         <div className={`browser ${noFile ? 'no-file' : ''}`}>
           {noFile ? 'Drag & Drop files or folders here to upload' : ''}
         </div>
@@ -27,6 +35,8 @@ Browser.defaultProps = {};
 
 Browser.propTypes = {
   files: PropTypes.instanceOf(Object).isRequired,
+  setQueue: PropTypes.func.isRequired,
+  startQueue: PropTypes.func.isRequired
 };
 
 class Project extends Component {
@@ -60,7 +70,7 @@ Project.defaultProps = {};
 
 Project.propTypes = {
   project: PropTypes.instanceOf(Object),
-  path: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired
 };
 
 export default Project;

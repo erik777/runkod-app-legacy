@@ -8,6 +8,7 @@ import projects from './projects';
 import project from './project';
 import path from './path';
 import files from './files';
+import queue from './queue';
 
 const createHistory = require('history').createBrowserHistory;
 
@@ -36,7 +37,8 @@ const combinedReducers = combineReducers({
   projects,
   project,
   path,
-  files
+  files,
+  queue
 });
 
 export default createStore(

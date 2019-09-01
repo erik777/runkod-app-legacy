@@ -8,6 +8,7 @@ import {login} from '../../store/user';
 import {fetchProjects} from '../../store/projects';
 import {selectProject} from '../../store/project';
 import {fetchFiles} from '../../store/files';
+import {setQueue, startQueue} from '../../store/queue';
 
 class ManagerContainer extends Component {
   render() {
@@ -15,12 +16,13 @@ class ManagerContainer extends Component {
   }
 }
 
-const mapStateToProps = ({user, projects, project, path, files}) => ({
+const mapStateToProps = ({user, projects, project, path, files, queue}) => ({
   user,
   projects,
   project,
   path,
-  files
+  files,
+  queue
 });
 
 const mapDispatchToProps = dispatch =>
@@ -29,7 +31,9 @@ const mapDispatchToProps = dispatch =>
       login,
       fetchProjects,
       selectProject,
-      fetchFiles
+      fetchFiles,
+      setQueue,
+      startQueue
     },
     dispatch
   );
