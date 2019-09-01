@@ -50,18 +50,8 @@ export class File extends Model {
   static className = 'file';
 
   static schema = {
-    // Owner username
-    user: {
-      type: String,
-      decrypted: true,
-    },
-    // Website _id
-    website: {
-      type: String,
-      decrypted: true
-    },
-    // Bucket _id
-    bucket: {
+    // Project _id
+    project: {
       type: String,
       decrypted: true
     },

@@ -7,6 +7,7 @@ import ManagerPage from '../../components/pages/manager';
 import {login} from '../../store/user';
 import {fetchProjects} from '../../store/projects';
 import {selectProject} from '../../store/project';
+import {fetchFiles} from '../../store/files';
 
 class ManagerContainer extends Component {
   render() {
@@ -14,10 +15,12 @@ class ManagerContainer extends Component {
   }
 }
 
-const mapStateToProps = ({user, projects, project}) => ({
+const mapStateToProps = ({user, projects, project, path, files}) => ({
   user,
   projects,
-  project
+  project,
+  path,
+  files
 });
 
 const mapDispatchToProps = dispatch =>
@@ -25,7 +28,8 @@ const mapDispatchToProps = dispatch =>
     {
       login,
       fetchProjects,
-      selectProject
+      selectProject,
+      fetchFiles
     },
     dispatch
   );

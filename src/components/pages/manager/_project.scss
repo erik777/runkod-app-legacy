@@ -1,0 +1,37 @@
+.project {
+  float: right;
+  width: calc(100% - 268px);
+  height: 100%;
+
+  .toolbar {
+    height: 44px;
+    border-bottom: 1px solid darken($gray-100, 3);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+    .project-path {
+      .name {
+        color: $gray-500;
+        margin-right: 4px;
+        font-size: 18px;
+      }
+
+      .path {
+        color: $gray-800;
+        font-size: 16px;
+      }
+    }
+  }
+
+
+  .browser {
+    height: calc(100% - 44px);
+    position: relative;
+
+    &.ddu-highlight {
+      background: green;
+
+    }
+  }
+}

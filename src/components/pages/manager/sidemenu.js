@@ -1,0 +1,77 @@
+/*
+eslint-disable jsx-a11y/anchor-is-valid
+*/
+
+import React, {Component} from 'react';
+
+import PropTypes from 'prop-types';
+
+import {chevronBottomSvg, chevronRightSvg, plusSvg} from '../../../svg';
+
+class SideMenu extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      collapsed: false
+    }
+  }
+
+  headerClicked = () => {
+    const {collapsed} = this.state;
+    this.setState({collapsed: !collapsed});
+  };
+
+  clicked = (project) => {
+    const {selectProject, fetchFiles} = this.props;
+    selectProject(project);
+    fetchFiles();
+  };
+
+  render() {
+    const {collapsed} = this.state;
+    const {projects, project} = this.props;
+    const {list} = projects;
+
+    return <div className="side-menu">
+
+      <div className="menu-toolbar">
+        <a className="btn-new-project" onClick={this.showNewProjectDialog}>
+          {plusSvg} New Project
+        </a>
+      </div>
+
+      <div className="menu-content">
+        <div className="menu-list">
+          <div className="menu-list-header" onClick={this.headerClicked}>
+            {collapsed ? chevronRightSvg : chevronBottomSvg} Projects
+          </div>
+
+          <div className={`menu-items ${collapsed ? 'collapsed' : ''}`}>
+            {
+              list.map((i) => {
+                const cls = `menu-item ${project && project._id === i._id ? 'active' : ''}`;
+
+                return <div className={cls} key={i._id} onClick={() => {
+                  this.clicked(i);
+                }}>{i.name}</div>
+              })
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+}
+
+SideMenu.defaultProps = {};
+
+SideMenu.propTypes = {
+  projects: PropTypes.instanceOf(Object).isRequired,
+  project: PropTypes.instanceOf(Object),
+  selectProject: PropTypes.func.isRequired,
+  fetchFiles: PropTypes.func.isRequired
+};
+
+export default SideMenu;

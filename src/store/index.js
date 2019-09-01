@@ -6,6 +6,8 @@ import thunk from 'redux-thunk'
 import user from './user';
 import projects from './projects';
 import project from './project';
+import path from './path';
+import files from './files';
 
 const createHistory = require('history').createBrowserHistory;
 
@@ -33,6 +35,8 @@ const combinedReducers = combineReducers({
   user,
   projects,
   project,
+  path,
+  files
 });
 
 export default createStore(
