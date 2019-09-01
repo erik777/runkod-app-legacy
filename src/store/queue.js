@@ -154,7 +154,7 @@ export const startQueue = () => async (dispatch, getState) => {
     }
 
     if (rFiles.length > 0) {
-      // File overwritten. No need to create record.
+      // File overwritten on gaia. No need to create record.
       dispatch(fileOkAct());
       continue;
     }
