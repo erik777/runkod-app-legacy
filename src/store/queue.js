@@ -23,6 +23,10 @@ const createFileRecord = (props) => {
   return f.save();
 };
 
+// Helper to switch conflict flag on FILE_OK, FILE_ERROR, FILE_SKIPPED
+const switchCF = (state) => {
+  return [CONFLICT_FLAG_YES, CONFLICT_FLAG_NO].includes(state.conflictFlag) ? CONFLICT_FLAG_NONE : state.conflictFlag;
+};
 
 const CONFLICT_FLAG_NONE = 0;
 const CONFLICT_FLAG_YES = 2;
@@ -47,6 +51,7 @@ export const FILE_OK = '@queue/FILE_OK';
 export const FILE_ERROR = '@queue/FILE_ERROR';
 export const FILE_SKIPPED = '@queue/FILE_SKIPPED';
 export const FILE_CONFLICTED = '@queue/FILE_CONFLICTED';
+export const CONFLICT_FLAG_SET = '@queue/CONFLICT_FLAG_SET';
 export const RESET = '@queue/RESET';
 
 
@@ -61,23 +66,24 @@ export default (state = initialState, action) => {
     case FILE_OK: {
       const [first, ...files] = state.files;
       const completed = [...state.completed, first];
-      const conflictFlag = [CONFLICT_FLAG_YES, CONFLICT_FLAG_NO].includes(state.conflictFlag) ? CONFLICT_FLAG_NONE : state.conflictFlag;
-      return Object.assign({}, state, {files, completed, conflictFlag});
+      return Object.assign({}, state, {files, completed, conflictFlag: switchCF(state)});
     }
     case FILE_ERROR: {
       const [first, ...files] = state.files;
       const failed = [...state.failed, first];
-      const conflictFlag = [CONFLICT_FLAG_YES, CONFLICT_FLAG_NO].includes(state.conflictFlag) ? CONFLICT_FLAG_NONE : state.conflictFlag;
-      return Object.assign({}, state, {files, failed, conflictFlag});
+      return Object.assign({}, state, {files, failed, conflictFlag: switchCF(state)});
     }
     case FILE_SKIPPED: {
       const [first, ...files] = state.files;
       const skipped = [...state.skipped, first];
-      const conflictFlag = [CONFLICT_FLAG_YES, CONFLICT_FLAG_NO].includes(state.conflictFlag) ? CONFLICT_FLAG_NONE : state.conflictFlag;
-      return Object.assign({}, state, {files, skipped, conflictFlag});
+      return Object.assign({}, state, {files, skipped, conflictFlag: switchCF(state)});
     }
     case FILE_CONFLICTED: {
       return Object.assign({}, state, {conflict: true});
+    }
+    case CONFLICT_FLAG_SET: {
+      const {flag} = action.payload;
+      return Object.assign({}, state, {conflict: false, conflictFlag: flag});
     }
     case RESET:
       return initialState;
@@ -175,12 +181,24 @@ export const startQueue = () => async (dispatch, getState) => {
   }
 };
 
+
+export const setQueueConflictFlag = (flag) => (dispatch) => {
+  dispatch(conflictFlagAct(flag));
+};
+
 /* Action creators */
 
 export const setQueueAct = (files) => ({
   type: SET,
   payload: {
     files
+  }
+});
+
+export const conflictFlagAct = (flag) => ({
+  type: CONFLICT_FLAG_SET,
+  payload: {
+    flag
   }
 });
 
@@ -197,7 +215,7 @@ export const fileConflictAct = () => ({
 });
 
 export const fileSkipAct = () => ({
-  type: FILE_CONFLICTED
+  type: FILE_SKIPPED
 });
 
 export const finishedAct = () => ({

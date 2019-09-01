@@ -1,0 +1,609 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default state 1`] = `
+Object {
+  "completed": Array [],
+  "conflict": false,
+  "conflictFlag": 0,
+  "failed": Array [],
+  "files": Array [],
+  "skipped": Array [],
+}
+`;
+
+exports[`2- add files to queue. 12 items in "files". 1`] = `
+Object {
+  "completed": Array [],
+  "conflict": false,
+  "conflictFlag": 0,
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "index.html",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`3- file ok action. 11 items in "files", 1 item in "completed". 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 0,
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "index.html",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`4- file ok action. 10 item in "files", 2 items in "completed". 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 0,
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "index.html",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`5- file ok action. 9 item in "files", 3 items in "completed". 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 0,
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "name": "index.html",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`6- file error action. 8 item in "files", 3 items in "completed", 1 item in "failed".  1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 0,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "manifest.json",
+    },
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`7- file conflict action. 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+  ],
+  "conflict": true,
+  "conflictFlag": 0,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "manifest.json",
+    },
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`8- conflict flag action. 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 2,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "manifest.json",
+    },
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`9- file ok action. Conflict flag should change to 0. 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 0,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`10- file conflict action. 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+  ],
+  "conflict": true,
+  "conflictFlag": 0,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`11- conflict flag action. 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 5,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [],
+}
+`;
+
+exports[`12- file skip action. Should add an item under "skipped".conflictFlag should be still 5 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 5,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "bg.jpg",
+    },
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [
+    Object {
+      "name": "favicon.ico",
+    },
+  ],
+}
+`;
+
+exports[`13- file skip action. Should add an item under "skipped".conflictFlag should be still 5 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "name": "style.css",
+    },
+    Object {
+      "name": "main.js",
+    },
+    Object {
+      "name": "vendor.js",
+    },
+    Object {
+      "name": "manifest.json",
+    },
+  ],
+  "conflict": false,
+  "conflictFlag": 5,
+  "failed": Array [
+    Object {
+      "name": "index.html",
+    },
+  ],
+  "files": Array [
+    Object {
+      "name": "logo.png",
+    },
+    Object {
+      "name": "foo.gif",
+    },
+    Object {
+      "name": "bar.png",
+    },
+    Object {
+      "name": "baz.js",
+    },
+    Object {
+      "name": "lorem.css",
+    },
+  ],
+  "skipped": Array [
+    Object {
+      "name": "favicon.ico",
+    },
+    Object {
+      "name": "bg.jpg",
+    },
+  ],
+}
+`;
