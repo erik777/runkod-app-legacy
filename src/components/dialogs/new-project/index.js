@@ -8,6 +8,8 @@ import to from 'await-to-js';
 
 import {Project} from '../../../model';
 
+import {getUsername} from '../../../blockstack-config';
+
 import {_t} from '../../../i18n';
 
 import message from '../../helper/message';
@@ -92,7 +94,13 @@ class NewProjectDialog extends Component {
       return;
     }
 
-    const p = new Project({name: fullName, custom, bucket: DEFAULT_BUCKET_NAME, status: WEBSITE_STATUS_ON});
+    const p = new Project({
+      name: fullName,
+      username: getUsername(),
+      custom,
+      bucket: DEFAULT_BUCKET_NAME,
+      status: WEBSITE_STATUS_ON
+    });
     const [err,] = await to(p.save());
 
     if (err) {

@@ -9,6 +9,11 @@ export class Project extends Model {
       type: String,
       decrypted: true
     },
+    // Username of owner
+    username: {
+      type: String,
+      decrypted: true
+    },
     // Whether a custom domain or sub domain
     custom: {
       type: Boolean,
@@ -52,6 +57,11 @@ export class File extends Model {
   static schema = {
     // Project _id
     project: {
+      type: String,
+      decrypted: true
+    },
+    // Username of owner
+    username: {
       type: String,
       decrypted: true
     },
