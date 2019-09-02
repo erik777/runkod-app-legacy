@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- populate dir names 1`] = `
+Array [
+  "/static/",
+  "/static/media/",
+  "/static/media/fonts/",
+]
+`;
+
+exports[`2- populate dir names 1`] = `Array []`;
+
+exports[`3- populate dir names 1`] = `
+Array [
+  "/images/",
+]
+`;
+
+exports[`4- dirDict 1`] = `
+Object {
+  "/": Object {
+    "files": Array [
+      Object {
+        "name": "asset-manifest.json",
+        "parent": "/",
+      },
+      Object {
+        "name": "index.html",
+        "parent": "/",
+      },
+      Object {
+        "name": "manifest.json",
+        "parent": "/",
+      },
+      Object {
+        "name": "precache-manifest.cbe4dd161c6842da089c5aea3c10c7de.js",
+        "parent": "/",
+      },
+      Object {
+        "name": "service-worker.js",
+        "parent": "/",
+      },
+    ],
+    "folders": Array [
+      "/images/",
+      "/static/",
+    ],
+  },
+  "/images/": Object {
+    "files": Array [
+      Object {
+        "name": "icon.png",
+        "parent": "/images/",
+      },
+      Object {
+        "name": "og.jpg",
+        "parent": "/images/",
+      },
+    ],
+    "folders": Array [],
+  },
+  "/static/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/static/css/",
+      "/static/js/",
+      "/static/media/",
+    ],
+  },
+  "/static/css/": Object {
+    "files": Array [
+      Object {
+        "name": "2.9a3ef949.chunk.css",
+        "parent": "/static/css/",
+      },
+      Object {
+        "name": "2.9a3ef949.chunk.css.map",
+        "parent": "/static/css/",
+      },
+      Object {
+        "name": "main.61b1d037.chunk.css",
+        "parent": "/static/css/",
+      },
+      Object {
+        "name": "main.61b1d037.chunk.css.map",
+        "parent": "/static/css/",
+      },
+    ],
+    "folders": Array [],
+  },
+  "/static/js/": Object {
+    "files": Array [
+      Object {
+        "name": "2.30431126.chunk.js",
+        "parent": "/static/js/",
+      },
+      Object {
+        "name": "2.30431126.chunk.js.map",
+        "parent": "/static/js/",
+      },
+      Object {
+        "name": "main.8c32f0c4.chunk.js",
+        "parent": "/static/js/",
+      },
+      Object {
+        "name": "main.8c32f0c4.chunk.js.map",
+        "parent": "/static/js/",
+      },
+      Object {
+        "name": "runtime~main.c5541365.js",
+        "parent": "/static/js/",
+      },
+      Object {
+        "name": "runtime~main.c5541365.js.map",
+        "parent": "/static/js/",
+      },
+    ],
+    "folders": Array [],
+  },
+  "/static/media/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/static/media/fonts/",
+    ],
+  },
+  "/static/media/fonts/": Object {
+    "files": Array [
+      Object {
+        "name": "m-plus-rounded-1c-latin-100.b9c1b5c3.woff",
+        "parent": "/static/media/fonts/",
+      },
+    ],
+    "folders": Array [],
+  },
+}
+`;
+
+exports[`5- dirDict 2 1`] = `
+Object {
+  "/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/images/",
+      "/cv/",
+    ],
+  },
+  "/cv/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/cv/2019/",
+    ],
+  },
+  "/cv/2019/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/cv/2019/06/",
+      "/cv/2019/07/",
+    ],
+  },
+  "/cv/2019/06/": Object {
+    "files": Array [
+      Object {
+        "name": "alice.pdf",
+        "parent": "/cv/2019/06/",
+      },
+    ],
+    "folders": Array [],
+  },
+  "/cv/2019/07/": Object {
+    "files": Array [
+      Object {
+        "name": "bob.pdf",
+        "parent": "/cv/2019/07/",
+      },
+    ],
+    "folders": Array [],
+  },
+  "/images/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/images/portrait/",
+    ],
+  },
+  "/images/portrait/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/images/portrait/2019/",
+    ],
+  },
+  "/images/portrait/2019/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/images/portrait/2019/06/",
+      "/images/portrait/2019/07/",
+    ],
+  },
+  "/images/portrait/2019/06/": Object {
+    "files": Array [
+      Object {
+        "name": "alice.png",
+        "parent": "/images/portrait/2019/06/",
+      },
+    ],
+    "folders": Array [],
+  },
+  "/images/portrait/2019/07/": Object {
+    "files": Array [
+      Object {
+        "name": "bob.png",
+        "parent": "/images/portrait/2019/07/",
+      },
+    ],
+    "folders": Array [],
+  },
+}
+`;

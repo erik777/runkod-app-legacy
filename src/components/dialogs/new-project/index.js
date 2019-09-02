@@ -14,7 +14,9 @@ import {_t} from '../../../i18n';
 
 import message from '../../helper/message';
 
-import {testName, testCustomName} from '../../../helper';
+import testName from '../../../helper/test-name';
+
+import testCustomName from '../../../helper/test-custom-name';
 
 import {
   NAME_SUFFIX,
