@@ -38,11 +38,14 @@ export default (state = initialState, action) => {
 
 export const fetchFiles = () => async (dispatch, getState) => {
 
-  const {project, path} = getState();
+  const {project, user} = getState();
 
   dispatch(fetchFilesAct());
 
-  const [err, files] = await to(File.fetchOwnList({project, path, sort: '-createdAt'}));
+  const filter = {project: project._id, username: user, bucket: project.bucket, sort: 'createdAt'};
+  const [err, files] = await to(File.fetchOwnList(filter));
+
+  console.log(files);
 
   if (err) {
     return

@@ -29,5 +29,16 @@
     "error-not-valid-name-custom": "Not a valid domain name",
     "error-not-available": "Name is not available. Please try another one.",
     "success": "New project created"
+  },
+  "queue-dialog": {
+    "progress-title": "Uploading",
+    "conflict-message": "{{name}} already exists",
+    "conflict-question": "Do you want to overwrite it?",
+    "conflict-option-yes-all": "Yes to All",
+    "conflict-option-no-all": "No to All",
+    "done-title": "Done",
+    "summary-completed": "{{n}} file(s) uploaded",
+    "summary-failed": "{{n}} file(s) failed",
+    "summary-skipped": "{{n}} file(s) skipped"
   }
 }

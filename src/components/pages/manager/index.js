@@ -16,6 +16,7 @@ import Project from './project';
 
 import NewProjectDialog from '../../dialogs/new-project';
 
+import QueueDialog from '../../dialogs/queue';
 
 class ManagerPage extends Component {
 
@@ -32,7 +33,7 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, project} = this.props;
+    const {ui, projects, project, queue} = this.props;
 
     const {loading} = projects;
     const {list} = projects;
@@ -82,7 +83,9 @@ class ManagerPage extends Component {
         {ui.newProject &&
         <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
 
-
+        {(queue.files.length>0 || queue.completed.length>0 || queue.failed.length>0 || queue.skipped.length>0) &&
+        <QueueDialog  {...this.props} />
+        }
       </div>
     )
   }
@@ -94,6 +97,12 @@ ManagerPage.propTypes = {
   user: PropTypes.string.isRequired,
   ui: PropTypes.shape({
     newProject: PropTypes.bool.isRequired
+  }),
+  queue: PropTypes.shape({
+    files: PropTypes.arrayOf(Object).isRequired,
+    completed: PropTypes.arrayOf(Object).isRequired,
+    failed: PropTypes.arrayOf(Object).isRequired,
+    skipped: PropTypes.arrayOf(Object).isRequired,
   }),
   toggleUiProp: PropTypes.func.isRequired,
   projects: PropTypes.instanceOf(Object).isRequired,

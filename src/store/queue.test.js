@@ -51,7 +51,7 @@ it('6- file error action. 8 item in "files", 3 items in "completed", 1 item in "
 });
 
 it('7- file conflict action.', () => {
-  const act = fileConflictAct();
+  const act = fileConflictAct('/path/file');
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
@@ -71,7 +71,7 @@ it('9- file ok action. Conflict flag should change to 0.', () => {
 
 
 it('10- file conflict action.', () => {
-  const act = fileConflictAct();
+  const act = fileConflictAct('/path/file2');
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });

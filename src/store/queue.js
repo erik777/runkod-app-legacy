@@ -2,12 +2,19 @@ import to from 'await-to-js';
 
 import md5 from 'blueimp-md5';
 
-import {userSession} from '../blockstack-config';
+import {userSession, getUsername} from '../blockstack-config';
 
 import {File} from '../model';
 
 import {USER_LOGOUT} from './user';
 
+import {
+  CONFLICT_FLAG_NONE,
+  CONFLICT_FLAG_YES,
+  CONFLICT_FLAG_YES_ALL,
+  CONFLICT_FLAG_NO,
+  CONFLICT_FLAG_NO_ALL
+} from '../constants';
 
 // Blockstack functions
 
@@ -28,17 +35,13 @@ const switchCF = (state) => {
   return [CONFLICT_FLAG_YES, CONFLICT_FLAG_NO].includes(state.conflictFlag) ? CONFLICT_FLAG_NONE : state.conflictFlag;
 };
 
-const CONFLICT_FLAG_NONE = 0;
-const CONFLICT_FLAG_YES = 2;
-const CONFLICT_FLAG_YES_ALL = 3;
-const CONFLICT_FLAG_NO = 4;
-const CONFLICT_FLAG_NO_ALL = 5;
 
 const initialState = {
   files: [],
   completed: [],
   failed: [],
   skipped: [],
+  current: null,
   conflict: false,
   conflictFlag: CONFLICT_FLAG_NONE
 };
@@ -47,6 +50,7 @@ const initialState = {
 
 export const SET = '@queue/SET';
 export const FINISHED = '@queue/FINISHED';
+export const FILE_STARTED = '@queue/FILE_STARTED';
 export const FILE_OK = '@queue/FILE_OK';
 export const FILE_ERROR = '@queue/FILE_ERROR';
 export const FILE_SKIPPED = '@queue/FILE_SKIPPED';
@@ -63,27 +67,31 @@ export default (state = initialState, action) => {
       const {files} = action.payload;
       return Object.assign({}, state, {files});
     }
+    case FILE_STARTED: {
+      const {path} = action.payload;
+      return Object.assign({}, state, {current: path});
+    }
     case FILE_OK: {
       const [first, ...files] = state.files;
       const completed = [...state.completed, first];
-      return Object.assign({}, state, {files, completed, conflictFlag: switchCF(state)});
+      return Object.assign({}, state, {files, completed, current: null, conflictFlag: switchCF(state)});
     }
     case FILE_ERROR: {
       const [first, ...files] = state.files;
       const failed = [...state.failed, first];
-      return Object.assign({}, state, {files, failed, conflictFlag: switchCF(state)});
+      return Object.assign({}, state, {files, failed, current: null, conflictFlag: switchCF(state)});
     }
     case FILE_SKIPPED: {
       const [first, ...files] = state.files;
       const skipped = [...state.skipped, first];
-      return Object.assign({}, state, {files, skipped, conflictFlag: switchCF(state)});
+      return Object.assign({}, state, {files, skipped, current: null, conflictFlag: switchCF(state)});
     }
     case FILE_CONFLICTED: {
       return Object.assign({}, state, {conflict: true});
     }
     case CONFLICT_FLAG_SET: {
       const {flag} = action.payload;
-      return Object.assign({}, state, {conflict: false, conflictFlag: flag});
+      return Object.assign({}, state, {conflict: false, current: null, conflictFlag: flag});
     }
     case RESET:
       return initialState;
@@ -119,6 +127,8 @@ export const startQueue = () => async (dispatch, getState) => {
 
     const parent = `${path}${file.path}`;
     const fullPath = `${parent}${file.name}`;
+
+    dispatch(fileStartAct(fullPath));
 
     const fileS = file.name.split('.');
     const fileExt = fileS.length > 1 ? `.${fileS[fileS.length - 1]}`.toLowerCase() : '';
@@ -162,6 +172,7 @@ export const startQueue = () => async (dispatch, getState) => {
     // Create file record
     const props = {
       project: project._id,
+      username: getUsername(),
       bucket: project.bucket,
       parent,
       fullPath,
@@ -182,9 +193,14 @@ export const startQueue = () => async (dispatch, getState) => {
 };
 
 
+export const resetQueue = () => (dispatch) => {
+  dispatch(resetQueueAct());
+};
+
 export const setQueueConflictFlag = (flag) => (dispatch) => {
   dispatch(conflictFlagAct(flag));
 };
+
 
 /* Action creators */
 
@@ -201,6 +217,15 @@ export const conflictFlagAct = (flag) => ({
     flag
   }
 });
+
+
+export const fileStartAct = (path) => ({
+  type: FILE_STARTED,
+  payload: {
+    path
+  }
+});
+
 
 export const fileOkAct = () => ({
   type: FILE_OK
@@ -220,4 +245,8 @@ export const fileSkipAct = () => ({
 
 export const finishedAct = () => ({
   type: FINISHED
+});
+
+export const resetQueueAct = () => ({
+  type: RESET
 });

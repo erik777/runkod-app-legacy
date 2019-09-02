@@ -10,9 +10,12 @@ const resources = {
 i18n.use(LanguageDetector).init({
   resources,
   lng: 'en',
-  fallbackLng: 'en'
+  fallbackLng: 'en',
+  interpolation: {
+    escapeValue: false
+  },
 });
 
-export const _t = (k) => {
-  return i18n.t(k);
+export const _t = (k, args = {}) => {
+  return i18n.t(k, args);
 };

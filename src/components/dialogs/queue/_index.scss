@@ -1,0 +1,82 @@
+.queue-dialog {
+  .modal-dialog {
+    min-width: 700px;
+  }
+
+  .upload-done {
+    text-align: center;
+
+    .title {
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .summary {
+      margin-bottom: 40px;
+
+      .summary-item {
+        font-size: 14px;
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+
+        &.completed {
+          color: $success;
+        }
+
+        &.skipped {
+          color: $gray-500;
+        }
+
+        &.failed {
+          color: $danger;
+        }
+      }
+    }
+  }
+
+
+  .upload-progress {
+    text-align: center;
+
+    .title {
+      margin-bottom: 20px;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .description {
+      margin-bottom: 20px;
+    }
+  }
+
+  .upload-conflict {
+    text-align: center;
+
+    .message {
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .question {
+      margin-bottom: 40px;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+
+      .btn:not(:last-child) {
+        margin-right: 10px;
+      }
+
+      .separator {
+        width: 1px;
+        margin-right: 10px;
+        background: $gray-300;
+      }
+    }
+  }
+}
