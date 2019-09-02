@@ -6,6 +6,10 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+
+import {_t} from '../../../i18n';
+
+
 import {chevronBottomSvg, chevronRightSvg, plusSvg} from '../../../svg';
 
 class SideMenu extends Component {
@@ -41,7 +45,7 @@ class SideMenu extends Component {
           const {toggleUiProp} = this.props;
           toggleUiProp('newProject');
         }}>
-          {plusSvg} New Project
+          {plusSvg} {_t('manager.side-menu.new-project')}
         </a>
       </div>
 

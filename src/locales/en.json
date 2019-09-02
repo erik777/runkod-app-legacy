@@ -14,10 +14,13 @@
     },
     "no-selected-project": {
       "message": "Select a project to work with"
+    },
+    "side-menu": {
+      "new-project": "New Project"
     }
   },
   "new-project-dialog": {
-    "title": "New Website",
+    "title": "New Project",
     "name-btn-label": "Subdomain",
     "custom-name-btn-label": "Custom Domain",
     "name-placeholder": "Enter subdomain name",
@@ -25,6 +28,6 @@
     "error-not-valid-name": "Only letters and numbers are allowed",
     "error-not-valid-name-custom": "Not a valid domain name",
     "error-not-available": "Name is not available. Please try another one.",
-    "success": "Website created"
+    "success": "New project created"
   }
 }
