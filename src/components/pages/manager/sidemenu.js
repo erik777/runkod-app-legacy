@@ -37,7 +37,10 @@ class SideMenu extends Component {
     return <div className="side-menu">
 
       <div className="menu-toolbar">
-        <a className="btn-new-project" onClick={this.showNewProjectDialog}>
+        <a className="btn-new-project" onClick={() => {
+          const {toggleUiProp} = this.props;
+          toggleUiProp('newProject');
+        }}>
           {plusSvg} New Project
         </a>
       </div>
@@ -68,6 +71,7 @@ class SideMenu extends Component {
 SideMenu.defaultProps = {};
 
 SideMenu.propTypes = {
+  toggleUiProp: PropTypes.func.isRequired,
   projects: PropTypes.instanceOf(Object).isRequired,
   project: PropTypes.instanceOf(Object),
   selectProject: PropTypes.func.isRequired,

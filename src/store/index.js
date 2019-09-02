@@ -4,6 +4,7 @@ import {connectRouter, routerMiddleware} from 'connected-react-router'
 import thunk from 'redux-thunk'
 
 import user from './user';
+import ui from './ui';
 import projects from './projects';
 import project from './project';
 import path from './path';
@@ -34,6 +35,7 @@ const composedEnhancers = compose(
 const combinedReducers = combineReducers({
   router: connectRouter(history),
   user,
+  ui,
   projects,
   project,
   path,

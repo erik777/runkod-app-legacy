@@ -22,21 +22,9 @@ class ManagerPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      newDialog: false
-    };
-
     const {fetchProjects} = this.props;
     fetchProjects();
   }
-
-  showNewProjectDialog = () => {
-    this.setState({newDialog: true});
-  };
-
-  hideNewProjectDialog = () => {
-    this.setState({newDialog: false});
-  };
 
   newProjectCreated = () => {
     const {fetchProjects} = this.props;
@@ -44,8 +32,7 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {newDialog} = this.state;
-    const {projects, project} = this.props;
+    const {ui, projects, project} = this.props;
 
     const {loading} = projects;
     const {list} = projects;
@@ -65,7 +52,10 @@ class ManagerPage extends Component {
             <p className="message-header">
               {_t('manager.no-project.message')}
             </p>
-            <Button onClick={this.showNewProjectDialog}>{_t('manager.no-project.button-label')}</Button>
+            <Button onClick={() => {
+              const {toggleUiProp} = this.props;
+              toggleUiProp('newProject');
+            }}>{_t('manager.no-project.button-label')}</Button>
           </div>
           }
 
@@ -89,8 +79,8 @@ class ManagerPage extends Component {
         </div>
 
 
-        {newDialog &&
-        <NewProjectDialog {...this.props} onHide={this.hideNewProjectDialog} onSave={this.newProjectCreated}/>}
+        {ui.newProject &&
+        <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
 
 
       </div>
@@ -102,6 +92,10 @@ ManagerPage.defaultProps = {};
 
 ManagerPage.propTypes = {
   user: PropTypes.string.isRequired,
+  ui: PropTypes.shape({
+    newProject: PropTypes.bool.isRequired
+  }),
+  toggleUiProp: PropTypes.func.isRequired,
   projects: PropTypes.instanceOf(Object).isRequired,
   project: PropTypes.instanceOf(Object),
   path: PropTypes.string.isRequired,

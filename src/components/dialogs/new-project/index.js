@@ -48,7 +48,13 @@ class NewProjectDialog extends Component {
   };
 
   hide = () => {
-    const {onHide} = this.props;
+    const {inProgress} = this.state;
+    if (inProgress) {
+      return;
+    }
+
+    const {onHide, toggleUiProp} = this.props;
+    toggleUiProp('newProject');
     onHide();
   };
 
@@ -196,6 +202,10 @@ NewProjectDialog.defaultProps = {
 
 NewProjectDialog.propTypes = {
   user: PropTypes.string.isRequired,
+  ui: PropTypes.shape({
+    newProject: PropTypes.bool.isRequired
+  }),
+  toggleUiProp: PropTypes.func.isRequired,
   onSave: PropTypes.func,
   onHide: PropTypes.func
 };
