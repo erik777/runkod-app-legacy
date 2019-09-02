@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
 
 /* Actions */
 
-export const toggleUiProp = (what, affectUser = true) => {
+export const toggleUiProp = (what) => {
   return async (dispatch, getState) => {
     const {ui} = getState();
 
@@ -38,7 +38,7 @@ export const toggleUiProp = (what, affectUser = true) => {
 
     dispatch({
       type: act,
-      payload: {what: !ui[what], affectUser}
+      payload: {what: !ui[what]}
     });
   }
 };
