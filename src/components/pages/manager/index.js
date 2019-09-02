@@ -11,6 +11,7 @@ import {Button} from 'react-bootstrap';
 import {_t} from '../../../i18n';
 
 import SideMenu from './sidemenu';
+
 import Project from './project';
 
 import NewProjectDialog from '../../dialogs/new-project';
