@@ -11,7 +11,6 @@ import {USER_LOGOUT} from './user';
 import {
   CONFLICT_FLAG_NONE,
   CONFLICT_FLAG_YES,
-  CONFLICT_FLAG_YES_ALL,
   CONFLICT_FLAG_NO,
   CONFLICT_FLAG_NO_ALL
 } from '../constants';

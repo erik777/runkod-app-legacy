@@ -2,7 +2,7 @@ import to from 'await-to-js';
 
 import {File} from '../model';
 
-import dirDict from '../helper/dir-dict';
+import fs from '../fs';
 
 import {USER_LOGOUT} from './user';
 import {SELECTED} from './project';
@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
     case FETCHED:
       const {files} = action.payload;
       const list = files.map(x => ({...x.attrs}));
-      const map = dirDict(list);
+      const map = fs.buildPathMap(list);
       return Object.assign({}, state, {loading: false, list, map});
     case SELECTED:
       return initialState;

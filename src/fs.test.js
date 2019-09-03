@@ -1,28 +1,26 @@
-import dirDict, {
-  populateDirNames
-} from "./dir-dict"
+import fs from "./fs"
 
-it('1- populate dir names', () => {
+it('1- generate paths', () => {
   const input = '/static/media/fonts/';
-  const result = populateDirNames(input);
+  const result = fs.generatePaths(input);
   expect(result).toMatchSnapshot();
 });
 
-it('2- populate dir names', () => {
+it('2- generate paths', () => {
   const input = '/';
-  const result = populateDirNames(input);
+  const result = fs.generatePaths(input);
   expect(result).toMatchSnapshot();
 });
 
 
-it('3- populate dir names', () => {
+it('3- generate paths', () => {
   const input = '/images/';
-  const result = populateDirNames(input);
+  const result = fs.generatePaths(input);
   expect(result).toMatchSnapshot();
 });
 
 
-it('4- dirDict', () => {
+it('4- buildPathMap', () => {
   const files = [
     {
       parent: '/',
@@ -98,12 +96,12 @@ it('4- dirDict', () => {
     }
   ];
 
-  const result = dirDict(files);
+  const result = fs.buildPathMap(files);
   expect(result).toMatchSnapshot();
 });
 
 
-it('5- dirDict 2', () => {
+it('5- buildPathMap 2', () => {
   const files = [
     {
       parent: '/images/portrait/2019/06/',
@@ -123,6 +121,46 @@ it('5- dirDict 2', () => {
     }
   ];
 
-  const result = dirDict(files);
+  const result = fs.buildPathMap(files);
+  expect(result).toMatchSnapshot();
+});
+
+
+it('6- path label', () => {
+  const path = '/static/media/fonts/';
+
+  const result = fs.pathLabel(path);
+  expect(result).toMatchSnapshot();
+});
+
+
+it('7- path label', () => {
+  const path = '/images/';
+
+  const result = fs.pathLabel(path);
+  expect(result).toMatchSnapshot();
+});
+
+
+it('8- parent path', () => {
+  const path = '/static/media/fonts/foo/bar';
+
+  const result = fs.parentPath(path);
+  expect(result).toMatchSnapshot();
+});
+
+
+it('9- parent path', () => {
+  const path = '/static/';
+
+  const result = fs.parentPath(path);
+  expect(result).toMatchSnapshot();
+});
+
+
+it('10- parent path', () => {
+  const path = '/';
+
+  const result = fs.parentPath(path);
   expect(result).toMatchSnapshot();
 });

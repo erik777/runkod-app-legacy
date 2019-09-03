@@ -16,3 +16,7 @@ export const CONFLICT_FLAG_YES = 2;
 export const CONFLICT_FLAG_YES_ALL = 3;
 export const CONFLICT_FLAG_NO = 4;
 export const CONFLICT_FLAG_NO_ALL = 5;
+
+
+export const BASE_PATH = '/';
+export const PATH_SEPARATOR = '/';

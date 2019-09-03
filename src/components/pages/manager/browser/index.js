@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+import fs, {pathLabel} from '../../../../fs';
+
 import {photoSvg} from '../../../../svg';
 
 import Ddu from '../../../helper/ddu';
@@ -94,22 +96,35 @@ class Browser extends Component {
       // needs improvements
     }
 
-
     return (
       <Ddu onDrop={this.onDrop}>
         <div className={`browser ${noFile ? 'no-file' : ''}`}>
           {noFile ? 'Drag & Drop files or folders here to upload' : ''}
 
+          {(() => {
+            const parent = fs.parentPath(path);
+
+            if (parent) {
+             return <div onClick={() => {
+               this.folderClicked(parent)
+             }} key={parent} className="browser-entry entry-folder">
+               <Icon type="folder"/>
+               <div className="entry-name">
+                ..
+               </div>
+             </div>
+            }
+          })()}
+
           {contents.folders.map((folder) => {
-
-
             return (
               <div onClick={() => {
                 this.folderClicked(folder)
               }} key={folder} className="browser-entry entry-folder">
                 <Icon type="folder"/>
-
-                {folder}
+                <div className="entry-name">
+                  {pathLabel(folder)}
+                </div>
               </div>)
           })}
 
@@ -120,8 +135,6 @@ class Browser extends Component {
               {file.name}
             </div>
           })}
-
-
         </div>
       </Ddu>
     );

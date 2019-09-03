@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`1- populate dir names 1`] = `
+exports[`1- generate paths 1`] = `
 Array [
   "/static/",
   "/static/media/",
@@ -8,15 +8,15 @@ Array [
 ]
 `;
 
-exports[`2- populate dir names 1`] = `Array []`;
+exports[`2- generate paths 1`] = `Array []`;
 
-exports[`3- populate dir names 1`] = `
+exports[`3- generate paths 1`] = `
 Array [
   "/images/",
 ]
 `;
 
-exports[`4- dirDict 1`] = `
+exports[`4- buildPathMap 1`] = `
 Object {
   "/": Object {
     "files": Array [
@@ -135,7 +135,7 @@ Object {
 }
 `;
 
-exports[`5- dirDict 2 1`] = `
+exports[`5- buildPathMap 2 1`] = `
 Object {
   "/": Object {
     "files": Array [],
@@ -214,3 +214,21 @@ Object {
   },
 }
 `;
+
+exports[`6- path label 1`] = `
+Array [
+  "fonts",
+]
+`;
+
+exports[`7- path label 1`] = `
+Array [
+  "images",
+]
+`;
+
+exports[`8- parent path 1`] = `"/static/media/fonts/foo/"`;
+
+exports[`9- parent path 1`] = `"/"`;
+
+exports[`10- parent path 1`] = `null`;
