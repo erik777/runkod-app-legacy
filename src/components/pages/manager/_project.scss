@@ -17,11 +17,26 @@
       height: 100%;
     }
 
-    .project-path {
+    .full-path {
       color: $gray-600;
       font-size: 16px;
       flex-grow: 1;
       padding: 0 10px 0 0;
+
+      .path {
+        cursor: pointer;
+
+        &:hover {
+          color: $primary;
+          text-decoration: underline;
+        }
+
+      }
+
+      .separator {
+        margin: 0 4px;
+
+      }
     }
 
     .upload-btn {

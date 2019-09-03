@@ -86,6 +86,8 @@ export const parentPath = (path) => {
 };
 
 export default {
+  arrToPath,
+  pathToArr,
   generatePaths,
   buildPathMap,
   pathLabel,

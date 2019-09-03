@@ -18,6 +18,33 @@ ReactDOM.render(
   , document.getElementById('root')
 );
 
+
+/*
+window.addEventListener("dragenter", function(e) {
+
+    e.preventDefault();
+    e.dataTransfer.effectAllowed = "none";
+    e.dataTransfer.dropEffect = "none";
+
+}, false);
+
+window.addEventListener("dragover", function(e) {
+
+    e.preventDefault();
+    e.dataTransfer.effectAllowed = "none";
+    e.dataTransfer.dropEffect = "none";
+
+});
+
+window.addEventListener("drop", function(e) {
+
+    e.preventDefault();
+    e.dataTransfer.effectAllowed = "none";
+    e.dataTransfer.dropEffect = "none";
+
+});
+*/
+
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA

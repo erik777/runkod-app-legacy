@@ -113,6 +113,8 @@ class Ddu extends Component {
 
   dragOver = (e) => {
     e.preventDefault();
+
+    e.dataTransfer.dropEffect = 'copy';
   };
 
   drop = (e) => {
