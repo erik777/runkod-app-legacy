@@ -112,9 +112,7 @@ class Browser extends Component {
               }} key={parent} className="browser-entry entry-folder">
                 <div className="select-input"/>
                 <Icon type="folder"/>
-                <div className="entry-name">
-                  ..
-                </div>
+                <div className="entry-name">..</div>
               </div>
             }
           })()}
