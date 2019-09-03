@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+import fileSize from 'filesize';
+
 import fs, {pathLabel} from '../../../../fs';
 
 import {photoSvg} from '../../../../svg';
@@ -137,6 +139,9 @@ class Browser extends Component {
               <Icon type={file.type}/>
               <div className="entry-label">
                 {file.name}
+              </div>
+              <div className="entry-size">
+                {fileSize(file.size)}
               </div>
             </div>
           })}
