@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/dhost.iml" filepath="$PROJECT_DIR$/.idea/dhost.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/runkod.iml" filepath="$PROJECT_DIR$/.idea/runkod.iml" />
     </modules>
   </component>
 </project>
