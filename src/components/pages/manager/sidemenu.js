@@ -27,9 +27,14 @@ class SideMenu extends Component {
     this.setState({collapsed: !collapsed});
   };
 
-  clicked = (project) => {
-    const {selectProject, fetchFiles} = this.props;
-    selectProject(project);
+  clicked = (p) => {
+    const {project, selectProject, fetchFiles} = this.props;
+
+    if (project && p._id === project._id) {
+      return;
+    }
+
+    selectProject(p);
     fetchFiles();
   };
 
