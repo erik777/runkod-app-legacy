@@ -1,0 +1,121 @@
+.browser {
+  height: calc(100% - 44px);
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &.no-file {
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    color: $gray-500;
+  }
+
+  &.ddu-highlight {
+    background: green;
+  }
+
+  .browser-entry {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0 10px;
+
+    .entry-icon {
+      width: 40px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+
+
+      &.entry-icon-folder {
+        .shapes {
+          height: 24px;
+          position: relative;
+
+          .shape1, .shape2 {
+            background: $primary;
+            position: absolute;
+            left: 0;
+          }
+
+          .shape1 {
+            width: 28px;
+            height: 20px;
+            top: 4px
+          }
+
+          .shape2 {
+            top: 0;
+            width: 16px;
+            height: 4px;
+          }
+        }
+      }
+
+      &.entry-icon-file {
+        .shape {
+          width: 24px;
+          height: 28px;
+          background: $gray-200;
+          position: relative;
+
+          .type-name {
+            position: absolute;
+            bottom: 3px;
+            left: 2px;
+            font-size: 12px;
+            width: 100%;
+            line-height: 100%;
+
+
+          }
+
+          &:before {
+            display: block;
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #fff #fff rgba(255, 255, 255, .35) rgba(255, 255, 255, .35);
+          }
+        }
+
+        &.icon-image {
+          .type-name {
+            left: 1px;
+            bottom: 1px;
+
+            svg {
+              fill: $green;
+              width: 18px;
+              height: 18px;
+            }
+          }
+        }
+
+        &.icon-js {
+          color: $indigo;
+        }
+
+        &.icon-json {
+          color: $primary
+        }
+
+        &.icon-css {
+          color: $pink;
+        }
+
+        &.icon-html {
+          color: $orange;
+        }
+      }
+    }
+  }
+}

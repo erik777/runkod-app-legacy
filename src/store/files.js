@@ -2,12 +2,15 @@ import to from 'await-to-js';
 
 import {File} from '../model';
 
+import dirDict from '../helper/dir-dict';
+
 import {USER_LOGOUT} from './user';
 import {SELECTED} from './project';
 
 const initialState = {
   loading: false,
-  list: []
+  list: [],
+  map: null
 };
 
 
@@ -24,7 +27,9 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {loading: true});
     case FETCHED:
       const {files} = action.payload;
-      return Object.assign({}, state, {loading: false, list: files.map(x => ({...x.attrs}))});
+      const list = files.map(x => ({...x.attrs}));
+      const map = dirDict(list);
+      return Object.assign({}, state, {loading: false, list, map});
     case SELECTED:
       return initialState;
     case USER_LOGOUT:
@@ -44,8 +49,6 @@ export const fetchFiles = () => async (dispatch, getState) => {
 
   const filter = {project: project._id, username: user, bucket: project.bucket, sort: 'createdAt'};
   const [err, files] = await to(File.fetchOwnList(filter));
-
-  console.log(files);
 
   if (err) {
     return

@@ -39,21 +39,5 @@
     }
   }
 
-  .browser {
-    height: calc(100% - 44px);
-    position: relative;
-    display: flex;
 
-    &.no-file {
-      justify-content: center;
-      align-items: center;
-      font-size: 32px;
-      color: $gray-500;
-    }
-
-    &.ddu-highlight {
-      background: green;
-
-    }
-  }
 }

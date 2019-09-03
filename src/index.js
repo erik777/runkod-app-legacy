@@ -9,8 +9,6 @@ import * as serviceWorker from './serviceWorker';
 
 import './style/style.scss';
 
-import 'typeface-m-plus-rounded-1c';
-
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

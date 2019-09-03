@@ -9,6 +9,7 @@ import {toggleUiProp} from '../../store/ui';
 import {fetchProjects} from '../../store/projects';
 import {selectProject} from '../../store/project';
 import {fetchFiles} from '../../store/files';
+import {selectPath} from '../../store/path';
 import {setQueue, startQueue, setQueueConflictFlag, resetQueue} from '../../store/queue';
 
 class ManagerContainer extends Component {
@@ -35,6 +36,7 @@ const mapDispatchToProps = dispatch =>
       fetchProjects,
       selectProject,
       fetchFiles,
+      selectPath,
       setQueue,
       startQueue,
       setQueueConflictFlag,

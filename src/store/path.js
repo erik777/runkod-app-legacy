@@ -1,5 +1,7 @@
 import {USER_LOGOUT} from './user';
-import {SELECTED} from './project';
+import {SELECTED as PROJECT_SELECTED} from './project';
+
+export const SELECTED = '@path/SELECTED';
 
 const initialState = '/';
 
@@ -8,6 +10,8 @@ const initialState = '/';
 export default (state = initialState, action) => {
   switch (action.type) {
     case SELECTED:
+      return action.payload.path;
+    case PROJECT_SELECTED:
       return initialState;
     case USER_LOGOUT:
       return initialState;
@@ -18,6 +22,16 @@ export default (state = initialState, action) => {
 
 /* Actions */
 
+export const selectPath = (path) => async (dispatch) => {
+  dispatch(selectPathAct(path));
+};
+
 
 /* Action creators */
 
+export const selectPathAct = (path) => ({
+  type: SELECTED,
+  payload: {
+    path
+  }
+});
