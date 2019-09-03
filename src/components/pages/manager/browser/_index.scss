@@ -17,11 +17,25 @@
   }
 
   .browser-entry {
-    cursor: pointer;
     display: flex;
     align-items: center;
-    margin: 10px 0;
-    padding: 0 10px;
+    margin: 2px 0;
+    padding: 4px 14px;
+
+    &.entry-folder {
+      cursor: pointer;
+    }
+
+    &:hover {
+      background: $gray-100;
+    }
+
+    .select-input {
+      width: 30px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+    }
 
     .entry-icon {
       width: 40px;
@@ -116,6 +130,11 @@
           color: $orange;
         }
       }
+    }
+
+    .entry-label {
+      font-size: 14px;
+      flex-grow: 1;
     }
   }
 }

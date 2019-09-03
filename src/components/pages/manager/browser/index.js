@@ -105,14 +105,15 @@ class Browser extends Component {
             const parent = fs.parentPath(path);
 
             if (parent) {
-             return <div onClick={() => {
-               this.folderClicked(parent)
-             }} key={parent} className="browser-entry entry-folder">
-               <Icon type="folder"/>
-               <div className="entry-name">
-                ..
-               </div>
-             </div>
+              return <div onClick={() => {
+                this.folderClicked(parent)
+              }} key={parent} className="browser-entry entry-folder">
+                <div className="select-input"/>
+                <Icon type="folder"/>
+                <div className="entry-name">
+                  ..
+                </div>
+              </div>
             }
           })()}
 
@@ -121,8 +122,10 @@ class Browser extends Component {
               <div onClick={() => {
                 this.folderClicked(folder)
               }} key={folder} className="browser-entry entry-folder">
+
+                <div className="select-input"/>
                 <Icon type="folder"/>
-                <div className="entry-name">
+                <div className="entry-label">
                   {pathLabel(folder)}
                 </div>
               </div>)
@@ -130,9 +133,11 @@ class Browser extends Component {
 
           {contents.files.map((file) => {
             return <div key={file._id} className="browser-entry entry-file">
+              <div className="select-input"/>
               <Icon type={file.type}/>
-
-              {file.name}
+              <div className="entry-label">
+                {file.name}
+              </div>
             </div>
           })}
         </div>
