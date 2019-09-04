@@ -167,7 +167,7 @@ class NewProjectDialog extends Component {
             <div className="domain-input">
               {!custom &&
               <InputGroup>
-                <FormControl autoFocus id="txt-name" maxLength={NAME_MAX_LENGTH}
+                <FormControl autoFocus id="txt-name" maxLength={NAME_MAX_LENGTH} autoComplete="off"
                              placeholder={_t('new-project-dialog.name-placeholder')}
                              value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
                 <InputGroup.Append>
@@ -178,7 +178,7 @@ class NewProjectDialog extends Component {
 
               {custom &&
               <InputGroup>
-                <FormControl autoFocus id="txt-name" maxLength={CUSTOM_NAME_MAX_LENGTH}
+                <FormControl autoFocus id="txt-name" maxLength={CUSTOM_NAME_MAX_LENGTH} autoComplete="off"
                              placeholder={_t('new-project-dialog.custom-name-placeholder')}
                              value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
               </InputGroup>

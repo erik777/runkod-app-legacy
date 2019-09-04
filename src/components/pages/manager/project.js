@@ -8,6 +8,8 @@ import Browser from './browser';
 
 import fs from '../../../fs';
 
+import {BASE_PATH, PATH_SEPARATOR} from '../../../constants';
+
 
 class Project extends Component {
 
@@ -29,9 +31,9 @@ class Project extends Component {
           </div>
           <div className="full-path">
             <span onClick={() => {
-              this.pathClicked('/')
+              this.pathClicked(BASE_PATH)
             }} className="path">{project.name}</span>
-            <span className="separator">/</span>
+            <span className="separator">{BASE_PATH}</span>
             {pathArr.map((p, i) => {
                 const path = fs.arrToPath(pathArr.slice(0, i + 1));
 
@@ -39,7 +41,7 @@ class Project extends Component {
                   <span onClick={() => {
                     this.pathClicked(path)
                   }} className="path">{p}</span>
-                  <span className="separator">/</span>
+                  <span className="separator">{PATH_SEPARATOR}</span>
                 </Fragment>
               }
             )}
