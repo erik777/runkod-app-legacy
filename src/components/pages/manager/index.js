@@ -16,7 +16,7 @@ import Project from './project';
 
 import NewProjectDialog from '../../dialogs/new-project';
 
-import QueueDialog from '../../dialogs/queue';
+import UploadQueueDialog from '../../dialogs/upload-queue';
 
 class ManagerPage extends Component {
 
@@ -33,11 +33,10 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, project, queue} = this.props;
+    const {ui, projects, project, uploadQueue} = this.props;
 
     const {loading} = projects;
     const {list} = projects;
-
 
     return (
       <div className="manager-page">
@@ -83,8 +82,8 @@ class ManagerPage extends Component {
         {ui.newProject &&
         <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
 
-        {(queue.files.length>0 || queue.completed.length>0 || queue.failed.length>0 || queue.skipped.length>0) &&
-        <QueueDialog  {...this.props} />
+        {(uploadQueue.files.length > 0 || uploadQueue.completed.length > 0 || uploadQueue.failed.length > 0 || uploadQueue.skipped.length > 0) &&
+        <UploadQueueDialog  {...this.props} />
         }
       </div>
     )
@@ -98,7 +97,7 @@ ManagerPage.propTypes = {
   ui: PropTypes.shape({
     newProject: PropTypes.bool.isRequired
   }),
-  queue: PropTypes.shape({
+  uploadQueue: PropTypes.shape({
     files: PropTypes.arrayOf(Object).isRequired,
     completed: PropTypes.arrayOf(Object).isRequired,
     failed: PropTypes.arrayOf(Object).isRequired,

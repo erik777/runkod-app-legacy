@@ -5,7 +5,7 @@ import reducer, {
   fileConflictAct,
   conflictFlagAct,
   fileSkipAct
-} from "./queue"
+} from "./upload-queue"
 
 let state = undefined;
 

@@ -14,10 +14,10 @@ import {
 } from '../../../constants';
 
 
-class QueueDialog extends Component {
+class UploadQueueDialog extends Component {
 
   componentDidUpdate(prevProps) {
-    const {queue} = this.props;
+    const {uploadQueue: queue} = this.props;
     const {files, failed, skipped} = queue;
 
     // everything went smooth. reset queue.
@@ -27,19 +27,19 @@ class QueueDialog extends Component {
   }
 
   setQueueConflictFlag = (flag) => {
-    const {setQueueConflictFlag, startQueue} = this.props;
-    setQueueConflictFlag(flag);
-    startQueue();
+    const {setUploadQueueConflictFlag, startUploadQueue} = this.props;
+    setUploadQueueConflictFlag(flag);
+    startUploadQueue();
   };
 
   cancel = () => {
-    const {resetQueue, fetchFiles} = this.props;
-    resetQueue();
+    const {resetUploadQueue, fetchFiles} = this.props;
+    resetUploadQueue();
     fetchFiles();
   };
 
   render() {
-    const {queue} = this.props;
+    const {uploadQueue: queue} = this.props;
     const {conflict, current, files, completed, failed, skipped} = queue;
     const [file,] = files;
 
@@ -125,10 +125,10 @@ class QueueDialog extends Component {
   }
 }
 
-QueueDialog.defaultProps = {};
+UploadQueueDialog.defaultProps = {};
 
-QueueDialog.propTypes = {
-  queue: PropTypes.shape({
+UploadQueueDialog.propTypes = {
+  uploadQueue: PropTypes.shape({
     files: PropTypes.arrayOf(Object).isRequired,
     completed: PropTypes.arrayOf(Object).isRequired,
     failed: PropTypes.arrayOf(Object).isRequired,
@@ -136,10 +136,10 @@ QueueDialog.propTypes = {
     conflict: PropTypes.bool.isRequired,
     conflictFlag: PropTypes.number.isRequired,
   }),
-  setQueueConflictFlag: PropTypes.func.isRequired,
-  startQueue: PropTypes.func.isRequired,
-  resetQueue: PropTypes.func.isRequired,
+  startUploadQueue: PropTypes.func.isRequired,
+  setUploadQueueConflictFlag: PropTypes.func.isRequired,
+  resetUploadQueue: PropTypes.func.isRequired,
   fetchFiles: PropTypes.func.isRequired
 };
 
-export default QueueDialog;
+export default UploadQueueDialog;

@@ -47,15 +47,15 @@ const initialState = {
 
 /* Action types */
 
-export const SET = '@queue/SET';
-export const FINISHED = '@queue/FINISHED';
-export const FILE_STARTED = '@queue/FILE_STARTED';
-export const FILE_OK = '@queue/FILE_OK';
-export const FILE_ERROR = '@queue/FILE_ERROR';
-export const FILE_SKIPPED = '@queue/FILE_SKIPPED';
-export const FILE_CONFLICTED = '@queue/FILE_CONFLICTED';
-export const CONFLICT_FLAG_SET = '@queue/CONFLICT_FLAG_SET';
-export const RESET = '@queue/RESET';
+export const SET = '@upload-queue/SET';
+export const FINISHED = '@upload-queue/FINISHED';
+export const FILE_STARTED = '@upload-queue/FILE_STARTED';
+export const FILE_OK = '@upload-queue/FILE_OK';
+export const FILE_ERROR = '@upload-queue/FILE_ERROR';
+export const FILE_SKIPPED = '@upload-queue/FILE_SKIPPED';
+export const FILE_CONFLICTED = '@upload-queue/FILE_CONFLICTED';
+export const CONFLICT_FLAG_SET = '@upload-queue/CONFLICT_FLAG_SET';
+export const RESET = '@upload-queue/RESET';
 
 
 /* Reducer */
@@ -103,15 +103,15 @@ export default (state = initialState, action) => {
 
 
 /* Actions */
-export const setQueue = (files) => (dispatch) => {
+export const setUploadQueue = (files) => (dispatch) => {
   dispatch(setQueueAct(files));
 };
 
-export const startQueue = () => async (dispatch, getState) => {
+export const startUploadQueue = () => async (dispatch, getState) => {
 
   while (true) {
 
-    const {queue} = getState();
+    const {uploadQueue: queue} = getState();
     const {files} = queue;
 
     if (files.length === 0) {
@@ -191,12 +191,11 @@ export const startQueue = () => async (dispatch, getState) => {
   }
 };
 
-
-export const resetQueue = () => (dispatch) => {
+export const resetUploadQueue = () => (dispatch) => {
   dispatch(resetQueueAct());
 };
 
-export const setQueueConflictFlag = (flag) => (dispatch) => {
+export const setUploadQueueConflictFlag = (flag) => (dispatch) => {
   dispatch(conflictFlagAct(flag));
 };
 
@@ -217,14 +216,12 @@ export const conflictFlagAct = (flag) => ({
   }
 });
 
-
 export const fileStartAct = (path) => ({
   type: FILE_STARTED,
   payload: {
     path
   }
 });
-
 
 export const fileOkAct = () => ({
   type: FILE_OK

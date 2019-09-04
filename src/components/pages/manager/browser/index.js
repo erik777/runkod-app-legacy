@@ -77,9 +77,9 @@ export {Icon};
 class Browser extends Component {
 
   onDrop = (files) => {
-    const {setQueue, startQueue} = this.props;
-    setQueue(files);
-    startQueue()
+    const {setUploadQueue, startUploadQueue} = this.props;
+    setUploadQueue(files);
+    startUploadQueue()
   };
 
   folderClicked = (path) => {
@@ -155,8 +155,8 @@ Browser.propTypes = {
   files: PropTypes.instanceOf(Object).isRequired,
   selectPath: PropTypes.func.isRequired,
   path: PropTypes.string.isRequired,
-  setQueue: PropTypes.func.isRequired,
-  startQueue: PropTypes.func.isRequired
+  setUploadQueue: PropTypes.func.isRequired,
+  startUploadQueue: PropTypes.func.isRequired
 };
 
 export default Browser;

@@ -10,7 +10,7 @@ import {fetchProjects} from '../../store/projects';
 import {selectProject} from '../../store/project';
 import {fetchFiles} from '../../store/files';
 import {selectPath} from '../../store/path';
-import {setQueue, startQueue, setQueueConflictFlag, resetQueue} from '../../store/queue';
+import {setUploadQueue, startUploadQueue, setUploadQueueConflictFlag, resetUploadQueue} from '../../store/upload-queue';
 
 class ManagerContainer extends Component {
   render() {
@@ -18,14 +18,14 @@ class ManagerContainer extends Component {
   }
 }
 
-const mapStateToProps = ({user, ui, projects, project, path, files, queue}) => ({
+const mapStateToProps = ({user, ui, projects, project, path, files, uploadQueue}) => ({
   user,
   ui,
   projects,
   project,
   path,
   files,
-  queue
+  uploadQueue
 });
 
 const mapDispatchToProps = dispatch =>
@@ -37,10 +37,10 @@ const mapDispatchToProps = dispatch =>
       selectProject,
       fetchFiles,
       selectPath,
-      setQueue,
-      startQueue,
-      setQueueConflictFlag,
-      resetQueue
+      setUploadQueue,
+      startUploadQueue,
+      setUploadQueueConflictFlag,
+      resetUploadQueue
     },
     dispatch
   );
