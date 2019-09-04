@@ -55,19 +55,19 @@ class UploadQueueDialog extends Component {
               // Completed
               if (!file) {
                 return (<div className="upload-done">
-                  <div className="title">{_t('queue-dialog.done-title')}</div>
+                  <div className="title">{_t('upload-queue-dialog.done-title')}</div>
                   <div className="summary">
                     {completed.length > 0 &&
                     <span
-                      className="summary-item completed">{_t('queue-dialog.summary-completed', {n: completed.length})}</span>
+                      className="summary-item completed">{_t('upload-queue-dialog.summary-completed', {n: completed.length})}</span>
                     }
                     {failed.length > 0 &&
                     <span
-                      className="summary-item failed">{_t('queue-dialog.summary-failed', {n: failed.length})}</span>
+                      className="summary-item failed">{_t('upload-queue-dialog.summary-failed', {n: failed.length})}</span>
                     }
                     {skipped.length > 0 &&
                     <span
-                      className="summary-item skipped">{_t('queue-dialog.summary-skipped', {n: skipped.length})}</span>
+                      className="summary-item skipped">{_t('upload-queue-dialog.summary-skipped', {n: skipped.length})}</span>
                     }
                   </div>
                   <div className="controls">
@@ -79,7 +79,7 @@ class UploadQueueDialog extends Component {
               // Uploading
               if (!conflict) {
                 return <div className="upload-progress">
-                  <div className="title">{_t('queue-dialog.progress-title')}</div>
+                  <div className="title">{_t('upload-queue-dialog.progress-title')}</div>
                   <div className="description">{current}</div>
                   <div className="controls">
                     <ProgressBar animated max={all} now={done}/>
@@ -89,8 +89,8 @@ class UploadQueueDialog extends Component {
 
               if (conflict) {
                 return (<div className="upload-conflict">
-                  <div className="message">{_t('queue-dialog.conflict-message', {name: current})}</div>
-                  <div className="question">{_t('queue-dialog.conflict-question')}</div>
+                  <div className="message">{_t('upload-queue-dialog.conflict-message', {name: current})}</div>
+                  <div className="question">{_t('upload-queue-dialog.conflict-question')}</div>
                   <div className="controls">
                     <Button size="sm" variant="primary" onClick={() => {
                       this.setQueueConflictFlag(CONFLICT_FLAG_YES)
@@ -99,7 +99,7 @@ class UploadQueueDialog extends Component {
                     {all > 1 &&
                     <Button size="sm" variant="outline-primary" onClick={() => {
                       this.setQueueConflictFlag(CONFLICT_FLAG_YES_ALL)
-                    }}>{_t('queue-dialog.conflict-option-yes-all')}</Button>
+                    }}>{_t('upload-queue-dialog.conflict-option-yes-all')}</Button>
                     }
 
                     <span className="separator"/>
@@ -110,7 +110,7 @@ class UploadQueueDialog extends Component {
                     {all > 1 &&
                     <Button size="sm" variant="outline-secondary" onClick={() => {
                       this.setQueueConflictFlag(CONFLICT_FLAG_NO_ALL)
-                    }}>{_t('queue-dialog.conflict-option-no-all')}</Button>
+                    }}>{_t('upload-queue-dialog.conflict-option-no-all')}</Button>
                     }
                     <span className="separator"/>
                     <Button size="sm" variant="outline-info" onClick={this.cancel}>{_t('g.cancel')}</Button>

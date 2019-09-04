@@ -30,7 +30,7 @@
     "error-not-available": "Name is not available. Please try another one.",
     "success": "New project created"
   },
-  "queue-dialog": {
+  "upload-queue-dialog": {
     "progress-title": "Uploading",
     "conflict-message": "{{name}} already exists",
     "conflict-question": "Do you want to overwrite it?",
