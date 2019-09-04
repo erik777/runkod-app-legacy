@@ -72,19 +72,11 @@ class ManagerPage extends Component {
           {(!loading && list.length > 0) &&
           <SideMenu projects={projects} {...this.props} />
           }
-
-
           {project && <Project {...this.props} />}
-
         </div>
 
-
-        {ui.newProject &&
-        <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
-
-        {(uploadQueue.started) &&
-        <UploadQueueDialog  {...this.props} />
-        }
+        {ui.newProject && <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
+        {uploadQueue.started && <UploadQueueDialog  {...this.props} />}
       </div>
     )
   }
