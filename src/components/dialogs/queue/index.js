@@ -15,6 +15,17 @@ import {
 
 
 class QueueDialog extends Component {
+
+  componentDidUpdate(prevProps) {
+    const {queue} = this.props;
+    const {files, failed, skipped} = queue;
+
+    // everything went smooth. reset queue.
+    if (files.length === 0 && failed.length === 0 && skipped.length === 0) {
+      this.cancel();
+    }
+  }
+
   setQueueConflictFlag = (flag) => {
     const {setQueueConflictFlag, startQueue} = this.props;
     setQueueConflictFlag(flag);
@@ -22,8 +33,9 @@ class QueueDialog extends Component {
   };
 
   cancel = () => {
-    const {resetQueue} = this.props;
+    const {resetQueue, fetchFiles} = this.props;
     resetQueue();
+    fetchFiles();
   };
 
   render() {
@@ -126,7 +138,8 @@ QueueDialog.propTypes = {
   }),
   setQueueConflictFlag: PropTypes.func.isRequired,
   startQueue: PropTypes.func.isRequired,
-  resetQueue: PropTypes.func.isRequired
+  resetQueue: PropTypes.func.isRequired,
+  fetchFiles: PropTypes.func.isRequired
 };
 
 export default QueueDialog;
