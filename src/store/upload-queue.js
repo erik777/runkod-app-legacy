@@ -42,7 +42,8 @@ const initialState = {
   skipped: [],
   current: null,
   conflict: false,
-  conflictFlag: CONFLICT_FLAG_NONE
+  conflictFlag: CONFLICT_FLAG_NONE,
+  started: false
 };
 
 /* Action types */
@@ -64,7 +65,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET: {
       const {files} = action.payload;
-      return Object.assign({}, state, {files});
+      return Object.assign({}, state, {files, started:true});
     }
     case FILE_STARTED: {
       const {path} = action.payload;

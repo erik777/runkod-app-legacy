@@ -4,7 +4,8 @@ import reducer, {
   fileErrorAct,
   fileConflictAct,
   conflictFlagAct,
-  fileSkipAct
+  fileSkipAct,
+  resetQueueAct
 } from "./upload-queue"
 
 let state = undefined;
@@ -90,6 +91,12 @@ it('12- file skip action. Should add an item under "skipped".conflictFlag should
 
 it('13- file skip action. Should add an item under "skipped".conflictFlag should be still 5', () => {
   const act = fileSkipAct();
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('14- reset queue', () => {
+  const act = resetQueueAct();
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });

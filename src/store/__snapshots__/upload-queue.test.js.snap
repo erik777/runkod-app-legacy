@@ -9,6 +9,7 @@ Object {
   "failed": Array [],
   "files": Array [],
   "skipped": Array [],
+  "started": false,
 }
 `;
 
@@ -58,6 +59,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -108,6 +110,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -158,6 +161,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -208,6 +212,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -259,6 +264,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -310,6 +316,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -361,6 +368,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -412,6 +420,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -463,6 +472,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -514,6 +524,7 @@ Object {
     },
   ],
   "skipped": Array [],
+  "started": true,
 }
 `;
 
@@ -566,6 +577,7 @@ Object {
       "name": "favicon.ico",
     },
   ],
+  "started": true,
 }
 `;
 
@@ -618,5 +630,19 @@ Object {
       "name": "bg.jpg",
     },
   ],
+  "started": true,
+}
+`;
+
+exports[`14- reset queue 1`] = `
+Object {
+  "completed": Array [],
+  "conflict": false,
+  "conflictFlag": 0,
+  "current": null,
+  "failed": Array [],
+  "files": Array [],
+  "skipped": Array [],
+  "started": false,
 }
 `;

@@ -82,7 +82,7 @@ class ManagerPage extends Component {
         {ui.newProject &&
         <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
 
-        {(uploadQueue.files.length > 0 || uploadQueue.completed.length > 0 || uploadQueue.failed.length > 0 || uploadQueue.skipped.length > 0) &&
+        {(uploadQueue.started) &&
         <UploadQueueDialog  {...this.props} />
         }
       </div>
@@ -102,6 +102,7 @@ ManagerPage.propTypes = {
     completed: PropTypes.arrayOf(Object).isRequired,
     failed: PropTypes.arrayOf(Object).isRequired,
     skipped: PropTypes.arrayOf(Object).isRequired,
+    started: PropTypes.bool.isRequired
   }),
   toggleUiProp: PropTypes.func.isRequired,
   projects: PropTypes.instanceOf(Object).isRequired,
