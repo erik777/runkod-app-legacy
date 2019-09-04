@@ -48,7 +48,7 @@ class UploadQueueDialog extends Component {
 
     return (
       <>
-        <Modal show onHide={this.hide} className="queue-dialog">
+        <Modal show onHide={this.hide} className="upload-queue-dialog">
           <Modal.Body>
             {(() => {
 
