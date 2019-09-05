@@ -65,7 +65,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET: {
       const {files} = action.payload;
-      return Object.assign({}, state, {files, started:true});
+      return Object.assign({}, state, {files, started: true});
     }
     case FILE_STARTED: {
       const {path} = action.payload;
@@ -176,7 +176,8 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       bucket: project.bucket,
       parent,
       fullPath,
-      name: file.name,
+      name: gaiaFileName,
+      label: file.name,
       address,
       size: file.size,
       type: file.type

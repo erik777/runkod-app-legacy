@@ -62,7 +62,7 @@ class Project extends Component {
     let allChecked = false;
     if (map) {
       const all = map[path]['folders'].length + map[path]['files'].length;
-      allChecked = all === checkList.length;
+      allChecked = all > 0 && all === checkList.length;
     }
 
     return (

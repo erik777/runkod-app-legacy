@@ -79,8 +79,13 @@ export class File extends Model {
       type: String,
       decrypted: true
     },
-    // File name
+    // File name (gaia)
     name: {
+      type: String,
+      decrypted: true
+    },
+    // File label (client)
+    label: {
       type: String,
       decrypted: true
     },

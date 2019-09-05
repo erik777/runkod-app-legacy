@@ -194,7 +194,7 @@ class FileEntry extends Component {
 
 
         <div className="entry-label">
-          {file.name}
+          {file.label}
         </div>
         <div className="entry-size">
           {fileSize(file.size)}
