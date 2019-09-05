@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default state 1`] = `
+Object {
+  "completed": Array [],
+  "current": null,
+  "failed": Array [],
+  "files": Array [],
+  "inProgress": false,
+  "log": Array [],
+  "show": false,
+}
+`;
+
+exports[`2- set. 2 items in "files". 1`] = `
+Object {
+  "completed": Array [],
+  "current": null,
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "label": "style.css",
+      "parent": "/",
+    },
+    Object {
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "inProgress": false,
+  "log": Array [],
+  "show": true,
+}
+`;
+
+exports[`3- start 1`] = `
+Object {
+  "completed": Array [],
+  "current": null,
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "label": "style.css",
+      "parent": "/",
+    },
+    Object {
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "inProgress": true,
+  "log": Array [],
+  "show": true,
+}
+`;
+
+exports[`4- file start  1`] = `
+Object {
+  "completed": Array [],
+  "current": "/style.css",
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "label": "style.css",
+      "parent": "/",
+    },
+    Object {
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "inProgress": true,
+  "log": Array [],
+  "show": true,
+}
+`;
+
+exports[`5- file ok. 1 item in "files", 1 items in "completed". 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "label": "style.css",
+      "parent": "/",
+    },
+  ],
+  "current": null,
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "inProgress": true,
+  "log": Array [
+    Object {
+      "msg": "/style.css deleted",
+      "type": "success",
+    },
+  ],
+  "show": true,
+}
+`;
+
+exports[`6- file start. 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "label": "style.css",
+      "parent": "/",
+    },
+  ],
+  "current": "/main.js",
+  "failed": Array [],
+  "files": Array [
+    Object {
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "inProgress": true,
+  "log": Array [
+    Object {
+      "msg": "/style.css deleted",
+      "type": "success",
+    },
+  ],
+  "show": true,
+}
+`;
+
+exports[`7- file error. 0 item in "files", 1 items in "completed", 1 item in "failed".  1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "label": "style.css",
+      "parent": "/",
+    },
+  ],
+  "current": null,
+  "failed": Array [
+    Object {
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "files": Array [],
+  "inProgress": true,
+  "log": Array [
+    Object {
+      "msg": "/style.css deleted",
+      "type": "success",
+    },
+    Object {
+      "msg": "/main.js could not delete",
+      "type": "error",
+    },
+  ],
+  "show": true,
+}
+`;
+
+exports[`8- finish 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "label": "style.css",
+      "parent": "/",
+    },
+  ],
+  "current": null,
+  "failed": Array [
+    Object {
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "files": Array [],
+  "inProgress": false,
+  "log": Array [
+    Object {
+      "msg": "/style.css deleted",
+      "type": "success",
+    },
+    Object {
+      "msg": "/main.js could not delete",
+      "type": "error",
+    },
+  ],
+  "show": true,
+}
+`;
+
+exports[`9- reset 1`] = `
+Object {
+  "completed": Array [],
+  "current": null,
+  "failed": Array [],
+  "files": Array [],
+  "inProgress": false,
+  "log": Array [],
+  "show": false,
+}
+`;

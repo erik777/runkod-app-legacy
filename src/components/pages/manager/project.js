@@ -40,18 +40,19 @@ class Project extends Component {
   };
 
   delete = () => {
-    const {files, checkList} = this.props;
-    const {map} = files;
+    const {files, checkList, setDeleteQueue} = this.props;
+    const {map, list} = files;
     let delList = [];
 
     checkList.forEach((i) => {
       if (fs.isPath(i)) {
         delList = [...delList, ...fs.getFilesUnderPath(map, i)];
       } else {
-        delList = [...delList, i];
+        delList = [...delList, list.find(x => x._id === i)];
       }
     });
 
+    setDeleteQueue(delList);
   };
 
   render() {
@@ -157,6 +158,7 @@ Project.propTypes = {
   checkList: PropTypes.array.isRequired,
   checkListAdd: PropTypes.func.isRequired,
   checkListReset: PropTypes.func.isRequired,
+  setDeleteQueue: PropTypes.func.isRequired,
 };
 
 export default Project;

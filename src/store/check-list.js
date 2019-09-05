@@ -1,6 +1,7 @@
 import {USER_LOGOUT} from './user';
 import {SELECTED as PROJECT_SELECTED} from "./project";
 import {SELECTED as PATH_SELECTED} from "./path";
+import {FINISH as DELETE_QUEUE_FINISH} from "./delete-queue";
 
 export const ADD = '@check-list/ADD';
 export const REMOVE = '@check-list/REMOVE';
@@ -23,6 +24,7 @@ export default (state = initialState, action) => {
       const {item} = action.payload;
       return [...state.filter(x => x !== item)]
     }
+    case DELETE_QUEUE_FINISH:
     case RESET:
     case PATH_SELECTED:
     case PROJECT_SELECTED:

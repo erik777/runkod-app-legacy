@@ -10,12 +10,16 @@ html, body {
   height: 100%;
   position: absolute;
   width: 100%;
+  user-select: none;
 }
 
 #root {
   height: 100%;
   width: 100%;
-  user-select: none;
+}
+
+.user-select{
+  user-select: text;
 }
 
 @import '../components/pages/home/index';
@@ -28,6 +32,7 @@ html, body {
 
 @import '../components/dialogs/new-project/index';
 @import '../components/dialogs/upload-queue/index';
+@import '../components/dialogs/delete-queue/index';
 
 
 @import '../components/helper/message/index';

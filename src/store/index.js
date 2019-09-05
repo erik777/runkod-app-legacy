@@ -10,6 +10,7 @@ import project from './project';
 import path from './path';
 import files from './files';
 import uploadQueue from './upload-queue';
+import deleteQueue from './delete-queue';
 import checkList from './check-list';
 
 const createHistory = require('history').createBrowserHistory;
@@ -42,6 +43,7 @@ const combinedReducers = combineReducers({
   path,
   files,
   uploadQueue,
+  deleteQueue,
   checkList
 });
 

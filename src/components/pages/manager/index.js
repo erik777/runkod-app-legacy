@@ -21,6 +21,8 @@ import NewProjectDialog from '../../dialogs/new-project';
 
 import UploadQueueDialog from '../../dialogs/upload-queue';
 
+import DeleteQueueDialog from '../../dialogs/delete-queue';
+
 class ManagerPage extends Component {
 
   constructor(props) {
@@ -36,7 +38,7 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, project, uploadQueue} = this.props;
+    const {ui, projects, project, uploadQueue, deleteQueue} = this.props;
 
     const {loading} = projects;
     const {list} = projects;
@@ -44,9 +46,9 @@ class ManagerPage extends Component {
     return (
       <div className="manager-page">
         <div className="header">
-         <div className="logo">
-           <img src={logo} />
-         </div>
+          <div className="logo">
+            <img src={logo}/>
+          </div>
         </div>
 
         <div className="page-content">
@@ -82,6 +84,7 @@ class ManagerPage extends Component {
 
         {ui.newProject && <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
         {uploadQueue.started && <UploadQueueDialog  {...this.props} />}
+        {deleteQueue.show && <DeleteQueueDialog  {...this.props} />}
       </div>
     )
   }
@@ -95,11 +98,10 @@ ManagerPage.propTypes = {
     newProject: PropTypes.bool.isRequired
   }),
   uploadQueue: PropTypes.shape({
-    files: PropTypes.arrayOf(Object).isRequired,
-    completed: PropTypes.arrayOf(Object).isRequired,
-    failed: PropTypes.arrayOf(Object).isRequired,
-    skipped: PropTypes.arrayOf(Object).isRequired,
     started: PropTypes.bool.isRequired
+  }),
+  deleteQueue: PropTypes.shape({
+    show: PropTypes.bool.isRequired
   }),
   toggleUiProp: PropTypes.func.isRequired,
   projects: PropTypes.instanceOf(Object).isRequired,
