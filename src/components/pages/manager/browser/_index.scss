@@ -23,36 +23,9 @@
     padding: 6px 14px;
 
 
-    &.entry-folder {
+    &.entry-folder, &.entry-parent-folder {
       cursor: pointer;
     }
-
-
-    /*
-    &:hover {
-      background: $gray-100;
-
-      .entry-icon {
-        &.entry-icon-file {
-          .shape {
-            &:before {
-              border-color: $gray-100 $gray-100 rgba(255, 255, 255, .35) rgba(255, 255, 255, .35);
-            }
-          }
-        }
-
-        &.entry-icon-folder {
-          .shapes{
-            .shape2 {
-              &:before {
-                border-color: $gray-100 $gray-100 $primary $primary;
-              }
-            }
-          }
-        }
-      }
-    }
-*/
 
     .entry-header {
       position: relative;
@@ -173,14 +146,38 @@
       }
     }
 
+    &:hover {
+      background: $gray-100;
 
-    &:hover, &.checked {
       .entry-header {
         .entry-icon {
-          display: none;
+          &.entry-icon-folder {
+            .shapes {
+              .shape2 {
+                &:before {
+                  border-color: $gray-100 $gray-100 $primary $primary;
+                }
+              }
+            }
+          }
         }
       }
     }
+
+    &.entry-file, &.entry-folder {
+      &:hover, &.checked {
+        .entry-header {
+          .entry-icon {
+            display: none;
+          }
+        }
+      }
+
+      &.checked {
+        cursor: default;
+      }
+    }
+
 
     &:hover {
       background: $gray-100;

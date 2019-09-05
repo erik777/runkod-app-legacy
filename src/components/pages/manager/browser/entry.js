@@ -83,9 +83,12 @@ class ParentFolderEntry extends Component {
     return (
       <div onClick={() => {
         this.clicked(path)
-      }} key={path} className="browser-entry entry-folder">
-        <div className="select-input"/>
-        <Icon type="folder"/>
+      }} key={path} className="browser-entry entry-parent-folder">
+
+        <div className="entry-header">
+          <Icon type="folder"/>
+        </div>
+
         <div className="entry-name">..</div>
       </div>
     )
@@ -115,9 +118,17 @@ class FolderEntry extends Component {
     }
   };
 
-  clicked = (path) => {
-    // const {selectPath} = this.props;
-    // selectPath(path);
+  clicked = (e, path) => {
+
+    const {checkList} = this.props;
+    if (checkList.includes(path)) {
+      return false;
+    }
+
+    if (!(e.target.tagName.toLowerCase() === 'input')) {
+      const {selectPath} = this.props;
+      selectPath(path);
+    }
   };
 
   render() {
@@ -125,19 +136,15 @@ class FolderEntry extends Component {
     const checked = checkList.includes(path);
 
     return (
-      <div onClick={() => {
-        this.clicked(path)
-      }} className={`browser-entry entry-entry-folder ${checked ? 'checked' : ''}`}>
-
-
+      <div onClick={(e) => {
+        this.clicked(e, path)
+      }} className={`browser-entry entry-folder ${checked ? 'checked' : ''}`}>
         <div className="entry-header">
           <div className="select-input">
             <input checked={checked} type="checkbox" onChange={this.checked}/>
           </div>
           <Icon type="folder"/>
         </div>
-
-
         <div className="entry-label">
           {pathLabel(path)}
         </div>
