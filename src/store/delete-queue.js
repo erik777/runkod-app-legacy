@@ -8,7 +8,7 @@ const initialState = {
   completed: [],
   failed: [],
   log: [],
-  current: null,
+  current: '',
   show: false,
   inProgress: false
 };
@@ -51,14 +51,14 @@ export default (state = initialState, action) => {
       const completed = [...state.completed, file];
       const path = `${file.parent}${file.label}`;
       const log = [...state.log, {type: 'success', msg: `${path} deleted`}];
-      return Object.assign({}, state, {files, completed, current: null, log});
+      return Object.assign({}, state, {files, completed, current: '', log});
     }
     case FILE_ERROR: {
       const [file, ...files] = state.files;
       const failed = [...state.failed, file];
       const path = `${file.parent}${file.label}`;
       const log = [...state.log, {type: 'error', msg: `${path} could not delete`}];
-      return Object.assign({}, state, {files, failed, current: null, log});
+      return Object.assign({}, state, {files, failed, current: '', log});
     }
     case RESET:
       return initialState;

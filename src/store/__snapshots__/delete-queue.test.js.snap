@@ -3,7 +3,7 @@
 exports[`1- default state 1`] = `
 Object {
   "completed": Array [],
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [],
   "inProgress": false,
@@ -15,7 +15,7 @@ Object {
 exports[`2- set. 2 items in "files". 1`] = `
 Object {
   "completed": Array [],
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [
     Object {
@@ -36,7 +36,7 @@ Object {
 exports[`3- start 1`] = `
 Object {
   "completed": Array [],
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [
     Object {
@@ -83,7 +83,7 @@ Object {
       "parent": "/",
     },
   ],
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [
     Object {
@@ -137,7 +137,7 @@ Object {
       "parent": "/",
     },
   ],
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "label": "main.js",
@@ -168,7 +168,7 @@ Object {
       "parent": "/",
     },
   ],
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "label": "main.js",
@@ -194,7 +194,7 @@ Object {
 exports[`9- reset 1`] = `
 Object {
   "completed": Array [],
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [],
   "inProgress": false,
