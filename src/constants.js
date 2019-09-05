@@ -6,7 +6,7 @@ export const WEBSITE_STATUS_DELETED = 4;
 export const DEFAULT_BUCKET_NAME = 'default';
 
 
-export const NAME_SUFFIX = '.trentter.com';
+export const NAME_SUFFIX = '.runkodapps.com';
 export const NAME_MAX_LENGTH = 16;
 export const CUSTOM_NAME_MAX_LENGTH = 60;
 
