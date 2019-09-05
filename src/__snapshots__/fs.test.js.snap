@@ -232,3 +232,28 @@ exports[`8- parent path 1`] = `"/static/media/fonts/foo/"`;
 exports[`9- parent path 1`] = `"/"`;
 
 exports[`10- parent path 1`] = `null`;
+
+exports[`11- getFilesUnderPath 1`] = `
+Array [
+  Object {
+    "name": "amg.json",
+    "parent": "/cars/sport/mercedes/",
+  },
+  Object {
+    "name": "s300.json",
+    "parent": "/cars/sport/mercedes/",
+  },
+  Object {
+    "name": "e180.json",
+    "parent": "/cars/sport/mercedes/",
+  },
+  Object {
+    "name": "m3.json",
+    "parent": "/cars/sport/bmw/",
+  },
+  Object {
+    "name": "m5.json",
+    "parent": "/cars/sport/bmw/",
+  },
+]
+`;

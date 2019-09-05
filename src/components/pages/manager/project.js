@@ -40,7 +40,12 @@ class Project extends Component {
   };
 
   delete = () => {
-    console.log("delete")
+    const {files, checkList} = this.props;
+    const {map} = files;
+
+    fs.getFilesUnderPath(map, checkList[0]);
+
+
   };
 
   render() {

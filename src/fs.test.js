@@ -164,3 +164,45 @@ it('10- parent path', () => {
   const result = fs.parentPath(path);
   expect(result).toMatchSnapshot();
 });
+
+
+it('11- getFilesUnderPath', () => {
+
+  const files = [
+    {
+      parent: '/cars/sport/mercedes/',
+      name: 'amg.json'
+    },
+    {
+      parent: '/cars/sport/mercedes/',
+      name: 's300.json'
+    },
+    {
+      parent: '/cars/sport/mercedes/',
+      name: 'e180.json'
+    },
+
+    {
+      parent: '/cars/sport/bmw/',
+      name: 'm3.json'
+    },
+    {
+      parent: '/cars/sport/bmw/',
+      name: 'm5.json'
+    },
+    {
+      parent: '/bikes/sport/yamaha/',
+      name: 'f1.json'
+    },
+    {
+      parent: '/bikes/naked/yamaha/',
+      name: 'fz8.json'
+    }
+  ];
+
+  const map = fs.buildPathMap(files);
+
+  let rv = [];
+  const result = fs.getFilesUnderPath(map, '/cars/', rv);
+  expect(result).toMatchSnapshot();
+});

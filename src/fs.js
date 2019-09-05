@@ -27,7 +27,7 @@ const generatePaths = (path) => {
   });
 };
 
-export const buildPathMap = (files) => {
+const buildPathMap = (files) => {
   let paths = [BASE_PATH];
 
   files.forEach(x => {
@@ -55,7 +55,7 @@ export const buildPathMap = (files) => {
   return m;
 };
 
-export const pathLabel = (path) => {
+const pathLabel = (path) => {
   /*
   Returns label of a path
 
@@ -67,7 +67,7 @@ export const pathLabel = (path) => {
   return pathToArr(path).slice(-1);
 };
 
-export const parentPath = (path) => {
+const parentPath = (path) => {
   /*
     Returns parent path of a path
 
@@ -85,11 +85,33 @@ export const parentPath = (path) => {
   return parentArr.length === 0 ? BASE_PATH : arrToPath(parentArr);
 };
 
+const pathWalk = (map, path, rv) => {
+  for (let folder of map[path]['folders']) {
+    rv.push(folder);
+    pathWalk(map, folder, rv)
+  }
+};
+
+
+const getFilesUnderPath = (map, path) => {
+  let folders = [];
+  let files = [];
+  pathWalk(map, path, folders);
+
+  folders.forEach(x => {
+    files = [...files, ...map[x]['files']]
+  });
+
+  return files
+};
+
 export default {
   arrToPath,
   pathToArr,
   generatePaths,
   buildPathMap,
   pathLabel,
-  parentPath
+  parentPath,
+  pathWalk,
+  getFilesUnderPath
 };

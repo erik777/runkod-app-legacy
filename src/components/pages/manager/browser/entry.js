@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import fileSize from 'filesize';
 
-import {pathLabel} from '../../../../fs';
+import fs from '../../../../fs';
 
 class Icon extends Component {
   render() {
@@ -146,7 +146,7 @@ class FolderEntry extends Component {
           <Icon type="folder"/>
         </div>
         <div className="entry-label">
-          {pathLabel(path)}
+          {fs.pathLabel(path)}
         </div>
       </div>
     )
