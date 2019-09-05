@@ -6,7 +6,10 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+
 import {Button} from 'react-bootstrap';
+
+import logo from '../../../images/logo-rect-white.png';
 
 import {_t} from '../../../i18n';
 
@@ -41,7 +44,9 @@ class ManagerPage extends Component {
     return (
       <div className="manager-page">
         <div className="header">
-          <span/>
+         <div className="logo">
+           <img src={logo} />
+         </div>
         </div>
 
         <div className="page-content">
