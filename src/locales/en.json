@@ -17,6 +17,11 @@
     },
     "side-menu": {
       "new-project": "New Project"
+    },
+    "project": {
+      "item-selected": "1 item selected",
+      "items-selected": "{{n}} items selected",
+      "all-items-selected": "All items selected"
     }
   },
   "new-project-dialog": {

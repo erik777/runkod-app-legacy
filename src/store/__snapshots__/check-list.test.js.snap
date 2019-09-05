@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default state 1`] = `Array []`;
+
+exports[`2- add  1`] = `
+Array [
+  "foo",
+]
+`;
+
+exports[`3- add  1`] = `
+Array [
+  "foo",
+  "bar",
+]
+`;
+
+exports[`4- add  1`] = `
+Array [
+  "foo",
+  "bar",
+  "baz",
+]
+`;
+
+exports[`4- remove  1`] = `
+Array [
+  "foo",
+  "baz",
+]
+`;
+
+exports[`5- remove  1`] = `
+Array [
+  "baz",
+]
+`;
+
+exports[`6- remove  1`] = `Array []`;
+
+exports[`7 add  1`] = `
+Array [
+  "bar",
+  "baz",
+]
+`;
+
+exports[`8 reset  1`] = `Array []`;
+
+exports[`9 add  1`] = `
+Array [
+  "bar",
+  "baz",
+]
+`;
+
+exports[`10 add  1`] = `
+Array [
+  "bar",
+  "baz",
+]
+`;

@@ -19,13 +19,16 @@
   .browser-entry {
     display: flex;
     align-items: center;
-    margin: 0 0 4px 0;
-    padding: 4px 14px;
+    margin-bottom: 1px;
+    padding: 6px 14px;
+
 
     &.entry-folder {
       cursor: pointer;
     }
 
+
+    /*
     &:hover {
       background: $gray-100;
 
@@ -49,41 +52,89 @@
         }
       }
     }
+*/
 
-    .select-input {
-      width: 30px;
-      display: flex;
-      align-items: center;
-      height: 100%;
-    }
-
-    .entry-icon {
+    .entry-header {
+      position: relative;
       width: 40px;
       height: 32px;
-      display: flex;
-      align-items: center;
 
-      &.entry-icon-folder {
-        .shapes {
-          height: 24px;
-          position: relative;
+      .select-input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        z-index: 1;
+        padding-left: 4px;
 
-          .shape1, .shape2 {
-            background: $primary;
-            position: absolute;
-            left: 0;
+      }
+
+      .entry-icon {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        z-index: 2;
+
+        &.entry-icon-folder {
+          .shapes {
+            height: 24px;
+            position: relative;
+
+            .shape1, .shape2 {
+              background: $primary;
+              position: absolute;
+              left: 0;
+            }
+
+            .shape1 {
+              width: 28px;
+              height: 20px;
+              top: 4px
+            }
+
+            .shape2 {
+              top: 0;
+              width: 16px;
+              height: 4px;
+
+              &:before {
+                display: block;
+                content: "";
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 0;
+                height: 0;
+                border-width: 2px;
+                border-style: solid;
+                border-color: $white $white $primary $primary;
+              }
+            }
           }
+        }
 
-          .shape1 {
+        &.entry-icon-file {
+          .shape {
             width: 28px;
-            height: 20px;
-            top: 4px
-          }
+            height: 28px;
+            background: $gray-200;
+            position: relative;
 
-          .shape2 {
-            top: 0;
-            width: 16px;
-            height: 4px;
+            .type-name {
+              position: absolute;
+              bottom: 3px;
+              left: 2px;
+              font-size: 12px;
+              width: 100%;
+              line-height: 100%;
+            }
 
             &:before {
               display: block;
@@ -93,73 +144,50 @@
               right: 0;
               width: 0;
               height: 0;
-              border-width: 2px;
+              border-width: 5px;
               border-style: solid;
-              border-color: $white $white $primary $primary;
+              border-color: $white $white rgba(255, 255, 255, .35) rgba(255, 255, 255, .35);
             }
+          }
+
+          &.icon-image {
+            color: $green;
+          }
+
+          &.icon-js {
+            color: $indigo;
+          }
+
+          &.icon-json {
+            color: $primary
+          }
+
+          &.icon-css {
+            color: $pink;
+          }
+
+          &.icon-html {
+            color: $orange;
           }
         }
       }
+    }
 
-      &.entry-icon-file {
-        .shape {
-          width: 24px;
-          height: 28px;
-          background: $gray-200;
-          position: relative;
 
-          .type-name {
-            position: absolute;
-            bottom: 3px;
-            left: 2px;
-            font-size: 12px;
-            width: 100%;
-            line-height: 100%;
-          }
-
-          &:before {
-            display: block;
-            content: "";
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 0;
-            height: 0;
-            border-width: 5px;
-            border-style: solid;
-            border-color: $white $white rgba(255, 255, 255, .35) rgba(255, 255, 255, .35);
-          }
-        }
-
-        &.icon-image {
-          .type-name {
-            left: 1px;
-            bottom: 1px;
-
-            svg {
-              fill: $green;
-              width: 18px;
-              height: 18px;
-            }
-          }
-        }
-
-        &.icon-js {
-          color: $indigo;
-        }
-
-        &.icon-json {
-          color: $primary
-        }
-
-        &.icon-css {
-          color: $pink;
-        }
-
-        &.icon-html {
-          color: $orange;
+    &:hover, &.checked {
+      .entry-header {
+        .entry-icon {
+          display: none;
         }
       }
+    }
+
+    &:hover {
+      background: $gray-100;
+    }
+
+    &.checked {
+      background: lighten($primary, 46)
     }
 
     .entry-label {

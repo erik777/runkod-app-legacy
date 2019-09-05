@@ -6,9 +6,7 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-
 import {_t} from '../../../i18n';
-
 
 import {chevronBottomSvg, chevronRightSvg, plusSvg} from '../../../svg';
 

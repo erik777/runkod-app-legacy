@@ -15,14 +15,52 @@
       display: flex;
       align-items: center;
       height: 100%;
+      margin-left: 4px;
+      border-right: 1px solid $gray-200;
     }
 
-    .full-path {
+    .refresh-btn {
+      width: 34px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      border-right: 1px solid $gray-200;
+      margin: 0 4px 0 10px;
+
+      .inner-btn {
+        width: 22px;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        svg {
+          width: 22px;
+          height: 22px;
+          fill: $gray-600;
+        }
+      }
+
+      &.disabled {
+        .inner-btn {
+          pointer-events: none;
+
+          svg {
+            fill: $gray-300;
+          }
+        }
+      }
+    }
+
+    .full-path, .items-selected {
       color: $gray-600;
       font-size: 16px;
       flex-grow: 1;
       padding: 0 10px 0 0;
+      margin-left: 10px;
+    }
 
+    .full-path {
       .path {
         cursor: pointer;
 
@@ -30,12 +68,34 @@
           color: $primary;
           text-decoration: underline;
         }
-
       }
 
       .separator {
         margin: 0 4px;
+      }
+    }
 
+    .items-selected {
+      display: flex;
+      align-items: center;
+
+      .selected-label {
+        margin-right: 10px;
+      }
+
+      .delete-btn {
+        cursor: pointer;
+        display: flex;
+        height: 22px;
+        line-height: 0;
+
+        .inner-btn {
+          svg {
+            width: 22px;
+            height: 22px;
+            fill: $gray-600;
+          }
+        }
       }
     }
 
@@ -53,6 +113,4 @@
       }
     }
   }
-
-
 }

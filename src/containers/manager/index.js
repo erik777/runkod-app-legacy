@@ -11,6 +11,8 @@ import {selectProject} from '../../store/project';
 import {fetchFiles} from '../../store/files';
 import {selectPath} from '../../store/path';
 import {setUploadQueue, startUploadQueue, setUploadQueueConflictFlag, resetUploadQueue} from '../../store/upload-queue';
+import {checkListAdd, checkListDelete, checkListReset} from '../../store/check-list';
+
 
 class ManagerContainer extends Component {
   render() {
@@ -18,14 +20,15 @@ class ManagerContainer extends Component {
   }
 }
 
-const mapStateToProps = ({user, ui, projects, project, path, files, uploadQueue}) => ({
+const mapStateToProps = ({user, ui, projects, project, path, files, uploadQueue, checkList}) => ({
   user,
   ui,
   projects,
   project,
   path,
   files,
-  uploadQueue
+  uploadQueue,
+  checkList
 });
 
 const mapDispatchToProps = dispatch =>
@@ -40,7 +43,10 @@ const mapDispatchToProps = dispatch =>
       setUploadQueue,
       startUploadQueue,
       setUploadQueueConflictFlag,
-      resetUploadQueue
+      resetUploadQueue,
+      checkListAdd,
+      checkListDelete,
+      checkListReset
     },
     dispatch
   );

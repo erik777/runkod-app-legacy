@@ -24,7 +24,7 @@ export const FETCHED = '@files/FETCHED';
 export default (state = initialState, action) => {
   switch (action.type) {
     case START_FETCH:
-      return Object.assign({}, state, {loading: true});
+      return Object.assign({}, state, {loading: true, list:[], map: null});
     case FETCHED:
       const {files} = action.payload;
       const list = files.map(x => ({...x.attrs}));

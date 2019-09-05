@@ -10,6 +10,7 @@ import project from './project';
 import path from './path';
 import files from './files';
 import uploadQueue from './upload-queue';
+import checkList from './check-list';
 
 const createHistory = require('history').createBrowserHistory;
 
@@ -40,7 +41,8 @@ const combinedReducers = combineReducers({
   project,
   path,
   files,
-  uploadQueue
+  uploadQueue,
+  checkList
 });
 
 export default createStore(
