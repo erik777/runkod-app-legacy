@@ -170,6 +170,10 @@ it('11- getFilesUnderPath', () => {
 
   const files = [
     {
+      parent: '/cars/',
+      name: 'index.json'
+    },
+    {
       parent: '/cars/sport/mercedes/',
       name: 'amg.json'
     },
@@ -205,4 +209,15 @@ it('11- getFilesUnderPath', () => {
   let rv = [];
   const result = fs.getFilesUnderPath(map, '/cars/', rv);
   expect(result).toMatchSnapshot();
+
+
+  const result2 = fs.getFilesUnderPath(map, '/cars/sport/mercedes/', rv);
+  expect(result2).toMatchSnapshot();
+
+
+  const result3 = fs.getFilesUnderPath(map, '/cars/sport/bmw/', rv);
+  expect(result3).toMatchSnapshot();
+
+  const result4 = fs.getFilesUnderPath(map, '/', rv);
+  expect(result4).toMatchSnapshot();
 });

@@ -94,7 +94,7 @@ const pathWalk = (map, path, rv) => {
 
 
 const getFilesUnderPath = (map, path) => {
-  let folders = [];
+  let folders = [path];
   let files = [];
   pathWalk(map, path, folders);
 
