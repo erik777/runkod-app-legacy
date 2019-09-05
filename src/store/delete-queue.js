@@ -154,7 +154,7 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
     }
     */
 
-    dispatch(fileOkAct());
+    dispatch(fileErrorAct());
   }
 };
 

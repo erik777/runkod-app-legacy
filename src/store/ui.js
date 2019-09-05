@@ -1,10 +1,12 @@
 import {USER_LOGOUT} from './user';
 
 export const TOGGLE_NEW_PROJECT = '@ui/TOGGLE_NEW_PROJECT';
+export const TOGGLE_DELETE_DETAIL = '@ui/TOGGLE_DELETE_DETAIL';
 export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
 
 const initialState = {
   newProject: false,
+  deleteDetail: false,
   deleteSummaryDetail: false
 };
 
@@ -16,6 +18,8 @@ export default (state = initialState, action) => {
       return initialState;
     case TOGGLE_NEW_PROJECT:
       return Object.assign({}, state, {newProject: action.payload.what});
+    case TOGGLE_DELETE_DETAIL:
+      return Object.assign({}, state, {deleteDetail: action.payload.what});
     case TOGGLE_DELETE_SUMMARY_DETAIL:
       return Object.assign({}, state, {deleteSummaryDetail: action.payload.what});
     default:
@@ -34,6 +38,9 @@ export const toggleUiProp = (what) => {
     switch (what) {
       case 'newProject':
         act = TOGGLE_NEW_PROJECT;
+        break;
+      case 'deleteDetail':
+        act = TOGGLE_DELETE_DETAIL;
         break;
       case 'deleteSummaryDetail':
         act = TOGGLE_DELETE_SUMMARY_DETAIL;

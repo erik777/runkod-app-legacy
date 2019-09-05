@@ -80,6 +80,49 @@
       font-size: 20px;
     }
 
+    .details {
+      margin-bottom: 20px;
+
+      .show-details {
+        color: $gray-600;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: underline;
+      }
+
+      .detail-list {
+        margin-top: 10px;
+        text-align: left;
+        max-height: 300px;
+        padding: 10px;
+        overflow: auto;
+
+        .detail-list-item {
+          display: flex;
+          background: $gray-100;
+          padding: 4px;
+
+          &:not(:last-child) {
+            margin-bottom: 8px;
+          }
+
+          .index {
+            width: 36px;
+            color: $gray-700;
+            font-weight: 500;
+          }
+
+          .path {
+            color: $gray-700;
+            width: calc(100% - 36px);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+
     .controls {
       display: flex;
       justify-content: center;

@@ -6,22 +6,18 @@ import {Modal, Button, ProgressBar} from 'react-bootstrap';
 
 import {_t} from '../../../i18n';
 
-
-
 class DeleteQueueDialog extends Component {
 
-
   componentDidUpdate(prevProps) {
-    const {deleteQueue: queue, resetDeleteQueue, fetchFiles} = this.props;
+    const {deleteQueue: queue, fetchFiles} = this.props;
     const {files, failed} = queue;
 
     // everything went smooth. reset queue.
     if (files.length === 0 && failed.length === 0) {
-      resetDeleteQueue();
       fetchFiles();
+      this.hide();
     }
   }
-
 
   confirm = () => {
     const {startDeleteQueue} = this.props;
@@ -29,18 +25,29 @@ class DeleteQueueDialog extends Component {
   };
 
   cancel = () => {
-    const {resetDeleteQueue, fetchFiles} = this.props;
-    resetDeleteQueue();
-    // fetchFiles();
+    this.hide();
   };
 
   close = () => {
-    const {resetDeleteQueue, fetchFiles} = this.props;
-    resetDeleteQueue();
+    const {fetchFiles} = this.props;
     fetchFiles();
+    this.hide();
   };
 
-  deleteSummaryMore = () => {
+  hide = () => {
+    const {resetDeleteQueue, toggleUiProp, ui} = this.props;
+    resetDeleteQueue();
+
+    if (ui.deleteDetail) toggleUiProp('deleteDetail');
+    if (ui.deleteSummaryDetail) toggleUiProp('deleteSummaryDetail');
+  };
+
+  toggleDetails = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('deleteDetail');
+  };
+
+  toggleSummaryDetails = () => {
     const {toggleUiProp} = this.props;
     toggleUiProp('deleteSummaryDetail');
   };
@@ -76,10 +83,9 @@ class DeleteQueueDialog extends Component {
                     </span>
                     }
                   </div>
-
                   <div className="details">
                     <span className="show-details"
-                          onClick={this.deleteSummaryMore}>{_t('delete-queue-dialog.show-details')}</span>
+                          onClick={this.toggleSummaryDetails}>{_t('delete-queue-dialog.show-details')}</span>
                     {ui.deleteSummaryDetail &&
                     <div className="detail-list user-select">
                       {log.map((l, i) => {
@@ -112,6 +118,21 @@ class DeleteQueueDialog extends Component {
                 <div className="title">
                   {files.length === 1 ? _t('delete-queue-dialog.confirm') : _t('delete-queue-dialog.n-confirm', {n: files.length})}
                 </div>
+
+                <div className="details">
+                    <span className="show-details"
+                          onClick={this.toggleDetails}>{_t('delete-queue-dialog.show-details')}</span>
+                  {ui.deleteDetail &&
+                  <div className="detail-list">
+                    {files.map((f, i) => {
+                      return <div key={i} className="detail-list-item">
+                        <div className="index">{i + 1}</div><div className="path">{`${f.parent}${f.label}`}</div>
+                      </div>;
+                    })}
+                  </div>
+                  }
+                </div>
+
                 <div className="controls">
                   <Button size="sm" variant="primary" onClick={this.confirm}>{_t('g.delete')}</Button>
                   <span className="separator"/>
