@@ -23,7 +23,7 @@ import {
   NAME_MAX_LENGTH,
   CUSTOM_NAME_MAX_LENGTH,
   WEBSITE_STATUS_ON,
-  DEFAULT_BUCKET_NAME
+  DEFAULT_TAG_NAME
 } from '../../../constants';
 
 
@@ -100,7 +100,7 @@ class NewProjectDialog extends Component {
       name: fullName,
       username: getUsername(),
       custom,
-      bucket: DEFAULT_BUCKET_NAME,
+      tag: DEFAULT_TAG_NAME,
       status: WEBSITE_STATUS_ON
     });
     const [err,] = await to(p.save());

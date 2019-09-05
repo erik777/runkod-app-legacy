@@ -19,8 +19,8 @@ export class Project extends Model {
       type: Boolean,
       decrypted: true
     },
-    // Active bucket name
-    bucket: {
+    // Active tag name
+    tag: {
       type: String,
       decrypted: true
     },
@@ -33,8 +33,8 @@ export class Project extends Model {
 }
 
 
-export class Bucket extends Model {
-  static className = 'bucket';
+export class Tag extends Model {
+  static className = 'tag';
 
   static schema = {
     // Website _id
@@ -42,7 +42,7 @@ export class Bucket extends Model {
       type: String,
       decrypted: true
     },
-    // Bucket name
+    // Tag name
     name: {
       type: String,
       decrypted: true
@@ -65,7 +65,7 @@ export class File extends Model {
       type: String,
       decrypted: true
     },
-    bucket: {
+    tag: {
       type: String,
       decrypted: true
     },

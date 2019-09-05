@@ -3,7 +3,7 @@ export const WEBSITE_STATUS_MAINTENANCE = 2;
 export const WEBSITE_STATUS_OFF = 3;
 export const WEBSITE_STATUS_DELETED = 4;
 
-export const DEFAULT_BUCKET_NAME = 'default';
+export const DEFAULT_TAG_NAME = 'default';
 
 
 export const NAME_SUFFIX = '.runkodapps.com';

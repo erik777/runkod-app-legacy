@@ -50,7 +50,7 @@ export const fetchFiles = () => async (dispatch, getState) => {
 
   dispatch(fetchFilesAct());
 
-  const filter = {project: project._id, bucket: project.bucket, sort: 'createdAt'};
+  const filter = {project: project._id, tag: project.tag, sort: 'createdAt'};
   const [err, resp] = await to(File.fetchOwnList(filter));
 
   if (err) {
