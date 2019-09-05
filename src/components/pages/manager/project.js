@@ -42,9 +42,15 @@ class Project extends Component {
   delete = () => {
     const {files, checkList} = this.props;
     const {map} = files;
+    let delList = [];
 
-    fs.getFilesUnderPath(map, checkList[0]);
-
+    checkList.forEach((i) => {
+      if (fs.isPath(i)) {
+        delList = [...delList, ...fs.getFilesUnderPath(map, i)];
+      } else {
+        delList = [...delList, i];
+      }
+    });
 
   };
 

@@ -221,3 +221,9 @@ it('11- getFilesUnderPath', () => {
   const result4 = fs.getFilesUnderPath(map, '/', rv);
   expect(result4).toMatchSnapshot();
 });
+
+
+it('11- isPath', () => {
+  expect(fs.isPath('arandomtext')).toMatchSnapshot();
+  expect(fs.isPath('/cars/')).toMatchSnapshot();
+});

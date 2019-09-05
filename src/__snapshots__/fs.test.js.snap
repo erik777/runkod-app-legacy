@@ -328,3 +328,7 @@ Array [
   },
 ]
 `;
+
+exports[`11- isPath 1`] = `false`;
+
+exports[`11- isPath 2`] = `true`;

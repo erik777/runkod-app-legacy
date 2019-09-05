@@ -5,6 +5,8 @@ const arrToPath = (arr) => `${PATH_SEPARATOR}${arr.join(PATH_SEPARATOR)}${PATH_S
 
 const pathToArr = (path) => path.split(PATH_SEPARATOR).filter((x) => x !== '');
 
+const isPath = (st) => st.startsWith(BASE_PATH);
+
 const generatePaths = (path) => {
   /*
   Generates all possible paths from a path
@@ -108,6 +110,7 @@ const getFilesUnderPath = (map, path) => {
 export default {
   arrToPath,
   pathToArr,
+  isPath,
   generatePaths,
   buildPathMap,
   pathLabel,
