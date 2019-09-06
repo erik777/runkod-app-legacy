@@ -128,7 +128,7 @@ test('3- in progress', () => {
 test('4- completed', () => {
   const props = {
     deleteQueue: {
-      current: '/file1.json',
+      current: '',
       inProgress: false,
       files: [],
       completed: [{
@@ -165,23 +165,17 @@ test('4- completed', () => {
 test('5- completed. show detail', () => {
   const props = {
     deleteQueue: {
-      current: '/file1.json',
+      current: '',
       inProgress: false,
       files: [],
       completed: [{
         parent: '/',
         label: 'file1.json'
-      }, {
-        parent: '/',
-        label: 'file2.json'
       }],
       failed: [],
       log: [{
         type: 'success',
         msg: '/file1.json deleted'
-      }, {
-        type: 'success',
-        msg: '/file2.json deleted'
       }]
     },
     ui: {
@@ -208,13 +202,17 @@ test('5- completed. show detail', () => {
 test('6- show details with error', () => {
   const props = {
     deleteQueue: {
-      current: '/file1.json',
+      current: '',
       inProgress: false,
       files: [],
       completed: [{
         parent: '/',
         label: 'file1.json'
-      }],
+      },
+        {
+          parent: '/',
+          label: 'file3.json'
+        }],
       failed: [ {
         parent: '/',
         label: 'file2.json'
@@ -222,10 +220,14 @@ test('6- show details with error', () => {
       log: [{
         type: 'success',
         msg: '/file1.json deleted'
-      }, {
+      },
+        {
         type: 'error',
         msg: '/file2.json could not delete'
-      }]
+      },{
+          type: 'success',
+          msg: '/file1.json deleted'
+        }]
     },
     ui: {
       deleteDetail: false,

@@ -217,7 +217,7 @@ exports[`5- completed. show detail 1`] = `
     <span
       className="summary-item completed"
     >
-      2 files deleted
+      1 file deleted
     </span>
   </div>
   <div
@@ -236,11 +236,6 @@ exports[`5- completed. show detail 1`] = `
         className="detail-list-item success"
       >
         /file1.json deleted
-      </div>
-      <div
-        className="detail-list-item success"
-      >
-        /file2.json deleted
       </div>
     </div>
   </div>
@@ -274,7 +269,7 @@ exports[`6- show details with error 1`] = `
     <span
       className="summary-item completed"
     >
-      1 file deleted
+      2 files deleted
     </span>
     <span
       className="summary-item failed"
@@ -303,6 +298,11 @@ exports[`6- show details with error 1`] = `
         className="detail-list-item error"
       >
         /file2.json could not delete
+      </div>
+      <div
+        className="detail-list-item success"
+      >
+        /file1.json deleted
       </div>
     </div>
   </div>
