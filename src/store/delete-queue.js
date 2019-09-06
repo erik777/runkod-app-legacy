@@ -1,7 +1,9 @@
 import to from 'await-to-js';
 
 import {USER_LOGOUT} from './user';
+import {File} from "../model";
 
+import {userSession} from '../blockstack-config';
 
 const initialState = {
   files: [],
@@ -22,9 +24,6 @@ export const FILE_START = '@delete-queue/FILE_STARTED';
 export const FILE_OK = '@delete-queue/FILE_OK';
 export const FILE_ERROR = '@delete-queue/FILE_ERROR';
 export const RESET = '@delete-queue/RESET';
-
-
-const wait = ms => new Promise((r, j) => setTimeout(r, ms));
 
 
 /* Reducer */
@@ -88,73 +87,48 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
       break;
     }
 
-    const {path, project} = getState();
+    const { project} = getState();
 
     const [file,] = files;
 
-
-    const fullPath = `${file.parent}${file.label}`;
     dispatch(fileStartAct());
 
-
-    await to(wait(1000));
-
-
-    /*
-
-    const parent = `${path}${file.path}`;
-    const fullPath = `${parent}${file.name}`;
-
-    dispatch(fileStartAct(fullPath));
-
-    const fileS = file.name.split('.');
-    const fileExt = fileS.length > 1 ? `.${fileS[fileS.length - 1]}`.toLowerCase() : '';
-    const gaiaFileName = md5(`${project._id}-${project.tag}-${file.name}`) + fileExt;
-
-    // Check if file exists
-    const [err1, rFiles] = await to(getFileRecordsByFilters({project: project._id, tag: project.tag, fullPath}));
+    // Get radiks record of file
+    const [err1, fileRecs] = await to(File.fetchOwnList({project: project._id, name: file.name}));
 
     if (err1) {
       dispatch(fileErrorAct());
       continue;
     }
 
-    // Upload file to gaia
-    const [err2, address] = await to(putFile(gaiaFileName, file.type, file.buffer));
+    if (fileRecs.length === 0) {
+      dispatch(fileErrorAct());
+      continue;
+    }
+
+    const fileRec = fileRecs[0];
+
+    // Overwrite file (on gaia) with 1 byte array
+    const [err2, ] = await to(userSession.putFile(file.name, new ArrayBuffer(1), {
+      encrypt: false,
+      contentType: file.type
+    }));
 
     if (err2) {
       dispatch(fileErrorAct());
       continue;
     }
 
-    if (rFiles.length > 0) {
-      // File overwritten on gaia. No need to create record.
-      dispatch(fileOkAct());
-      continue;
-    }
+    // Save radiks record
+    fileRec.update({deleted: true});
 
-    // Create file record
-    const props = {
-      project: project._id,
-      username: getUsername(),
-      tag: project.tag,
-      parent,
-      fullPath,
-      name: gaiaFileName,
-      label: file.name,
-      address,
-      size: file.size,
-      type: file.type
-    };
-
-    const [err3,] = await to(createFileRecord(props));
+    const [err3,] = await to(fileRec.save());
     if (err3) {
       dispatch(fileErrorAct());
       continue;
     }
-    */
 
-    dispatch(fileErrorAct());
+    dispatch(fileOkAct());
   }
 };
 

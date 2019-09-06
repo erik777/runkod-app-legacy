@@ -24,7 +24,7 @@ export const FETCHED = '@files/FETCHED';
 export default (state = initialState, action) => {
   switch (action.type) {
     case START_FETCH:
-      return Object.assign({}, state, {loading: true, list:[], map: null});
+      return Object.assign({}, state, {loading: true, list: [], map: null});
     case FETCHED:
       const {files} = action.payload;
       const list = files.map(x => ({...x.attrs}));
@@ -50,7 +50,7 @@ export const fetchFiles = () => async (dispatch, getState) => {
 
   dispatch(fetchFilesAct());
 
-  const filter = {project: project._id, tag: project.tag, sort: 'createdAt'};
+  const filter = {project: project._id, tag: project.tag, deleted: false, sort: 'createdAt'};
   const [err, resp] = await to(File.fetchOwnList(filter));
 
   if (err) {

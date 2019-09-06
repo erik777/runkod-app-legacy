@@ -132,10 +132,10 @@ export const startUploadQueue = () => async (dispatch, getState) => {
 
     const fileS = file.name.split('.');
     const fileExt = fileS.length > 1 ? `.${fileS[fileS.length - 1]}`.toLowerCase() : '';
-    const gaiaFileName = md5(`${project._id}-${project.tag}-${file.name}`) + fileExt;
+    const gaiaFileName = md5(`${project._id}-${Date.now()}`) + fileExt;
 
     // Check if file exists
-    const [err1, rFiles] = await to(getFileRecordsByFilters({project: project._id, tag: project.tag, fullPath}));
+    const [err1, rFiles] = await to(getFileRecordsByFilters({project: project._id, tag: project.tag, fullPath, deleted: false}));
 
     if (err1) {
       dispatch(fileErrorAct());
@@ -180,7 +180,8 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       label: file.name,
       address,
       size: file.size,
-      type: file.type
+      type: file.type,
+      deleted: false
     };
 
     const [err3,] = await to(createFileRecord(props));
