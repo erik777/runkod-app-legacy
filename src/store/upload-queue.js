@@ -15,21 +15,8 @@ import {
   CONFLICT_FLAG_NO_ALL
 } from '../constants';
 
-// Blockstack functions
 
-const putFile = (name, type, buffer) => userSession.putFile(name, buffer, {
-  encrypt: false,
-  contentType: type
-});
-
-const getFileRecordsByFilters = (filter) => File.fetchOwnList(filter);
-
-const createFileRecord = (props) => {
-  const f = new File(props);
-  return f.save();
-};
-
-// Helper to switch conflict flag on FILE_OK, FILE_ERROR, FILE_SKIPPED
+// Helper to switch conflict flag on FILE_OK, FILE_ERROR, FILE_SKIP
 const switchCF = (state) => {
   return [CONFLICT_FLAG_YES, CONFLICT_FLAG_NO].includes(state.conflictFlag) ? CONFLICT_FLAG_NONE : state.conflictFlag;
 };
@@ -49,12 +36,12 @@ const initialState = {
 /* Action types */
 
 export const SET = '@upload-queue/SET';
-export const FINISHED = '@upload-queue/FINISHED';
-export const FILE_STARTED = '@upload-queue/FILE_STARTED';
+export const FINISH = '@upload-queue/FINISH';
+export const FILE_START = '@upload-queue/FILE_START';
 export const FILE_OK = '@upload-queue/FILE_OK';
 export const FILE_ERROR = '@upload-queue/FILE_ERROR';
-export const FILE_SKIPPED = '@upload-queue/FILE_SKIPPED';
-export const FILE_CONFLICTED = '@upload-queue/FILE_CONFLICTED';
+export const FILE_SKIP = '@upload-queue/FILE_SKIP';
+export const FILE_CONFLICT = '@upload-queue/FILE_CONFLICT';
 export const CONFLICT_FLAG_SET = '@upload-queue/CONFLICT_FLAG_SET';
 export const RESET = '@upload-queue/RESET';
 
@@ -67,7 +54,7 @@ export default (state = initialState, action) => {
       const {files} = action.payload;
       return Object.assign({}, state, {files, started: true});
     }
-    case FILE_STARTED: {
+    case FILE_START: {
       const {path} = action.payload;
       return Object.assign({}, state, {current: path});
     }
@@ -81,12 +68,12 @@ export default (state = initialState, action) => {
       const failed = [...state.failed, first];
       return Object.assign({}, state, {files, failed, current: null, conflictFlag: switchCF(state)});
     }
-    case FILE_SKIPPED: {
+    case FILE_SKIP: {
       const [first, ...files] = state.files;
       const skipped = [...state.skipped, first];
       return Object.assign({}, state, {files, skipped, current: null, conflictFlag: switchCF(state)});
     }
-    case FILE_CONFLICTED: {
+    case FILE_CONFLICT: {
       return Object.assign({}, state, {conflict: true});
     }
     case CONFLICT_FLAG_SET: {
@@ -105,7 +92,7 @@ export default (state = initialState, action) => {
 
 /* Actions */
 export const setUploadQueue = (files) => (dispatch) => {
-  dispatch(setQueueAct(files));
+  dispatch(setAct(files));
 };
 
 export const startUploadQueue = () => async (dispatch, getState) => {
@@ -116,7 +103,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     const {files} = queue;
 
     if (files.length === 0) {
-      dispatch(finishedAct());
+      dispatch(finishAct());
       break;
     }
 
@@ -135,7 +122,13 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     const gaiaFileName = md5(`${project._id}-${Date.now()}`) + fileExt;
 
     // Check if file exists
-    const [err1, rFiles] = await to(getFileRecordsByFilters({project: project._id, tag: project.tag, fullPath, deleted: false}));
+    const [err1, fileRecs] = await to(File.fetchOwnList({
+      project: project._id,
+      tag: project.tag,
+      fullPath,
+      deleted: false,
+      sort: '-createdAt'
+    }));
 
     if (err1) {
       dispatch(fileErrorAct());
@@ -143,7 +136,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     }
 
     // Stop loop if conflicted
-    if (rFiles.length > 0) {
+    if (fileRecs.length > 0) {
       if (conflictFlag === CONFLICT_FLAG_NONE) {
         dispatch(fileConflictAct());
         break;
@@ -156,15 +149,36 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     }
 
     // Upload file to gaia
-    const [err2, address] = await to(putFile(gaiaFileName, file.type, file.buffer));
+    const [err2, address] = await to(userSession.putFile(gaiaFileName, file.buffer, {
+      encrypt: false,
+      contentType: file.type
+    }));
 
     if (err2) {
       dispatch(fileErrorAct());
       continue;
     }
 
-    if (rFiles.length > 0) {
-      // File overwritten on gaia. No need to create record.
+    if (fileRecs.length > 0) {
+      // Handle rewrite
+
+      // Update record
+      const fileRec = fileRecs[0];
+      fileRec.update({name: gaiaFileName, address});
+
+      const [err1,] = await to(fileRec.save());
+      if (err1) {
+        dispatch(fileErrorAct());
+        continue;
+      }
+
+      // Delete old file on gaia. No need to handle error.
+      const {name: oldName} = file;
+      await to(userSession.putFile(oldName, new ArrayBuffer(1), {
+        encrypt: false,
+        contentType: file.type
+      }));
+
       dispatch(fileOkAct());
       continue;
     }
@@ -183,8 +197,9 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       type: file.type,
       deleted: false
     };
+    const f = new File(props);
 
-    const [err3,] = await to(createFileRecord(props));
+    const [err3,] = await to(f.save());
     if (err3) {
       dispatch(fileErrorAct());
       continue;
@@ -205,22 +220,20 @@ export const setUploadQueueConflictFlag = (flag) => (dispatch) => {
 
 /* Action creators */
 
-export const setQueueAct = (files) => ({
+export const setAct = (files) => ({
   type: SET,
   payload: {
     files
   }
 });
 
-export const conflictFlagAct = (flag) => ({
-  type: CONFLICT_FLAG_SET,
-  payload: {
-    flag
-  }
+
+export const finishAct = () => ({
+  type: FINISH
 });
 
 export const fileStartAct = (path) => ({
-  type: FILE_STARTED,
+  type: FILE_START,
   payload: {
     path
   }
@@ -234,16 +247,20 @@ export const fileErrorAct = () => ({
   type: FILE_ERROR
 });
 
-export const fileConflictAct = () => ({
-  type: FILE_CONFLICTED
-});
 
 export const fileSkipAct = () => ({
-  type: FILE_SKIPPED
+  type: FILE_SKIP
 });
 
-export const finishedAct = () => ({
-  type: FINISHED
+export const fileConflictAct = () => ({
+  type: FILE_CONFLICT
+});
+
+export const conflictFlagAct = (flag) => ({
+  type: CONFLICT_FLAG_SET,
+  payload: {
+    flag
+  }
 });
 
 export const resetQueueAct = () => ({

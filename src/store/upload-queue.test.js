@@ -1,5 +1,5 @@
 import reducer, {
-  setQueueAct,
+  setAct,
   fileOkAct,
   fileErrorAct,
   fileConflictAct,
@@ -21,7 +21,7 @@ it('2- add files to queue. 12 items in "files".', () => {
     {name: 'bg.jpg'}, {name: 'logo.png'}, {name: 'foo.gif'},
     {name: 'bar.png'}, {name: 'baz.js'}, {name: 'lorem.css'}
   ];
-  const act = setQueueAct(files);
+  const act = setAct(files);
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
