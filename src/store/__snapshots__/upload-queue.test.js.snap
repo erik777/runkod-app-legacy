@@ -8,8 +8,8 @@ Object {
   "current": null,
   "failed": Array [],
   "files": Array [],
+  "show": false,
   "skipped": Array [],
-  "started": false,
 }
 `;
 
@@ -58,8 +58,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -109,8 +109,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -160,8 +160,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -211,8 +211,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -263,8 +263,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -315,8 +315,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -367,8 +367,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -419,8 +419,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -471,8 +471,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -523,8 +523,8 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [],
-  "started": true,
 }
 `;
 
@@ -572,12 +572,12 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [
     Object {
       "name": "favicon.ico",
     },
   ],
-  "started": true,
 }
 `;
 
@@ -622,6 +622,7 @@ Object {
       "name": "lorem.css",
     },
   ],
+  "show": true,
   "skipped": Array [
     Object {
       "name": "favicon.ico",
@@ -630,7 +631,6 @@ Object {
       "name": "bg.jpg",
     },
   ],
-  "started": true,
 }
 `;
 
@@ -642,7 +642,7 @@ Object {
   "current": null,
   "failed": Array [],
   "files": Array [],
+  "show": false,
   "skipped": Array [],
-  "started": false,
 }
 `;

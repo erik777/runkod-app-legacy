@@ -30,7 +30,7 @@ const initialState = {
   current: null,
   conflict: false,
   conflictFlag: CONFLICT_FLAG_NONE,
-  started: false
+  show: false
 };
 
 /* Action types */
@@ -52,7 +52,7 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET: {
       const {files} = action.payload;
-      return Object.assign({}, state, {files, started: true});
+      return Object.assign({}, state, {files, show: true});
     }
     case FILE_START: {
       const {path} = action.payload;
@@ -162,8 +162,11 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     if (fileRecs.length > 0) {
       // Handle rewrite
 
-      // Update record
+
       const fileRec = fileRecs[0];
+      const {name: oldName} = fileRec;
+
+      // Update record
       fileRec.update({name: gaiaFileName, address});
 
       const [err1,] = await to(fileRec.save());
@@ -173,7 +176,6 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       }
 
       // Delete old file on gaia. No need to handle error.
-      const {name: oldName} = file;
       await to(userSession.putFile(oldName, new ArrayBuffer(1), {
         encrypt: false,
         contentType: file.type

@@ -83,7 +83,7 @@ class ManagerPage extends Component {
         </div>
 
         {ui.newProject && <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
-        {uploadQueue.started && <UploadQueueDialog  {...this.props} />}
+        {uploadQueue.show && <UploadQueueDialog  {...this.props} />}
         {deleteQueue.show && <DeleteQueueDialog  {...this.props} />}
       </div>
     )
@@ -98,7 +98,7 @@ ManagerPage.propTypes = {
     newProject: PropTypes.bool.isRequired
   }),
   uploadQueue: PropTypes.shape({
-    started: PropTypes.bool.isRequired
+    show: PropTypes.bool.isRequired
   }),
   deleteQueue: PropTypes.shape({
     show: PropTypes.bool.isRequired
