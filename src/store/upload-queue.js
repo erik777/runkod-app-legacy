@@ -163,7 +163,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       // Handle rewrite
 
       const fileRec = fileRecs[0];
-      const {name: oldName} = fileRec;
+      const {name: oldName} = fileRec.attrs;
 
       // Update record
       fileRec.update({name: gaiaFileName, address});
