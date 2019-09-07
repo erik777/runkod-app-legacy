@@ -162,7 +162,6 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     if (fileRecs.length > 0) {
       // Handle rewrite
 
-
       const fileRec = fileRecs[0];
       const {name: oldName} = fileRec;
 
