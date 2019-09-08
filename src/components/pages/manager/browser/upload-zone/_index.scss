@@ -1,4 +1,4 @@
-#drop-zone {
+#upload-zone {
   display: flex;
   height: 100%;
   justify-content: center;
@@ -7,7 +7,7 @@
   background: lighten($gray-100, 1);
   position: relative;
 
-  #drop-zone-content, #drop-zone-layer {
+  #upload-zone-content, #upload-zone-layer {
     position: absolute;
     left: 0;
     top: 0;
@@ -15,7 +15,7 @@
     height: 100%;
   }
 
-  #drop-zone-content {
+  #upload-zone-content {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,12 +30,12 @@
     }
   }
 
-  #drop-zone-layer {
+  #upload-zone-layer {
     z-index: 2;
   }
 
   &.highlight {
-    #drop-zone-content {
+    #upload-zone-content {
       color: $gray-600;
 
       svg {

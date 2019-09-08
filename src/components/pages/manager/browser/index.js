@@ -6,7 +6,7 @@ import fs from '../../../../fs';
 
 import {FileEntry, FolderEntry, ParentFolderEntry} from './entry';
 
-import DropZone from './dropzone';
+import UploadZone from './upload-zone';
 
 class Browser extends Component {
 
@@ -28,7 +28,6 @@ class Browser extends Component {
     }
 
     return (
-
       <div className={`browser ${noFile ? 'no-file' : ''}`}>
 
         {!noFile &&
@@ -45,9 +44,8 @@ class Browser extends Component {
         }
 
         <div className="file-upload">
-          <DropZone onDrop={this.onDrop}/>
+          <UploadZone onDrop={this.onDrop}/>
         </div>
-
       </div>
 
     );

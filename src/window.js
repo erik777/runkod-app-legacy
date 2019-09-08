@@ -1,4 +1,4 @@
-const dropZoneId = 'drop-zone-layer';
+const dropZoneId = 'upload-zone-layer';
 
 
 window.addEventListener('dragenter', function (e) {
