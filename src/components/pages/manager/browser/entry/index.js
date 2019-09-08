@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import fileSize from 'filesize';
 
-import fs from '../../../../fs';
+import fs from '../../../../../fs';
 
 class Icon extends Component {
   render() {

@@ -6,7 +6,6 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-
 import {Button} from 'react-bootstrap';
 
 import logo from '../../../images/logo-rect-white.png';
@@ -47,7 +46,7 @@ class ManagerPage extends Component {
       <div className="manager-page">
         <div className="header">
           <div className="logo">
-            <img src={logo}/>
+            <img src={logo} alt="Logo"/>
           </div>
         </div>
 

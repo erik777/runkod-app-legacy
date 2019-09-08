@@ -4,14 +4,13 @@ import PropTypes from 'prop-types';
 
 import {_t} from '../../../i18n';
 
-import {refreshSvg, deleteSvg, uploadSvg} from '../../../svg';
+import {refreshSvg, deleteSvg} from '../../../svg';
 
 import Browser from './browser';
 
 import fs from '../../../fs';
 
 import {BASE_PATH, PATH_SEPARATOR} from '../../../constants';
-
 
 class Project extends Component {
 
