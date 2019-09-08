@@ -49,10 +49,10 @@ class ManagerPage extends Component {
       <div className="manager-page">
         <div className={`progress ${loading ? 'in-progress' : ''}`}>
           {loading &&
-          <Fragment>
+          <>
             <div className="bar bar1"/>
             <div className="bar bar2"/>
-          </Fragment>
+          </>
           }
         </div>
         <div className="header">
