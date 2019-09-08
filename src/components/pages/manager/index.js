@@ -2,7 +2,7 @@
 eslint-disable jsx-a11y/anchor-is-valid
 */
 
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -37,48 +37,70 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, project, uploadQueue, deleteQueue} = this.props;
+    const {ui, projects, files, project, uploadQueue, deleteQueue} = this.props;
 
-    const {loading} = projects;
-    const {list} = projects;
+    const {loading: projectsLoading} = projects;
+    const {list: projectsList} = projects;
+    const {loading: filesLoading} = files;
+
+    const loading = projectsLoading || filesLoading;
 
     return (
       <div className="manager-page">
+        <div className={`progress ${loading ? 'in-progress' : ''}`}>
+          {loading &&
+          <Fragment>
+            <div className="bar bar1"/>
+            <div className="bar bar2"/>
+          </Fragment>
+          }
+        </div>
         <div className="header">
           <div className="logo">
             <img src={logo} alt="Logo"/>
           </div>
         </div>
-
         <div className="page-content">
+          {(() => {
 
-          { /* Projects loaded. But empty. */}
-          {(!loading && list.length === 0) &&
-          <div className="no-project">
-            <p className="message-header">
-              {_t('manager.no-project.message')}
-            </p>
-            <Button onClick={() => {
-              const {toggleUiProp} = this.props;
-              toggleUiProp('newProject');
-            }}>{_t('manager.no-project.button-label')}</Button>
-          </div>
-          }
+            if (projectsLoading) {
+              return null;
+            }
 
-          { /* Projects loaded. Not empty. But not selected. */}
-          {(!loading && list.length > 0 && project === null) &&
-          <div className="no-selected-project">
-            <p className="message-header">
-              {_t('manager.no-selected-project.message')}
-            </p>
-          </div>
-          }
+            // No projects
+            if (projectsList.length === 0) {
+              return (
+                <div className="no-project">
+                  <p className="message-header">
+                    {_t('manager.no-project.message')}
+                  </p>
+                  <Button onClick={() => {
+                    const {toggleUiProp} = this.props;
+                    toggleUiProp('newProject');
+                  }}>{_t('manager.no-project.button-label')}</Button>
+                </div>
+              )
+            }
 
-          {/* Projects loaded. List not empty. Show side project bar. */}
-          {(!loading && list.length > 0) &&
-          <SideMenu projects={projects} {...this.props} />
-          }
-          {project && <Project {...this.props} />}
+            // No selected project
+            if (project === null) {
+              return (
+                <>
+                  <SideMenu projects={projects} {...this.props} />
+                  <div className="no-selected-project">
+                    <p className="message-header">
+                      {_t('manager.no-selected-project.message')}
+                    </p>
+                  </div>
+                </>
+              )
+            }
+
+            return <>
+              <SideMenu projects={projects} {...this.props} />
+              <Project {...this.props} />
+            </>
+          })()}
         </div>
 
         {ui.newProject && <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
@@ -89,28 +111,32 @@ class ManagerPage extends Component {
   }
 }
 
-ManagerPage.defaultProps = {};
+ManagerPage.defaultProps = {
+  project: null
+};
 
 ManagerPage.propTypes = {
   user: PropTypes.string.isRequired,
   ui: PropTypes.shape({
     newProject: PropTypes.bool.isRequired
-  }),
+  }).isRequired,
   uploadQueue: PropTypes.shape({
     show: PropTypes.bool.isRequired
-  }),
+  }).isRequired,
   deleteQueue: PropTypes.shape({
     show: PropTypes.bool.isRequired
-  }),
-  toggleUiProp: PropTypes.func.isRequired,
-  projects: PropTypes.instanceOf(Object).isRequired,
+  }).isRequired,
+  projects: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    list: PropTypes.arrayOf(Object).isRequired
+  }).isRequired,
+  files: PropTypes.shape({
+    loading: PropTypes.bool.isRequired
+  }).isRequired,
   project: PropTypes.instanceOf(Object),
   path: PropTypes.string.isRequired,
   fetchProjects: PropTypes.func.isRequired,
-  fetchFiles: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  })
+  toggleUiProp: PropTypes.func.isRequired,
 };
 
 export default ManagerPage;
