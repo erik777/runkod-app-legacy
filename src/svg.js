@@ -28,7 +28,9 @@ export const chevronBottomSvg = <svg xmlns="http://www.w3.org/2000/svg" viewBox=
   <path fill="none" d="M0 0h24v24H0V0z"/>
 </svg>;
 
-export const uploadSvg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 199.5h-91.4V64H187.4v135.5H96l160 158.1 160-158.1zM96 402.8V448h320v-45.2H96z"/></svg>;
+export const uploadSvg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <path d="M416 199.5h-91.4V64H187.4v135.5H96l160 158.1 160-158.1zM96 402.8V448h320v-45.2H96z"/>
+</svg>;
 
 
 export const refreshSvg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -41,4 +43,9 @@ export const refreshSvg = <svg xmlns="http://www.w3.org/2000/svg" width="24" hei
 export const deleteSvg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
   <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/>
   <path d="M0 0h24v24H0z" fill="none"/>
+</svg>;
+
+export const checkedSvg = <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
 </svg>;

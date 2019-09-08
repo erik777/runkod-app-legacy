@@ -6,6 +6,8 @@ import {_t} from '../../../i18n';
 
 import {refreshSvg, deleteSvg} from '../../../svg';
 
+import CheckBox from '../../helper/checkbox';
+
 import Browser from './browser';
 
 import fs from '../../../fs';
@@ -14,8 +16,7 @@ import {BASE_PATH, PATH_SEPARATOR} from '../../../constants';
 
 class Project extends Component {
 
-  checked = (e) => {
-    const {checked} = e.target;
+  checked = (checked) => {
     const {files, path, checkListAdd, checkListReset} = this.props;
     const {map} = files;
 
@@ -60,16 +61,18 @@ class Project extends Component {
     const pathArr = fs.pathToArr(path);
 
     let allChecked = false;
+    let disabled = false;
     if (map) {
       const all = map[path]['folders'].length + map[path]['files'].length;
       allChecked = all > 0 && all === checkList.length;
+      disabled = all === 0
     }
 
     return (
       <div className="project">
         <div className="toolbar">
           <div className="select-input">
-            <input checked={allChecked} type="checkbox" onChange={this.checked}/>
+            <CheckBox checked={allChecked} disabled={disabled} onChange={this.checked}/>
           </div>
 
           {(() => {

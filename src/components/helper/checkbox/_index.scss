@@ -1,0 +1,30 @@
+.checkbox_ {
+  width: 15px;
+  height: 15px;
+  border: 1px solid $gray-500;
+  position: relative;
+  cursor: default;
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 14px;
+    height: 14px;
+    fill: $gray-600
+  }
+
+  &.checked {
+    background: lighten($primary, 10);
+    border-color: transparent;
+
+    svg {
+      fill: $white
+    }
+  }
+
+  &.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}

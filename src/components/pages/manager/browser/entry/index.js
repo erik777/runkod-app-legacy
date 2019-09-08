@@ -2,8 +2,10 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-
 import fileSize from 'filesize';
+
+import CheckBox from '../../../../helper/checkbox';
+
 
 import fs from '../../../../../fs';
 
@@ -107,9 +109,8 @@ export {ParentFolderEntry};
 
 class FolderEntry extends Component {
 
-  checked = (e) => {
+  checked = (checked) => {
     const {path, checkListAdd, checkListDelete} = this.props;
-    const {checked} = e.target;
 
     if (checked) {
       checkListAdd(path);
@@ -141,7 +142,7 @@ class FolderEntry extends Component {
       }} className={`browser-entry entry-folder ${checked ? 'checked' : ''}`}>
         <div className="entry-header">
           <div className="select-input">
-            <input checked={checked} type="checkbox" onChange={this.checked}/>
+            <CheckBox checked={checked} onChange={this.checked}/>
           </div>
           <Icon type="folder"/>
         </div>
@@ -168,9 +169,8 @@ export {FolderEntry}
 
 class FileEntry extends Component {
 
-  checked = (e) => {
+  checked = (checked) => {
     const {file, checkListAdd, checkListDelete} = this.props;
-    const {checked} = e.target;
 
     if (checked) {
       checkListAdd(file._id);
@@ -187,7 +187,7 @@ class FileEntry extends Component {
 
         <div className="entry-header">
           <div className="select-input">
-            <input checked={checked} type="checkbox" onChange={this.checked}/>
+            <CheckBox checked={checked} onChange={this.checked}/>
           </div>
           <Icon type={file.type}/>
         </div>
