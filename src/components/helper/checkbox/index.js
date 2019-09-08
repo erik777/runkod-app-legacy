@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
+
+
+import _c from '../../../utils/fix-class-names'
 
 
 import {checkedSvg} from "../../../svg";
@@ -33,7 +36,7 @@ class CheckBox extends Component {
 
     const {checked, disabled} = this.props;
 
-    return <div className={`checkbox_ ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}`}
+    return <div className={_c(`checkbox_ ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}`)}
                 onClick={this.clicked}>
       {checked && checkedSvg}
     </div>;
@@ -41,13 +44,17 @@ class CheckBox extends Component {
 }
 
 CheckBox.defaultProps = {
-  disabled: false
+  checked: false,
+  disabled: false,
+  onChange: () => {
+
+  }
 };
 
 CheckBox.propTypes = {
-  checked: PropTypes.bool.isRequired,
+  checked: PropTypes.bool,
   disabled: PropTypes.bool,
-  onChange: PropTypes.func.isRequired,
+  onChange: PropTypes.func,
 };
 
 export default CheckBox;
