@@ -104,7 +104,7 @@ class Project extends Component {
 
                   <div className="upload-btn">
 
-                    <input type="file" multiple webkitdirectory="" mozdirectory=""/>
+
                   </div>
                 </>
               )

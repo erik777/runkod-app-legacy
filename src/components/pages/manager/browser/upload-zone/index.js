@@ -131,7 +131,6 @@ class UploadZone extends Component {
     })
   };
 
-
   componentDidMount() {
     const el = document.querySelector('#upload-zone-layer');
 

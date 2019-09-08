@@ -3,7 +3,6 @@
   height: 100%;
   justify-content: center;
   align-items: center;
-  font-size: 32px;
   background: lighten($gray-100, 1);
   position: relative;
 
@@ -21,6 +20,7 @@
     justify-content: center;
     z-index: 1;
     color: $gray-400;
+    font-size: 32px;
 
     svg {
       width: 34px;
