@@ -102,6 +102,7 @@ class UploadZone extends Component {
   };
 
   dragEnter = (e) => {
+
     this.highlight();
   };
 
@@ -110,6 +111,8 @@ class UploadZone extends Component {
   };
 
   dragOver = (e) => {
+    e.dataTransfer.effectAllowed = 'copy';
+    e.dataTransfer.dropEffect = 'copy';
     e.preventDefault();
   };
 
