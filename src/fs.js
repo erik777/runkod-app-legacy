@@ -88,7 +88,7 @@ const parentPath = (path) => {
 };
 
 const pathWalk = (map, path, rv) => {
-  for (let folder of map[path]['folders']) {
+  for (let folder of map[path]['folders']) { // eslint-disable-line no-unused-vars
     rv.push(folder);
     pathWalk(map, folder, rv)
   }
@@ -96,6 +96,24 @@ const pathWalk = (map, path, rv) => {
 
 
 const getFilesUnderPath = (map, path) => {
+  /*
+    Returns all files under a path with a dict list.
+
+    Example output:
+      [{
+        "name": "index.json",
+        "parent": "/cars/",
+      },
+       {
+        "name": "amg.json",
+        "parent": "/cars/sport/mercedes/",
+      },
+      {
+        "name": "s300.json",
+        "parent": "/cars/sport/mercedes/",
+      }]
+   */
+
   let folders = [path];
   let files = [];
   pathWalk(map, path, folders);
