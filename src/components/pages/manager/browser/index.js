@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 
 import fs from '../../../../fs';
 
+import _c from '../../../../utils/fix-class-names';
+
 import {FileEntry, FolderEntry, ParentFolderEntry} from './entry';
 
 import UploadZone from './upload-zone';
@@ -28,8 +30,7 @@ class Browser extends Component {
     }
 
     return (
-      <div className={`browser ${noFile ? 'no-file' : ''}`}>
-
+      <div className={_c(`browser ${noFile ? 'no-file' : ''}`)}>
         {!noFile &&
         <div className="browser-entries">
           {(() => {
@@ -43,9 +44,11 @@ class Browser extends Component {
         </div>
         }
 
+        {!loading &&
         <div className="file-upload">
           <UploadZone onDrop={this.onDrop}/>
         </div>
+        }
       </div>
 
     );
