@@ -1,11 +1,9 @@
-/*
 import React, {Component} from 'react';
-
-import PropTypes from 'prop-types';
-
-import to from 'await-to-js';
-
-import message from '../message'
+import {uploadSvg} from "../../../../svg";
+import message from "../../../helper/message";
+import to from "await-to-js";
+import PropTypes from "prop-types";
+import Ddu from "../../../helper/ddu";
 
 
 const resolveDataTransfer = async (dataTransfer) => {
@@ -89,27 +87,27 @@ const resolveDataTransfer = async (dataTransfer) => {
 
 };
 
-class Ddu extends Component {
-  ref = React.createRef();
+
+class DropZone extends Component {
 
   highlight = () => {
-    this.ref.current.classList.add('ddu-highlight');
+    document.querySelector('#drop-zone').classList.add('highlight');
   };
 
   unHighlight = () => {
-    this.ref.current.classList.remove('ddu-highlight');
+    document.querySelector('#drop-zone').classList.remove('highlight');
   };
 
   dragEnter = (e) => {
-    if (e.target === this.ref.current) {
-      this.highlight();
-    }
+
+    this.highlight();
+
   };
 
   dragLeave = (e) => {
-    if (e.target === this.ref.current) {
-      this.unHighlight();
-    }
+
+    this.unHighlight();
+
   };
 
   dragOver = (e) => {
@@ -130,14 +128,15 @@ class Ddu extends Component {
     }
 
     resolveDataTransfer(e.dataTransfer).then(files => {
-      const {onDrop} = this.props;
-      onDrop(files);
+      // const {onDrop} = this.props;
+      // onDrop(files);
+      console.log(files);
     })
   };
 
 
   componentDidMount() {
-    const el = this.ref.current;
+    const el = document.querySelector('#drop-zone-layer');
 
     el.addEventListener('dragenter', this.dragEnter, false);
     el.addEventListener('dragleave', this.dragLeave, false);
@@ -146,18 +145,16 @@ class Ddu extends Component {
   }
 
   render() {
-    const {children} = this.props;
-    return React.cloneElement(children, {ref: this.ref});
+    return <div id="drop-zone">
+      <div id="drop-zone-layer"/>
+      <div id="drop-zone-content">{uploadSvg} Drop files or folders here to upload</div>
+    </div>
   }
 }
 
-
-Ddu.propTypes = {
-  children: PropTypes.node.isRequired,
+DropZone.propTypes = {
   onDrop: PropTypes.func.isRequired,
 };
 
-export default Ddu;
 
-
-*/
+export default DropZone

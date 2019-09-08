@@ -4,10 +4,9 @@ import PropTypes from 'prop-types';
 
 import fs from '../../../../fs';
 
-import Ddu from '../../../helper/ddu';
-
 import {FileEntry, FolderEntry, ParentFolderEntry} from './entry';
 
+import DropZone from './dropzone';
 
 class Browser extends Component {
 
@@ -29,9 +28,11 @@ class Browser extends Component {
     }
 
     return (
-      <Ddu onDrop={this.onDrop}>
-        <div className={`browser ${noFile ? 'no-file' : ''}`}>
-          {noFile ? 'Drag & Drop files or folders here to upload' : ''}
+
+      <div className={`browser ${noFile ? 'no-file' : ''}`}>
+
+        {!noFile &&
+        <div className="browser-entries">
           {(() => {
             const parent = fs.parentPath(path);
             if (parent) {
@@ -41,7 +42,14 @@ class Browser extends Component {
           {contents.folders.map((path) => <FolderEntry {...this.props} key={path} path={path}/>)}
           {contents.files.map((file) => <FileEntry {...this.props} key={file._id} file={file}/>)}
         </div>
-      </Ddu>
+        }
+
+        <div className="file-upload">
+          <DropZone onDrop={this.onDrop}/>
+        </div>
+
+      </div>
+
     );
   }
 }
