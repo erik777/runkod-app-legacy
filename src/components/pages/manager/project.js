@@ -100,11 +100,6 @@ class Project extends Component {
                       }
                     )}
                   </div>
-
-                  <div className="upload-btn">
-
-
-                  </div>
                 </>
               )
             }

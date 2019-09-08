@@ -98,19 +98,5 @@
         }
       }
     }
-
-    .upload-btn {
-      svg {
-        width: 30px;
-        height: 30px;
-        fill: $gray-600
-      }
-
-      cursor: pointer;
-
-      input[type="file"] {
-        display: none;
-      }
-    }
   }
 }
