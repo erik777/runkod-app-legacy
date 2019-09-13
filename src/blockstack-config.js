@@ -2,7 +2,7 @@ import {UserSession, AppConfig} from 'blockstack';
 import {configure} from 'radiks';
 import {decodeToken} from 'jsontokens';
 
-const RADIKS_URL = `https://${window.location.protocol === 'http:' ? 'radiks-dev.trentter.com' : 'radiks.trentter.com'}`;
+const RADIKS_URL = `https://${window.location.protocol === 'http:' ? 'radiksd.runkod.com' : 'radiks.runkod.com'}`;
 
 const domain = window.location.origin;
 

@@ -78,11 +78,19 @@ class SideMenu extends Component {
 SideMenu.defaultProps = {};
 
 SideMenu.propTypes = {
-  toggleUiProp: PropTypes.func.isRequired,
-  projects: PropTypes.instanceOf(Object).isRequired,
-  project: PropTypes.instanceOf(Object),
+  projects: PropTypes.shape({
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired
+  }).isRequired,
+  project: PropTypes.shape({
+    id: PropTypes.string.isRequired
+  }),
   selectProject: PropTypes.func.isRequired,
-  fetchFiles: PropTypes.func.isRequired
+  fetchFiles: PropTypes.func.isRequired,
+  toggleUiProp: PropTypes.func.isRequired
 };
 
 export default SideMenu;
