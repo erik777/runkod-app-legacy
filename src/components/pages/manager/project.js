@@ -12,6 +12,8 @@ import Browser from './browser';
 
 import fs from '../../../fs';
 
+import _c from '../../../utils/fix-class-names'
+
 import {BASE_PATH, PATH_SEPARATOR} from '../../../constants';
 
 class Project extends Component {
@@ -72,7 +74,7 @@ class Project extends Component {
       <div className="project">
         <div className="toolbar">
           <div className="select-input">
-            <CheckBox checked={allChecked} disabled={disabled} onChange={this.checked}/>
+            <CheckBox checked={allChecked} disabled={disabled || loading} onChange={this.checked}/>
           </div>
 
           {(() => {
@@ -80,7 +82,7 @@ class Project extends Component {
             if (checkList.length === 0) {
               return (
                 <>
-                  <div className={`refresh-btn ${loading ? 'disabled' : ''}`}>
+                  <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)}>
                     <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
                   </div>
 
@@ -147,12 +149,17 @@ class Project extends Component {
 Project.defaultProps = {};
 
 Project.propTypes = {
-  project: PropTypes.instanceOf(Object),
-  files: PropTypes.instanceOf(Object).isRequired,
+  project: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+  }).isRequired,
+  files: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+    map: PropTypes.shape({})
+  }).isRequired,
   path: PropTypes.string.isRequired,
+  checkList: PropTypes.array.isRequired,
   fetchFiles: PropTypes.func.isRequired,
   selectPath: PropTypes.func.isRequired,
-  checkList: PropTypes.array.isRequired,
   checkListAdd: PropTypes.func.isRequired,
   checkListReset: PropTypes.func.isRequired,
   setDeleteQueue: PropTypes.func.isRequired,
