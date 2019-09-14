@@ -1,7 +1,6 @@
 import React from "react";
 import TestRenderer from "react-test-renderer";
 
-
 import {Icon, ParentFolderEntry, FolderEntry, FileEntry} from './index';
 
 describe('1- Browser Entry - Icon', () => {

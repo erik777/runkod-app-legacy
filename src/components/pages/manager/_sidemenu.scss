@@ -67,10 +67,6 @@
       }
 
       .menu-items {
-        &.collapsed {
-          display: none;
-        }
-
         .menu-item {
           color: $gray-600;
           padding: 12px 10px 12px 52px;
@@ -89,6 +85,5 @@
         }
       }
     }
-
   }
 }

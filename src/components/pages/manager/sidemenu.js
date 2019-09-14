@@ -48,16 +48,18 @@ class SideMenu extends Component {
           <div className="menu-list-header" onClick={this.headerClicked}>
             {collapsed ? chevronRightSvg : chevronBottomSvg} {_t('manager.side-menu.projects')}
           </div>
-          <div className={_c(`menu-items ${collapsed ? 'collapsed' : ''}`)}>
-            {!collapsed && (
+          {!collapsed &&
+          <div className="menu-items">
+            {
               list.map((i) => {
                 const cls = _c(`menu-item ${project && project._id === i._id ? 'active' : ''}`);
                 return <div className={cls} key={i._id} onClick={() => {
                   this.clicked(i);
                 }}>{i.name}</div>
               })
-            )}
+            }
           </div>
+          }
         </div>
       </div>
     </div>
@@ -70,6 +72,7 @@ SideMenu.propTypes = {
   projects: PropTypes.shape({
     list: PropTypes.arrayOf(
       PropTypes.shape({
+        _id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
       })
     ).isRequired
@@ -79,7 +82,7 @@ SideMenu.propTypes = {
   }),
   ui: PropTypes.shape({
     sideProjectsVisible: PropTypes.bool.isRequired
-  }),
+  }).isRequired,
   selectProject: PropTypes.func.isRequired,
   fetchFiles: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired

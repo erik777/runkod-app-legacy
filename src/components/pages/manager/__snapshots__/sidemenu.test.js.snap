@@ -1,0 +1,204 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- 2 projects, no project selected, not collapsed 1`] = `
+<div
+  className="side-menu"
+>
+  <div
+    className="menu-toolbar"
+  >
+    <a
+      className="btn-new-project"
+      onClick={[Function]}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+      </svg>
+       
+      New Project
+    </a>
+  </div>
+  <div
+    className="menu-content"
+  >
+    <div
+      className="menu-list"
+    >
+      <div
+        className="menu-list-header"
+        onClick={[Function]}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+          />
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+        </svg>
+         
+        Projects
+      </div>
+      <div
+        className="menu-items"
+      >
+        <div
+          className="menu-item"
+          onClick={[Function]}
+        >
+          project 1
+        </div>
+        <div
+          className="menu-item"
+          onClick={[Function]}
+        >
+          project 2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`2- 2 projects, second project selected, not collapsed 1`] = `
+<div
+  className="side-menu"
+>
+  <div
+    className="menu-toolbar"
+  >
+    <a
+      className="btn-new-project"
+      onClick={[Function]}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+      </svg>
+       
+      New Project
+    </a>
+  </div>
+  <div
+    className="menu-content"
+  >
+    <div
+      className="menu-list"
+    >
+      <div
+        className="menu-list-header"
+        onClick={[Function]}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"
+          />
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+        </svg>
+         
+        Projects
+      </div>
+      <div
+        className="menu-items"
+      >
+        <div
+          className="menu-item"
+          onClick={[Function]}
+        >
+          project 1
+        </div>
+        <div
+          className="menu-item active"
+          onClick={[Function]}
+        >
+          project 2
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`3- 2 projects, collapsed 1`] = `
+<div
+  className="side-menu"
+>
+  <div
+    className="menu-toolbar"
+  >
+    <a
+      className="btn-new-project"
+      onClick={[Function]}
+    >
+      <svg
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"
+        />
+        <path
+          d="M0 0h24v24H0z"
+          fill="none"
+        />
+      </svg>
+       
+      New Project
+    </a>
+  </div>
+  <div
+    className="menu-content"
+  >
+    <div
+      className="menu-list"
+    >
+      <div
+        className="menu-list-header"
+        onClick={[Function]}
+      >
+        <svg
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"
+          />
+          <path
+            d="M0 0h24v24H0V0z"
+            fill="none"
+          />
+        </svg>
+         
+        Projects
+      </div>
+    </div>
+  </div>
+</div>
+`;
