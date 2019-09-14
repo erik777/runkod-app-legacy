@@ -132,7 +132,6 @@ class UploadZone extends Component {
     resolveDataTransfer(e.dataTransfer).then(files => {
       const {onDrop} = this.props;
       onDrop(files);
-      console.log(files);
     })
   };
 
