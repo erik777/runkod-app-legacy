@@ -62,10 +62,12 @@ class Icon extends Component {
   }
 }
 
-Icon.defaultProps = {};
+Icon.defaultProps = {
+  type: null
+};
 
 Icon.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string
 };
 
 export {Icon} ;
@@ -83,13 +85,11 @@ class ParentFolderEntry extends Component {
     return (
       <div onClick={() => {
         this.clicked(path)
-      }} key={path} className="browser-entry entry-parent-folder">
-
+      }} className="browser-entry entry-parent-folder">
         <div className="entry-header">
           <Icon type="folder"/>
         </div>
-
-        <div className="entry-name">..</div>
+        <div className="entry-name">{'..'}</div>
       </div>
     )
   }
@@ -106,7 +106,6 @@ export {ParentFolderEntry};
 
 
 class FolderEntry extends Component {
-
   checked = (checked) => {
     const {path, checkListAdd, checkListDelete} = this.props;
 
@@ -118,7 +117,6 @@ class FolderEntry extends Component {
   };
 
   clicked = (e, path) => {
-
     const {checkList} = this.props;
     if (checkList.includes(path)) {
       return false;
@@ -137,7 +135,7 @@ class FolderEntry extends Component {
     return (
       <div onClick={(e) => {
         this.clicked(e, path)
-      }} className={`browser-entry entry-folder ${checked ? 'checked' : ''}`}>
+      }} className={_c(`browser-entry entry-folder ${checked ? 'checked' : ''}`)}>
         <div className="entry-header">
           <div className="select-input">
             <CheckBox checked={checked} onChange={this.checked}/>
@@ -156,8 +154,8 @@ FolderEntry.defaultProps = {};
 
 FolderEntry.propTypes = {
   path: PropTypes.string.isRequired,
+  checkList: PropTypes.arrayOf(PropTypes.string).isRequired,
   selectPath: PropTypes.func.isRequired,
-  checkList: PropTypes.array.isRequired,
   checkListAdd: PropTypes.func.isRequired,
   checkListDelete: PropTypes.func.isRequired
 };
@@ -166,7 +164,6 @@ export {FolderEntry}
 
 
 class FileEntry extends Component {
-
   checked = (checked) => {
     const {file, checkListAdd, checkListDelete} = this.props;
 
@@ -181,7 +178,7 @@ class FileEntry extends Component {
     const {file, checkList} = this.props;
     const checked = checkList.includes(file._id);
 
-    return (<div className={`browser-entry entry-file ${checked ? 'checked' : ''}`}>
+    return (<div className={_c(`browser-entry entry-file ${checked ? 'checked' : ''}`)}>
         <div className="entry-header">
           <div className="select-input">
             <CheckBox checked={checked} onChange={this.checked}/>
@@ -209,10 +206,10 @@ FileEntry.propTypes = {
   file: PropTypes.shape({
     _id: PropTypes.string.isRequired,
     type: PropTypes.string,
-    name: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
     size: PropTypes.number.isRequired,
   }),
-  checkList: PropTypes.array.isRequired,
+  checkList: PropTypes.arrayOf(PropTypes.string).isRequired,
   checkListAdd: PropTypes.func.isRequired,
   checkListDelete: PropTypes.func.isRequired
 };

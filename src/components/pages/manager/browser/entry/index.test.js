@@ -2,9 +2,9 @@ import React from "react";
 import TestRenderer from "react-test-renderer";
 
 
-import {Icon} from './index';
+import {Icon, ParentFolderEntry, FolderEntry, FileEntry} from './index';
 
-describe('Browser Entry - Icon', () => {
+describe('1- Browser Entry - Icon', () => {
 
   test('1- jpeg icon', () => {
     const props = {
@@ -91,4 +91,108 @@ describe('Browser Entry - Icon', () => {
 
     expect(renderer.toJSON()).toMatchSnapshot();
   });
+});
+
+describe('2- Browser Entry - Parent Folder', () => {
+  test('1- render', () => {
+    const props = {
+      path: '/foo/bar',
+      selectPath: () => {
+      }
+    };
+
+    const renderer = TestRenderer.create(
+      <ParentFolderEntry {...props}/>
+    );
+
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('3- Browser Entry - Folder', () => {
+  test('1- default render', () => {
+    const props = {
+      path: '/foo/bar/',
+      checkList: [],
+      selectPath: () => {
+      },
+      checkListAdd: () => {
+      },
+      checkListDelete: () => {
+      }
+    };
+
+    const renderer = TestRenderer.create(
+      <FolderEntry {...props}/>
+    );
+
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+
+  test('2- checked', () => {
+    const props = {
+      path: '/foo/bar/',
+      checkList: ['/foo/bar/', '/foo/baz/'],
+      selectPath: () => {
+      },
+      checkListAdd: () => {
+      },
+      checkListDelete: () => {
+      }
+    };
+
+    const renderer = TestRenderer.create(
+      <FolderEntry {...props}/>
+    );
+
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+});
+
+describe('4- Browser Entry - File', () => {
+  test('1- default render', () => {
+    const props = {
+      file: {
+        _id: 'uniquefileid',
+        type: 'text/html',
+        label: 'index.html',
+        size: 12321
+      },
+      checkList: [],
+      checkListAdd: () => {
+      },
+      checkListDelete: () => {
+      }
+    };
+
+    const renderer = TestRenderer.create(
+      <FileEntry {...props}/>
+    );
+
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+
+  test('2- checked', () => {
+    const props = {
+      file: {
+        _id: 'uniquefileid',
+        type: 'text/html',
+        label: 'index.html',
+        size: 12321
+      },
+      checkList: ['uniquefileid'],
+      checkListAdd: () => {
+      },
+      checkListDelete: () => {
+      }
+    };
+
+    const renderer = TestRenderer.create(
+      <FileEntry {...props}/>
+    );
+
+    expect(renderer.toJSON()).toMatchSnapshot();
+  });
+
+
 });

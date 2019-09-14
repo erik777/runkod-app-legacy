@@ -86,7 +86,7 @@ SideMenu.propTypes = {
     ).isRequired
   }).isRequired,
   project: PropTypes.shape({
-    id: PropTypes.string.isRequired
+    _id: PropTypes.string.isRequired
   }),
   selectProject: PropTypes.func.isRequired,
   fetchFiles: PropTypes.func.isRequired,
