@@ -8,21 +8,14 @@ import PropTypes from 'prop-types';
 
 import {_t} from '../../../i18n';
 
+import _c from '../../../utils/fix-class-names'
+
 import {chevronBottomSvg, chevronRightSvg, plusSvg} from '../../../svg';
 
 class SideMenu extends Component {
-
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      collapsed: false
-    }
-  }
-
   headerClicked = () => {
-    const {collapsed} = this.state;
-    this.setState({collapsed: !collapsed});
+    const {toggleUiProp} = this.props;
+    toggleUiProp('sideProjectsVisible');
   };
 
   clicked = (p) => {
@@ -37,12 +30,11 @@ class SideMenu extends Component {
   };
 
   render() {
-    const {collapsed} = this.state;
-    const {projects, project} = this.props;
+    const {projects, project, ui} = this.props;
     const {list} = projects;
+    const collapsed = !ui.sideProjectsVisible;
 
     return <div className="side-menu">
-
       <div className="menu-toolbar">
         <a className="btn-new-project" onClick={() => {
           const {toggleUiProp} = this.props;
@@ -51,23 +43,20 @@ class SideMenu extends Component {
           {plusSvg} {_t('manager.side-menu.new-project')}
         </a>
       </div>
-
       <div className="menu-content">
         <div className="menu-list">
           <div className="menu-list-header" onClick={this.headerClicked}>
-            {collapsed ? chevronRightSvg : chevronBottomSvg} Projects
+            {collapsed ? chevronRightSvg : chevronBottomSvg} {_t('manager.side-menu.projects')}
           </div>
-
-          <div className={`menu-items ${collapsed ? 'collapsed' : ''}`}>
-            {
+          <div className={_c(`menu-items ${collapsed ? 'collapsed' : ''}`)}>
+            {!collapsed && (
               list.map((i) => {
-                const cls = `menu-item ${project && project._id === i._id ? 'active' : ''}`;
-
+                const cls = _c(`menu-item ${project && project._id === i._id ? 'active' : ''}`);
                 return <div className={cls} key={i._id} onClick={() => {
                   this.clicked(i);
                 }}>{i.name}</div>
               })
-            }
+            )}
           </div>
         </div>
       </div>
@@ -87,6 +76,9 @@ SideMenu.propTypes = {
   }).isRequired,
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired
+  }),
+  ui: PropTypes.shape({
+    sideProjectsVisible: PropTypes.bool.isRequired
   }),
   selectProject: PropTypes.func.isRequired,
   fetchFiles: PropTypes.func.isRequired,
