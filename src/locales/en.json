@@ -24,6 +24,9 @@
       "item-selected": "1 item selected",
       "items-selected": "{{n}} items selected",
       "all-items-selected": "All items selected"
+    },
+    "upload-zone": {
+      "label": "Drop files or folders here to upload"
     }
   },
   "new-project-dialog": {

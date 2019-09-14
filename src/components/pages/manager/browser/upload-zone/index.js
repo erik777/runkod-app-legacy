@@ -6,6 +6,8 @@ import to from 'await-to-js';
 
 import message from '../../../../helper/message';
 
+import {_t} from '../../../../../i18n';
+
 import {uploadSvg} from '../../../../../svg';
 
 
@@ -137,16 +139,18 @@ class UploadZone extends Component {
   componentDidMount() {
     const el = document.querySelector('#upload-zone-layer');
 
-    el.addEventListener('dragenter', this.dragEnter, false);
-    el.addEventListener('dragleave', this.dragLeave, false);
-    el.addEventListener('dragover', this.dragOver, false);
-    el.addEventListener('drop', this.drop, false);
+    if (el) {
+      el.addEventListener('dragenter', this.dragEnter, false);
+      el.addEventListener('dragleave', this.dragLeave, false);
+      el.addEventListener('dragover', this.dragOver, false);
+      el.addEventListener('drop', this.drop, false);
+    }
   }
 
   render() {
     return <div id="upload-zone">
       <div id="upload-zone-layer"/>
-      <div id="upload-zone-content">{uploadSvg} Drop files or folders here to upload</div>
+      <div id="upload-zone-content">{uploadSvg} {_t('manager.upload-zone.label')}</div>
     </div>
   }
 }
