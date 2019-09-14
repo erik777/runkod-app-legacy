@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-
 import _c from '../../../utils/fix-class-names'
-
 
 import {checkedSvg} from "../../../svg";
 

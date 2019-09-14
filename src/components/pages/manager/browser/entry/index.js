@@ -6,8 +6,9 @@ import fileSize from 'filesize';
 
 import CheckBox from '../../../../helper/checkbox';
 
-
 import fs from '../../../../../fs';
+
+import _c from '../../../../../utils/fix-class-names'
 
 class Icon extends Component {
   render() {
@@ -51,14 +52,11 @@ class Icon extends Component {
       default:
         typeContent = '';
         typeCls = '';
-
     }
 
-    return <div className={`entry-icon entry-icon-file ${typeCls}`}>
+    return <div className={_c(`entry-icon entry-icon-file ${typeCls}`)}>
       <div className="shape">
-        {typeContent &&
-        <div className="type-name">{typeContent}</div>
-        }
+        {typeContent && <div className="type-name">{typeContent}</div>}
       </div>
     </div>;
   }
@@ -67,7 +65,7 @@ class Icon extends Component {
 Icon.defaultProps = {};
 
 Icon.propTypes = {
-  type: PropTypes.string
+  type: PropTypes.string.isRequired
 };
 
 export {Icon} ;
@@ -184,15 +182,12 @@ class FileEntry extends Component {
     const checked = checkList.includes(file._id);
 
     return (<div className={`browser-entry entry-file ${checked ? 'checked' : ''}`}>
-
         <div className="entry-header">
           <div className="select-input">
             <CheckBox checked={checked} onChange={this.checked}/>
           </div>
           <Icon type={file.type}/>
         </div>
-
-
         <div className="entry-label">
           {file.label}
         </div>

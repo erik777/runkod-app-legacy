@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Browser Entry - Icon 1- jpeg icon 1`] = `
+<div
+  className="entry-icon entry-icon-file icon-image"
+>
+  <div
+    className="shape"
+  >
+    <div
+      className="type-name"
+    >
+      img
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Browser Entry - Icon 2- png icon 1`] = `
+<div
+  className="entry-icon entry-icon-file icon-image"
+>
+  <div
+    className="shape"
+  >
+    <div
+      className="type-name"
+    >
+      img
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Browser Entry - Icon 3- html icon 1`] = `
+<div
+  className="entry-icon entry-icon-file icon-html"
+>
+  <div
+    className="shape"
+  >
+    <div
+      className="type-name"
+    >
+      &lt;/&gt;
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Browser Entry - Icon 4- json icon 1`] = `
+<div
+  className="entry-icon entry-icon-file icon-json"
+>
+  <div
+    className="shape"
+  >
+    <div
+      className="type-name"
+    >
+      { }
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Browser Entry - Icon 5- javascript icon 1`] = `
+<div
+  className="entry-icon entry-icon-file icon-js"
+>
+  <div
+    className="shape"
+  >
+    <div
+      className="type-name"
+    >
+      js
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Browser Entry - Icon 6- css icon 1`] = `
+<div
+  className="entry-icon entry-icon-file icon-css"
+>
+  <div
+    className="shape"
+  >
+    <div
+      className="type-name"
+    >
+      css
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Browser Entry - Icon 7- unknown type icon 1`] = `
+<div
+  className="entry-icon entry-icon-file"
+>
+  <div
+    className="shape"
+  >
+    
+  </div>
+</div>
+`;
