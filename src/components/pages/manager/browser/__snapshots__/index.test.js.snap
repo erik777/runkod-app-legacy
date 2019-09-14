@@ -1,0 +1,284 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- loading 1`] = `null`;
+
+exports[`2- no file 1`] = `
+<div
+  className="browser no-file"
+>
+  <div
+    className="file-upload"
+  >
+    <div
+      id="upload-zone"
+    >
+      <div
+        id="upload-zone-layer"
+      />
+      <div
+        id="upload-zone-content"
+      >
+        <svg
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M416 199.5h-91.4V64H187.4v135.5H96l160 158.1 160-158.1zM96 402.8V448h320v-45.2H96z"
+          />
+        </svg>
+         
+        Drop files or folders here to upload
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`3- with files and folders 1`] = `
+<div
+  className="browser"
+>
+  <div
+    className="browser-entries"
+  >
+    <div
+      className="browser-entry entry-folder"
+      onClick={[Function]}
+    >
+      <div
+        className="entry-header"
+      >
+        <div
+          className="select-input"
+        >
+          <div
+            className="checkbox_"
+            onClick={[Function]}
+          />
+        </div>
+        <div
+          className="entry-icon entry-icon-folder"
+        >
+          <div
+            className="shapes"
+          >
+            <div
+              className="shape1"
+            />
+            <div
+              className="shape2"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="entry-label"
+      >
+        foo
+      </div>
+    </div>
+    <div
+      className="browser-entry entry-file"
+    >
+      <div
+        className="entry-header"
+      >
+        <div
+          className="select-input"
+        >
+          <div
+            className="checkbox_"
+            onClick={[Function]}
+          />
+        </div>
+        <div
+          className="entry-icon entry-icon-file"
+        >
+          <div
+            className="shape"
+          >
+            
+          </div>
+        </div>
+      </div>
+      <div
+        className="entry-label"
+      >
+        file1.txt
+      </div>
+      <div
+        className="entry-size"
+      >
+        2.82 KB
+      </div>
+    </div>
+    <div
+      className="browser-entry entry-file"
+    >
+      <div
+        className="entry-header"
+      >
+        <div
+          className="select-input"
+        >
+          <div
+            className="checkbox_"
+            onClick={[Function]}
+          />
+        </div>
+        <div
+          className="entry-icon entry-icon-file icon-html"
+        >
+          <div
+            className="shape"
+          >
+            <div
+              className="type-name"
+            >
+              &lt;/&gt;
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="entry-label"
+      >
+        index.html
+      </div>
+      <div
+        className="entry-size"
+      >
+        12.05 KB
+      </div>
+    </div>
+  </div>
+  <div
+    className="file-upload"
+  >
+    <div
+      id="upload-zone"
+    >
+      <div
+        id="upload-zone-layer"
+      />
+      <div
+        id="upload-zone-content"
+      >
+        <svg
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M416 199.5h-91.4V64H187.4v135.5H96l160 158.1 160-158.1zM96 402.8V448h320v-45.2H96z"
+          />
+        </svg>
+         
+        Drop files or folders here to upload
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`4- in sub folder 1`] = `
+<div
+  className="browser"
+>
+  <div
+    className="browser-entries"
+  >
+    <div
+      className="browser-entry entry-parent-folder"
+      onClick={[Function]}
+    >
+      <div
+        className="entry-header"
+      >
+        <div
+          className="entry-icon entry-icon-folder"
+        >
+          <div
+            className="shapes"
+          >
+            <div
+              className="shape1"
+            />
+            <div
+              className="shape2"
+            />
+          </div>
+        </div>
+      </div>
+      <div
+        className="entry-name"
+      >
+        ..
+      </div>
+    </div>
+    <div
+      className="browser-entry entry-file"
+    >
+      <div
+        className="entry-header"
+      >
+        <div
+          className="select-input"
+        >
+          <div
+            className="checkbox_"
+            onClick={[Function]}
+          />
+        </div>
+        <div
+          className="entry-icon entry-icon-file icon-css"
+        >
+          <div
+            className="shape"
+          >
+            <div
+              className="type-name"
+            >
+              css
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="entry-label"
+      >
+        file1.css
+      </div>
+      <div
+        className="entry-size"
+      >
+        3.05 KB
+      </div>
+    </div>
+  </div>
+  <div
+    className="file-upload"
+  >
+    <div
+      id="upload-zone"
+    >
+      <div
+        id="upload-zone-layer"
+      />
+      <div
+        id="upload-zone-content"
+      >
+        <svg
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M416 199.5h-91.4V64H187.4v135.5H96l160 158.1 160-158.1zM96 402.8V448h320v-45.2H96z"
+          />
+        </svg>
+         
+        Drop files or folders here to upload
+      </div>
+    </div>
+  </div>
+</div>
+`;
