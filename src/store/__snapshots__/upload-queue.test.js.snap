@@ -87,7 +87,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [
     Object {
@@ -160,7 +160,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [
     Object {
@@ -237,7 +237,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [
     Object {
@@ -314,7 +314,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",
@@ -396,7 +396,7 @@ Object {
   ],
   "conflict": true,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",
@@ -478,7 +478,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 2,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",
@@ -564,7 +564,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",
@@ -650,7 +650,7 @@ Object {
   ],
   "conflict": true,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",
@@ -736,7 +736,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 5,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",
@@ -822,7 +822,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 5,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",
@@ -913,7 +913,7 @@ Object {
   ],
   "conflict": false,
   "conflictFlag": 5,
-  "current": null,
+  "current": "",
   "failed": Array [
     Object {
       "name": "index.html",

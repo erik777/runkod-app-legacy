@@ -64,28 +64,28 @@ export default (state = initialState, action) => {
       const completed = [...state.completed, file];
       const path = `${file.path}${file.name}`;
       const log = [...state.log, {type: 'success', msg: `${path} uploaded`}];
-      return Object.assign({}, state, {files, completed, current: null, conflictFlag: switchCF(state), log});
+      return Object.assign({}, state, {files, completed, current: '', conflictFlag: switchCF(state), log});
     }
     case FILE_ERROR: {
       const [file, ...files] = state.files;
       const failed = [...state.failed, file];
       const path = `${file.path}${file.name}`;
       const log = [...state.log, {type: 'error', msg: `${path} could not uploaded`}];
-      return Object.assign({}, state, {files, failed, current: null, conflictFlag: switchCF(state), log});
+      return Object.assign({}, state, {files, failed, current: '', conflictFlag: switchCF(state), log});
     }
     case FILE_SKIP: {
       const [file, ...files] = state.files;
       const skipped = [...state.skipped, file];
       const path = `${file.path}${file.name}`;
       const log = [...state.log, {type: 'info', msg: `${path} skipped`}];
-      return Object.assign({}, state, {files, skipped, current: null, conflictFlag: switchCF(state), log});
+      return Object.assign({}, state, {files, skipped, current: '', conflictFlag: switchCF(state), log});
     }
     case FILE_CONFLICT: {
       return Object.assign({}, state, {conflict: true});
     }
     case CONFLICT_FLAG_SET: {
       const {flag} = action.payload;
-      return Object.assign({}, state, {conflict: false, current: null, conflictFlag: flag});
+      return Object.assign({}, state, {conflict: false, current: '', conflictFlag: flag});
     }
     case RESET:
       return initialState;
