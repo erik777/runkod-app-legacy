@@ -16,10 +16,10 @@ it('1- default state', () => {
 
 it('2- add files to queue. 12 items in "files".', () => {
   const files = [
-    {name: 'style.css'}, {name: 'main.js'}, {name: 'vendor.js'},
-    {name: 'index.html'}, {name: 'manifest.json'}, {name: 'favicon.ico'},
-    {name: 'bg.jpg'}, {name: 'logo.png'}, {name: 'foo.gif'},
-    {name: 'bar.png'}, {name: 'baz.js'}, {name: 'lorem.css'}
+    {path: '', name: 'style.css'}, {path: '', name: 'main.js'}, {path: '', name: 'vendor.js'},
+    {path: '', name: 'index.html'}, {path: '', name: 'manifest.json'}, {path: '', name: 'favicon.ico'},
+    {path: '', name: 'bg.jpg'}, {path: '', name: 'logo.png'}, {path: '', name: 'foo.gif'},
+    {path: '', name: 'bar.png'}, {path: '', name: 'baz.js'}, {path: '', name: 'lorem.css'}
   ];
   const act = setAct(files);
   state = reducer(state, act);

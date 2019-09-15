@@ -27,7 +27,8 @@ const initialState = {
   completed: [],
   failed: [],
   skipped: [],
-  current: null,
+  log: [],
+  current: '',
   conflict: false,
   conflictFlag: CONFLICT_FLAG_NONE,
   show: false
@@ -59,19 +60,25 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {current: path});
     }
     case FILE_OK: {
-      const [first, ...files] = state.files;
-      const completed = [...state.completed, first];
-      return Object.assign({}, state, {files, completed, current: null, conflictFlag: switchCF(state)});
+      const [file, ...files] = state.files;
+      const completed = [...state.completed, file];
+      const path = `${file.path}${file.name}`;
+      const log = [...state.log, {type: 'success', msg: `${path} uploaded`}];
+      return Object.assign({}, state, {files, completed, current: null, conflictFlag: switchCF(state), log});
     }
     case FILE_ERROR: {
-      const [first, ...files] = state.files;
-      const failed = [...state.failed, first];
-      return Object.assign({}, state, {files, failed, current: null, conflictFlag: switchCF(state)});
+      const [file, ...files] = state.files;
+      const failed = [...state.failed, file];
+      const path = `${file.path}${file.name}`;
+      const log = [...state.log, {type: 'error', msg: `${path} could not uploaded`}];
+      return Object.assign({}, state, {files, failed, current: null, conflictFlag: switchCF(state), log});
     }
     case FILE_SKIP: {
-      const [first, ...files] = state.files;
-      const skipped = [...state.skipped, first];
-      return Object.assign({}, state, {files, skipped, current: null, conflictFlag: switchCF(state)});
+      const [file, ...files] = state.files;
+      const skipped = [...state.skipped, file];
+      const path = `${file.path}${file.name}`;
+      const log = [...state.log, {type: 'info', msg: `${path} skipped`}];
+      return Object.assign({}, state, {files, skipped, current: null, conflictFlag: switchCF(state), log});
     }
     case FILE_CONFLICT: {
       return Object.assign({}, state, {conflict: true});

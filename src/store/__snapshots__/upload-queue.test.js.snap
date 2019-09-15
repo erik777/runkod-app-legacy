@@ -5,9 +5,10 @@ Object {
   "completed": Array [],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [],
+  "log": Array [],
   "show": false,
   "skipped": Array [],
 }
@@ -18,46 +19,59 @@ Object {
   "completed": Array [],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "index.html",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
     },
   ],
+  "log": Array [],
   "show": true,
   "skipped": Array [],
 }
@@ -68,6 +82,7 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -77,36 +92,53 @@ Object {
   "files": Array [
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "index.html",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
     },
   ],
   "show": true,
@@ -119,9 +151,11 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -131,33 +165,53 @@ Object {
   "files": Array [
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "index.html",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
     },
   ],
   "show": true,
@@ -170,12 +224,15 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -185,30 +242,53 @@ Object {
   "files": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
     },
   ],
   "show": true,
@@ -221,12 +301,15 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -235,32 +318,59 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "manifest.json",
+      "path": "",
     },
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
     },
   ],
   "show": true,
@@ -273,12 +383,15 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
   ],
   "conflict": true,
@@ -287,32 +400,59 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "manifest.json",
+      "path": "",
     },
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
     },
   ],
   "show": true,
@@ -325,12 +465,15 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -339,32 +482,59 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "manifest.json",
+      "path": "",
     },
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
     },
   ],
   "show": true,
@@ -377,15 +547,19 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -394,29 +568,59 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
+    },
+    Object {
+      "msg": "manifest.json uploaded",
+      "type": "success",
     },
   ],
   "show": true,
@@ -429,15 +633,19 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
   ],
   "conflict": true,
@@ -446,29 +654,59 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
+    },
+    Object {
+      "msg": "manifest.json uploaded",
+      "type": "success",
     },
   ],
   "show": true,
@@ -481,15 +719,19 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -498,29 +740,59 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
+    },
+    Object {
+      "msg": "manifest.json uploaded",
+      "type": "success",
     },
   ],
   "show": true,
@@ -533,15 +805,19 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -550,32 +826,66 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
+    },
+    Object {
+      "msg": "manifest.json uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "favicon.ico skipped",
+      "type": "info",
     },
   ],
   "show": true,
   "skipped": Array [
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
   ],
 }
@@ -586,15 +896,19 @@ Object {
   "completed": Array [
     Object {
       "name": "style.css",
+      "path": "",
     },
     Object {
       "name": "main.js",
+      "path": "",
     },
     Object {
       "name": "vendor.js",
+      "path": "",
     },
     Object {
       "name": "manifest.json",
+      "path": "",
     },
   ],
   "conflict": false,
@@ -603,32 +917,70 @@ Object {
   "failed": Array [
     Object {
       "name": "index.html",
+      "path": "",
     },
   ],
   "files": Array [
     Object {
       "name": "logo.png",
+      "path": "",
     },
     Object {
       "name": "foo.gif",
+      "path": "",
     },
     Object {
       "name": "bar.png",
+      "path": "",
     },
     Object {
       "name": "baz.js",
+      "path": "",
     },
     Object {
       "name": "lorem.css",
+      "path": "",
+    },
+  ],
+  "log": Array [
+    Object {
+      "msg": "style.css uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "main.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "vendor.js uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "index.html could not uploaded",
+      "type": "error",
+    },
+    Object {
+      "msg": "manifest.json uploaded",
+      "type": "success",
+    },
+    Object {
+      "msg": "favicon.ico skipped",
+      "type": "info",
+    },
+    Object {
+      "msg": "bg.jpg skipped",
+      "type": "info",
     },
   ],
   "show": true,
   "skipped": Array [
     Object {
       "name": "favicon.ico",
+      "path": "",
     },
     Object {
       "name": "bg.jpg",
+      "path": "",
     },
   ],
 }
@@ -639,9 +991,10 @@ Object {
   "completed": Array [],
   "conflict": false,
   "conflictFlag": 0,
-  "current": null,
+  "current": "",
   "failed": Array [],
   "files": Array [],
+  "log": Array [],
   "show": false,
   "skipped": Array [],
 }
