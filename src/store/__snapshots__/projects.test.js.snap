@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+Object {
+  "list": Array [],
+  "loading": false,
+  "selected": null,
+}
+`;
+
+exports[`2- fetch 1`] = `
+Object {
+  "list": Array [],
+  "loading": true,
+  "selected": null,
+}
+`;
+
+exports[`3- fetch error 1`] = `
+Object {
+  "list": Array [],
+  "loading": false,
+  "selected": null,
+}
+`;
+
+exports[`4- fetched 1`] = `
+Object {
+  "list": Array [
+    Object {
+      "_id": "project1",
+    },
+    Object {
+      "_id": "project2",
+    },
+  ],
+  "loading": false,
+  "selected": null,
+}
+`;
+
+exports[`5- user logout 1`] = `
+Object {
+  "list": Array [],
+  "loading": false,
+  "selected": null,
+}
+`;
