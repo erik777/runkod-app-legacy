@@ -1,18 +1,17 @@
 import {USER_LOGOUT} from './user';
-import {SELECTED as PROJECT_SELECTED} from './project';
+import {SELECT as PROJECT_SELECT} from './project';
+import {BASE_PATH} from '../constants';
 
-export const SELECTED = '@path/SELECTED';
+export const SELECT = '@path/SELECT';
 
-const initialState = '/';
+const initialState = BASE_PATH;
 
 /* Reducer */
-
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SELECTED:
+    case SELECT:
       return action.payload.path;
-    case PROJECT_SELECTED:
-      return initialState;
+    case PROJECT_SELECT:
     case USER_LOGOUT:
       return initialState;
     default:
@@ -21,16 +20,14 @@ export default (state = initialState, action) => {
 }
 
 /* Actions */
-
 export const selectPath = (path) => async (dispatch) => {
-  dispatch(selectPathAct(path));
+  dispatch(selectAct(path));
 };
 
 
 /* Action creators */
-
-export const selectPathAct = (path) => ({
-  type: SELECTED,
+export const selectAct = (path) => ({
+  type: SELECT,
   payload: {
     path
   }

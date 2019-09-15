@@ -1,6 +1,6 @@
 import {USER_LOGOUT} from './user';
-import {SELECTED as PROJECT_SELECTED} from "./project";
-import {SELECTED as PATH_SELECTED} from "./path";
+import {SELECT as PROJECT_SELECT} from "./project";
+import {SELECT as PATH_SELECT} from "./path";
 import {FINISH as DELETE_QUEUE_FINISH} from "./delete-queue";
 
 export const ADD = '@check-list/ADD';
@@ -25,8 +25,8 @@ export default (state = initialState, action) => {
     }
     case RESET:
     case DELETE_QUEUE_FINISH:
-    case PATH_SELECTED:
-    case PROJECT_SELECTED:
+    case PATH_SELECT:
+    case PROJECT_SELECT:
     case USER_LOGOUT:
       return initialState;
     default:

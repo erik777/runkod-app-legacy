@@ -1,13 +1,13 @@
 import {USER_LOGOUT} from './user';
 
-export const SELECTED = '@project/SELECT';
+export const SELECT = '@project/SELECT';
 
 const initialState = null;
 
 /* Reducer */
 export default (state = initialState, action) => {
   switch (action.type) {
-    case SELECTED:
+    case SELECT:
       const {project} = action.payload;
       return project;
     case USER_LOGOUT:
@@ -25,7 +25,7 @@ export const selectProject = (project) => async (dispatch) => {
 
 /* Action creators */
 export const selectAct = (project) => ({
-  type: SELECTED,
+  type: SELECT,
   payload: {
     project
   }

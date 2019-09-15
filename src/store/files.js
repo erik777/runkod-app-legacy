@@ -5,7 +5,7 @@ import {File} from '../model';
 import fs from '../fs';
 
 import {USER_LOGOUT} from './user';
-import {SELECTED} from './project';
+import {SELECT as PROJECT_SELECT} from './project';
 
 const initialState = {
   loading: false,
@@ -30,8 +30,7 @@ export default (state = initialState, action) => {
       const list = files.map(x => ({...x.attrs}));
       const map = fs.buildPathMap(list);
       return Object.assign({}, state, {loading: false, list, map});
-    case SELECTED:
-      return initialState;
+    case PROJECT_SELECT:
     case USER_LOGOUT:
       return initialState;
     default:

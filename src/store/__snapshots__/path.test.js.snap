@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `"/"`;
+
+exports[`2- select 1`] = `"/foo/bar/"`;
+
+exports[`3- project select 1`] = `"/"`;
+
+exports[`3- user logout 1`] = `"/"`;
