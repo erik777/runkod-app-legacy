@@ -10,6 +10,7 @@ import {_t} from '../../../../../i18n';
 
 import {uploadSvg} from '../../../../../svg';
 
+import {DISABLED_FILES} from '../../../../../constants';
 
 const resolveDataTransfer = async (dataTransfer) => {
 
@@ -131,7 +132,8 @@ class UploadZone extends Component {
 
     resolveDataTransfer(e.dataTransfer).then(files => {
       const {onDrop} = this.props;
-      onDrop(files);
+      const files_ = files.filter(x => !DISABLED_FILES.includes(x));
+      onDrop(files_);
     })
   };
 

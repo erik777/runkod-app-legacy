@@ -20,3 +20,6 @@ export const CONFLICT_FLAG_NO_ALL = 5;
 
 export const BASE_PATH = '/';
 export const PATH_SEPARATOR = '/';
+
+
+export const DISABLED_FILES = ['.DS_Store'];
