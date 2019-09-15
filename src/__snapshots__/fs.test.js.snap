@@ -215,25 +215,74 @@ Object {
 }
 `;
 
-exports[`6- path label 1`] = `
+exports[`6- buildPathMap 3 1`] = `
+Object {
+  "/": Object {
+    "files": Array [
+      Object {
+        "name": "index.html",
+        "parent": "/",
+      },
+      Object {
+        "name": "blog.html",
+        "parent": "/",
+      },
+    ],
+    "folders": Array [
+      "/css/",
+      "/personal pages/",
+    ],
+  },
+  "/css/": Object {
+    "files": Array [
+      Object {
+        "name": "bootstrap.css",
+        "parent": "/css/",
+      },
+      Object {
+        "name": "style.css",
+        "parent": "/css/",
+      },
+    ],
+    "folders": Array [],
+  },
+  "/personal pages/": Object {
+    "files": Array [],
+    "folders": Array [
+      "/personal pages/css/",
+    ],
+  },
+  "/personal pages/css/": Object {
+    "files": Array [
+      Object {
+        "name": "jquery-ui.css",
+        "parent": "/personal pages/css/",
+      },
+    ],
+    "folders": Array [],
+  },
+}
+`;
+
+exports[`7- path label 1`] = `
 Array [
   "fonts",
 ]
 `;
 
-exports[`7- path label 1`] = `
+exports[`8- path label 1`] = `
 Array [
   "images",
 ]
 `;
 
-exports[`8- parent path 1`] = `"/static/media/fonts/foo/"`;
+exports[`9- parent path 1`] = `"/static/media/fonts/foo/"`;
 
-exports[`9- parent path 1`] = `"/"`;
+exports[`10- parent path 1`] = `"/"`;
 
-exports[`10- parent path 1`] = `null`;
+exports[`11- parent path 1`] = `null`;
 
-exports[`11- getFilesUnderPath 1`] = `
+exports[`12- getFilesUnderPath 1`] = `
 Array [
   Object {
     "name": "index.json",
@@ -262,7 +311,7 @@ Array [
 ]
 `;
 
-exports[`11- getFilesUnderPath 2`] = `
+exports[`12- getFilesUnderPath 2`] = `
 Array [
   Object {
     "name": "amg.json",
@@ -279,7 +328,7 @@ Array [
 ]
 `;
 
-exports[`11- getFilesUnderPath 3`] = `
+exports[`12- getFilesUnderPath 3`] = `
 Array [
   Object {
     "name": "m3.json",
@@ -292,7 +341,7 @@ Array [
 ]
 `;
 
-exports[`11- getFilesUnderPath 4`] = `
+exports[`12- getFilesUnderPath 4`] = `
 Array [
   Object {
     "name": "index.json",
@@ -329,6 +378,6 @@ Array [
 ]
 `;
 
-exports[`11- isPath 1`] = `false`;
+exports[`13- isPath 1`] = `false`;
 
-exports[`11- isPath 2`] = `true`;
+exports[`13- isPath 2`] = `true`;

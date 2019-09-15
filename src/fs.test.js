@@ -126,7 +126,36 @@ it('5- buildPathMap 2', () => {
 });
 
 
-it('6- path label', () => {
+it('6- buildPathMap 3', () => {
+  const files = [
+    {
+      parent: '/',
+      name: 'index.html'
+    },
+    {
+      parent: '/',
+      name: 'blog.html'
+    },
+    {
+      parent: '/css/',
+      name: 'bootstrap.css'
+    },
+    {
+      parent: '/css/',
+      name: 'style.css'
+    },
+    {
+      parent: '/personal pages/css/',
+      name: 'jquery-ui.css'
+    }
+  ];
+
+  const result = fs.buildPathMap(files);
+  expect(result).toMatchSnapshot();
+});
+
+
+it('7- path label', () => {
   const path = '/static/media/fonts/';
 
   const result = fs.pathLabel(path);
@@ -134,7 +163,7 @@ it('6- path label', () => {
 });
 
 
-it('7- path label', () => {
+it('8- path label', () => {
   const path = '/images/';
 
   const result = fs.pathLabel(path);
@@ -142,7 +171,7 @@ it('7- path label', () => {
 });
 
 
-it('8- parent path', () => {
+it('9- parent path', () => {
   const path = '/static/media/fonts/foo/bar';
 
   const result = fs.parentPath(path);
@@ -150,7 +179,7 @@ it('8- parent path', () => {
 });
 
 
-it('9- parent path', () => {
+it('10- parent path', () => {
   const path = '/static/';
 
   const result = fs.parentPath(path);
@@ -158,7 +187,7 @@ it('9- parent path', () => {
 });
 
 
-it('10- parent path', () => {
+it('11- parent path', () => {
   const path = '/';
 
   const result = fs.parentPath(path);
@@ -166,7 +195,7 @@ it('10- parent path', () => {
 });
 
 
-it('11- getFilesUnderPath', () => {
+it('12- getFilesUnderPath', () => {
 
   const files = [
     {
@@ -223,7 +252,7 @@ it('11- getFilesUnderPath', () => {
 });
 
 
-it('11- isPath', () => {
+it('13- isPath', () => {
   expect(fs.isPath('arandomtext')).toMatchSnapshot();
   expect(fs.isPath('/cars/')).toMatchSnapshot();
 });

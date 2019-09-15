@@ -42,7 +42,7 @@ const buildPathMap = (files) => {
     m[x] = {'folders': [], 'files': []};
 
     m[x]['folders'] = paths.filter(y => {
-      if (y.indexOf(x) === -1) {
+      if (y.indexOf(x) !== 0) {
         return false;
       }
 
