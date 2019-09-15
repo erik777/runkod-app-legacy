@@ -34,7 +34,8 @@ const propTypes = {
   startUploadQueue: PropTypes.func.isRequired,
   setUploadQueueConflictFlag: PropTypes.func.isRequired,
   resetUploadQueue: PropTypes.func.isRequired,
-  fetchFiles: PropTypes.func.isRequired
+  fetchFiles: PropTypes.func.isRequired,
+  toggleUiProp: PropTypes.func.isRequired
 };
 
 class DialogContent extends Component {
