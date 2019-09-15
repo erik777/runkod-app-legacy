@@ -19,8 +19,13 @@ export default (state = initialState, action) => {
 /* Actions */
 export const login = (username) => {
   return async (dispatch) => {
-
     dispatch(loginAct(username));
+  }
+};
+
+export const logout = () => {
+  return async (dispatch) => {
+    dispatch(logOutAct());
   }
 };
 
@@ -29,4 +34,9 @@ export const login = (username) => {
 export const loginAct = (username) => ({
   type: USER_LOGIN,
   payload: username
+});
+
+
+export const logOutAct = () => ({
+  type: USER_LOGOUT
 });
