@@ -10,7 +10,6 @@ export const RESET = '@check-list/RESET';
 const initialState = [];
 
 /* Reducer */
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD: {
@@ -24,8 +23,8 @@ export default (state = initialState, action) => {
       const {item} = action.payload;
       return [...state.filter(x => x !== item)]
     }
-    case DELETE_QUEUE_FINISH:
     case RESET:
+    case DELETE_QUEUE_FINISH:
     case PATH_SELECTED:
     case PROJECT_SELECTED:
     case USER_LOGOUT:
@@ -36,7 +35,6 @@ export default (state = initialState, action) => {
 }
 
 /* Actions */
-
 export const checkListAdd = (item) => async (dispatch) => {
   dispatch(checkListAddAct(item));
 };
@@ -51,7 +49,6 @@ export const checkListReset = () => async (dispatch) => {
 
 
 /* Action creators */
-
 export const checkListAddAct = (item) => ({
   type: ADD,
   payload: {

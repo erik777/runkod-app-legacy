@@ -5,7 +5,6 @@ export const SELECTED = '@project/SELECT';
 const initialState = null;
 
 /* Reducer */
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case SELECTED:
@@ -19,15 +18,13 @@ export default (state = initialState, action) => {
 }
 
 /* Actions */
-
 export const selectProject = (project) => async (dispatch) => {
-  dispatch(selectProjectAct(project));
+  dispatch(selectAct(project));
 };
 
 
 /* Action creators */
-
-export const selectProjectAct = (project) => ({
+export const selectAct = (project) => ({
   type: SELECTED,
   payload: {
     project
