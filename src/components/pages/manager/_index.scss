@@ -1,25 +1,7 @@
 
 .manager-page {
   height: 100%;
-
-  .header {
-    background: $primary;
-    height: 50px;
-    padding: 0 12px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .logo {
-      width: 47px;
-      height: 36px;
-      margin-left: 11px;
-
-      img {
-        max-height: 36px;
-      }
-    }
-  }
+  min-width: 992px;
 
   .progress {
     height: 3px;
@@ -51,10 +33,29 @@
     }
   }
 
+  .header {
+    background: $primary;
+    height: 50px;
+    padding: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .logo {
+      width: 47px;
+      height: 36px;
+      margin-left: 11px;
+
+      img {
+        max-height: 36px;
+      }
+    }
+  }
 
   .page-content {
-    height: calc(100% - 50px);
+    height: calc(100% - 3px - 50px);
     background: $white;
+    min-height: 600px;
 
     .no-project, .no-selected-project {
       height: 100%;
