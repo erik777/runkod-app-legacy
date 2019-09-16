@@ -2,6 +2,7 @@ import {USER_LOGOUT} from './user';
 import {SELECT as PROJECT_SELECT} from "./project";
 import {SELECT as PATH_SELECT} from "./path";
 import {FINISH as DELETE_QUEUE_FINISH} from "./delete-queue";
+import {SET as UPLOAD_QUEUE_SET} from "./upload-queue"
 
 export const ADD = '@check-list/ADD';
 export const REMOVE = '@check-list/REMOVE';
@@ -25,6 +26,7 @@ export default (state = initialState, action) => {
     }
     case RESET:
     case DELETE_QUEUE_FINISH:
+    case UPLOAD_QUEUE_SET:
     case PATH_SELECT:
     case PROJECT_SELECT:
     case USER_LOGOUT:

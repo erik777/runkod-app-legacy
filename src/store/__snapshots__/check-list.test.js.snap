@@ -38,25 +38,35 @@ Array [
 
 exports[`6- remove  1`] = `Array []`;
 
-exports[`7 add  1`] = `
+exports[`7- add  1`] = `
 Array [
   "bar",
   "baz",
 ]
 `;
 
-exports[`8 reset  1`] = `Array []`;
+exports[`8- reset  1`] = `Array []`;
 
-exports[`9 add  1`] = `
+exports[`9- add  1`] = `
 Array [
   "bar",
   "baz",
 ]
 `;
 
-exports[`10 add  1`] = `
+exports[`10- add  1`] = `
 Array [
   "bar",
   "baz",
 ]
 `;
+
+exports[`11- delete queue finish  1`] = `Array []`;
+
+exports[`12- upload queue set   1`] = `Array []`;
+
+exports[`13- path select 1`] = `Array []`;
+
+exports[`14- project select 1`] = `Array []`;
+
+exports[`15- log out 1`] = `Array []`;
