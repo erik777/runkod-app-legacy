@@ -1,0 +1,121 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+Object {
+  "list": Array [],
+  "loading": false,
+  "map": null,
+}
+`;
+
+exports[`2- fetch 1`] = `
+Object {
+  "list": Array [],
+  "loading": true,
+  "map": null,
+}
+`;
+
+exports[`3- fetch error 1`] = `
+Object {
+  "list": Array [],
+  "loading": false,
+  "map": null,
+}
+`;
+
+exports[`4- fetched 1`] = `
+Object {
+  "list": Array [
+    Object {
+      "label": "index.html",
+      "parent": "/",
+    },
+    Object {
+      "label": "style.css",
+      "parent": "/css/",
+    },
+    Object {
+      "label": "vendor.css",
+      "parent": "/css/",
+    },
+    Object {
+      "label": "main.js",
+      "parent": "/js/",
+    },
+    Object {
+      "label": "mobile.css",
+      "parent": "/mobile/css/",
+    },
+  ],
+  "loading": false,
+  "map": Object {
+    "/": Object {
+      "files": Array [
+        Object {
+          "label": "index.html",
+          "parent": "/",
+        },
+      ],
+      "folders": Array [
+        "/css/",
+        "/js/",
+        "/mobile/",
+      ],
+    },
+    "/css/": Object {
+      "files": Array [
+        Object {
+          "label": "style.css",
+          "parent": "/css/",
+        },
+        Object {
+          "label": "vendor.css",
+          "parent": "/css/",
+        },
+      ],
+      "folders": Array [],
+    },
+    "/js/": Object {
+      "files": Array [
+        Object {
+          "label": "main.js",
+          "parent": "/js/",
+        },
+      ],
+      "folders": Array [],
+    },
+    "/mobile/": Object {
+      "files": Array [],
+      "folders": Array [
+        "/mobile/css/",
+      ],
+    },
+    "/mobile/css/": Object {
+      "files": Array [
+        Object {
+          "label": "mobile.css",
+          "parent": "/mobile/css/",
+        },
+      ],
+      "folders": Array [],
+    },
+  },
+}
+`;
+
+exports[`5- user logout 1`] = `
+Object {
+  "list": Array [],
+  "loading": false,
+  "map": null,
+}
+`;
+
+exports[`6- project select 1`] = `
+Object {
+  "list": Array [],
+  "loading": false,
+  "map": null,
+}
+`;

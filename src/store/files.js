@@ -16,20 +16,21 @@ const initialState = {
 
 /* Action types */
 
-export const START_FETCH = '@files/START_FETCH';
+export const FETCH = '@files/FETCH';
+export const FETCH_ERROR = '@files/FETCH_ERROR';
 export const FETCHED = '@files/FETCHED';
 
 /* Reducer */
-
 export default (state = initialState, action) => {
   switch (action.type) {
-    case START_FETCH:
+    case FETCH:
       return Object.assign({}, state, {loading: true, list: [], map: null});
     case FETCHED:
       const {files} = action.payload;
       const list = files.map(x => ({...x.attrs}));
       const map = fs.buildPathMap(list);
       return Object.assign({}, state, {loading: false, list, map});
+    case FETCH_ERROR:
     case PROJECT_SELECT:
     case USER_LOGOUT:
       return initialState;
@@ -39,7 +40,6 @@ export default (state = initialState, action) => {
 }
 
 /* Actions */
-
 export const fetchFiles = () => async (dispatch, getState) => {
   const {project, files} = getState();
 
@@ -47,28 +47,32 @@ export const fetchFiles = () => async (dispatch, getState) => {
     return;
   }
 
-  dispatch(fetchFilesAct());
+  dispatch(fetchAct());
 
   const filter = {project: project._id, tag: project.tag, deleted: false, sort: 'createdAt'};
   const [err, resp] = await to(File.fetchOwnList(filter));
 
   if (err) {
-    return
+    dispatch(fetchErrorAct());
+    return;
   }
 
-  dispatch(filesFetchedAct(resp));
+  dispatch(fetchedAct(resp));
 };
 
 
 /* Action creators */
-
-export const fetchFilesAct = () => ({
-  type: START_FETCH
+export const fetchAct = () => ({
+  type: FETCH
 });
 
-export const filesFetchedAct = (files) => ({
+export const fetchedAct = (files) => ({
   type: FETCHED,
   payload: {
     files
   }
+});
+
+export const fetchErrorAct = () => ({
+  type: FETCH_ERROR
 });
