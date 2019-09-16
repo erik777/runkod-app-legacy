@@ -35,7 +35,6 @@ const initialState = {
 };
 
 /* Action types */
-
 export const SET = '@upload-queue/SET';
 export const FINISH = '@upload-queue/FINISH';
 export const FILE_START = '@upload-queue/FILE_START';
@@ -48,7 +47,6 @@ export const RESET = '@upload-queue/RESET';
 
 
 /* Reducer */
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET: {

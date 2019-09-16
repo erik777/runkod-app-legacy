@@ -15,7 +15,6 @@ const initialState = {
 
 
 /* Action types */
-
 export const FETCH = '@files/FETCH';
 export const FETCH_ERROR = '@files/FETCH_ERROR';
 export const FETCHED = '@files/FETCHED';
