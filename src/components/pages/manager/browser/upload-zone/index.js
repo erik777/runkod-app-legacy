@@ -61,7 +61,7 @@ const resolveDataTransfer = async (dataTransfer) => {
       const [err, file] = await to(readFile(item));
       if (!err) {
         const [err, buffer] = await to(readFileBuffer(file));
-        if (!err) {
+        if (!err && !DISABLED_FILES.includes(item.name)) {
           fileList.push({path, name: item.name, type: (file.type || null), size: file.size, buffer});
         }
       }
@@ -132,8 +132,7 @@ class UploadZone extends Component {
 
     resolveDataTransfer(e.dataTransfer).then(files => {
       const {onDrop} = this.props;
-      const files_ = files.filter(x => !DISABLED_FILES.includes(x));
-      onDrop(files_);
+      onDrop(files);
     })
   };
 
