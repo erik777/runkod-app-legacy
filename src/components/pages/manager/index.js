@@ -39,6 +39,11 @@ class ManagerPage extends Component {
     }
   }
 
+  logoClicked = () => {
+    const {selectProject} = this.props;
+    selectProject(null);
+  };
+
   newProjectCreated = () => {
     const {fetchProjects} = this.props;
     fetchProjects();
@@ -64,7 +69,7 @@ class ManagerPage extends Component {
           }
         </div>
         <div className="header">
-          <div className="logo">
+          <div className="logo" onClick={this.logoClicked}>
             <img src={logo} alt="Logo"/>
           </div>
         </div>
@@ -144,6 +149,7 @@ ManagerPage.propTypes = {
   project: PropTypes.instanceOf(Object),
   path: PropTypes.string.isRequired,
   fetchProjects: PropTypes.func.isRequired,
+  selectProject: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired,
 };
 
