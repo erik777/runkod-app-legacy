@@ -31,6 +31,14 @@ class ManagerPage extends Component {
     fetchProjects();
   }
 
+  componentDidMount() {
+    // Manager page is not responsive. Remove viewport element.
+    const v = document.querySelector('#viewport');
+    if (v) {
+      v.parentNode.removeChild(v);
+    }
+  }
+
   newProjectCreated = () => {
     const {fetchProjects} = this.props;
     fetchProjects();
