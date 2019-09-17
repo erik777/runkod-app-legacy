@@ -19,12 +19,11 @@ const generatePaths = (path) => {
     "/static/media/fonts/"
   */
 
-  // Split path with path separator and remove empty items from array
-  const pathSplit = path.split(PATH_SEPARATOR).filter(x => x !== '');
+  const paths = pathToArr(path);
 
   // Walk on the array and return paths consecutively
-  return pathSplit.map((x, i) => {
-    const p = pathSplit.slice(0, i + 1);
+  return paths.map((x, i) => {
+    const p = paths.slice(0, i + 1);
     return arrToPath(p);
   });
 };
