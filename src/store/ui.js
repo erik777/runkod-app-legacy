@@ -5,6 +5,7 @@ export const TOGGLE_SIDE_PROJECTS_VISIBLE = '@ui/TOGGLE_SIDE_PROJECTS_VISIBLE';
 export const TOGGLE_UPLOAD_SUMMARY_DETAIL = '@ui/TOGGLE_UPLOAD_SUMMARY_DETAIL';
 export const TOGGLE_DELETE_DETAIL = '@ui/TOGGLE_DELETE_DETAIL';
 export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
+export const TOGGLE_PROJECT_SETTINGS = '@ui/TOGGLE_PROJECT_SETTINGS';
 
 const initialState = {
   newProject: false,
@@ -12,6 +13,7 @@ const initialState = {
   uploadSummaryDetail: false,
   deleteDetail: false,
   deleteSummaryDetail: false,
+  projectSettings: false,
 };
 
 /* Reducer */
@@ -30,6 +32,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {deleteDetail: action.payload.what});
     case TOGGLE_DELETE_SUMMARY_DETAIL:
       return Object.assign({}, state, {deleteSummaryDetail: action.payload.what});
+    case TOGGLE_PROJECT_SETTINGS:
+      return Object.assign({}, state, {projectSettings: action.payload.what});
     default:
       return state;
   }
@@ -58,6 +62,9 @@ export const toggleUiProp = (what) => {
         break;
       case 'deleteSummaryDetail':
         act = TOGGLE_DELETE_SUMMARY_DETAIL;
+        break;
+      case 'projectSettings':
+        act = TOGGLE_PROJECT_SETTINGS;
         break;
       default:
         act = '';

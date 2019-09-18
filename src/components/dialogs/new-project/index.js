@@ -22,7 +22,7 @@ import {
   NAME_SUFFIX,
   NAME_MAX_LENGTH,
   CUSTOM_NAME_MAX_LENGTH,
-  WEBSITE_STATUS_ON,
+  PROJECT_STATUS_ON,
   DEFAULT_TAG_NAME
 } from '../../../constants';
 
@@ -101,7 +101,8 @@ class NewProjectDialog extends Component {
       username: getUsername(),
       custom,
       tag: DEFAULT_TAG_NAME,
-      status: WEBSITE_STATUS_ON
+      status: PROJECT_STATUS_ON,
+      deleted: false
     });
     const [err,] = await to(p.save());
 

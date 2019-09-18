@@ -98,5 +98,15 @@
         }
       }
     }
+
+    .settings {
+      cursor: pointer;
+
+      svg {
+        width: 22px;
+        height: 22px;
+        fill: $gray-600;
+      }
+    }
   }
 }

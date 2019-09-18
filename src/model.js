@@ -24,9 +24,13 @@ export class Project extends Model {
       type: String,
       decrypted: true
     },
-    // Project status: 1=on, 2=off, 3=parked
+    // Project status: 1=on, 2=in maintenance mode, 3=off
     status: {
       type: Number,
+      decrypted: true
+    },
+    deleted: {
+      type: Boolean,
       decrypted: true
     },
   }

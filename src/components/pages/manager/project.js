@@ -4,17 +4,19 @@ import PropTypes from 'prop-types';
 
 import {_t} from '../../../i18n';
 
-import {refreshSvg, deleteSvg} from '../../../svg';
-
 import CheckBox from '../../helper/checkbox';
 
 import Browser from './browser';
+
+import ProjectSettingsDialog from '../../dialogs/project-settings'
 
 import fs from '../../../fs';
 
 import _c from '../../../utils/fix-class-names'
 
 import {BASE_PATH, PATH_SEPARATOR} from '../../../constants';
+
+import {refreshSvg, deleteSvg, settingsSvg} from '../../../svg';
 
 class Project extends Component {
 
@@ -57,8 +59,13 @@ class Project extends Component {
     setDeleteQueue(delList);
   };
 
+  showSettings = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('projectSettings');
+  };
+
   render() {
-    const {project, files, path, checkList} = this.props;
+    const {project, files, path, checkList, ui} = this.props;
     const {map, loading} = files;
     const pathArr = fs.pathToArr(path);
 
@@ -69,6 +76,8 @@ class Project extends Component {
       allChecked = all > 0 && all === checkList.length;
       disabled = all === 0
     }
+
+    console.log(ui.projectSettings)
 
     return (
       <div className="project">
@@ -104,6 +113,10 @@ class Project extends Component {
                         )
                       }
                     )}
+                  </div>
+
+                  <div className="settings" onClick={this.showSettings}>
+                    {settingsSvg}
                   </div>
                 </>
               )
@@ -141,6 +154,8 @@ class Project extends Component {
           })()}
         </div>
         <Browser {...this.props} />
+
+        {ui.projectSettings && <ProjectSettingsDialog {...this.props} />}
       </div>
     )
   }
@@ -156,6 +171,9 @@ Project.propTypes = {
     loading: PropTypes.bool.isRequired,
     map: PropTypes.shape({})
   }).isRequired,
+  ui: PropTypes.shape({
+    projectSettings: PropTypes.bool.isRequired
+  }).isRequired,
   path: PropTypes.string.isRequired,
   checkList: PropTypes.array.isRequired,
   fetchFiles: PropTypes.func.isRequired,
@@ -163,6 +181,7 @@ Project.propTypes = {
   checkListAdd: PropTypes.func.isRequired,
   checkListReset: PropTypes.func.isRequired,
   setDeleteQueue: PropTypes.func.isRequired,
+  toggleUiProp: PropTypes.func.isRequired,
 };
 
 export default Project;

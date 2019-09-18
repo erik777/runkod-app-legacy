@@ -65,5 +65,8 @@
     "summary-failed": "1 file failed",
     "n-summary-failed": "{{n}} files failed",
     "show-details": "show details"
+  },
+  "project-settings-dialog": {
+    "title": "{{n}} settings"
   }
 }
