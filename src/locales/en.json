@@ -6,6 +6,7 @@
     "submit": "Submit",
     "close": "Close",
     "delete": "Delete",
+    "save": "Save",
     "server-error": "An error has occurred"
   },
   "manager": {
@@ -67,6 +68,13 @@
     "show-details": "show details"
   },
   "project-settings-dialog": {
-    "title": "{{n}} settings"
+    "status": "Status",
+    "status-on": "On",
+    "status-maintenance": "Maintenance Mode",
+    "status-off": "Off",
+    "auth": "Authentication",
+    "dir-list": "Directory Listing",
+    "coming-soon": "coming soon",
+    "success": "Settings updated"
   }
 }

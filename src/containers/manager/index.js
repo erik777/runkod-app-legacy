@@ -7,7 +7,7 @@ import ManagerPage from '../../components/pages/manager';
 import {login} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
 import {fetchProjects} from '../../store/projects';
-import {selectProject} from '../../store/project';
+import {selectProject, setProjectStatus} from '../../store/project';
 import {fetchFiles} from '../../store/files';
 import {selectPath} from '../../store/path';
 import {setUploadQueue, startUploadQueue, setUploadQueueConflictFlag, resetUploadQueue} from '../../store/upload-queue';
@@ -40,6 +40,7 @@ const mapDispatchToProps = dispatch =>
       toggleUiProp,
       fetchProjects,
       selectProject,
+      setProjectStatus,
       fetchFiles,
       selectPath,
       setUploadQueue,

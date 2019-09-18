@@ -5,7 +5,15 @@ exports[`1- default 1`] = `null`;
 exports[`2- select 1`] = `
 Object {
   "_id": "project1",
+  "status": 1,
 }
 `;
 
-exports[`3- user logout 1`] = `null`;
+exports[`3- set status 1`] = `
+Object {
+  "_id": "project1",
+  "status": 2,
+}
+`;
+
+exports[`4- user logout 1`] = `null`;

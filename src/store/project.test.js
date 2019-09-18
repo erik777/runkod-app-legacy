@@ -1,5 +1,6 @@
 import reducer, {
-  selectAct
+  selectAct,
+  setStatusAct
 } from './project';
 
 import {
@@ -13,12 +14,18 @@ it('1- default', () => {
 });
 
 it('2- select', () => {
-  const act = selectAct({_id: 'project1'});
+  const act = selectAct({_id: 'project1', status: 1});
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
 
-it('3- user logout', () => {
+it('3- set status', () => {
+  const act = setStatusAct(2);
+  state = reducer(state, act);
+  expect(state).toMatchSnapshot();
+});
+
+it('4- user logout', () => {
   const act = logOutAct();
   state = reducer(state, act);
   expect(state).toMatchSnapshot();

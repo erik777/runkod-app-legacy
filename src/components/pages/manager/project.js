@@ -77,8 +77,6 @@ class Project extends Component {
       disabled = all === 0
     }
 
-    console.log(ui.projectSettings)
-
     return (
       <div className="project">
         <div className="toolbar">
