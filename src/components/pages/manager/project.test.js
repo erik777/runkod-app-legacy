@@ -13,6 +13,9 @@ test('1- files loading', () => {
       list: [],
       map: null
     },
+    ui: {
+      projectSettings: false,
+    },
     path: '/',
     checkList: [],
     fetchFiles: () => {
@@ -56,6 +59,9 @@ test('2- loaded. no file', () => {
       loading: false,
       list: [],
       map: {'/': {folders: [], files: []}}
+    },
+    ui: {
+      projectSettings: false,
     },
     path: '/',
     checkList: [],
@@ -146,6 +152,9 @@ test('3- loaded. with files and folders', () => {
           ]
         }
       }
+    },
+    ui: {
+      projectSettings: false,
     },
     path: '/',
     checkList: [],
@@ -238,6 +247,9 @@ test('4- in sub folder', () => {
         }
       }
     },
+    ui: {
+      projectSettings: false,
+    },
     path: '/foo/',
     checkList: [],
     fetchFiles: () => {
@@ -328,6 +340,9 @@ test('5- 1 item in checklist', () => {
           ]
         }
       }
+    },
+    ui: {
+      projectSettings: false,
     },
     path: '/',
     checkList: ['fileid1'],
@@ -420,6 +435,9 @@ test('6- 2 items in checklist', () => {
         }
       }
     },
+    ui: {
+      projectSettings: false,
+    },
     path: '/',
     checkList: ['fileid1', 'fileid3'],
     fetchFiles: () => {
@@ -510,6 +528,9 @@ test('7- all items in checklist', () => {
           ]
         }
       }
+    },
+    ui: {
+      projectSettings: false,
     },
     path: '/',
     checkList: ['fileid1', 'fileid3', '/foo/'],
