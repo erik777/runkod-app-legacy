@@ -1,0 +1,78 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+<form
+  className=""
+>
+  <div
+    className="form-group row"
+  >
+    <label
+      className="form-label col-form-label col-sm-4"
+    >
+      Status
+    </label>
+    <div
+      className="col-sm-8"
+    >
+      <select
+        className="form-control"
+        onChange={[Function]}
+        value={1}
+      >
+        <option
+          value={1}
+        >
+          On
+        </option>
+        <option
+          value={2}
+        >
+          Maintenance Mode
+        </option>
+        <option
+          value={3}
+        >
+          Off
+        </option>
+      </select>
+    </div>
+  </div>
+  <div
+    className="form-group row"
+  >
+    <label
+      className="form-label col-form-label col-sm-4"
+    >
+      Authentication
+    </label>
+    <div
+      className="d-flex align-items-center col-sm-8"
+    >
+      <span
+        className="text-primary font-weight-light"
+      >
+        coming soon
+      </span>
+    </div>
+  </div>
+  <div
+    className="form-group row"
+  >
+    <label
+      className="form-label col-form-label col-sm-4"
+    >
+      Directory Listing
+    </label>
+    <div
+      className="d-flex align-items-center col-sm-8"
+    >
+      <span
+        className="text-primary font-weight-light"
+      >
+        coming soon
+      </span>
+    </div>
+  </div>
+</form>
+`;

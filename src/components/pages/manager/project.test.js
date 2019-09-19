@@ -33,6 +33,9 @@ test('1- files loading', () => {
     setDeleteQueue: () => {
 
     },
+    toggleUiProp: () => {
+
+    },
     // props for sub components
     setUploadQueue: () => {
 
@@ -78,6 +81,9 @@ test('2- loaded. no file', () => {
 
     },
     setDeleteQueue: () => {
+
+    },
+    toggleUiProp: () => {
 
     },
     // props for sub components
@@ -171,6 +177,9 @@ test('3- loaded. with files and folders', () => {
 
     },
     setDeleteQueue: () => {
+
+    },
+    toggleUiProp: () => {
 
     },
     // props for sub components
@@ -267,6 +276,9 @@ test('4- in sub folder', () => {
     setDeleteQueue: () => {
 
     },
+    toggleUiProp: () => {
+
+    },
     // props for sub components
     setUploadQueue: () => {
 
@@ -359,6 +371,9 @@ test('5- 1 item in checklist', () => {
 
     },
     setDeleteQueue: () => {
+
+    },
+    toggleUiProp: () => {
 
     },
     // props for sub components
@@ -455,6 +470,9 @@ test('6- 2 items in checklist', () => {
     setDeleteQueue: () => {
 
     },
+    toggleUiProp: () => {
+
+    },
     // props for sub components
     setUploadQueue: () => {
 
@@ -547,6 +565,9 @@ test('7- all items in checklist', () => {
 
     },
     setDeleteQueue: () => {
+
+    },
+    toggleUiProp: () => {
 
     },
     // props for sub components
