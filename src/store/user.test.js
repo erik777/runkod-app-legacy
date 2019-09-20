@@ -11,7 +11,7 @@ it('1- default', () => {
 
 
 it('2- login', () => {
-  const act = loginAct('username');
+  const act = loginAct('username', 'https://foo.com/bar.jpg');
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });

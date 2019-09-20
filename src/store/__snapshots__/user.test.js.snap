@@ -1,7 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`1- default 1`] = `""`;
+exports[`1- default 1`] = `null`;
 
-exports[`2- login 1`] = `"username"`;
+exports[`2- login 1`] = `
+Object {
+  "image": "https://foo.com/bar.jpg",
+  "username": "username",
+}
+`;
 
-exports[`3- logout 1`] = `""`;
+exports[`3- logout 1`] = `null`;
