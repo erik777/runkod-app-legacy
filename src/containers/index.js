@@ -21,7 +21,15 @@ class App extends Component {
       const {store} = this.props;
 
       if (userData.username) {
-        store.dispatch(login(userData.username));
+
+        let image;
+        try {
+          image = userData.profile.image[0].contentUrl
+        } catch (e) {
+          image = '';
+        }
+
+        store.dispatch(login(userData.username, image));
       }
     }
   }

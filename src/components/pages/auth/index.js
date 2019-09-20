@@ -34,8 +34,15 @@ class AuthPage extends Component {
       }
 
       if (userData && userData.username) {
+        let image;
+        try {
+          image = userData.profile.image[0].contentUrl
+        } catch (e) {
+          image = '';
+        }
+
         const {login} = this.props;
-        login(userData.username);
+        login(userData.username, image);
         history.push('/manager');
         return;
       }

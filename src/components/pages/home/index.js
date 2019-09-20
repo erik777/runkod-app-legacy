@@ -12,7 +12,7 @@ class HomePage extends Component {
 
     const {user} = this.props;
 
-    if (userSession.isUserSignedIn() && user !== '') {
+    if (userSession.isUserSignedIn() && user !== null) {
       const {history} = this.props;
       history.push('/manager');
       return;
@@ -31,7 +31,7 @@ class HomePage extends Component {
 HomePage.defaultProps = {};
 
 HomePage.propTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.shape({}),
   login: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired

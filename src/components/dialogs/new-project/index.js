@@ -212,7 +212,6 @@ NewProjectDialog.defaultProps = {
 };
 
 NewProjectDialog.propTypes = {
-  user: PropTypes.string.isRequired,
   ui: PropTypes.shape({
     newProject: PropTypes.bool.isRequired
   }),

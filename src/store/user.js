@@ -1,10 +1,9 @@
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/USER_LOGOUT';
 
-const initialState = '';
+const initialState = null;
 
 /* Reducer */
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case USER_LOGIN:
@@ -17,9 +16,9 @@ export default (state = initialState, action) => {
 }
 
 /* Actions */
-export const login = (username) => {
+export const login = (username, image) => {
   return async (dispatch) => {
-    dispatch(loginAct(username));
+    dispatch(loginAct(username, image));
   }
 };
 
@@ -31,9 +30,9 @@ export const logout = () => {
 
 
 /* Action creators */
-export const loginAct = (username) => ({
+export const loginAct = (username, image) => ({
   type: USER_LOGIN,
-  payload: username
+  payload: {username, image}
 });
 
 

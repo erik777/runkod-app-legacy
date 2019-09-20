@@ -129,7 +129,7 @@ ManagerPage.defaultProps = {
 };
 
 ManagerPage.propTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.shape({}).isRequired,
   ui: PropTypes.shape({
     newProject: PropTypes.bool.isRequired
   }).isRequired,
