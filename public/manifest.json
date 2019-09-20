@@ -1,9 +1,9 @@
 {
-  "short_name": "dhost",
-  "name": "dHost",
+  "short_name": "runkod",
+  "name": "Runkod",
   "icons": [
     {
-      "src": "https://landr.me/images/icon.png",
+      "src": "https://runkod.com/manifest.png",
       "sizes": "128x128",
       "type": "image/png"
     }

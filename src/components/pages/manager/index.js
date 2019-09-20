@@ -8,9 +8,9 @@ import PropTypes from 'prop-types';
 
 import {Button} from 'react-bootstrap';
 
-import logo from '../../../images/logo-rect-white.png';
-
 import {_t} from '../../../i18n';
+
+import NavBar from './navbar';
 
 import SideMenu from './sidemenu';
 
@@ -39,11 +39,6 @@ class ManagerPage extends Component {
     }
   }
 
-  logoClicked = () => {
-    const {selectProject} = this.props;
-    selectProject(null);
-  };
-
   newProjectCreated = () => {
     const {fetchProjects} = this.props;
     fetchProjects();
@@ -68,11 +63,9 @@ class ManagerPage extends Component {
           </>
           }
         </div>
-        <div className="header">
-          <div className="logo" onClick={this.logoClicked}>
-            <img src={logo} alt="Logo"/>
-          </div>
-        </div>
+
+        <NavBar {...this.props} />
+
         <div className="page-content">
           {(() => {
 
@@ -129,7 +122,6 @@ ManagerPage.defaultProps = {
 };
 
 ManagerPage.propTypes = {
-  user: PropTypes.shape({}).isRequired,
   ui: PropTypes.shape({
     newProject: PropTypes.bool.isRequired
   }).isRequired,
@@ -147,9 +139,6 @@ ManagerPage.propTypes = {
     loading: PropTypes.bool.isRequired
   }).isRequired,
   project: PropTypes.instanceOf(Object),
-  path: PropTypes.string.isRequired,
-  fetchProjects: PropTypes.func.isRequired,
-  selectProject: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired,
 };
 

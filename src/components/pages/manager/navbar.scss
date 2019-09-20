@@ -1,0 +1,99 @@
+.nav-bar {
+  background: $primary;
+  height: 50px;
+  padding: 0 0 0 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .logo {
+    width: 47px;
+    height: 36px;
+    margin-left: 11px;
+    cursor: pointer;
+
+    img {
+      max-height: 36px;
+    }
+  }
+
+  .user-menu {
+    width: 60px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+
+    .user-image {
+      width: 100%;
+      height: 100%;
+      background: lighten($primary, 10);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 2rem;
+      color: $white;
+    }
+
+    .menu-list {
+      display: none;
+      position: absolute;
+      z-index: 10;
+      right: 0;
+      top: 50px;
+      width: 200px;
+      height: auto;
+      background: $gray-100;
+      border: 1px solid darken($gray-100, 4);
+
+      .username {
+        color: $gray-400;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+        padding-left: 3px;
+        display: block;
+      }
+
+      .menu-list-item {
+        display: flex;
+        padding: 8px 4px;
+        color: $gray-600;
+        font-size: 0.9rem;
+        cursor: pointer;
+        align-items: center;
+        justify-content: flex-end;
+
+        svg {
+          width: 20px;
+          height: 20px;
+          margin: 0 6px;
+          fill: $gray-500;
+        }
+
+        &:hover {
+          color: $gray-700;
+          background: $gray-300;
+        }
+      }
+    }
+
+    &:hover {
+      .user-image {
+        opacity: 0.5;
+      }
+
+      .menu-list {
+        display: block;
+      }
+    }
+  }
+}

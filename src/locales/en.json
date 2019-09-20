@@ -28,6 +28,10 @@
     },
     "upload-zone": {
       "label": "Drop files or folders here to upload"
+    },
+    "nav-bar": {
+      "help": "Help",
+      "sign-out": "Sign Out"
     }
   },
   "new-project-dialog": {

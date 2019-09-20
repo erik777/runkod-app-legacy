@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import ManagerPage from '../../components/pages/manager';
 
-import {login} from '../../store/user';
+import {login, logout} from '../../store/user';
 import {toggleUiProp} from '../../store/ui';
 import {fetchProjects} from '../../store/projects';
 import {selectProject, setProjectStatus} from '../../store/project';
@@ -37,6 +37,7 @@ const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
       login,
+      logout,
       toggleUiProp,
       fetchProjects,
       selectProject,
