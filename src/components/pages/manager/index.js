@@ -32,6 +32,12 @@ class ManagerPage extends Component {
   }
 
   componentDidMount() {
+    const {user, history} = this.props;
+    if (user === null) {
+      history.push('/');
+      return null;
+    }
+
     // Manager page is not responsive. Remove viewport element.
     const v = document.querySelector('#viewport');
     if (v) {
@@ -45,7 +51,11 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, files, project, uploadQueue, deleteQueue} = this.props;
+    const {ui, projects, files, project, uploadQueue, deleteQueue, user} = this.props;
+
+    if (user === null) {
+      return null;
+    }
 
     const {loading: projectsLoading} = projects;
     const {list: projectsList} = projects;
@@ -138,8 +148,12 @@ ManagerPage.propTypes = {
   files: PropTypes.shape({
     loading: PropTypes.bool.isRequired
   }).isRequired,
+  user: PropTypes.shape({}),
   project: PropTypes.instanceOf(Object),
   toggleUiProp: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired
+  })
 };
 
 export default ManagerPage;
