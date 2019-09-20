@@ -1,14 +1,14 @@
 
 .message-wrapper {
   position: absolute;
-  right: 4px;
-  top: 100px;
-  width: 300px;
+  width: 100%;
+  top: 3px;
   height: auto;
   z-index: 99999;
 
   .message-item {
-    margin-bottom: 10px !important;
+    margin: 0 auto 10px auto !important;
+    width: 300px;
     font-size: 90%;
 
     .icon {

@@ -2,6 +2,11 @@ $modal-title-line-height: 1.5rem;
 
 $border-radius: 0 !important;
 $modal-content-border-radius: 0;
+$alert-padding-y: 10px;
 
 @import '~bootstrap/scss/bootstrap';
 
+
+.modal-content{
+  margin-top: 100px !important;
+}
