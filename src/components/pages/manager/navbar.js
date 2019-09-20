@@ -62,7 +62,8 @@ NavBar.defaultProps = {};
 
 NavBar.propTypes = {
   user: PropTypes.shape({
-    image: PropTypes.string.isRequired
+    image: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired
   }),
   logout: PropTypes.func.isRequired,
   selectProject: PropTypes.func.isRequired,
