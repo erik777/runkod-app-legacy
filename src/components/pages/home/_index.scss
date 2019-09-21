@@ -1,0 +1,70 @@
+
+.main-nav {
+  background: #1d5df9;
+  padding-bottom: 0;
+  padding-top: 20px;
+
+  .navbar-brand {
+    img {
+      height: 48px;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      padding-left: 40px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, .75);
+      font-size: 1.1rem;
+    }
+
+    .buttons {
+      padding-left: 40px;
+
+      .btn {
+        width: 112px;
+        font-weight: 500;
+      }
+
+      .login-btn {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+.hero {
+  background: #1d5df9;
+  height: 580px;
+  display: flex;
+  align-items: center;
+
+  .row {
+    display: flex;
+    align-items: center;
+  }
+
+  .content {
+    h1 {
+      color: $white;
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 21px;
+    }
+
+    p {
+      color: rgba(255, 255, 255, .75);
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0;
+      max-width: 456px;
+    }
+
+    .launch-btn {
+      padding: 14px;
+      font-weight: 600;
+      margin-top: 25px;
+      width: 300px;
+    }
+  }
+}

@@ -11,6 +11,9 @@ import './style/style.scss';
 
 import './window';
 
+import 'typeface-ibm-plex-sans';
+
+
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>

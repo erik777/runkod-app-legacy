@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 
 import HomePage from '../../components/pages/home';
 
-import {login} from '../../store/user';
+import {login, logout} from '../../store/user';
 
 class HomeContainer extends Component {
   render() {
@@ -19,7 +19,8 @@ const mapStateToProps = ({user}) => ({
 const mapDispatchToProps = dispatch =>
   bindActionCreators(
     {
-      login
+      login,
+      logout
     },
     dispatch
   );
