@@ -10,16 +10,36 @@
     }
   }
 
+  .navbar-toggler {
+    border: 0;
+    outline: 0;
+  }
+
   .navbar-nav {
     .nav-link {
-      padding-left: 40px;
+      margin: 6px 0;
+
+      @media (min-width: $lg-break) {
+        margin-top: 0;
+        margin-bottom: 0;
+
+        &:not(:first-child) {
+          margin-left: 40px;
+        }
+      }
+
       font-weight: 600;
-      color: rgba(255, 255, 255, .75);
+      color: rgba($white, .75);
       font-size: 1.1rem;
     }
 
-    .buttons {
-      padding-left: 40px;
+    .controls {
+      margin-top: 6px;
+
+      @media (min-width: $lg-break) {
+        margin-top: 0;
+        margin-left: 40px;
+      }
 
       .btn {
         width: 112px;
@@ -35,36 +55,78 @@
 
 .hero {
   background: #1d5df9;
-  height: 580px;
+  height: 442px;
   display: flex;
   align-items: center;
 
-  .row {
-    display: flex;
-    align-items: center;
+  @media (min-width: $lg-break) {
+    height: 580px;
   }
 
-  .content {
-    h1 {
-      color: $white;
-      font-size: 2.2rem;
-      font-weight: 800;
-      margin-bottom: 21px;
+
+  .row {
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .c-1 {
+      .content {
+        text-align: center;
+
+        @media (min-width: $lg-break) {
+          text-align: left;
+        }
+
+        h1 {
+          color: $white;
+          font-size: 2.2rem;
+          font-weight: 800;
+          margin-bottom: 21px;
+        }
+
+        p {
+          color: rgba($white, .75);
+          font-size: 18px;
+          font-weight: 500;
+          margin: auto;
+          max-width: 456px;
+
+          @media (min-width: $lg-break) {
+            margin: 0;
+          }
+        }
+
+        .launch-btn {
+          padding: 14px;
+          font-weight: 600;
+          margin-top: 25px;
+          width: 100%;
+
+          @media (min-width: $md-break) {
+            width: 300px;
+          }
+        }
+      }
     }
 
-    p {
-      color: rgba(255, 255, 255, .75);
-      font-size: 18px;
-      font-weight: 500;
-      margin: 0;
-      max-width: 456px;
-    }
+    .c-2 {
+      img {
+        float: right;
 
-    .launch-btn {
-      padding: 14px;
-      font-weight: 600;
-      margin-top: 25px;
-      width: 300px;
+        @media (max-width: ($lg-break - 1px)) {
+          display: none;
+        }
+
+        @media (min-width: $lg-break) {
+          width: 400px;
+        }
+
+        @media (min-width: $xl-break) {
+          width: auto;
+        }
+      }
     }
   }
 }

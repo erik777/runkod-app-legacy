@@ -1,6 +1,11 @@
 @import 'bootstrap';
 @import 'colors';
 
+$sm-break: map-get($grid-breakpoints, "sm");
+$md-break: map-get($grid-breakpoints, "md");
+$lg-break: map-get($grid-breakpoints, "lg");
+$xl-break: map-get($grid-breakpoints, "xl");
+
 html {
   scroll-behavior: smooth;
 }

@@ -9,7 +9,6 @@ import logoImg from '../../../images/logo-rect-white.png'
 
 import {userSession} from '../../../blockstack-config';
 
-
 class HomePage extends Component {
   login = (e) => {
     e.preventDefault();
@@ -38,7 +37,7 @@ class HomePage extends Component {
       <>
         <Navbar variant="dark" expand="lg" className="main-nav">
           <Container>
-            <Navbar.Brand href="#home"><img src={logoImg}/> </Navbar.Brand>
+            <Navbar.Brand href="#home"><img src={logoImg} alt="Logo"/> </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav"/>
             <Navbar.Collapse id="basic-navbar-nav">
               <Nav className="ml-auto">
@@ -46,7 +45,7 @@ class HomePage extends Component {
                 <Nav.Link href="#link">Get Started</Nav.Link>
                 <Nav.Link href="#link">FAQ</Nav.Link>
                 <Nav.Link href="#link">Blockstack</Nav.Link>
-                <div className="buttons">
+                <div className="controls">
                   {(() => {
                     if (user === null) {
                       return <>
@@ -54,7 +53,6 @@ class HomePage extends Component {
                         <Button variant="info" className="sign-up-btn" onClick={this.login}>Sign Up</Button>
                       </>
                     }
-
                     return <Button variant="info" className="sign-out-btn" onClick={this.logout}>Logout</Button>
                   })()}
                 </div>
@@ -65,7 +63,7 @@ class HomePage extends Component {
         <div className="hero">
           <Container>
             <Row>
-              <Col sm={12} md={9} lg={6}>
+              <Col sm={12} md={9} lg={6} className="c-1">
                 <div className="content">
                   <h1>Decentralized Web Hosting</h1>
                   <p>Runkod provides decentralized hosting platform and management tools for modern javascript
@@ -77,14 +75,13 @@ class HomePage extends Component {
                       return <Button variant="primary" className="launch-btn" onClick={this.login}>Launch your first
                         project</Button>
                     }
-
                     return <Button variant="primary" className="launch-btn" onClick={this.login}>Go to management
                       console</Button>
                   })()}
                 </div>
               </Col>
-              <Col lg={6}>
-                <img src={cloudImg}/>
+              <Col lg={6} className="c-2">
+                <img src={cloudImg} alt="Hero"/>
               </Col>
             </Row>
           </Container>
