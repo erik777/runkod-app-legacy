@@ -177,7 +177,6 @@
 
 .get-started {
   padding: 40px 0;
-
   background: #1d5df9;
 
   h2 {
@@ -188,10 +187,15 @@
   }
 
   .video {
-    width: 400px;
-    height: 300px;
+    width: 200px;
+    height: 150px;
     background: $gray-200;
     margin: auto;
+
+    @media (min-width: $sm-break) {
+      width: 400px;
+      height: 300px;
+    }
   }
 }
 
@@ -246,7 +250,7 @@
 }
 
 .faq {
-  margin: 60px 0 50px 0;
+  margin: 60px 0 120px 0;
 
   h2 {
     font-weight: 500;
