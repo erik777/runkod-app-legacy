@@ -14,7 +14,20 @@ import dnsImg from '../../../images/dns-settings.png'
 
 import {userSession} from '../../../blockstack-config';
 
-import {twitterSvg, facebookSvg, mediumSvg, youtubeSvg, discordSvg, slackSvg, coctailSvg, networkSvg, infinitySvg, gemSvg, shieldSvg, codeSvg} from '../../../svg';
+import {
+  twitterSvg,
+  facebookSvg,
+  mediumSvg,
+  youtubeSvg,
+  discordSvg,
+  slackSvg,
+  coctailSvg,
+  networkSvg,
+  infinitySvg,
+  gemSvg,
+  shieldSvg,
+  codeSvg
+} from '../../../svg';
 
 
 class LoginButton extends Component {
@@ -152,8 +165,6 @@ class Footer extends Component {
 
           </Col>
         </Row>
-
-
       </div>
     </footer>
   }
@@ -317,6 +328,53 @@ class HomePage extends Component {
             <div className="video">
 
             </div>
+          </div>
+        </div>
+
+        <div className="testimonials">
+          <div className="container">
+            <h2>Testimonials</h2>
+
+            <Row>
+              <Col md={6} lg={4}>
+                <div className="testimonial">
+                  <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <div className="author">
+                    <img className="avatar" src="https://randomuser.me/api/portraits/men/81.jpg" alt="avatar"/>
+                    <div className="name">
+                      <h5>Niggel Banks</h5>
+                      <span>Full Stack Developer</span>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+
+              <Col md={6} lg={4}>
+                <div className="testimonial">
+                  <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <div className="author">
+                    <img className="avatar" src="https://randomuser.me/api/portraits/women/9.jpg" alt="avatar"/>
+                    <div className="name">
+                      <h5>Peggy Brown</h5>
+                      <span>UI/UX Designer</span>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+
+              <Col md={6} lg={4}>
+                <div className="testimonial">
+                  <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <div className="author">
+                    <img className="avatar" src="https://randomuser.me/api/portraits/men/60.jpg" alt="avatar"/>
+                    <div className="name">
+                      <h5>Byron Tucker</h5>
+                      <span>Frontend Developer</span>
+                    </div>
+                  </div>
+                </div>
+              </Col>
+            </Row>
           </div>
         </div>
         <Footer {...this.props} />
