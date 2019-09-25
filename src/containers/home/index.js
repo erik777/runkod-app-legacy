@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import connect from 'react-redux/es/connect/connect';
 import {bindActionCreators} from 'redux';
 
-import HomePage from '../../components/pages/home';
+import {HomePage, FaqPage} from '../../components/pages/home';
 
 import {login, logout} from '../../store/user';
 
@@ -25,7 +25,14 @@ const mapDispatchToProps = dispatch =>
     dispatch
   );
 
-export default connect(
+const HomePageContainer = connect(
   mapStateToProps,
   mapDispatchToProps
-)(HomeContainer)
+)(HomeContainer);
+
+const FaqPageContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FaqPage);
+
+export {HomePageContainer, FaqPageContainer}

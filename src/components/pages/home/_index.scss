@@ -1,8 +1,8 @@
 
 .main-nav {
   background: #1d5df9;
-  padding-bottom: 0;
   padding-top: 20px;
+  padding-bottom: 20px;
 
   .navbar-brand {
     img {
@@ -130,3 +130,150 @@
     }
   }
 }
+
+.features {
+  margin: 60px 0 50px 0;
+
+  h2 {
+    font-weight: 500;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+  .feature {
+    padding: 30px;
+    background: $white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .03);
+    transition: all .3s;
+    margin-bottom: 30px;
+
+    &:hover {
+      transform: translateY(-5px) translateZ(0);
+    }
+
+    h5 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      font-weight: 500;
+      color: #bdbac2;
+    }
+  }
+}
+
+.get-started {
+  padding: 40px 0;
+  margin-bottom: 80px;
+  background: #1d5df9;
+
+  h2 {
+    font-weight: 500;
+    color: $white;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .video {
+    width: 400px;
+    height: 300px;
+    background: $gray-200;
+    margin: auto;
+  }
+}
+
+.faq {
+  margin: 60px 0 50px 0;
+
+  h2 {
+    font-weight: 500;
+    margin-bottom: 60px;
+    text-align: center;
+  }
+
+
+  .faq-item {
+    padding: 30px;
+    background: $white;
+    box-shadow: 0 0 30px rgba(0, 0, 0, .03);
+    margin-bottom: 30px;
+
+    .item-header {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    .item-body {
+      p {
+        margin-bottom: 22px;
+      }
+
+      .sc-img {
+        max-width: 100%;
+        margin-bottom: 22px;
+        border: 1px solid $gray-200
+      }
+
+    }
+  }
+}
+
+.main-footer {
+
+  border-top: 2px solid $gray-100;
+  margin: 40px 0;
+  padding-top: 40px;
+  background: $white;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  ul {
+    padding-left: 0;
+    margin-bottom: 34px;
+    list-style: none;
+
+
+    li {
+      font-weight: 500;
+
+
+      a {
+        color: #bdbac2;
+      }
+    }
+
+    li + li {
+      margin-top: 14px;
+    }
+  }
+
+
+  .social-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 45px;
+    height: 45px;
+    background: #f5f5f5;
+    border-radius: 100%;
+    margin: 0 12px 12px 0;
+
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: #bdbac2;
+      color: #bdbac2;
+    }
+  }
+}
+

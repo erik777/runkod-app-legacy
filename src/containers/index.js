@@ -4,7 +4,7 @@ import {Route} from 'react-router-dom';
 
 import PropTypes from 'prop-types';
 
-import HomeContainer from './home';
+import {HomePageContainer, FaqPageContainer} from './home';
 import AuthContainer from './auth';
 import ManagerContainer from './manager'
 
@@ -37,7 +37,8 @@ class App extends Component {
   render() {
     return (
       <>
-        <Route exact path="/" component={HomeContainer}/>
+        <Route exact path="/" component={HomePageContainer}/>
+        <Route exact path="/faq" component={FaqPageContainer}/>
         <Route exact path="/auth" component={AuthContainer}/>
         <Route exact path="/manager" component={ManagerContainer}/>
       </>
