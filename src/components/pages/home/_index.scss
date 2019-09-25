@@ -151,6 +151,16 @@
       transform: translateY(-5px) translateZ(0);
     }
 
+    .icon {
+      svg {
+        color: $primary;
+        fill: $primary;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 20px;
+      }
+    }
+
     h5 {
       font-size: 18px;
       font-weight: 700;
@@ -223,7 +233,6 @@
 }
 
 .main-footer {
-
   border-top: 2px solid $gray-100;
   margin: 40px 0;
   padding-top: 40px;
@@ -255,7 +264,6 @@
       margin-top: 14px;
     }
   }
-
 
   .social-link {
     display: inline-flex;

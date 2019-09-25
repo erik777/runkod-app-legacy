@@ -6,7 +6,7 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 
-import {Button, Container, Row, Col, Nav, Navbar, Accordion, Card} from 'react-bootstrap';
+import {Button, Container, Row, Col, Nav, Navbar} from 'react-bootstrap';
 
 import cloudImg from '../../../images/cloud.png'
 import logoImg from '../../../images/logo-rect-white.png'
@@ -14,7 +14,7 @@ import dnsImg from '../../../images/dns-settings.png'
 
 import {userSession} from '../../../blockstack-config';
 
-import {twitterSvg, facebookSvg, mediumSvg, youtubeSvg, discordSvg, slackSvg} from '../../../svg';
+import {twitterSvg, facebookSvg, mediumSvg, youtubeSvg, discordSvg, slackSvg, coctailSvg, networkSvg, infinitySvg, gemSvg, shieldSvg, codeSvg} from '../../../svg';
 
 
 class LoginButton extends Component {
@@ -175,7 +175,7 @@ class FaqPage extends Component {
                 <p>Then, Create an A record: type @ for "Host" and paste 178.128.141.114 under "Value" or "Points
                   to"</p>
 
-                <img src={dnsImg} className="sc-img"/>
+                <img src={dnsImg} className="sc-img" alt="Dns Settings"/>
                 <p>If you want to redirect www subdomain add CNAME record like above.</p>
 
                 <p className="text-muted">Please keep in mind, depending on your dns provider it may take some time to
@@ -255,6 +255,7 @@ class HomePage extends Component {
             <div className="row">
               <Col md={6} lg={4}>
                 <div className="feature">
+                  <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
                   <p>whether you are using a custom domain or not, ssl certificate for your website is ready in
                     seconds.</p>
@@ -263,6 +264,7 @@ class HomePage extends Component {
 
               <Col md={6} lg={4}>
                 <div className="feature">
+                  <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
                   <p>Naturally decentralized. Runkod works top on Blockstack's decentralized high-performance storage
                     system "Gaia".</p>
@@ -271,6 +273,7 @@ class HomePage extends Component {
 
               <Col md={6} lg={4}>
                 <div className="feature">
+                  <span className="icon">{infinitySvg}</span>
                   <h5>Unlimited</h5>
                   <p>We don't store your files. You store your files. Runkod runs on Blockstack's gaia storage.</p>
                 </div>
@@ -278,6 +281,7 @@ class HomePage extends Component {
 
               <Col md={6} lg={4}>
                 <div className="feature">
+                  <span className="icon">{gemSvg}</span>
                   <h5>Easy</h5>
                   <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been
                     the industry's standard dummy text</p>
@@ -286,6 +290,7 @@ class HomePage extends Component {
 
               <Col md={6} lg={4}>
                 <div className="feature">
+                  <span className="icon">{shieldSvg}</span>
                   <h5>Instant SSL</h5>
                   <p>Even SSL certificates are free. Whether you are using a custom domain or not, ssl certificate for
                     your website is ready in seconds.</p>
@@ -294,6 +299,7 @@ class HomePage extends Component {
 
               <Col md={6} lg={4}>
                 <div className="feature">
+                  <span className="icon">{codeSvg}</span>
                   <h5>Open Source</h5>
                   <p>All Runkod code is open sourced on github under MIT licence. Feel free to view code and let us know
                     your feedback.</p>
