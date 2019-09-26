@@ -190,7 +190,7 @@ class FaqPage extends Component {
 
   render() {
     return (
-      <>
+      <div className="faq-page user-select">
         <Header {...this.props}/>
         <div className="faq">
           <div className="container">
@@ -224,7 +224,7 @@ class FaqPage extends Component {
           </div>
         </div>
         <Footer {...this.props} />
-      </>
+      </div>
     )
   }
 }
@@ -242,7 +242,7 @@ class HomePage extends Component {
     const {user} = this.props;
 
     return (
-      <>
+      <div className="home-page user-select">
         <Header {...this.props}/>
         <div className="hero">
           <Container>
@@ -384,7 +384,7 @@ class HomePage extends Component {
           </div>
         </div>
         <Footer {...this.props} />
-      </>
+      </div>
     )
   }
 }
