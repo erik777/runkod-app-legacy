@@ -17,9 +17,10 @@ import {userSession} from '../../../blockstack-config';
 import {
   twitterSvg,
   facebookSvg,
-  mediumSvg,
+  steemSvg,
   youtubeSvg,
   discordSvg,
+  telegramSvg,
   slackSvg,
   coctailSvg,
   networkSvg,
@@ -80,10 +81,11 @@ class Header extends Component {
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link href="#home">Features</Nav.Link>
-            <Nav.Link href="#link">Get Started</Nav.Link>
+            <Nav.Link href="/#features">Features</Nav.Link>
+            <Nav.Link href="/#get-started">Get Started</Nav.Link>
             <Link className="nav-link" to="/faq">FAQ</Link>
-            <Nav.Link href="#link">Blockstack</Nav.Link>
+            <Nav.Link href="https://blockstack.org/what-is-blockstack/" target="_blank"
+                      rel="noopener noreferrer">Blockstack</Nav.Link>
             <div className="controls">
               {(() => {
                 if (user === null) {
@@ -128,41 +130,55 @@ class Footer extends Component {
           <Col lg={3} sm={6}>
             <h4>Runkod</h4>
             <ul>
-              <li><a href="#">Features</a></li>
-              <li><a href="#">Get Started</a></li>
-              <li><a href="#">FAQ</a></li>
+              <li><a href="/#features">Features</a></li>
+              <li><a href="/#get-started">Get Started</a></li>
+              <li><a href="/faq">FAQ</a></li>
             </ul>
           </Col>
-
           <Col lg={3} sm={6}>
             <h4>Blockstack</h4>
             <ul>
-              <li><a href="#">What is Blockstack?</a></li>
-              <li><a href="#">Gaia Storage</a></li>
+              <li><a href="https://blockstack.org/what-is-blockstack/" target="_blank"
+                     rel="noopener noreferrer">What is Blockstack?</a></li>
+              <li><a href="https://github.com/blockstack/gaia" target="_blank"
+                     rel="noopener noreferrer">Gaia Storage</a></li>
             </ul>
           </Col>
-
           <Col lg={3} sm={6}>
             <h4>Support</h4>
             <ul>
               <li><a href="#">Contact</a></li>
             </ul>
           </Col>
-
           <Col lg={3} sm={6}>
-            <a href="" className="social-link">
+            <a href="https://twitter.com/runkodapp" title="Twitter" target="_blank"
+               rel="noopener noreferrer" className="social-link">
               {twitterSvg}
             </a>
-            <a href="" className="social-link">
+            <a href="https://www.facebook.com/Runkod-116829083049401/" title="Facebook" target="_blank"
+               rel="noopener noreferrer" className="social-link">
               {facebookSvg}
             </a>
-            <a href="" className="social-link">
+            <a href="https://www.youtube.com/channel/UCOxqxLdSAjt7QD2NKjIavOQ" title="Youtube" target="_blank"
+               rel="noopener noreferrer" className="social-link">
               {youtubeSvg}
             </a>
-            <a href="" className="social-link">
-              {mediumSvg}
+            <a href="https://steemit.com/runkod" title="Steem" target="_blank"
+               rel="noopener noreferrer" className="social-link">
+              {steemSvg}
             </a>
-
+            <a href="https://runkod.slack.com" title="Slack" target="_blank"
+               rel="noopener noreferrer" className="social-link">
+              {slackSvg}
+            </a>
+            <a href="https://discord.gg/BNKjqA" title="Discord" target="_blank"
+               rel="noopener noreferrer" className="social-link">
+              {discordSvg}
+            </a>
+            <a href="https://t.me/joinchat/AYcx-xLSlNfCqUNFKEExsQ" title="Telegram" target="_blank"
+               rel="noopener noreferrer" className="social-link">
+              {telegramSvg}
+            </a>
           </Col>
         </Row>
       </div>
@@ -185,13 +201,10 @@ class FaqPage extends Component {
                 <p> First, go to the DNS settings page of your domain provider</p>
                 <p>Then, Create an A record: type @ for "Host" and paste 178.128.141.114 under "Value" or "Points
                   to"</p>
-
                 <img src={dnsImg} className="sc-img" alt="Dns Settings"/>
                 <p>If you want to redirect www subdomain add CNAME record like above.</p>
-
                 <p className="text-muted">Please keep in mind, depending on your dns provider it may take some time to
                   activate new settings.</p>
-
               </div>
             </div>
             <div className="faq-item">
@@ -259,7 +272,7 @@ class HomePage extends Component {
             </Row>
           </Container>
         </div>
-        <div className="features">
+        <div className="features" id="features">
           <div className="container">
             <h2>Why you should use Runkod?</h2>
 
@@ -321,20 +334,15 @@ class HomePage extends Component {
           </div>
 
         </div>
-        <div className="get-started">
+        <div className="get-started" id="get-started">
           <div className="container">
             <h2>Get Started</h2>
-
-            <div className="video">
-
-            </div>
+            <div className="video"></div>
           </div>
         </div>
-
-        <div className="testimonials">
+        <div className="testimonials" id="testimonials">
           <div className="container">
             <h2>Testimonials</h2>
-
             <Row>
               <Col md={6} lg={4}>
                 <div className="testimonial">
@@ -348,7 +356,6 @@ class HomePage extends Component {
                   </div>
                 </div>
               </Col>
-
               <Col md={6} lg={4}>
                 <div className="testimonial">
                   <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
@@ -361,7 +368,6 @@ class HomePage extends Component {
                   </div>
                 </div>
               </Col>
-
               <Col md={6} lg={4}>
                 <div className="testimonial">
                   <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
