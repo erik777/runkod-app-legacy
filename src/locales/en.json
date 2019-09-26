@@ -80,5 +80,8 @@
     "dir-list": "Directory Listing",
     "coming-soon": "coming soon",
     "success": "Settings updated"
+  },
+  "contact-dialog": {
+    "title": "Channels you can contact us"
   }
 }

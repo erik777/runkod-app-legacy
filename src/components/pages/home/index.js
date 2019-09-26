@@ -8,6 +8,8 @@ import PropTypes from 'prop-types';
 
 import {Button, Container, Row, Col, Nav, Navbar} from 'react-bootstrap';
 
+import ContactDialog from '../../dialogs/contact'
+
 import cloudImg from '../../../images/cloud.png'
 import logoImg from '../../../images/logo-rect-white.png'
 import dnsImg from '../../../images/dns-settings.png'
@@ -123,7 +125,17 @@ Header.propTypes = {
 };
 
 class Footer extends Component {
+
+  contact = (e) => {
+    e.preventDefault();
+
+    const {toggleUiProp} = this.props;
+    toggleUiProp('contact');
+  };
+
   render() {
+    const {ui} = this.props;
+
     return <footer className="main-footer">
       <div className="container">
         <Row>
@@ -147,7 +159,7 @@ class Footer extends Component {
           <Col lg={3} sm={6}>
             <h4>Support</h4>
             <ul>
-              <li><a href="#">Contact</a></li>
+              <li><a href="#" onClick={this.contact}>Contact</a></li>
             </ul>
           </Col>
           <Col lg={3} sm={6}>
@@ -182,9 +194,16 @@ class Footer extends Component {
           </Col>
         </Row>
       </div>
+      {ui.contact && <ContactDialog  {...this.props}  />}
     </footer>
   }
 }
+
+Footer.propTypes = {
+  ui: PropTypes.shape({contact: PropTypes.bool.isRequired}),
+  toggleUiProp: PropTypes.func.isRequired
+};
+
 
 class FaqPage extends Component {
 

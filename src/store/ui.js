@@ -6,6 +6,7 @@ export const TOGGLE_UPLOAD_SUMMARY_DETAIL = '@ui/TOGGLE_UPLOAD_SUMMARY_DETAIL';
 export const TOGGLE_DELETE_DETAIL = '@ui/TOGGLE_DELETE_DETAIL';
 export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
 export const TOGGLE_PROJECT_SETTINGS = '@ui/TOGGLE_PROJECT_SETTINGS';
+export const TOGGLE_CONTACT = '@ui/TOGGLE_CONTACT';
 
 const initialState = {
   newProject: false,
@@ -14,6 +15,7 @@ const initialState = {
   deleteDetail: false,
   deleteSummaryDetail: false,
   projectSettings: false,
+  contact: false
 };
 
 /* Reducer */
@@ -34,6 +36,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {deleteSummaryDetail: action.payload.what});
     case TOGGLE_PROJECT_SETTINGS:
       return Object.assign({}, state, {projectSettings: action.payload.what});
+    case TOGGLE_CONTACT:
+      return Object.assign({}, state, {contact: action.payload.what});
     default:
       return state;
   }
@@ -65,6 +69,9 @@ export const toggleUiProp = (what) => {
         break;
       case 'projectSettings':
         act = TOGGLE_PROJECT_SETTINGS;
+        break;
+      case 'contact':
+        act = TOGGLE_CONTACT;
         break;
       default:
         act = '';
