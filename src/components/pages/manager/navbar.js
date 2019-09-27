@@ -18,8 +18,9 @@ import {userSession} from '../../../blockstack-config';
 
 class NavBar extends Component {
   logoClicked = () => {
-    const {selectProject} = this.props;
+    const {selectProject, history} = this.props;
     selectProject(null);
+    history.push('/');
   };
 
   helpClicked = () => {
