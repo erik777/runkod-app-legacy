@@ -73,9 +73,8 @@ LogoutButton.propTypes = {
 };
 
 class Header extends Component {
-
   render() {
-    const {user} = this.props;
+    const {user, location} = this.props;
 
     return <Navbar variant="dark" expand="lg" className="main-nav">
       <Container>
@@ -85,7 +84,7 @@ class Header extends Component {
           <Nav className="ml-auto">
             <Nav.Link href="/#features">Features</Nav.Link>
             <Nav.Link href="/#get-started">Get Started</Nav.Link>
-            <Link className="nav-link" to="/faq">FAQ</Link>
+            <Link className={`nav-link ${location.pathname === '/faq' ? 'active' : ''}`} to="/faq">FAQ</Link>
             <Nav.Link href="https://blockstack.org/what-is-blockstack/" target="_blank"
                       rel="noopener noreferrer">Blockstack</Nav.Link>
             <div className="controls">
@@ -117,10 +116,8 @@ Header.defaultProps = {};
 
 Header.propTypes = {
   user: PropTypes.shape({}),
-  login: PropTypes.func.isRequired,
-  logout: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired
   })
 };
 
