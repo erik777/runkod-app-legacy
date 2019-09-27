@@ -11,6 +11,9 @@ const fnProps = {
   history: {
     push: () => {
     }
+  },
+  toggleUiProp: () => {
+
   }
 };
 
@@ -21,7 +24,9 @@ test('1- default render', () => {
       username: 'runkod.id.blockstack',
       image: 'https://foo.bar/image.png'
     },
-
+    ui: {
+      contact: false
+    }
   }, fnProps);
 
   const renderer = TestRenderer.create(
@@ -38,6 +43,9 @@ test('2- no user image', () => {
       username: 'runkod.id.blockstack',
       image: ''
     },
+    ui: {
+      contact: false
+    }
 
   }, fnProps);
 

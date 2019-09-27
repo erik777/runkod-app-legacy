@@ -178,16 +178,26 @@ class NewProjectDialog extends Component {
               }
 
               {custom &&
-              <InputGroup>
-                <FormControl autoFocus id="txt-name" maxLength={CUSTOM_NAME_MAX_LENGTH} autoComplete="off"
-                             placeholder={_t('new-project-dialog.custom-name-placeholder')}
-                             value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
-              </InputGroup>
+              <>
+                <InputGroup>
+                  <FormControl autoFocus id="txt-name" maxLength={CUSTOM_NAME_MAX_LENGTH} autoComplete="off"
+                               placeholder={_t('new-project-dialog.custom-name-placeholder')}
+                               value={name} onChange={this.nameChanged} className={error ? 'is-invalid' : ''}/>
+                </InputGroup>
+              </>
               }
 
               <div className="form-feedback">
                 {error && <FormText className="text-danger">{error}</FormText>}
               </div>
+
+              {custom &&
+              <div className="dns-info">
+                <a href="/faq" target="_blank">
+                  {_t('new-project-dialog.dns-info')}
+                </a>
+              </div>
+              }
 
             </div>
 

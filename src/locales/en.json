@@ -43,7 +43,8 @@
     "error-not-valid-name": "Only letters and numbers are allowed",
     "error-not-valid-name-custom": "Not a valid domain name",
     "error-not-available": "Name is not available. Please try another one.",
-    "success": "New project created"
+    "success": "New project created",
+    "dns-info": "Dont forget to configure DNS records"
   },
   "upload-queue-dialog": {
     "progress-title": "Uploading",
