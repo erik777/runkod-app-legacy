@@ -60,7 +60,7 @@ DialogContent.propTypes = propTypes;
 
 export {DialogContent};
 
-class ProjectSettingsDialog extends Component {
+class ContactDialog extends Component {
 
   hide = () => {
     const {toggleUiProp} = this.props;
@@ -78,8 +78,8 @@ class ProjectSettingsDialog extends Component {
   }
 }
 
-ProjectSettingsDialog.defaultProps = defaultProps;
+ContactDialog.defaultProps = defaultProps;
 
-ProjectSettingsDialog.propTypes = propTypes;
+ContactDialog.propTypes = propTypes;
 
-export default ProjectSettingsDialog;
+export default ContactDialog;

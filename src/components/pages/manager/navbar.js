@@ -6,6 +6,8 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
+import ContactDialog from "../../dialogs/contact";
+
 import {_t} from '../../../i18n';
 
 import logo from '../../../images/logo-rect-white.png';
@@ -21,7 +23,8 @@ class NavBar extends Component {
   };
 
   helpClicked = () => {
-    console.log("Help")
+    const {toggleUiProp} = this.props;
+    toggleUiProp('contact');
   };
 
   logout = () => {
@@ -32,7 +35,7 @@ class NavBar extends Component {
   };
 
   render() {
-    const {user} = this.props;
+    const {user, ui} = this.props;
     const fLetter = user.username.split('')[0].toUpperCase();
 
     return (
@@ -53,6 +56,7 @@ class NavBar extends Component {
             </a>
           </div>
         </div>
+        {ui.contact && <ContactDialog {...this.props} />}
       </div>
     )
   }
@@ -65,6 +69,10 @@ NavBar.propTypes = {
     image: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired
   }),
+  ui: PropTypes.shape({
+    contact: PropTypes.bool.isRequired
+  }),
+  toggleUiProp: PropTypes.func.isRequired,
   logout: PropTypes.func.isRequired,
   selectProject: PropTypes.func.isRequired,
   history: PropTypes.shape({
