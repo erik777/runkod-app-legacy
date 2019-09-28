@@ -297,8 +297,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
-                  <p>whether you are using a custom domain or not, ssl certificate for your website is ready in
-                    seconds.</p>
+                  <p>Lorem Ipsum dolor sit amet has been the industry's standard dummy text ever since the 1500s.  Lorem Ipsum has been
+                    the industry's standard.</p>
                 </div>
               </Col>
 
@@ -307,7 +307,7 @@ class HomePage extends Component {
                   <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
                   <p>Naturally decentralized. Runkod works top on Blockstack's decentralized high-performance storage
-                    system "Gaia".</p>
+                    system "Gaia". Lorem Ipsum dolor sit.</p>
                 </div>
               </Col>
 
@@ -315,7 +315,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{infinitySvg}</span>
                   <h5>Unlimited</h5>
-                  <p>We don't store your files. You store your files. Runkod runs on Blockstack's gaia storage.</p>
+                  <p>You can create as many project you want. No bandwidth limits.Lorem Ipsum dolor sit amet has been the industry's standard dummy. </p>
                 </div>
               </Col>
 
@@ -324,7 +324,7 @@ class HomePage extends Component {
                   <span className="icon">{gemSvg}</span>
                   <h5>Easy</h5>
                   <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been
-                    the industry's standard dummy text</p>
+                    the industry's standard.</p>
                 </div>
               </Col>
 
