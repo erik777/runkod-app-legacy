@@ -1,19 +1,19 @@
 .nav-bar {
   background: $primary;
-  height: 50px;
+  height: 60px;
   padding: 0 0 0 12px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   .logo {
-    width: 47px;
-    height: 36px;
+    width: 54px;
+    height: 43px;
     margin-left: 11px;
     cursor: pointer;
 
     img {
-      max-height: 36px;
+      max-height: 43px;
     }
   }
 
@@ -46,7 +46,7 @@
       position: absolute;
       z-index: 10;
       right: 0;
-      top: 50px;
+      top: 60px;
       width: 200px;
       height: auto;
       background: $gray-100;
