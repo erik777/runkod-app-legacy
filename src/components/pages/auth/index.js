@@ -10,6 +10,9 @@ import PropTypes from 'prop-types';
 
 import {userSession} from '../../../blockstack-config';
 
+
+import logoImg from '../../../images/logo-blue.png'
+
 class AuthPage extends Component {
 
   constructor(props) {
@@ -71,7 +74,9 @@ class AuthPage extends Component {
       </div>;
     }
 
-    return null;
+    return <div className="auth-loading">
+      <img src={logoImg} alt="Logo"/>
+    </div>;
   }
 }
 
