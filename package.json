@@ -8,6 +8,7 @@
     "blueimp-md5": "^2.12.0",
     "bootstrap": "^4.3.1",
     "connected-react-router": "^6.5.2",
+    "express": "^4.17.1",
     "filesize": "^4.1.2",
     "history": "^4.9.0",
     "i18next": "^17.0.12",
