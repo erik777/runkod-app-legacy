@@ -10,7 +10,7 @@ import ContactDialog from "../../dialogs/contact";
 
 import {_t} from '../../../i18n';
 
-import logo from '../../../images/logo-rect-white.png';
+import logo from '../../../images/logo-white.png';
 
 import {helpSvg, logOutSvg} from '../../../svg';
 

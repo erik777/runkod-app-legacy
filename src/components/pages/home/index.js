@@ -11,7 +11,7 @@ import {Button, Container, Row, Col, Nav, Navbar} from 'react-bootstrap';
 import ContactDialog from '../../dialogs/contact'
 
 import cloudImg from '../../../images/cloud.png'
-import logoImg from '../../../images/logo-rect-white.png'
+import logoImg from '../../../images/logo-white.png'
 import dnsImg from '../../../images/dns-settings.png'
 
 import {userSession} from '../../../blockstack-config';
