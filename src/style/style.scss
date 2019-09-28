@@ -10,7 +10,6 @@ html {
   scroll-behavior: smooth;
 }
 
-
 html, body {
   height: 100%;
   position: absolute;
@@ -29,6 +28,27 @@ body{
 
 .user-select{
   user-select: text;
+}
+
+@keyframes logo-loading-anim {
+  0% {
+    opacity: 0.1;
+  }
+  10% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  30% {
+    opacity: 0.4;
+  }
+  60% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.8;
+  }
 }
 
 @import '../components/pages/home/index';

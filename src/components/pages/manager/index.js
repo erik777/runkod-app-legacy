@@ -51,7 +51,7 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, files, project, uploadQueue, deleteQueue, user} = this.props;
+    const {ui, projects, project, uploadQueue, deleteQueue, user} = this.props;
 
     if (user === null) {
       return null;
@@ -59,21 +59,9 @@ class ManagerPage extends Component {
 
     const {loading: projectsLoading} = projects;
     const {list: projectsList} = projects;
-    const {loading: filesLoading} = files;
-
-    const loading = projectsLoading || filesLoading;
 
     return (
       <div className="manager-page">
-        <div className={`progress ${loading ? 'in-progress' : ''}`}>
-          {loading &&
-          <>
-            <div className="bar bar1"/>
-            <div className="bar bar2"/>
-          </>
-          }
-        </div>
-
         <NavBar {...this.props} />
 
         <div className="page-content">
@@ -144,9 +132,6 @@ ManagerPage.propTypes = {
   projects: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     list: PropTypes.arrayOf(Object).isRequired
-  }).isRequired,
-  files: PropTypes.shape({
-    loading: PropTypes.bool.isRequired
   }).isRequired,
   user: PropTypes.shape({}),
   project: PropTypes.instanceOf(Object),

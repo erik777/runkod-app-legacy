@@ -16,6 +16,8 @@ import {helpSvg, logOutSvg} from '../../../svg';
 
 import {userSession} from '../../../blockstack-config';
 
+import _c from '../../../utils/fix-class-names'
+
 class NavBar extends Component {
   logoClicked = () => {
     const {selectProject, history} = this.props;
@@ -36,11 +38,16 @@ class NavBar extends Component {
   };
 
   render() {
-    const {user, ui} = this.props;
+    const {user, files, projects, ui} = this.props;
     const fLetter = user.username.split('')[0].toUpperCase();
 
+    const {loading: projectsLoading} = projects;
+    const {loading: filesLoading} = files;
+
+    const loading = projectsLoading || filesLoading;
+
     return (
-      <div className="nav-bar">
+      <div className={_c(`nav-bar ${loading ? 'loading' : ''}`)}>
         <div className="logo" onClick={this.logoClicked}>
           <img src={logo} alt="Logo"/>
         </div>
@@ -70,6 +77,12 @@ NavBar.propTypes = {
     image: PropTypes.string.isRequired,
     username: PropTypes.string.isRequired
   }),
+  projects: PropTypes.shape({
+    loading: PropTypes.bool.isRequired,
+  }).isRequired,
+  files: PropTypes.shape({
+    loading: PropTypes.bool.isRequired
+  }).isRequired,
   ui: PropTypes.shape({
     contact: PropTypes.bool.isRequired
   }),

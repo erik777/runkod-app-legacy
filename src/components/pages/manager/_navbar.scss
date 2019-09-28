@@ -12,8 +12,15 @@
     margin-left: 11px;
     cursor: pointer;
 
+
     img {
       max-height: 43px;
+    }
+  }
+
+  &.loading {
+    .logo {
+      animation: logo-loading-anim 1.4s infinite 0.4s;
     }
   }
 
