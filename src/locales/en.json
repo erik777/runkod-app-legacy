@@ -31,7 +31,7 @@
     },
     "nav-bar": {
       "help": "Help",
-      "sign-out": "Sign Out"
+      "sign-out": "Logout"
     }
   },
   "new-project-dialog": {
@@ -39,12 +39,12 @@
     "name-btn-label": "Subdomain",
     "custom-name-btn-label": "Custom Domain",
     "name-placeholder": "Enter subdomain name",
-    "custom-name-placeholder": "Enter custom domain name",
+    "custom-name-placeholder": "Enter domain name",
     "error-not-valid-name": "Only letters and numbers are allowed",
     "error-not-valid-name-custom": "Not a valid domain name",
     "error-not-available": "Name is not available. Please try another one.",
     "success": "New project created",
-    "dns-info": "Dont forget to configure DNS records"
+    "dns-info": "Don't forget to configure DNS records"
   },
   "upload-queue-dialog": {
     "progress-title": "Uploading",
