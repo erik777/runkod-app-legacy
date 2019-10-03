@@ -24,7 +24,12 @@
     "project": {
       "item-selected": "1 item selected",
       "items-selected": "{{n}} items selected",
-      "all-items-selected": "All items selected"
+      "all-items-selected": "All items selected",
+      "select-all": "Select all items",
+      "refresh": "Refresh files",
+      "root-folder": "Home folder",
+      "settings": "Settings",
+      "delete": "Delete selected items"
     },
     "upload-zone": {
       "label": "Drop files or folders here to upload"
