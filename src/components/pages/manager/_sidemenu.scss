@@ -4,7 +4,6 @@
   height: 100%;
   float: left;
   border-right: 1px solid darken($gray-100, 3);
-  overflow: hidden;
 
   .menu-toolbar {
     background: $gray-100;
@@ -73,6 +72,10 @@
           padding: 12px 10px 12px 52px;
           cursor: pointer;
           font-size: 14px;
+          width: 98%;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
 
           &:hover {
             background-color: $gray-300;
