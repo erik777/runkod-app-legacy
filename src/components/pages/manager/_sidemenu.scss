@@ -4,6 +4,7 @@
   height: 100%;
   float: left;
   border-right: 1px solid darken($gray-100, 3);
+  overflow: hidden;
 
   .menu-toolbar {
     background: $gray-100;
