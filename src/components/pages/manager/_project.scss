@@ -8,24 +8,24 @@
     border-bottom: 1px solid darken($gray-100, 3);
     display: flex;
     align-items: center;
-    padding: 10px 14px;
+    padding: 10px 14px 10px 18px;
 
     .select-input {
       width: 30px;
       display: flex;
       align-items: center;
       height: 100%;
-      margin-left: 4px;
       border-right: 1px solid $gray-200;
     }
 
     .refresh-btn {
-      width: 34px;
+      width: 40px;
       display: flex;
       align-items: center;
+      justify-content: center;
+      padding-right: 2px;
       height: 100%;
       border-right: 1px solid $gray-200;
-      margin: 0 4px 0 10px;
 
       .inner-btn {
         width: 22px;
