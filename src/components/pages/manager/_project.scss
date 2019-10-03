@@ -52,15 +52,44 @@
       }
     }
 
+    .project-name {
+      padding: 0 14px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      border-right: 1px solid $gray-200;
+
+      a {
+        color: $gray-600;
+      }
+    }
+
     .full-path, .items-selected {
       color: $gray-600;
       font-size: 16px;
-      flex-grow: 1;
       padding: 0 10px 0 0;
       margin-left: 10px;
     }
 
     .full-path {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      line-height: 100%;
+      color: $gray-600;
+
+      .home-btn {
+
+        margin-right: 10px;
+        cursor: pointer;
+
+        svg {
+          width: 22px;
+          height: 22px;
+          fill: $gray-500;
+        }
+      }
+
       .path {
         cursor: pointer;
 
@@ -98,6 +127,12 @@
         }
       }
     }
+
+
+    .h-space {
+      flex-grow: 1;
+    }
+
 
     .settings {
       cursor: pointer;

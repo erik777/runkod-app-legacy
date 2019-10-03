@@ -39,20 +39,19 @@ exports[`1- files loading 1`] = `
       </span>
     </div>
     <div
-      className="full-path"
+      className="project-name"
     >
-      <span
-        className="path"
-        onClick={[Function]}
+      <a
+        href="https://test.com"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         test.com
-      </span>
-      <span
-        className="separator"
-      >
-        /
-      </span>
+      </a>
     </div>
+    <div
+      className="h-space"
+    />
     <div
       className="settings"
       onClick={[Function]}
@@ -109,20 +108,19 @@ exports[`2- loaded. no file 1`] = `
       </span>
     </div>
     <div
-      className="full-path"
+      className="project-name"
     >
-      <span
-        className="path"
-        onClick={[Function]}
+      <a
+        href="https://test.com"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         test.com
-      </span>
-      <span
-        className="separator"
-      >
-        /
-      </span>
+      </a>
     </div>
+    <div
+      className="h-space"
+    />
     <div
       className="settings"
       onClick={[Function]}
@@ -208,20 +206,19 @@ exports[`3- loaded. with files and folders 1`] = `
       </span>
     </div>
     <div
-      className="full-path"
+      className="project-name"
     >
-      <span
-        className="path"
-        onClick={[Function]}
+      <a
+        href="https://test.com"
+        rel="noopener noreferrer"
+        target="_blank"
       >
         test.com
-      </span>
-      <span
-        className="separator"
-      >
-        /
-      </span>
+      </a>
     </div>
+    <div
+      className="h-space"
+    />
     <div
       className="settings"
       onClick={[Function]}
@@ -421,18 +418,31 @@ exports[`4- in sub folder 1`] = `
       </span>
     </div>
     <div
+      className="project-name"
+    >
+      <a
+        href="https://test.com"
+        rel="noopener noreferrer"
+        target="_blank"
+      >
+        test.com
+      </a>
+    </div>
+    <div
       className="full-path"
     >
       <span
-        className="path"
+        className="home-btn"
         onClick={[Function]}
       >
-        test.com
-      </span>
-      <span
-        className="separator"
-      >
-        /
+        <svg
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M208 448V320h96v128h97.6V256H464L256 64 48 256h62.4v192z"
+          />
+        </svg>
       </span>
       <span
         className="path"
@@ -446,6 +456,9 @@ exports[`4- in sub folder 1`] = `
         /
       </span>
     </div>
+    <div
+      className="h-space"
+    />
     <div
       className="settings"
       onClick={[Function]}
