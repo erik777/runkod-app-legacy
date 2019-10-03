@@ -188,6 +188,7 @@ class FileEntry extends Component {
         <div className="entry-label">
           {file.label}
         </div>
+        <div className="h-space" />
         <div className="entry-size">
           {fileSize(file.size)}
         </div>

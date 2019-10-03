@@ -171,8 +171,15 @@
 
   .entry-label {
     font-size: 14px;
-    flex-grow: 1;
     color: $gray-700;
+    max-width: calc(100% - 180px);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .h-space {
+    flex-grow: 1;
   }
 
   .entry-size {

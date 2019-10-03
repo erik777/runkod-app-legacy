@@ -77,7 +77,6 @@
     }
   }
 
-
   .upload-progress {
     text-align: center;
 
@@ -88,7 +87,11 @@
     }
 
     .description {
-      margin-bottom: 20px;
+      margin: 0 auto 20px auto;
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
   }
 
@@ -96,7 +99,11 @@
     text-align: center;
 
     .message {
-      margin-bottom: 20px;
+      margin: 0 auto 20px auto;
+      max-width: 90%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       font-weight: 500;
     }
 
