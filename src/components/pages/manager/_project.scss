@@ -79,6 +79,8 @@
       align-items: center;
       height: 100%;
       color: $gray-600;
+      white-space: nowrap;
+      overflow: hidden;
 
       .path {
         cursor: pointer;

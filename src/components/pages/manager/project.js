@@ -95,17 +95,13 @@ class Project extends Component {
                   <div className="open-btn">
                     <a className="inner-btn" href={`https://${project.name}`} target="_blank" rel="noopener noreferrer">{openSvg}</a>
                   </div>
-
                   {path !== '/' &&
                   <div className="full-path">
-
-
                     <div className="home-btn">
                     <span className="inner-btn" onClick={() => {
                       this.pathClicked(BASE_PATH)
                     }}>{homeSvg}</span>
                     </div>
-
                     {pathArr.map((p, i) => {
                         const path = fs.arrToPath(pathArr.slice(0, i + 1));
                         return (
