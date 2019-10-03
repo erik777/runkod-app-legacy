@@ -11,21 +11,19 @@
     padding: 10px 14px 10px 18px;
 
     .select-input {
-      width: 30px;
+      width: 34px;
       display: flex;
       align-items: center;
       height: 100%;
       border-right: 1px solid $gray-200;
     }
 
-    .refresh-btn {
-      width: 40px;
+    .refresh-btn, .open-btn, .delete-btn, .home-btn, .settings-btn {
+      width: 44px;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding-right: 2px;
       height: 100%;
-      border-right: 1px solid $gray-200;
 
       .inner-btn {
         width: 22px;
@@ -34,61 +32,53 @@
         display: flex;
         align-items: center;
 
+
         svg {
           width: 22px;
           height: 22px;
-          fill: $gray-600;
-        }
-      }
-
-      &.disabled {
-        .inner-btn {
-          pointer-events: none;
-
-          svg {
-            fill: $gray-300;
-          }
+          fill: lighten($gray-600, 8);
         }
       }
     }
 
-    .project-name {
-      padding: 0 14px;
-      display: flex;
-      align-items: center;
-      height: 100%;
+    .refresh-btn, .open-btn {
       border-right: 1px solid $gray-200;
+    }
 
-      a {
-        color: $gray-600;
+    .open-btn {
+      .inner-btn {
+        svg {
+          width: 18px;
+          height: 18px;
+        }
       }
+    }
+
+    .home-btn {
+      .inner-btn {
+        svg {
+          margin-top: -2px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+
+    .settings-btn {
+      justify-content: flex-end;
     }
 
     .full-path, .items-selected {
       color: $gray-600;
       font-size: 16px;
       padding: 0 10px 0 0;
-      margin-left: 10px;
     }
 
     .full-path {
       display: flex;
       align-items: center;
       height: 100%;
-      line-height: 100%;
       color: $gray-600;
-
-      .home-btn {
-
-        margin-right: 10px;
-        cursor: pointer;
-
-        svg {
-          width: 22px;
-          height: 22px;
-          fill: $gray-500;
-        }
-      }
 
       .path {
         cursor: pointer;
@@ -107,41 +97,15 @@
     .items-selected {
       display: flex;
       align-items: center;
+      padding-left: 14px;
 
       .selected-label {
         margin-right: 10px;
       }
-
-      .delete-btn {
-        cursor: pointer;
-        display: flex;
-        height: 22px;
-        line-height: 0;
-
-        .inner-btn {
-          svg {
-            width: 22px;
-            height: 22px;
-            fill: $gray-600;
-          }
-        }
-      }
     }
-
 
     .h-space {
       flex-grow: 1;
-    }
-
-
-    .settings {
-      cursor: pointer;
-
-      svg {
-        width: 22px;
-        height: 22px;
-        fill: $gray-600;
-      }
     }
   }
 }

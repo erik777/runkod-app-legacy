@@ -16,7 +16,7 @@ import _c from '../../../utils/fix-class-names'
 
 import {BASE_PATH, PATH_SEPARATOR} from '../../../constants';
 
-import {refreshSvg, deleteSvg, settingsSvg, homeSvg} from '../../../svg';
+import {refreshSvg, deleteSvg, settingsSvg, homeSvg, openSvg} from '../../../svg';
 
 class Project extends Component {
 
@@ -92,15 +92,20 @@ class Project extends Component {
                   <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)}>
                     <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
                   </div>
-                  <div className="project-name">
-                    <a href={`https://${project.name}`} target="_blank" rel="noopener noreferrer">{project.name}</a>
+                  <div className="open-btn">
+                    <a className="inner-btn" href={`https://${project.name}`} target="_blank" rel="noopener noreferrer">{openSvg}</a>
                   </div>
 
                   {path !== '/' &&
                   <div className="full-path">
-                    <span className="home-btn" onClick={() => {
+
+
+                    <div className="home-btn">
+                    <span className="inner-btn" onClick={() => {
                       this.pathClicked(BASE_PATH)
                     }}>{homeSvg}</span>
+                    </div>
+
                     {pathArr.map((p, i) => {
                         const path = fs.arrToPath(pathArr.slice(0, i + 1));
                         return (
@@ -116,8 +121,10 @@ class Project extends Component {
                   </div>
                   }
                   <div className="h-space"/>
-                  <div className="settings" onClick={this.showSettings}>
-                    {settingsSvg}
+                  <div className="settings-btn">
+                    <span className="inner-btn" onClick={this.showSettings}>
+                      {settingsSvg}
+                    </span>
                   </div>
                 </>
               )
