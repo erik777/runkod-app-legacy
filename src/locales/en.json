@@ -2,6 +2,7 @@
   "g": {
     "yes": "Yes",
     "no": "No",
+    "confirm": "Confirm",
     "cancel": "Cancel",
     "submit": "Submit",
     "close": "Close",
@@ -85,7 +86,10 @@
     "auth": "Authentication",
     "dir-list": "Directory Listing",
     "coming-soon": "coming soon",
-    "success": "Settings updated"
+    "success": "Settings updated",
+    "delete": "Delete Project",
+    "delete-message": "!! WARNING !! this action is irreversible! Are you sure?",
+    "deleted": "Project deleted"
   },
   "contact-dialog": {
     "title": "Channels you can contact us"

@@ -8,6 +8,8 @@ import to from 'await-to-js';
 
 import {Project} from '../../../model';
 
+import ConfirmDialog from '../confirm';
+
 import {_t} from '../../../i18n';
 
 import message from '../../helper/message'
@@ -21,6 +23,8 @@ const propTypes = {
     name: PropTypes.string.isRequired,
     status: PropTypes.number.isRequired
   }).isRequired,
+  selectProject: PropTypes.func.isRequired,
+  fetchProjects: PropTypes.func.isRequired,
   setProjectStatus: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired
 };
@@ -34,7 +38,8 @@ class DialogContent extends Component {
 
     this.state = {
       status: project.status,
-      saving: false
+      saving: false,
+      deleting: false
     }
   }
 
@@ -42,42 +47,67 @@ class DialogContent extends Component {
     this.setState({status: parseInt(e.target.value, 10)});
   };
 
+  updateProject = (data) => {
+    return new Promise(async (resolve, reject) => {
+      const {project} = this.props;
+      const [err1, pRecs] = await to(Project.fetchList({_id: project._id}));
+
+      if (err1) {
+        reject();
+      }
+
+      const [pRec,] = pRecs;
+
+      pRec.update(data);
+
+      const [err2,] = await to(pRec.save());
+
+      this.setState({saving: false});
+
+      if (err2) {
+        reject();
+      }
+
+      resolve();
+    });
+  };
+
   saveStatus = async () => {
-    const {project, setProjectStatus} = this.props;
+    const {setProjectStatus} = this.props;
     const {status} = this.state;
 
     this.setState({saving: true});
-
-    const [err1, pRecs] = await to(Project.fetchList({_id: project._id}));
-
-    if (err1) {
-      message.error(_t('g.server-error'));
-      this.setState({saving: false});
-      return;
-    }
-
-    const [pRec,] = pRecs;
-
-    pRec.update({status});
-
-    const [err2,] = await to(pRec.save());
-
+    const [err,] = await to(this.updateProject({status}));
     this.setState({saving: false});
 
-    if (err2) {
+    if (err) {
       message.error(_t('g.server-error'));
-      return;
+    } else {
+      setProjectStatus(status);
+      message.success(_t('project-settings-dialog.success'));
     }
+  };
 
-    setProjectStatus(status);
+  delete = async () => {
+    const {toggleUiProp, selectProject, fetchProjects} = this.props;
 
-    message.success(_t('project-settings-dialog.success'));
+    this.setState({deleting: true});
+    const [err,] = await to(this.updateProject({deleted: true}));
+    this.setState({deleting: false});
+
+    if (err) {
+      message.error(_t('g.server-error'));
+    } else {
+      toggleUiProp('projectSettings');
+      selectProject(null);
+      fetchProjects();
+      message.success(_t('project-settings-dialog.deleted'));
+    }
   };
 
   render() {
     const {project} = this.props;
-    const {status, saving} = this.state;
-
+    const {status, saving, deleting} = this.state;
     const showSave = project.status !== status;
 
     return (
@@ -115,6 +145,13 @@ class DialogContent extends Component {
             <Col sm="8" className="d-flex align-items-center">
               <span className="text-primary font-weight-light">{_t('project-settings-dialog.coming-soon')}</span>
             </Col>
+          </Form.Group>
+          <Form.Group as={Row} style={{marginBottom: 0}}>
+            <div className="form-label col-form-label col-sm-12">
+              <ConfirmDialog onConfirm={this.delete} title={_t('project-settings-dialog.delete-message')}>
+                <Button variant="danger" disabled={deleting}>{_t('project-settings-dialog.delete')}</Button>
+              </ConfirmDialog>
+            </div>
           </Form.Group>
         </Form>
       </>
