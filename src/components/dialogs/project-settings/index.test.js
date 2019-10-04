@@ -2,9 +2,11 @@ import React from 'react';
 import {DialogContent} from './index';
 import TestRenderer from 'react-test-renderer';
 
-import ShallowRenderer from 'react-test-renderer/shallow'
-
 const fnProps = {
+  selectProject: () => {
+  },
+  fetchProjects: () => {
+  },
   setProjectStatus: () => {
   },
   toggleUiProp: () => {
