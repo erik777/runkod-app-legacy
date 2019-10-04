@@ -37,7 +37,8 @@ export default (state = initialState, action) => {
 export const fetchProjects = () => async (dispatch) => {
   dispatch(fetchAct());
 
-  const [err, projects] = await to(Project.fetchOwnList({sort: '-createdAt'}));
+  const filter = {deleted: false, sort: '-createdAt'};
+  const [err, projects] = await to(Project.fetchOwnList(filter));
 
   if (err) {
     dispatch(fetchErrorAct());
