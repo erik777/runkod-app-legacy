@@ -267,6 +267,9 @@ exports[`4- Browser Entry - File 1- default render 1`] = `
     index.html
   </div>
   <div
+    className="h-space"
+  />
+  <div
     className="entry-size"
   >
     12.03 KB
@@ -323,6 +326,9 @@ exports[`4- Browser Entry - File 2- checked 1`] = `
   >
     index.html
   </div>
+  <div
+    className="h-space"
+  />
   <div
     className="entry-size"
   >

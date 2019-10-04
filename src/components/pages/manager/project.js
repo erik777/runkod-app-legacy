@@ -6,8 +6,6 @@ import {_t} from '../../../i18n';
 
 import CheckBox from '../../helper/checkbox';
 
-import Tooltip from '../../helper/tooltip';
-
 import Browser from './browser';
 
 import ProjectSettingsDialog from '../../dialogs/project-settings'
@@ -84,36 +82,29 @@ class Project extends Component {
     return (
       <div className="project">
         <div className="toolbar">
-          <Tooltip title={_t('manager.project.select-all')}>
-            <div className="select-input">
-              <CheckBox checked={allChecked} disabled={disabled || loading} onChange={this.checked}/>
-            </div>
-          </Tooltip>
+          <div className="select-input" title={_t('manager.project.select-all')}>
+            <CheckBox checked={allChecked} disabled={disabled || loading} onChange={this.checked}/>
+          </div>
           {(() => {
             if (checkList.length === 0) {
               return (
                 <>
-                  <Tooltip title={_t('manager.project.refresh')}>
-                    <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)}>
-                      <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
-                    </div>
-                  </Tooltip>
-                  <Tooltip title={projectUrl}>
-                    <div className="open-btn">
-                      <a className="inner-btn" href={projectUrl} target="_blank"
-                         rel="noopener noreferrer">{openSvg}</a>
-                    </div>
-                  </Tooltip>
+
+                  <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)} title={_t('manager.project.refresh')}>
+                    <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
+                  </div>
+                  <div className="open-btn" title={projectUrl}>
+                    <a className="inner-btn" href={projectUrl} target="_blank"
+                       rel="noopener noreferrer">{openSvg}</a>
+                  </div>
+
                   {path !== '/' &&
                   <div className="full-path">
-
-                    <Tooltip title={_t('manager.project.root-folder')}>
-                      <div className="home-btn">
+                    <div className="home-btn" title={_t('manager.project.root-folder')}>
                         <span className="inner-btn" onClick={() => {
                           this.pathClicked(BASE_PATH)
                         }}>{homeSvg}</span>
-                      </div>
-                    </Tooltip>
+                    </div>
 
                     {pathArr.map((p, i) => {
                         const path = fs.arrToPath(pathArr.slice(0, i + 1));
@@ -130,11 +121,9 @@ class Project extends Component {
                   </div>
                   }
                   <div className="h-space"/>
-                  <Tooltip title={_t('manager.project.settings')} dir="left">
-                    <div className="settings-btn">
-                      <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
-                    </div>
-                  </Tooltip>
+                  <div className="settings-btn" title={_t('manager.project.settings')}>
+                    <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
+                  </div>
                 </>
               )
             }
@@ -161,10 +150,9 @@ class Project extends Component {
                   <span className="selected-label">{label}</span>
                   }
 
-                  <Tooltip title={_t('manager.project.delete')}>
-                    <div className="delete-btn"><span className="inner-btn" onClick={this.delete}>{deleteSvg}</span>
-                    </div>
-                  </Tooltip>
+                  <div className="delete-btn" title={_t('manager.project.delete')}>
+                    <span className="inner-btn" onClick={this.delete}>{deleteSvg}</span>
+                  </div>
                 </div>
               )
             }

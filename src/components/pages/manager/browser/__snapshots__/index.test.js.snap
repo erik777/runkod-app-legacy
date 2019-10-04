@@ -107,6 +107,9 @@ exports[`3- with files and folders 1`] = `
         file1.txt
       </div>
       <div
+        className="h-space"
+      />
+      <div
         className="entry-size"
       >
         2.82 KB
@@ -145,6 +148,9 @@ exports[`3- with files and folders 1`] = `
       >
         index.html
       </div>
+      <div
+        className="h-space"
+      />
       <div
         className="entry-size"
       >
@@ -248,6 +254,9 @@ exports[`4- in sub folder 1`] = `
       >
         file1.css
       </div>
+      <div
+        className="h-space"
+      />
       <div
         className="entry-size"
       >
