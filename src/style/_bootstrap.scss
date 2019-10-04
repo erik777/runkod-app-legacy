@@ -12,6 +12,13 @@ $font-family-base: 'IBM Plex Sans', sans-serif;
 @import '~bootstrap/scss/bootstrap';
 
 
+.modal-title {
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .modal-content {
   margin-top: 100px !important;
 }
