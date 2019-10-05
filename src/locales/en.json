@@ -49,6 +49,7 @@
     "error-not-valid-name": "Only letters and numbers are allowed",
     "error-not-valid-name-custom": "Not a valid domain name",
     "error-not-available": "Name is not available. Please try another one.",
+    "error-dns": "It seems you haven't configured dns settings for the domain name. You can view dns settings by clicking the button below. If you configured please keep in mind it may take some time for the dns to take effect across the internet.",
     "success": "New project created",
     "dns-info": "Don't forget to configure DNS records"
   },

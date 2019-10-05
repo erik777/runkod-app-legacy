@@ -18,6 +18,8 @@ import testName from '../../../helper/test-name';
 
 import testCustomName from '../../../helper/test-custom-name';
 
+import {hostIp} from '../../../backend';
+
 import {
   NAME_SUFFIX,
   NAME_MAX_LENGTH,
@@ -36,7 +38,8 @@ class NewProjectDialog extends Component {
       name: '',
       custom: false,
       error: '',
-      inProgress: false
+      inProgress: false,
+      customDoc: false
     }
   }
 
@@ -84,10 +87,24 @@ class NewProjectDialog extends Component {
 
     this.setState({inProgress: true});
 
+
+    if (custom) {
+      const [err, resp] = await to(hostIp(fullName));
+      if (err) {
+        this.setState({error: _t('g.server-error'), inProgress: false});
+        return;
+      }
+
+      if (!resp.valid) {
+        this.setState({error: _t('new-project-dialog.error-dns'), inProgress: false});
+        return;
+      }
+    }
+
     const [, checkList] = await to(Project.fetchList({name: fullName}));
 
     if (!checkList) {
-      this.setState({error: _t('g.server-error')});
+      this.setState({error: _t('g.server-error'), inProgress: false});
       return;
     }
 
@@ -138,11 +155,17 @@ class NewProjectDialog extends Component {
       return;
     }
 
-    this.setState({custom: false, name: '', error: ''});
+    this.setState({custom: false, name: '', error: '', customDoc: false});
+  };
+
+  toggleCustomDoc = (e) => {
+    e.preventDefault();
+    const {customDoc} = this.state;
+    this.setState({customDoc: !customDoc});
   };
 
   render() {
-    const {custom, name, error, inProgress} = this.state;
+    const {custom, name, error, inProgress, customDoc} = this.state;
 
     return (
       <>
@@ -193,12 +216,11 @@ class NewProjectDialog extends Component {
 
               {custom &&
               <div className="dns-info">
-                <a href="/faq" target="_blank">
+                <a href="#" onClick={this.toggleCustomDoc}>
                   {_t('new-project-dialog.dns-info')}
                 </a>
               </div>
               }
-
             </div>
 
             <div className="d-flex justify-content-center">
