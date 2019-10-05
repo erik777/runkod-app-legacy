@@ -37,7 +37,7 @@ class DialogContent extends Component {
           <span>slack</span>
         </div>
         <div className="button">
-          <a href="https://discord.gg/BNKjqA" title="Discord" target="_blank"
+          <a href="https://discord.gg/Qk57NDS" title="Discord" target="_blank"
              rel="noopener noreferrer">
             {discordSvg}
           </a>

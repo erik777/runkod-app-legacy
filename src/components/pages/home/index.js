@@ -180,7 +180,7 @@ class Footer extends Component {
                rel="noopener noreferrer" className="social-link">
               {slackSvg}
             </a>
-            <a href="https://discord.gg/BNKjqA" title="Discord" target="_blank"
+            <a href="https://discord.gg/Qk57NDS" title="Discord" target="_blank"
                rel="noopener noreferrer" className="social-link">
               {discordSvg}
             </a>
