@@ -8,6 +8,8 @@ import to from 'await-to-js';
 
 import {Project} from '../../../model';
 
+import DnsInfoDialog from '../dns-info';
+
 import {getUsername} from '../../../blockstack-config';
 
 import {_t} from '../../../i18n';
@@ -38,8 +40,7 @@ class NewProjectDialog extends Component {
       name: '',
       custom: false,
       error: '',
-      inProgress: false,
-      customDoc: false
+      inProgress: false
     }
   }
 
@@ -86,7 +87,6 @@ class NewProjectDialog extends Component {
     const fullName = custom ? sName : `${sName}${NAME_SUFFIX}`;
 
     this.setState({inProgress: true});
-
 
     if (custom) {
       const [err, resp] = await to(hostIp(fullName));
@@ -155,17 +155,19 @@ class NewProjectDialog extends Component {
       return;
     }
 
-    this.setState({custom: false, name: '', error: '', customDoc: false});
+    this.setState({custom: false, name: '', error: ''});
   };
 
   toggleCustomDoc = (e) => {
     e.preventDefault();
-    const {customDoc} = this.state;
-    this.setState({customDoc: !customDoc});
+
+    const {toggleUiProp} = this.props;
+    toggleUiProp('dnsInfo');
   };
 
   render() {
-    const {custom, name, error, inProgress, customDoc} = this.state;
+    const {custom, name, error, inProgress} = this.state;
+    const {ui} = this.props;
 
     return (
       <>
@@ -228,7 +230,7 @@ class NewProjectDialog extends Component {
                 {inProgress ? '...' : _t('g.submit')}
               </Button>
             </div>
-
+            {ui.dnsInfo && <DnsInfoDialog {...this.props} />}
           </Modal.Body>
         </Modal>
       </>
@@ -245,7 +247,8 @@ NewProjectDialog.defaultProps = {
 
 NewProjectDialog.propTypes = {
   ui: PropTypes.shape({
-    newProject: PropTypes.bool.isRequired
+    newProject: PropTypes.bool.isRequired,
+    dnsInfo: PropTypes.bool.isRequired,
   }),
   toggleUiProp: PropTypes.func.isRequired,
   onSave: PropTypes.func,

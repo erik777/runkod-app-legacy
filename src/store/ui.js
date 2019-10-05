@@ -7,6 +7,7 @@ export const TOGGLE_DELETE_DETAIL = '@ui/TOGGLE_DELETE_DETAIL';
 export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
 export const TOGGLE_PROJECT_SETTINGS = '@ui/TOGGLE_PROJECT_SETTINGS';
 export const TOGGLE_CONTACT = '@ui/TOGGLE_CONTACT';
+export const TOGGLE_DNS_INFO = '@ui/TOGGLE_DNS_INFO';
 
 const initialState = {
   newProject: false,
@@ -15,7 +16,8 @@ const initialState = {
   deleteDetail: false,
   deleteSummaryDetail: false,
   projectSettings: false,
-  contact: false
+  contact: false,
+  dnsInfo: false
 };
 
 /* Reducer */
@@ -38,6 +40,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {projectSettings: action.payload.what});
     case TOGGLE_CONTACT:
       return Object.assign({}, state, {contact: action.payload.what});
+    case TOGGLE_DNS_INFO:
+      return Object.assign({}, state, {dnsInfo: action.payload.what});
     default:
       return state;
   }
@@ -72,6 +76,9 @@ export const toggleUiProp = (what) => {
         break;
       case 'contact':
         act = TOGGLE_CONTACT;
+        break;
+      case 'dnsInfo':
+        act = TOGGLE_DNS_INFO;
         break;
       default:
         act = '';

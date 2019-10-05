@@ -51,7 +51,7 @@
     "error-not-available": "Name is not available. Please try another one.",
     "error-dns": "It seems you haven't configured dns settings for the domain name. You can view dns settings by clicking the button below. If you configured please keep in mind it may take some time for the dns to take effect across the internet.",
     "success": "New project created",
-    "dns-info": "Don't forget to configure DNS records"
+    "dns-info": "Dns Settings"
   },
   "upload-queue-dialog": {
     "progress-title": "Uploading",
@@ -94,5 +94,12 @@
   },
   "contact-dialog": {
     "title": "Channels you can contact us"
+  },
+  "dns-info-dialog": {
+    "title": "Dns settings for custom domains",
+    "line1": "First, go to the DNS settings page of your domain provider.",
+    "line2": "Then, Create an A record: type @ for \"Host\" and paste 178.128.141.114 under \"Value\" or \"Points to\".",
+    "line3": "If you want to redirect www subdomain add CNAME record like above.",
+    "line4": "Please keep in mind, depending on your dns provider it may take some time to activate new settings."
   }
 }

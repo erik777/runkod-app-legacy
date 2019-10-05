@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+Array [
+  <p>
+    First, go to the DNS settings page of your domain provider.
+  </p>,
+  <p>
+    Then, Create an A record: type @ for "Host" and paste 178.128.141.114 under "Value" or "Points to".
+  </p>,
+  <img
+    alt="Dns Settings"
+    className="sc-img"
+    src="dns-settings.png"
+  />,
+  <p>
+    If you want to redirect www subdomain add CNAME record like above.
+  </p>,
+  <p
+    className="text-muted"
+  >
+    Please keep in mind, depending on your dns provider it may take some time to activate new settings.
+  </p>,
+]
+`;
