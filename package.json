@@ -1,7 +1,9 @@
 {
-  "name": "dhost",
+  "name": "runkod",
+  "productName": "Runkod",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://runkod.com",
   "dependencies": {
     "await-to-js": "^2.1.1",
     "blockstack": "^19.2.5",
