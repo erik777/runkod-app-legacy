@@ -5,8 +5,13 @@
   padding-bottom: 20px;
 
   .navbar-brand {
+    font-size: 14px;
+    display: inline-flex;
+    align-items: flex-start;
+
     img {
       height: 48px;
+      margin-right: 10px;
     }
   }
 

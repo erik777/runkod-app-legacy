@@ -48,8 +48,8 @@ class NavBar extends Component {
 
     return (
       <div className={_c(`nav-bar ${loading ? 'loading' : ''}`)}>
-        <div className="logo" onClick={this.logoClicked}>
-          <img src={logo} alt="Logo"/>
+        <div className="brand" onClick={this.logoClicked}>
+          <img src={logo} alt="Logo" className="logo"/> beta
         </div>
         <div className="user-menu">
           <div className="user-image"

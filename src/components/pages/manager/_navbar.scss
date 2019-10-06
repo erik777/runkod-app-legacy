@@ -6,20 +6,22 @@
   align-items: center;
   justify-content: space-between;
 
-  .logo {
-    width: 54px;
+  .brand {
     height: 43px;
     margin-left: 11px;
     cursor: pointer;
+    display: inline-flex;
+    font-size: 14px;
+    color: $white;
 
-
-    img {
-      max-height: 43px;
+    .logo {
+      height: 43px;
+      margin-right: 8px;
     }
   }
 
   &.loading {
-    .logo {
+    .brand .logo {
       animation: logo-loading-anim 1.4s infinite 0.4s;
     }
   }

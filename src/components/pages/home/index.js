@@ -78,7 +78,7 @@ class Header extends Component {
 
     return <Navbar variant="dark" expand="lg" className="main-nav">
       <Container>
-        <Navbar.Brand><Link to="/"><img src={logoImg} alt="Logo"/></Link></Navbar.Brand>
+        <Navbar.Brand><Link to="/"><img src={logoImg} alt="Logo"/></Link>beta</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">

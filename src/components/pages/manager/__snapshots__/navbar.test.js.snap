@@ -5,13 +5,15 @@ exports[`1- default render 1`] = `
   className="nav-bar"
 >
   <div
-    className="logo"
+    className="brand"
     onClick={[Function]}
   >
     <img
       alt="Logo"
+      className="logo"
       src="logo-white.png"
     />
+     beta
   </div>
   <div
     className="user-menu"
@@ -78,13 +80,15 @@ exports[`2- no user image 1`] = `
   className="nav-bar"
 >
   <div
-    className="logo"
+    className="brand"
     onClick={[Function]}
   >
     <img
       alt="Logo"
+      className="logo"
       src="logo-white.png"
     />
+     beta
   </div>
   <div
     className="user-menu"
@@ -147,13 +151,15 @@ exports[`3- loading 1`] = `
   className="nav-bar loading"
 >
   <div
-    className="logo"
+    className="brand"
     onClick={[Function]}
   >
     <img
       alt="Logo"
+      className="logo"
       src="logo-white.png"
     />
+     beta
   </div>
   <div
     className="user-menu"
