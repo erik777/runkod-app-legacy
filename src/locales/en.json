@@ -13,7 +13,7 @@
   "manager": {
     "no-project": {
       "message": "Nothing here",
-      "button-label": "Create your first Website!"
+      "button-label": "Create your first project"
     },
     "no-selected-project": {
       "message": "Select a project to work with"
