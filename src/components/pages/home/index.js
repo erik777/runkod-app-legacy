@@ -8,11 +8,11 @@ import PropTypes from 'prop-types';
 
 import {Button, Container, Row, Col, Nav, Navbar} from 'react-bootstrap';
 
-import ContactDialog from '../../dialogs/contact'
+import ContactDialog from '../../dialogs/contact';
 
-import cloudImg from '../../../images/cloud.png'
-import logoImg from '../../../images/logo-white.png'
-import dnsImg from '../../../images/dns-settings.png'
+import cloudImg from '../../../images/cloud.png';
+
+import logoImg from '../../../images/logo-white.png';
 
 import {userSession} from '../../../blockstack-config';
 
@@ -74,7 +74,7 @@ LogoutButton.propTypes = {
 
 class Header extends Component {
   render() {
-    const {user, location} = this.props;
+    const {user} = this.props;
 
     return <Navbar variant="dark" expand="lg" className="main-nav">
       <Container>
@@ -84,7 +84,6 @@ class Header extends Component {
           <Nav className="ml-auto">
             <Nav.Link href="/#features">Features</Nav.Link>
             <Nav.Link href="/#get-started">Get Started</Nav.Link>
-            <Link className={`nav-link ${location.pathname === '/faq' ? 'active' : ''}`} to="/faq">FAQ</Link>
             <Nav.Link href="https://blockstack.org/what-is-blockstack/" target="_blank"
                       rel="noopener noreferrer">Blockstack</Nav.Link>
             <div className="controls">
@@ -141,7 +140,6 @@ class Footer extends Component {
             <ul>
               <li><a href="/#features">Features</a></li>
               <li><a href="/#get-started">Get Started</a></li>
-              <li><a href="/faq">FAQ</a></li>
             </ul>
           </Col>
           <Col lg={3} sm={6}>
@@ -202,52 +200,6 @@ Footer.propTypes = {
 };
 
 
-class FaqPage extends Component {
-
-  render() {
-    return (
-      <div className="faq-page user-select">
-        <Header {...this.props}/>
-        <div className="faq">
-          <div className="container">
-            <h2>Frequently Asked Questions</h2>
-            <div className="faq-item">
-              <h5 className="item-header"> DNS Settings For Custom Domains</h5>
-              <div className="item-body">
-                <p> First, go to the DNS settings page of your domain provider</p>
-                <p>Then, Create an A record: type @ for "Host" and paste 178.128.141.114 under "Value" or "Points
-                  to"</p>
-                <img src={dnsImg} className="sc-img" alt="Dns Settings"/>
-                <p>If you want to redirect www subdomain add CNAME record like above.</p>
-                <p className="text-muted">Please keep in mind, depending on your dns provider it may take some time to
-                  activate new settings.</p>
-              </div>
-            </div>
-            <div className="faq-item">
-              <h5 className="item-header"> Is there any coding Limitations?</h5>
-              <div className="item-body">
-                <p>There are only 2 limitations.</p>
-                <p>1- File paths in asset files (e.g. javascript, css) must be absolute. </p>
-                <p>2- Directory index files (index.html) must be less than 128 KB in size.</p>
-              </div>
-            </div>
-            <div className="faq-item">
-              <h5 className="item-header"> How Runkod Serve Files?</h5>
-              <div className="item-body">
-                Runkod creates a secure bridge between gaia storage and visitors....
-              </div>
-            </div>
-          </div>
-        </div>
-        <Footer {...this.props} />
-      </div>
-    )
-  }
-}
-
-export {FaqPage};
-
-
 class HomePage extends Component {
   goManager = () => {
     const {history} = this.props;
@@ -297,7 +249,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
-                  <p>Lorem Ipsum dolor sit amet has been the industry's standard dummy text ever since the 1500s.  Lorem Ipsum has been
+                  <p>Lorem Ipsum dolor sit amet has been the industry's standard dummy text ever since the 1500s. Lorem
+                    Ipsum has been
                     the industry's standard.</p>
                 </div>
               </Col>
@@ -315,7 +268,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{infinitySvg}</span>
                   <h5>Unlimited</h5>
-                  <p>You can create as many project you want. No bandwidth limits.Lorem Ipsum dolor sit amet has been the industry's standard dummy. </p>
+                  <p>You can create as many project you want. No bandwidth limits.Lorem Ipsum dolor sit amet has been
+                    the industry's standard dummy. </p>
                 </div>
               </Col>
 

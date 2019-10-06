@@ -249,48 +249,6 @@
   }
 }
 
-.faq {
-  margin: 60px 0 120px 0;
-
-  h2 {
-    font-weight: 500;
-    margin-bottom: 60px;
-    text-align: center;
-  }
-
-
-  .faq-item {
-    padding: 30px;
-    background: $white;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .03);
-    margin-bottom: 30px;
-
-    .item-header {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 22px;
-    }
-
-    .item-body {
-      p {
-        margin-bottom: 22px;
-      }
-
-      .sc-img {
-        max-width: 100%;
-        margin-bottom: 22px;
-        border: 1px solid $gray-200;
-        opacity: 0.6;
-
-        &:hover{
-          opacity: 1;
-        }
-      }
-
-    }
-  }
-}
-
 .main-footer {
   border-top: 2px solid $gray-100;
   margin: 40px 0 0 0;
