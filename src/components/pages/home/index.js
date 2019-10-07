@@ -254,7 +254,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
-                  <p>Completely Free service and hosting, powered by blockstack blockchain. Runkod will offer free tools
+                  <p>Completely Free service and hosting, powered by Blockstack. Runkod will offer free tools
                     for you to quickly start building decentralized apps.</p>
                 </div>
               </Col>
@@ -263,7 +263,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
-                  <p>Naturally decentralized. Runkod works top on Blockstack's decentralized high-performance storage
+                  <p> Runkod works top on Blockstack's high-performance storage
                     system "Gaia". It is decentralized yet gives you complete control of your data.</p>
                 </div>
               </Col>
@@ -281,7 +281,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{gemSvg}</span>
                   <h5>Easy</h5>
-                  <p>With click of button developers can upload and setup their dapps (decentralized apps).</p>
+                  <p>Straightforward and intuitive user interface. Developers can setup and upload their decentralised
+                    applications with click of button.</p>
                 </div>
               </Col>
 
