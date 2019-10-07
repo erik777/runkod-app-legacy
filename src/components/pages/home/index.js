@@ -249,9 +249,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
-                  <p>Lorem Ipsum dolor sit amet has been the industry's standard dummy text ever since the 1500s. Lorem
-                    Ipsum has been
-                    the industry's standard.</p>
+                  <p>Completely Free service and hosting, powered by blockstack blockchain. Runkod will offer free tools for you to quickly start building decentralized apps.</p>
                 </div>
               </Col>
 
@@ -259,8 +257,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
-                  <p>Naturally decentralized. Runkod works top on Blockstack's decentralized high-performance storage
-                    system "Gaia". Lorem Ipsum dolor sit.</p>
+                  <p>Naturally decentralized. Runkod works top on Blockstack's decentralized high-performance storage system "Gaia". It is decentralized yet gives you complete control of your data.</p>
                 </div>
               </Col>
 
@@ -268,8 +265,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{infinitySvg}</span>
                   <h5>Unlimited</h5>
-                  <p>You can create as many project you want. No bandwidth limits.Lorem Ipsum dolor sit amet has been
-                    the industry's standard dummy. </p>
+                  <p>You can create as many project you want. No bandwidth limits. Runkod believes in being open and unlimited. No more limitations and hidden fees.</p>
                 </div>
               </Col>
 
@@ -277,8 +273,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{gemSvg}</span>
                   <h5>Easy</h5>
-                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s. Lorem Ipsum has been
-                    the industry's standard.</p>
+                  <p>With click of button developers can upload and setup their dapps (decentralized apps).</p>
                 </div>
               </Col>
 
@@ -316,36 +311,36 @@ class HomePage extends Component {
             <Row>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <p className="quote">Happy to bring my apps to a new host!</p>
                   <div className="author">
                     <img className="avatar" src="https://randomuser.me/api/portraits/men/81.jpg" alt="avatar"/>
                     <div className="name">
-                      <h5>Niggel Banks</h5>
-                      <span>Full Stack Developer</span>
+                      <h5>Friedger OI Apps</h5>
+                      <span>Developer</span>
                     </div>
                   </div>
                 </div>
               </Col>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <p className="quote">Very cool... Cant wait to see it and use it. It would be awesome to make that easier by providing a simple 'save to RunKod' so that people could run their own.</p>
                   <div className="author">
                     <img className="avatar" src="https://randomuser.me/api/portraits/women/9.jpg" alt="avatar"/>
                     <div className="name">
-                      <h5>Peggy Brown</h5>
-                      <span>UI/UX Designer</span>
+                      <h5>Dan Trevino</h5>
+                      <span>Blockstack P. Organizer</span>
                     </div>
                   </div>
                 </div>
               </Col>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+                  <p className="quote">Very intrigued by this project. Having users host the apps themselves would be a radically decentralized approach.</p>
                   <div className="author">
                     <img className="avatar" src="https://randomuser.me/api/portraits/men/60.jpg" alt="avatar"/>
                     <div className="name">
-                      <h5>Byron Tucker</h5>
-                      <span>Frontend Developer</span>
+                      <h5>Mark Hendrickson</h5>
+                      <span>Developer</span>
                     </div>
                   </div>
                 </div>
