@@ -249,7 +249,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
-                  <p>Completely Free service and hosting, powered by blockstack blockchain. Runkod will offer free tools for you to quickly start building decentralized apps.</p>
+                  <p>Completely Free service and hosting, powered by blockstack blockchain. Runkod will offer free tools
+                    for you to quickly start building decentralized apps.</p>
                 </div>
               </Col>
 
@@ -257,7 +258,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
-                  <p>Naturally decentralized. Runkod works top on Blockstack's decentralized high-performance storage system "Gaia". It is decentralized yet gives you complete control of your data.</p>
+                  <p>Naturally decentralized. Runkod works top on Blockstack's decentralized high-performance storage
+                    system "Gaia". It is decentralized yet gives you complete control of your data.</p>
                 </div>
               </Col>
 
@@ -265,7 +267,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{infinitySvg}</span>
                   <h5>Unlimited</h5>
-                  <p>You can create as many project you want. No bandwidth limits. Runkod believes in being open and unlimited. No more limitations and hidden fees.</p>
+                  <p>You can create as many project you want. No bandwidth limits. Runkod believes in being open and
+                    unlimited. No more limitations and hidden fees.</p>
                 </div>
               </Col>
 
@@ -305,6 +308,7 @@ class HomePage extends Component {
             <div className="video"></div>
           </div>
         </div>
+        {/*
         <div className="testimonials" id="testimonials">
           <div className="container">
             <h2>Testimonials</h2>
@@ -348,6 +352,7 @@ class HomePage extends Component {
             </Row>
           </div>
         </div>
+        */}
         <Footer {...this.props} />
       </div>
     )
