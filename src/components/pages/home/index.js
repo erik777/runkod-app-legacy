@@ -29,7 +29,8 @@ import {
   infinitySvg,
   gemSvg,
   shieldSvg,
-  codeSvg
+  codeSvg,
+  githubSvg
 } from '../../../svg';
 
 
@@ -185,6 +186,10 @@ class Footer extends Component {
             <a href="https://t.me/joinchat/AYcx-xLSlNfCqUNFKEExsQ" title="Telegram" target="_blank"
                rel="noopener noreferrer" className="social-link">
               {telegramSvg}
+            </a>
+            <a href="https://github.com/runkod" title="Github" target="_blank"
+               rel="noopener noreferrer" className="social-link">
+              {githubSvg}
             </a>
           </Col>
         </Row>
