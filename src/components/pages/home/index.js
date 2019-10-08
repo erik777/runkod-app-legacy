@@ -19,7 +19,7 @@ import {userSession} from '../../../blockstack-config';
 import {
   twitterSvg,
   facebookSvg,
-  steemSvg,
+  // steemSvg,
   youtubeSvg,
   discordSvg,
   telegramSvg,
@@ -171,10 +171,12 @@ class Footer extends Component {
                rel="noopener noreferrer" className="social-link">
               {youtubeSvg}
             </a>
+            {/*
             <a href="https://steemit.com/runkod" title="Steem" target="_blank"
                rel="noopener noreferrer" className="social-link">
               {steemSvg}
             </a>
+            */}
             <a href="https://runkod.slack.com" title="Slack" target="_blank"
                rel="noopener noreferrer" className="social-link">
               {slackSvg}
@@ -311,7 +313,11 @@ class HomePage extends Component {
         <div className="get-started" id="get-started">
           <div className="container">
             <h2>Get Started</h2>
-            <div className="video"></div>
+            <div className="video">
+              <iframe title="Getting started with Runkod" src="https://www.youtube.com/embed/abWsiwslrrc"
+                      frameBorder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen/>
+            </div>
           </div>
         </div>
         {/*
