@@ -15,13 +15,13 @@ const propTypes = {
 
 class DialogContent extends Component {
   render() {
-    return <>
+    return <div className="user-select">
       <p>{_t('dns-info-dialog.line1')}</p>
       <p>{_t('dns-info-dialog.line2')}</p>
       <img src={dnsImg} className="sc-img" alt="Dns Settings"/>
       <p>{_t('dns-info-dialog.line3')}</p>
       <p className="text-muted">{_t('dns-info-dialog.line4')}</p>
-    </>
+    </div>
   }
 }
 
