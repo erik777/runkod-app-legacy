@@ -19,7 +19,7 @@ import {userSession} from '../../../blockstack-config';
 import {
   twitterSvg,
   facebookSvg,
-  // steemSvg,
+  steemSvg,
   youtubeSvg,
   discordSvg,
   telegramSvg,
@@ -171,12 +171,10 @@ class Footer extends Component {
                rel="noopener noreferrer" className="social-link">
               {youtubeSvg}
             </a>
-            {/*
             <a href="https://steemit.com/runkod" title="Steem" target="_blank"
                rel="noopener noreferrer" className="social-link">
               {steemSvg}
             </a>
-            */}
             <a href="https://runkod.slack.com" title="Slack" target="_blank"
                rel="noopener noreferrer" className="social-link">
               {slackSvg}
@@ -331,7 +329,7 @@ class HomePage extends Component {
                   <div className="author">
                     <img className="avatar" src="https://randomuser.me/api/portraits/men/81.jpg" alt="avatar"/>
                     <div className="name">
-                      <h5>Friedger OI Apps</h5>
+                      <h5>Lorem Ipsum</h5>
                       <span>Developer</span>
                     </div>
                   </div>
@@ -343,8 +341,8 @@ class HomePage extends Component {
                   <div className="author">
                     <img className="avatar" src="https://randomuser.me/api/portraits/women/9.jpg" alt="avatar"/>
                     <div className="name">
-                      <h5>Dan Trevino</h5>
-                      <span>Blockstack P. Organizer</span>
+                      <h5>Dolor Sit</h5>
+                      <span>Developer</span>
                     </div>
                   </div>
                 </div>
@@ -355,7 +353,7 @@ class HomePage extends Component {
                   <div className="author">
                     <img className="avatar" src="https://randomuser.me/api/portraits/men/60.jpg" alt="avatar"/>
                     <div className="name">
-                      <h5>Mark Hendrickson</h5>
+                      <h5>Foo Bar</h5>
                       <span>Developer</span>
                     </div>
                   </div>
