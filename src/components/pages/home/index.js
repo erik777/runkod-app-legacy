@@ -171,7 +171,7 @@ class Footer extends Component {
                rel="noopener noreferrer" className="social-link">
               {youtubeSvg}
             </a>
-            <a href="https://steemit.com/runkod" title="Steem" target="_blank"
+            <a href="https://steemit.com/@runkod" title="Steem" target="_blank"
                rel="noopener noreferrer" className="social-link">
               {steemSvg}
             </a>
