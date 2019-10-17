@@ -318,43 +318,43 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-        {/*
+        {
         <div className="testimonials" id="testimonials">
           <div className="container">
             <h2>Testimonials</h2>
             <Row>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Happy to bring my apps to a new host!</p>
+                  <p className="quote">For app publishers, Runkod is just an easy way to host their apps. For techies, Runkod is the next Cloudflare enabling decentralized storage.</p>
                   <div className="author">
-                    <img className="avatar" src="https://randomuser.me/api/portraits/men/81.jpg" alt="avatar"/>
+                    <img className="avatar" src="/testimonial-images/friedger.jpeg" alt="avatar"/>
                     <div className="name">
-                      <h5>Lorem Ipsum</h5>
-                      <span>Developer</span>
+                      <h5>Friedger Müffke</h5>
+                      <span>Software Engineer</span>
                     </div>
                   </div>
                 </div>
               </Col>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Very cool... Cant wait to see it and use it. It would be awesome to make that easier by providing a simple 'save to RunKod' so that people could run their own.</p>
+                  <p className="quote">Runkod is super easy to use. Looks like magic to me. I am so happy to find a free and decentralized hosting solution for my next projects.</p>
                   <div className="author">
-                    <img className="avatar" src="https://randomuser.me/api/portraits/women/9.jpg" alt="avatar"/>
+                    <img className="avatar" src="/testimonial-images/ue.png" alt="avatar"/>
                     <div className="name">
-                      <h5>Dolor Sit</h5>
-                      <span>Developer</span>
+                      <h5>Uğur Erdal</h5>
+                      <span>Frontend Developer</span>
                     </div>
                   </div>
                 </div>
               </Col>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Very intrigued by this project. Having users host the apps themselves would be a radically decentralized approach.</p>
+                  <p className="quote">Runkod is very promising. I migrated all my apps. I think having users host the apps themselves is a radically decentralized approach.</p>
                   <div className="author">
-                    <img className="avatar" src="https://randomuser.me/api/portraits/men/60.jpg" alt="avatar"/>
+                    <img className="avatar" src="/testimonial-images/steven.jpeg" alt="avatar"/>
                     <div className="name">
-                      <h5>Foo Bar</h5>
-                      <span>Developer</span>
+                      <h5>Steven Jankowski</h5>
+                      <span>Frontend Developer</span>
                     </div>
                   </div>
                 </div>
@@ -362,7 +362,7 @@ class HomePage extends Component {
             </Row>
           </div>
         </div>
-        */}
+        }
         <Footer {...this.props} />
       </div>
     )
