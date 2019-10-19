@@ -350,8 +350,10 @@ class HomePage extends Component {
               </Col>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Runkod is very promising. I migrated all my apps. I think having users host the
-                    apps themselves is a radically decentralized approach.</p>
+                  <p className="quote">
+                    Having all tools to deploy my apps for free is awesome.
+                    I'm looking forward for more features from Runkod.
+                    I see Runkod is creating future of hosting.</p>
                   <div className="author">
                     <img className="avatar" src="/testimonial-images/steven.jpeg" alt="avatar"/>
                     <div className="name">
