@@ -60,6 +60,7 @@ class ManagerPage extends Component {
     const {loading: projectsLoading} = projects;
     const {list: projectsList} = projects;
 
+
     return (
       <div className="manager-page">
         <NavBar {...this.props} />
@@ -73,6 +74,23 @@ class ManagerPage extends Component {
 
             // No projects
             if (projectsList.length === 0) {
+
+              // Welcome screen
+              if (ui.firstRun) {
+                return <div className="no-project welcome">
+                  <p className="message-header">
+                    {_t('manager.welcome.message')}
+                  </p>
+                  <p className="sub-message-header">{_t('manager.welcome.sub-message')}</p>
+                  <p dangerouslySetInnerHTML={{__html: _t('manager.welcome.text-content')}}/>
+                  <Button onClick={() => {
+                    localStorage.setItem('first-run', 1);
+                    const {toggleUiProp} = this.props;
+                    toggleUiProp('newProject');
+                  }}>{_t('manager.welcome.button-label')}</Button>
+                </div>
+              }
+
               return (
                 <div className="no-project">
                   <p className="message-header">
@@ -121,7 +139,8 @@ ManagerPage.defaultProps = {
 
 ManagerPage.propTypes = {
   ui: PropTypes.shape({
-    newProject: PropTypes.bool.isRequired
+    newProject: PropTypes.bool.isRequired,
+    firstRun: PropTypes.bool.isRequired,
   }).isRequired,
   uploadQueue: PropTypes.shape({
     show: PropTypes.bool.isRequired

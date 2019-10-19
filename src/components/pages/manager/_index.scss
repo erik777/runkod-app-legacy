@@ -26,6 +26,28 @@
       float: right;
       width: calc(100% - 268px);
     }
+
+    .welcome {
+      width: 460px;
+      margin: auto;
+      text-align: center;
+      color: $gray-500;
+
+      .message-header {
+        color: $gray-700;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 30px;
+      }
+
+      .sub-message-header {
+        color: $gray-600;
+      }
+
+      a {
+        color: lighten($primary, 16);
+      }
+    }
   }
 }
 
