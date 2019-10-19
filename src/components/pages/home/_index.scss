@@ -225,6 +225,10 @@
     transition: all .3s;
     margin-bottom: 30px;
 
+    &:hover {
+      transform: translateY(-5px) translateZ(0);
+    }
+
     .quote {
       font-weight: 500;
       color: #bdbac2;
