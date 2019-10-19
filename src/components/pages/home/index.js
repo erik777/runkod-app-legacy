@@ -318,14 +318,14 @@ class HomePage extends Component {
             </div>
           </div>
         </div>
-        {
         <div className="testimonials" id="testimonials">
           <div className="container">
             <h2>Testimonials</h2>
             <Row>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">For app publishers, Runkod is just an easy way to host their apps. For techies, Runkod is the next Cloudflare enabling decentralized storage.</p>
+                  <p className="quote">For app publishers, Runkod is just an easy way to host their apps. For techies,
+                    Runkod is the next Cloudflare enabling decentralized storage.</p>
                   <div className="author">
                     <img className="avatar" src="/testimonial-images/friedger.jpeg" alt="avatar"/>
                     <div className="name">
@@ -337,7 +337,8 @@ class HomePage extends Component {
               </Col>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Runkod is super easy to use. Looks like magic to me. I am so happy to find a free and decentralized hosting solution for my next projects.</p>
+                  <p className="quote">Runkod is super easy to use. Looks like magic to me. I am so happy to find a free
+                    and decentralized hosting solution for my next projects.</p>
                   <div className="author">
                     <img className="avatar" src="/testimonial-images/ue.png" alt="avatar"/>
                     <div className="name">
@@ -349,7 +350,8 @@ class HomePage extends Component {
               </Col>
               <Col md={6} lg={4}>
                 <div className="testimonial">
-                  <p className="quote">Runkod is very promising. I migrated all my apps. I think having users host the apps themselves is a radically decentralized approach.</p>
+                  <p className="quote">Runkod is very promising. I migrated all my apps. I think having users host the
+                    apps themselves is a radically decentralized approach.</p>
                   <div className="author">
                     <img className="avatar" src="/testimonial-images/steven.jpeg" alt="avatar"/>
                     <div className="name">
@@ -362,7 +364,6 @@ class HomePage extends Component {
             </Row>
           </div>
         </div>
-        }
         <Footer {...this.props} />
       </div>
     )
