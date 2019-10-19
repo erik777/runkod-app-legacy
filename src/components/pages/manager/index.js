@@ -84,7 +84,7 @@ class ManagerPage extends Component {
                   <p className="sub-message-header">{_t('manager.welcome.sub-message')}</p>
                   <p dangerouslySetInnerHTML={{__html: _t('manager.welcome.text-content')}}/>
                   <Button onClick={() => {
-                    localStorage.setItem('first-run', 1);
+                    localStorage.setItem('runkod-first-run', 1);
                     const {toggleUiProp} = this.props;
                     toggleUiProp('newProject');
                   }}>{_t('manager.welcome.button-label')}</Button>

@@ -10,7 +10,7 @@ export const TOGGLE_CONTACT = '@ui/TOGGLE_CONTACT';
 export const TOGGLE_DNS_INFO = '@ui/TOGGLE_DNS_INFO';
 
 const initialState = {
-  firstRun: !localStorage.getItem('first-run'),
+  firstRun: !localStorage.getItem('runkod-first-run'),
   newProject: false,
   sideProjectsVisible: true,
   uploadSummaryDetail: false,
