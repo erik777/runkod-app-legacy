@@ -254,7 +254,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
-                  <p>Completely free service and hosting, powered by Blockstack. Runkod will offer handy tools for you to quickly deploy decentralized applications.</p>
+                  <p>Completely free service and hosting, powered by Blockstack. Runkod will offer handy tools for you
+                    to quickly deploy decentralized applications.</p>
                 </div>
               </Col>
 
@@ -262,7 +263,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
-                  <p>Runkod works top on Blockstack's high-performance storage system "Gaia". It is decentralized yet gives you complete control of your data.</p>
+                  <p>Runkod works top on Blockstack's high-performance storage system "Gaia". It is decentralized yet
+                    gives you complete control of your data.</p>
                 </div>
               </Col>
 
@@ -270,7 +272,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{infinitySvg}</span>
                   <h5>Unlimited</h5>
-                  <p>You can create as many project you want. No bandwidth limits. Runkod believes in being open and unlimited. No more limitations and hidden fees.</p>
+                  <p>You can create as many project you want. No bandwidth limits. Runkod believes in being open and
+                    unlimited. No more limitations and hidden fees.</p>
                 </div>
               </Col>
 
@@ -278,7 +281,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{gemSvg}</span>
                   <h5>Easy</h5>
-                  <p>Straightforward and intuitive user interface. Developers can setup and upload their decentralised applications with click of button.</p>
+                  <p>Straightforward and intuitive user interface. Developers can setup and upload their decentralised
+                    applications with click of button.</p>
                 </div>
               </Col>
 
@@ -286,7 +290,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{shieldSvg}</span>
                   <h5>Instant SSL</h5>
-                  <p>Even SSL certificates are free. Whether you are using a custom domain or not, ssl certificate for your website is ready in seconds.</p>
+                  <p>Even SSL certificates are free. Whether you are using a custom domain or not, ssl certificate for
+                    your website is ready in seconds.</p>
                 </div>
               </Col>
 
@@ -294,7 +299,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{codeSvg}</span>
                   <h5>Open Source</h5>
-                  <p>All Runkod code is open sourced on github under MIT licence. Feel free to view code and let us know your feedback.</p>
+                  <p>All Runkod code is open sourced on github under MIT licence. Feel free to view code and let us know
+                    your feedback.</p>
                 </div>
               </Col>
 
@@ -360,6 +366,15 @@ class HomePage extends Component {
             </Row>
           </div>
         </div>
+
+        {user === null &&
+        <div className="bottom-cta">
+          <LoginButton {...this.props}>
+            <Button variant="primary" size="lg" onClick={this.login}>Launch your first project</Button>
+          </LoginButton>
+        </div>
+        }
+
         <Footer {...this.props} />
       </div>
     )
