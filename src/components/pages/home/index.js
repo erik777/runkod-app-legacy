@@ -254,7 +254,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{coctailSvg}</span>
                   <h5>Free</h5>
-                  <p>Completely Free service and hosting, powered by Blockstack. Runkod will offer free tools for you to quickly deploy decentralized applications.</p>
+                  <p>Completely free service and hosting, powered by Blockstack. Runkod will offer handy tools for you to quickly deploy decentralized applications.</p>
                 </div>
               </Col>
 
