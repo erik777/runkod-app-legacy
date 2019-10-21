@@ -19,7 +19,7 @@
       "message": "Select a project to work with"
     },
     "welcome": {
-      "message":  "Your account has created 🎉",
+      "message":  "Your account has been successfully created! 🎉",
       "sub-message": "Now you can create your first project.",
       "text-content": "Before you start, we recommend to watch our short video tutorial: <a href=\"https://www.youtube.com/watch?v=abWsiwslrrc\" target=\"_blank\" rel=\"noopener noreferrer\">Getting started with Runkod</a>",
       "button-label": "Create your first project!"
