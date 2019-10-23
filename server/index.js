@@ -6,7 +6,7 @@ const express = require('express');
 const {PORT} = process.env;
 const app = express();
 
-const indexHtml = fs.readFileSync(path.resolve('./build/index.html'), 'utf8');
+const indexHtml = fs.readFileSync(path.resolve('./build-live/index.html'), 'utf8');
 
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -22,7 +22,7 @@ router.use(['^/$', '^/auth/?$', '^/manager/?$'], (req, res) => {
 });
 
 router.use(
-  express.static(path.resolve(__dirname, '..', 'build'), {maxAge: '30d'})
+  express.static(path.resolve(__dirname, '..', 'build-live'), {maxAge: '30d'})
 );
 
 app.use(router);
