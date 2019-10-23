@@ -36,7 +36,8 @@
     "start": "react-app-rewired start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "rm -rf build-live && cp -r build build-live && rm -r build"
   },
   "eslintConfig": {
     "extends": "react-app"
