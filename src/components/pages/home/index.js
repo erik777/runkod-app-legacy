@@ -8,8 +8,6 @@ import PropTypes from 'prop-types';
 
 import {Button, Container, Row, Col, Nav, Navbar} from 'react-bootstrap';
 
-import ContactDialog from '../../dialogs/contact';
-
 import cloudImg from '../../../images/cloud.png';
 
 import logoImg from '../../../images/logo-white.png';
@@ -126,13 +124,12 @@ class Footer extends Component {
   contact = (e) => {
     e.preventDefault();
 
-    const {toggleUiProp} = this.props;
-    toggleUiProp('contact');
+    if (window.fcWidget) {
+      window.fcWidget.open({});
+    }
   };
 
   render() {
-    const {ui} = this.props;
-
     return <footer className="main-footer">
       <div className="container">
         <Row>
@@ -194,13 +191,11 @@ class Footer extends Component {
           </Col>
         </Row>
       </div>
-      {ui.contact && <ContactDialog  {...this.props}  />}
     </footer>
   }
 }
 
 Footer.propTypes = {
-  ui: PropTypes.shape({contact: PropTypes.bool.isRequired}),
   toggleUiProp: PropTypes.func.isRequired
 };
 
