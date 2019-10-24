@@ -12,7 +12,7 @@ import {_t} from '../../../i18n';
 
 import logo from '../../../images/logo-white.png';
 
-import {helpSvg, logOutSvg} from '../../../svg';
+import {emailSvg, logOutSvg} from '../../../svg';
 
 import {userSession} from '../../../blockstack-config';
 
@@ -57,7 +57,7 @@ class NavBar extends Component {
           <div className="menu-list">
             <span className="username">{'@'}{user.username}</span>
             <a className="menu-list-item" onClick={this.helpClicked}>
-              {_t('manager.nav-bar.help')} {helpSvg}
+              {_t('manager.nav-bar.contact')} {emailSvg}
             </a>
             <a className="menu-list-item" onClick={this.logout}>
               {_t('manager.nav-bar.sign-out')} {logOutSvg}
