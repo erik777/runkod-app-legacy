@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+<div
+  className="user-select"
+>
+  <a
+    className="file-url"
+    href="https://fooo.com/index.html"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="https://fooo.com/index.html"
+  >
+    /index.html
+     
+    <svg
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M405.34 405.332H106.66V106.668H240V64H106.66C83.191 64 64 83.197 64 106.668v298.664C64 428.803 83.191 448 106.66 448h298.68c23.469 0 42.66-19.197 42.66-42.668V272h-42.66v133.332zM288 64v42.668h87.474L159.999 322.133l29.866 29.866 215.476-215.47V224H448V64H288z"
+      />
+    </svg>
+  </a>
+  <div
+    className="file-extra-info"
+  >
+    text/html
+     - 
+    2.29 KB
+  </div>
+</div>
+`;
+
+exports[`2- no type 1`] = `
+<div
+  className="user-select"
+>
+  <a
+    className="file-url"
+    href="https://fooo.com/index.html"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="https://fooo.com/index.html"
+  >
+    /index.html
+     
+    <svg
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M405.34 405.332H106.66V106.668H240V64H106.66C83.191 64 64 83.197 64 106.668v298.664C64 428.803 83.191 448 106.66 448h298.68c23.469 0 42.66-19.197 42.66-42.668V272h-42.66v133.332zM288 64v42.668h87.474L159.999 322.133l29.866 29.866 215.476-215.47V224H448V64H288z"
+      />
+    </svg>
+  </a>
+  <div
+    className="file-extra-info"
+  >
+    2.29 KB
+  </div>
+</div>
+`;
+
+exports[`3- image file 1`] = `
+<div
+  className="user-select"
+>
+  <a
+    className="file-url"
+    href="https://fooo.com/logo.jpg"
+    rel="noopener noreferrer"
+    target="_blank"
+    title="https://fooo.com/logo.jpg"
+  >
+    /logo.jpg
+     
+    <svg
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M405.34 405.332H106.66V106.668H240V64H106.66C83.191 64 64 83.197 64 106.668v298.664C64 428.803 83.191 448 106.66 448h298.68c23.469 0 42.66-19.197 42.66-42.668V272h-42.66v133.332zM288 64v42.668h87.474L159.999 322.133l29.866 29.866 215.476-215.47V224H448V64H288z"
+      />
+    </svg>
+  </a>
+  <div
+    className="file-extra-info"
+  >
+    image/jpeg
+     - 
+    2.29 KB
+  </div>
+  <img
+    alt="file"
+    className="file-image"
+    src="https://somewhereongaia/234234324/rqwrq32.jpg"
+  />
+</div>
+`;
