@@ -46,8 +46,13 @@ class ManagerPage extends Component {
   }
 
   newProjectCreated = () => {
-    const {fetchProjects} = this.props;
-    fetchProjects();
+    const {fetchProjects, selectProject} = this.props;
+    fetchProjects().then(() => {
+      // Pick first (new) project after project list refreshed
+      const {projects} = this.props;
+      const [project,] = projects.list;
+      selectProject(project);
+    });
   };
 
   render() {
@@ -155,6 +160,7 @@ ManagerPage.propTypes = {
   user: PropTypes.shape({}),
   project: PropTypes.instanceOf(Object),
   toggleUiProp: PropTypes.func.isRequired,
+  selectProject: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })

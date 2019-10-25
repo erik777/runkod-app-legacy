@@ -46,6 +46,8 @@ export const fetchProjects = () => async (dispatch) => {
   }
 
   dispatch(fetchedAct(projects));
+
+  return projects;
 };
 
 
