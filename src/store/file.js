@@ -18,8 +18,8 @@ export default (state = initialState, action) => {
 }
 
 /* Actions */
-export const selectFile = (project) => async (dispatch) => {
-  dispatch(selectAct(project));
+export const selectFile = (file) => async (dispatch) => {
+  dispatch(selectAct(file));
 };
 
 

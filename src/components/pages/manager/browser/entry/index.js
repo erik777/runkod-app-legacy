@@ -4,11 +4,13 @@ import PropTypes from 'prop-types';
 
 import fileSize from 'filesize';
 
+import FileInfoDialog from '../../../../dialogs/file-info';
+
 import CheckBox from '../../../../helper/checkbox';
 
 import fs from '../../../../../fs';
 
-import _c from '../../../../../utils/fix-class-names'
+import _c from '../../../../../utils/fix-class-names';
 
 class Icon extends Component {
   render() {
@@ -164,6 +166,14 @@ export {FolderEntry}
 
 
 class FileEntry extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      info: false
+    }
+  }
+
   checked = (checked) => {
     const {file, checkListAdd, checkListDelete} = this.props;
 
@@ -174,25 +184,35 @@ class FileEntry extends Component {
     }
   };
 
+  toggleInfo = () => {
+    const {info} = this.state;
+    this.setState({info: !info});
+  };
+
   render() {
+    const {info} = this.state;
     const {file, checkList} = this.props;
     const checked = checkList.includes(file._id);
 
-    return (<div className={_c(`browser-entry entry-file ${checked ? 'checked' : ''}`)}>
-        <div className="entry-header">
-          <div className="select-input">
-            <CheckBox checked={checked} onChange={this.checked}/>
+    return (
+      <>
+        <div className={_c(`browser-entry entry-file ${checked ? 'checked' : ''}`)} onClick={this.toggleInfo}>
+          <div className="entry-header">
+            <div className="select-input">
+              <CheckBox checked={checked} onChange={this.checked}/>
+            </div>
+            <Icon type={file.type}/>
           </div>
-          <Icon type={file.type}/>
+          <div className="entry-label">
+            {file.label}
+          </div>
+          <div className="h-space"/>
+          <div className="entry-size">
+            {fileSize(file.size)}
+          </div>
         </div>
-        <div className="entry-label">
-          {file.label}
-        </div>
-        <div className="h-space" />
-        <div className="entry-size">
-          {fileSize(file.size)}
-        </div>
-      </div>
+        {info && <FileInfoDialog {...this.props} file={file} onHide={this.toggleInfo} />}
+      </>
     )
   }
 }

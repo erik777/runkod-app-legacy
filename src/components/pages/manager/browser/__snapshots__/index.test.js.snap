@@ -79,6 +79,7 @@ exports[`3- with files and folders 1`] = `
     </div>
     <div
       className="browser-entry entry-file"
+      onClick={[Function]}
     >
       <div
         className="entry-header"
@@ -117,6 +118,7 @@ exports[`3- with files and folders 1`] = `
     </div>
     <div
       className="browser-entry entry-file"
+      onClick={[Function]}
     >
       <div
         className="entry-header"
@@ -223,6 +225,7 @@ exports[`4- in sub folder 1`] = `
     </div>
     <div
       className="browser-entry entry-file"
+      onClick={[Function]}
     >
       <div
         className="entry-header"

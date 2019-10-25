@@ -160,6 +160,9 @@
     }
   }
 
+  &.entry-file {
+    cursor: pointer;
+  }
 
   &:hover {
     background: $gray-100;

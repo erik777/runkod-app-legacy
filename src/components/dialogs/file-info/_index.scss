@@ -1,0 +1,28 @@
+.file-info-dialog {
+  .file-url {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    overflow: hidden;
+
+    svg {
+      width: 12px;
+      height: 12px;
+      margin-left: 2px;
+      fill: $gray-600
+    }
+  }
+
+  .file-extra-info {
+    margin-bottom: 10px;
+    color: $gray-600;
+  }
+
+  .file-image {
+    max-height: 300px;
+    max-width: 400px;
+  }
+}

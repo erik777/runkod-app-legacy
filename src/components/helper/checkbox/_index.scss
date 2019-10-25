@@ -3,7 +3,7 @@
   height: 15px;
   border: 1px solid $gray-500;
   position: relative;
-  cursor: default;
+  cursor: default !important;
 
   svg {
     position: absolute;

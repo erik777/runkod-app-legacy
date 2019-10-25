@@ -325,6 +325,7 @@ exports[`3- loaded. with files and folders 1`] = `
       </div>
       <div
         className="browser-entry entry-file"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -363,6 +364,7 @@ exports[`3- loaded. with files and folders 1`] = `
       </div>
       <div
         className="browser-entry entry-file"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -584,6 +586,7 @@ exports[`4- in sub folder 1`] = `
       </div>
       <div
         className="browser-entry entry-file"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -748,6 +751,7 @@ exports[`5- 1 item in checklist 1`] = `
       </div>
       <div
         className="browser-entry entry-file checked"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -801,6 +805,7 @@ exports[`5- 1 item in checklist 1`] = `
       </div>
       <div
         className="browser-entry entry-file"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -965,6 +970,7 @@ exports[`6- 2 items in checklist 1`] = `
       </div>
       <div
         className="browser-entry entry-file checked"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -1018,6 +1024,7 @@ exports[`6- 2 items in checklist 1`] = `
       </div>
       <div
         className="browser-entry entry-file checked"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -1227,6 +1234,7 @@ exports[`7- all items in checklist 1`] = `
       </div>
       <div
         className="browser-entry entry-file checked"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
@@ -1280,6 +1288,7 @@ exports[`7- all items in checklist 1`] = `
       </div>
       <div
         className="browser-entry entry-file checked"
+        onClick={[Function]}
       >
         <div
           className="entry-header"
