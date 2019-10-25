@@ -33,7 +33,7 @@ class DialogContent extends Component {
       <div className="file-extra-info">
         {file.type && <>{file.type} - </>}{fileSize(file.size)}
       </div>
-      {(file.type && file.type.indexOf('image') >= -1) &&
+      {(file.type && file.type.indexOf('image') > -1) &&
       <img alt="file" className="file-image" src={file.address}/>
       }
     </div>
@@ -55,7 +55,7 @@ class FileInfoDialog extends Component {
     const {file} = this.props;
 
     return (
-      <Modal show className="file-info-dialog" onHide={this.hide}>
+      <Modal show className="file-info-dialog" onHide={this.hide} size="lg">
         <Modal.Header closeButton>
           <Modal.Title>{file.label}</Modal.Title>
         </Modal.Header>
