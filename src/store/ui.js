@@ -8,9 +8,17 @@ export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
 export const TOGGLE_PROJECT_SETTINGS = '@ui/TOGGLE_PROJECT_SETTINGS';
 export const TOGGLE_CONTACT = '@ui/TOGGLE_CONTACT';
 export const TOGGLE_DNS_INFO = '@ui/TOGGLE_DNS_INFO';
+export const READ_FLAGS = '@ui/READ_fLAGS';
+
+const readFlags = () => {
+  return {
+    frFlag: !localStorage.getItem('runkod-fr-flag'), // First run flag
+    epFlag: !localStorage.getItem('runkod-ep-flag'), // Example project flag
+  }
+};
 
 const initialState = {
-  firstRun: !localStorage.getItem('runkod-first-run'),
+  ...readFlags(),
   newProject: false,
   sideProjectsVisible: true,
   uploadSummaryDetail: false,
@@ -43,6 +51,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {contact: action.payload.what});
     case TOGGLE_DNS_INFO:
       return Object.assign({}, state, {dnsInfo: action.payload.what});
+    case READ_FLAGS:
+      return Object.assign({}, state, readFlags());
     default:
       return state;
   }
@@ -92,3 +102,22 @@ export const toggleUiProp = (what) => {
     });
   }
 };
+
+
+export const invalidateUiFlag = (what) => {
+  return (dispatch) => {
+
+    if (what === 'fr') {
+      localStorage.setItem('runkod-fr-flag', 1);
+    }
+
+    if (what === 'ep') {
+      localStorage.setItem('runkod-ep-flag', 1);
+    }
+
+    dispatch({
+      type: READ_FLAGS
+    });
+  }
+};
+

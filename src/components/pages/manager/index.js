@@ -12,6 +12,8 @@ import {_t} from '../../../i18n';
 
 import NavBar from './navbar';
 
+import NotifyBar from './notifybar';
+
 import SideMenu from './sidemenu';
 
 import Project from './project';
@@ -56,7 +58,7 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, project, uploadQueue, deleteQueue, user} = this.props;
+    const {ui, projects, project, uploadQueue, deleteQueue, user, invalidateUiFlag} = this.props;
 
     if (user === null) {
       return null;
@@ -65,10 +67,10 @@ class ManagerPage extends Component {
     const {loading: projectsLoading} = projects;
     const {list: projectsList} = projects;
 
-
     return (
       <div className="manager-page">
         <NavBar {...this.props} />
+
 
         <div className="page-content">
           {(() => {
@@ -79,9 +81,8 @@ class ManagerPage extends Component {
 
             // No projects
             if (projectsList.length === 0) {
-
-              // Welcome screen
-              if (ui.firstRun) {
+              // Welcome screen. For new users
+              if (ui.frFlag && user.createdAt + 60000 >= Date.now()) {
                 return <div className="no-project welcome">
                   <p className="message-header">
                     {_t('manager.welcome.message')}
@@ -89,7 +90,7 @@ class ManagerPage extends Component {
                   <p className="sub-message-header">{_t('manager.welcome.sub-message')}</p>
                   <p dangerouslySetInnerHTML={{__html: _t('manager.welcome.text-content')}}/>
                   <Button onClick={() => {
-                    localStorage.setItem('runkod-first-run', 1);
+                    invalidateUiFlag('fr');
                     const {toggleUiProp} = this.props;
                     toggleUiProp('newProject');
                   }}>{_t('manager.welcome.button-label')}</Button>
@@ -124,6 +125,7 @@ class ManagerPage extends Component {
             }
 
             return <>
+              <NotifyBar {...this.props} />
               <SideMenu projects={projects} {...this.props} />
               <Project {...this.props} />
             </>
@@ -145,7 +147,7 @@ ManagerPage.defaultProps = {
 ManagerPage.propTypes = {
   ui: PropTypes.shape({
     newProject: PropTypes.bool.isRequired,
-    firstRun: PropTypes.bool.isRequired,
+    frFlag: PropTypes.bool.isRequired,
   }).isRequired,
   uploadQueue: PropTypes.shape({
     show: PropTypes.bool.isRequired
@@ -157,9 +159,12 @@ ManagerPage.propTypes = {
     loading: PropTypes.bool.isRequired,
     list: PropTypes.arrayOf(Object).isRequired
   }).isRequired,
-  user: PropTypes.shape({}),
+  user: PropTypes.shape({
+    createdAt: PropTypes.number.isRequired
+  }),
   project: PropTypes.instanceOf(Object),
   toggleUiProp: PropTypes.func.isRequired,
+  invalidateUiFlag: PropTypes.func.isRequired,
   selectProject: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired

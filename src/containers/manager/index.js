@@ -5,7 +5,7 @@ import {bindActionCreators} from 'redux';
 import ManagerPage from '../../components/pages/manager';
 
 import {login, logout} from '../../store/user';
-import {toggleUiProp} from '../../store/ui';
+import {toggleUiProp, invalidateUiFlag} from '../../store/ui';
 import {fetchProjects} from '../../store/projects';
 import {selectProject, setProjectStatus} from '../../store/project';
 import {fetchFiles} from '../../store/files';
@@ -39,6 +39,7 @@ const mapDispatchToProps = dispatch =>
       login,
       logout,
       toggleUiProp,
+      invalidateUiFlag,
       fetchProjects,
       selectProject,
       setProjectStatus,
