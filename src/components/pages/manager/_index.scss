@@ -1,12 +1,14 @@
 
 .manager-page {
   height: 100%;
-  min-width: 992px;
+
+  display: flex;
+  flex-direction: column;
 
   .page-content {
-    height: calc(100% - 60px);
+    flex-grow: 1;
+    flex-shrink: 0;
     background: $white;
-    min-height: 600px;
 
     .no-project, .no-selected-project {
       height: 100%;
