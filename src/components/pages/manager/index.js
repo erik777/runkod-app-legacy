@@ -71,33 +71,37 @@ class ManagerPage extends Component {
       <div className="manager-page">
         <NavBar {...this.props} />
 
+        {(() => {
 
-        <div className="page-content">
-          {(() => {
+          if (projectsLoading) {
+            return null;
+          }
 
-            if (projectsLoading) {
-              return null;
+          // No project
+          if (projectsList.length === 0) {
+
+            // Welcome screen. For new users
+            if (ui.frFlag && user.createdAt + 60000 >= Date.now()) {
+              return (
+                <div className="page-content">
+                  <div className="no-project welcome">
+                    <p className="message-header">
+                      {_t('manager.welcome.message')}
+                    </p>
+                    <p className="sub-message-header">{_t('manager.welcome.sub-message')}</p>
+                    <p dangerouslySetInnerHTML={{__html: _t('manager.welcome.text-content')}}/>
+                    <Button onClick={() => {
+                      invalidateUiFlag('fr');
+                      const {toggleUiProp} = this.props;
+                      toggleUiProp('newProject');
+                    }}>{_t('manager.welcome.button-label')}</Button>
+                  </div>
+                </div>
+              )
             }
 
-            // No projects
-            if (projectsList.length === 0) {
-              // Welcome screen. For new users
-              if (ui.frFlag && user.createdAt + 60000 >= Date.now()) {
-                return <div className="no-project welcome">
-                  <p className="message-header">
-                    {_t('manager.welcome.message')}
-                  </p>
-                  <p className="sub-message-header">{_t('manager.welcome.sub-message')}</p>
-                  <p dangerouslySetInnerHTML={{__html: _t('manager.welcome.text-content')}}/>
-                  <Button onClick={() => {
-                    invalidateUiFlag('fr');
-                    const {toggleUiProp} = this.props;
-                    toggleUiProp('newProject');
-                  }}>{_t('manager.welcome.button-label')}</Button>
-                </div>
-              }
-
-              return (
+            return (
+              <div className="page-content">
                 <div className="no-project">
                   <p className="message-header">
                     {_t('manager.no-project.message')}
@@ -107,30 +111,36 @@ class ManagerPage extends Component {
                     toggleUiProp('newProject');
                   }}>{_t('manager.no-project.button-label')}</Button>
                 </div>
-              )
-            }
+              </div>
+            )
+          }
 
-            // No selected project
-            if (project === null) {
-              return (
-                <>
+          // No selected project
+          if (project === null) {
+            return (
+              <>
+                <NotifyBar {...this.props} />
+                <div className="page-content">
                   <SideMenu projects={projects} {...this.props} />
                   <div className="no-selected-project">
                     <p className="message-header">
                       {_t('manager.no-selected-project.message')}
                     </p>
                   </div>
-                </>
-              )
-            }
+                </div>
+              </>
+            )
+          }
 
-            return <>
+          return (<>
               <NotifyBar {...this.props} />
-              <SideMenu projects={projects} {...this.props} />
-              <Project {...this.props} />
+              <div className="page-content">
+                <SideMenu projects={projects} {...this.props} />
+                <Project {...this.props} />
+              </div>
             </>
-          })()}
-        </div>
+          )
+        })()}
 
         {ui.newProject && <NewProjectDialog {...this.props} onSave={this.newProjectCreated}/>}
         {uploadQueue.show && <UploadQueueDialog  {...this.props} />}

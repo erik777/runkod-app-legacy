@@ -1,13 +1,11 @@
 
 .manager-page {
   height: 100%;
-
   display: flex;
   flex-direction: column;
 
   .page-content {
     flex-grow: 1;
-    flex-shrink: 0;
     background: $white;
 
     .no-project, .no-selected-project {
