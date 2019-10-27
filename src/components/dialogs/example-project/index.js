@@ -22,7 +22,7 @@ class DialogContent extends Component {
           <div className="icon">{fileDownloadSvg}</div>
           <div className="text-content">
             <div className="content-title">{_t('example-project-dialog.step1-title')}</div>
-            <a href="https://runkod.com/files/runkod-example-dist.zip" target="_blank" rel="noopener noreferrer">{_t('example-project-dialog.step1-content')}</a>
+            <a href="https://runkod.com/files/runkod-starter-dist.zip" target="_blank" rel="noopener noreferrer">{_t('example-project-dialog.step1-content')}</a>
           </div>
         </div>
         <div className="step">
