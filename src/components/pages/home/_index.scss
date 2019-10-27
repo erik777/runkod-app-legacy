@@ -36,6 +36,10 @@
       font-weight: 600;
       color: rgba($white, .75);
       font-size: 1.1rem;
+
+      &:hover {
+        color: rgba($white, .95);
+      }
     }
 
     .controls {
