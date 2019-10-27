@@ -1,0 +1,51 @@
+.example-project-dialog {
+  .steps {
+    .step {
+      margin-bottom: 40px;
+      display: flex;
+
+      .num{
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $primary
+      }
+
+      .icon {
+        width: 60px;
+        height: 60px;
+        background: $primary;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 22px;
+        flex-shrink: 0;
+
+        svg{
+          width: 30px;
+          height: 30px;
+          fill: $white
+        }
+      }
+
+      .text-content {
+        flex-grow: 1;
+        padding: 0 10px;
+        color: $gray-700;
+
+        a{
+          color: $gray-700;
+          text-decoration: underline;
+        }
+
+        .content-title {
+          color: $primary;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

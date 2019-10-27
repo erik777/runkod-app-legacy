@@ -153,3 +153,25 @@ export const infoSvg = <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 
     d="M256 90c44.3 0 86 17.3 117.4 48.6C404.7 170 422 211.7 422 256s-17.3 86-48.6 117.4C342 404.7 300.3 422 256 422s-86-17.3-117.4-48.6C107.3 342 90 300.3 90 256s17.3-86 48.6-117.4C170 107.3 211.7 90 256 90m0-42C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48z"/>
   <path d="M277 360h-42V235h42v125zm0-166h-42v-42h42v42z"/>
 </svg>;
+
+export const fileDownloadSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-download"
+                                    className="svg-inline--fa fa-file-download fa-w-12" role="img"
+                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+  <path fill="currentColor"
+        d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm76.45 211.36l-96.42 95.7c-6.65 6.61-17.39 6.61-24.04 0l-96.42-95.7C73.42 337.29 80.54 320 94.82 320H160v-80c0-8.84 7.16-16 16-16h32c8.84 0 16 7.16 16 16v80h65.18c14.28 0 21.4 17.29 11.27 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/>
+</svg>;
+
+export const fileUploadSvg = <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file-upload"
+                                  className="svg-inline--fa fa-file-upload fa-w-12" role="img"
+                                  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+  <path fill="currentColor"
+        d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm65.18 216.01H224v80c0 8.84-7.16 16-16 16h-32c-8.84 0-16-7.16-16-16v-80H94.82c-14.28 0-21.41-17.29-11.27-27.36l96.42-95.7c6.65-6.61 17.39-6.61 24.04 0l96.42 95.7c10.15 10.07 3.03 27.36-11.25 27.36zM377 105L279.1 7c-4.5-4.5-10.6-7-17-7H256v128h128v-6.1c0-6.3-2.5-12.4-7-16.9z"/>
+</svg>;
+
+
+export const fileArchiveSvg = <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="file-archive"
+                                   className="svg-inline--fa fa-file-archive fa-w-12" role="img"
+                                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+  <path fill="currentColor"
+        d="M128.3 160v32h32v-32zm64-96h-32v32h32zm-64 32v32h32V96zm64 32h-32v32h32zm177.6-30.1L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM256 51.9l76.1 76.1H256zM336 464H48V48h79.7v16h32V48H208v104c0 13.3 10.7 24 24 24h104zM194.2 265.7c-1.1-5.6-6-9.7-11.8-9.7h-22.1v-32h-32v32l-19.7 97.1C102 385.6 126.8 416 160 416c33.1 0 57.9-30.2 51.5-62.6zm-33.9 124.4c-17.9 0-32.4-12.1-32.4-27s14.5-27 32.4-27 32.4 12.1 32.4 27-14.5 27-32.4 27zm32-198.1h-32v32h32z"/>
+</svg>;

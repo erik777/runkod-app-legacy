@@ -19,7 +19,7 @@
       "message": "Select a project to work with"
     },
     "welcome": {
-      "message":  "Your account has been successfully created! 🎉",
+      "message": "Your account has been successfully created! 🎉",
       "sub-message": "Now you can create your first project.",
       "text-content": "Before you start, we recommend to watch our short video tutorial: <a href=\"https://www.youtube.com/watch?v=abWsiwslrrc\" target=\"_blank\" rel=\"noopener noreferrer\">Getting started with Runkod</a>",
       "button-label": "Create your first project!"
@@ -44,6 +44,9 @@
     "nav-bar": {
       "contact": "Contact Us",
       "sign-out": "Logout"
+    },
+    "notify-bar": {
+      "starter-project": " Our starter project can help you to understand how Runkod works. Click here to see instructions."
     }
   },
   "new-project-dialog": {
@@ -107,5 +110,14 @@
     "line2": "Then, Create an A record: type @ for \"Host\" and paste 178.128.141.114 under \"Value\" or \"Points to\".",
     "line3": "If you want to redirect www subdomain add CNAME record like above.",
     "line4": "Please keep in mind, depending on your dns provider it may take some time to activate new settings."
+  },
+  "example-project-dialog": {
+    "title": "Runkod started project",
+    "step1-title": "Download",
+    "step1-content": "Click here to download starter project.",
+    "step2-title": "Extract",
+    "step2-content": "Unzip the file on your computer.",
+    "step3-title": "Upload",
+    "step3-content": "Drag & drop extracted files to your project."
   }
 }
