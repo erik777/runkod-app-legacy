@@ -72,6 +72,7 @@ class NewProjectDialog extends Component {
   submit = async () => {
     this.setState({error: ''});
 
+    const {invalidateUiFlag} = this.props;
     const {name, custom} = this.state;
     const sName = name.trim();
 
@@ -134,6 +135,8 @@ class NewProjectDialog extends Component {
     this.setState({inProgress: false});
 
     message.success(_t('new-project-dialog.success'));
+
+    invalidateUiFlag('fr');
 
     const {onSave} = this.props;
     onSave();
@@ -254,6 +257,7 @@ NewProjectDialog.propTypes = {
     dnsInfo: PropTypes.bool.isRequired,
   }),
   toggleUiProp: PropTypes.func.isRequired,
+  invalidateUiFlag: PropTypes.func.isRequired,
   onSave: PropTypes.func,
   onHide: PropTypes.func
 };

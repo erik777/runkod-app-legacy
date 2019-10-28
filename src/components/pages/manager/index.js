@@ -58,7 +58,7 @@ class ManagerPage extends Component {
   };
 
   render() {
-    const {ui, projects, project, uploadQueue, deleteQueue, user, invalidateUiFlag} = this.props;
+    const {ui, projects, project, uploadQueue, deleteQueue, user} = this.props;
 
     if (user === null) {
       return null;
@@ -80,8 +80,8 @@ class ManagerPage extends Component {
           // No project
           if (projectsList.length === 0) {
 
-            // Welcome screen. For new users
-            if (ui.frFlag && user.createdAt + 60000 >= Date.now()) {
+            // Show welcome screen for 10 minutes to new users
+            if (ui.frFlag && user.createdAt + (60000 * 10) >= Date.now()) {
               return (
                 <div className="page-content">
                   <div className="no-project welcome">
@@ -91,7 +91,6 @@ class ManagerPage extends Component {
                     <p className="sub-message-header">{_t('manager.welcome.sub-message')}</p>
                     <p dangerouslySetInnerHTML={{__html: _t('manager.welcome.text-content')}}/>
                     <Button onClick={() => {
-                      invalidateUiFlag('fr');
                       const {toggleUiProp} = this.props;
                       toggleUiProp('newProject');
                     }}>{_t('manager.welcome.button-label')}</Button>
@@ -174,7 +173,6 @@ ManagerPage.propTypes = {
   }),
   project: PropTypes.instanceOf(Object),
   toggleUiProp: PropTypes.func.isRequired,
-  invalidateUiFlag: PropTypes.func.isRequired,
   selectProject: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
