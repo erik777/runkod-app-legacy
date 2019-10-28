@@ -1,9 +1,12 @@
 .side-menu {
   width: 268px;
   background: $gray-100;
-  height: 100%;
-  float: left;
   border-right: 1px solid darken($gray-100, 3);
+  position: absolute;
+  left: 0;
+  top:0;
+  bottom:0;
+  z-index: 1;
 
   .menu-toolbar {
     background: $gray-100;

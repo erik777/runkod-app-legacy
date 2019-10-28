@@ -8,6 +8,7 @@
   .page-content {
     flex-grow: 1;
     background: $white;
+    position: relative;
 
     .no-project, .no-selected-project {
       height: 100%;
