@@ -16,6 +16,12 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      z-index: 1;
 
       .message-header {
         font-size: 32px;
@@ -25,11 +31,11 @@
     }
 
     .no-selected-project {
-      float: right;
       width: calc(100% - 268px);
+      left: 268px;
     }
 
-    .welcome {
+    .no-project.welcome {
       width: 460px;
       margin: auto;
       text-align: center;
