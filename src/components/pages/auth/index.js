@@ -69,7 +69,8 @@ class AuthPage extends Component {
     if (error) {
       return <div className="auth-error">
         <p>Sorry :(</p>
-        <p>An error has occurred while signing in.</p>
+        <p>We couldn't detect your username.</p>
+        <p>Please make sure you have created your Blockstack account with an username.</p>
         <p>Please <a href="#" onClick={this.signIn}><strong>click here</strong></a> to try again.</p>
       </div>;
     }
