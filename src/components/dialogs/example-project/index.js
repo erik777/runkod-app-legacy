@@ -16,6 +16,7 @@ const propTypes = {
 class DialogContent extends Component {
   render() {
     return <div className="user-select">
+      <p className="description">{_t('example-project-dialog.description')}</p>
       <div className="steps">
         <div className="step">
           <div className="num">1</div>
