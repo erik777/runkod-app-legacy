@@ -42,6 +42,7 @@
       "label": "Drop files or folders here to upload"
     },
     "nav-bar": {
+      "example-project": "Starter Project",
       "contact": "Contact Us",
       "sign-out": "Logout"
     },
