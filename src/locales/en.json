@@ -21,7 +21,7 @@
     "welcome": {
       "message": "Your account has been successfully created! 🎉",
       "sub-message": "Now you can create your first project.",
-      "text-content": "Before you start, we recommend to watch our short video tutorial: <a href=\"https://www.youtube.com/watch?v=abWsiwslrrc\" target=\"_blank\" rel=\"noopener noreferrer\">Getting started with Runkod</a>",
+      "text-content": "Before you start, we recommend watching our short video tutorial: <a href=\"https://www.youtube.com/watch?v=abWsiwslrrc\" target=\"_blank\" rel=\"noopener noreferrer\">Getting started with Runkod</a>",
       "button-label": "Create your first project!"
     },
     "side-menu": {
@@ -39,7 +39,7 @@
       "delete": "Delete selected items"
     },
     "upload-zone": {
-      "label": "Drop files or folders here to upload"
+      "label": "Drag and drop files or folders here to upload"
     },
     "nav-bar": {
       "example-project": "Starter Project",
@@ -47,7 +47,7 @@
       "sign-out": "Logout"
     },
     "notify-bar": {
-      "starter-project": " Our starter project can help you to understand how Runkod works. Click here to see instructions."
+      "starter-project": " Our Starter project helps you to understand how Runkod works. Click here to see instructions."
     }
   },
   "new-project-dialog": {
@@ -58,10 +58,10 @@
     "custom-name-placeholder": "e.g., mywebsite.com",
     "error-not-valid-name": "Only letters and numbers are allowed",
     "error-not-valid-name-custom": "Not a valid domain name",
-    "error-not-available": "Name is not available. Please try another one.",
-    "error-dns": "It seems you haven't configured dns settings for the domain name. You can view dns settings by clicking the button below. If you configured please keep in mind it may take some time for the dns to take effect across the internet.",
+    "error-not-available": "Name is not available. Please choose another!",
+    "error-dns": "Please check DNS settings for the domain name. Click the button below to find out current DNS settings. If you have configured please keep in mind that it can take some time for those DNS to take effect across the internet.",
     "success": "New project created",
-    "dns-info": "Dns Settings"
+    "dns-info": "DNS Settings"
   },
   "upload-queue-dialog": {
     "progress-title": "Uploading",
@@ -99,24 +99,24 @@
     "coming-soon": "coming soon",
     "success": "Settings updated",
     "delete": "Delete Project",
-    "delete-message": "!! WARNING !! this action is irreversible! Are you sure?",
+    "delete-message": "!! WARNING !! This action is irreversible! Are you sure?",
     "deleted": "Project deleted"
   },
   "contact-dialog": {
     "title": "You can reach us on these channels"
   },
   "dns-info-dialog": {
-    "title": "Dns settings for custom domains",
+    "title": "DNS settings for custom domains",
     "line1": "First, go to the DNS settings page of your domain provider.",
     "line2": "Then, Create an A record: type @ for \"Host\" and paste 178.128.141.114 under \"Value\" or \"Points to\".",
-    "line3": "If you want to redirect www subdomain add CNAME record like above.",
-    "line4": "Please keep in mind, depending on your dns provider it may take some time to activate new settings."
+    "line3": "If you want to redirect www subdomain, add CNAME record like above.",
+    "line4": "Please keep in mind, depending on your DNS provider it may take some time to activate new settings."
   },
   "example-project-dialog": {
     "title": "Starter project",
     "description": "Starter project provides a placeholder website for your project. Please follow the steps below to setup. ",
     "step1-title": "Download",
-    "step1-content": "Click here to download starter project.",
+    "step1-content": "Click here to download Starter project.",
     "step2-title": "Extract",
     "step2-content": "Unzip the file on your computer.",
     "step3-title": "Upload",
