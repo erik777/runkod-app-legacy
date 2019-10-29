@@ -258,7 +258,7 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
-                  <p>Runkod works on top of Blockstack's high-performance storage system "Gaia". It is decentralized and gives you complete control of your data and storage.</p>
+                  <p>Runkod works on top of Blockstack's high-performance storage system "Gaia". It is decentralized and gives you full control of your data and storage.</p>
                 </div>
               </Col>
 
