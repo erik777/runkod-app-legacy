@@ -4,6 +4,11 @@ exports[`1- default 1`] = `
 <div
   className="user-select"
 >
+  <p
+    className="description"
+  >
+    Starter project provides a placeholder website for your project. Please follow the steps below to setup. 
+  </p>
   <div
     className="steps"
   >
@@ -47,7 +52,7 @@ exports[`1- default 1`] = `
           rel="noopener noreferrer"
           target="_blank"
         >
-          Click here to download starter project.
+          Click here to download Starter project.
         </a>
       </div>
     </div>

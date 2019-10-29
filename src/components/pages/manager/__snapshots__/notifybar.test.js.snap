@@ -19,7 +19,7 @@ exports[`1- show example project notification 1`] = `
     className="text-content"
     onClick={[Function]}
   >
-     Our starter project can help you to understand how Runkod works. Click here to see instructions.
+     Our Starter project helps you to understand how Runkod works. Click here to see instructions.
   </span>
   <div
     className="close-bar"

@@ -27,7 +27,7 @@ exports[`2- no file 1`] = `
           />
         </svg>
          
-        Drop files or folders here to upload
+        Drag and drop files or folders here to upload
       </div>
     </div>
   </div>
@@ -181,7 +181,7 @@ exports[`3- with files and folders 1`] = `
           />
         </svg>
          
-        Drop files or folders here to upload
+        Drag and drop files or folders here to upload
       </div>
     </div>
   </div>
@@ -288,7 +288,7 @@ exports[`4- in sub folder 1`] = `
           />
         </svg>
          
-        Drop files or folders here to upload
+        Drag and drop files or folders here to upload
       </div>
     </div>
   </div>

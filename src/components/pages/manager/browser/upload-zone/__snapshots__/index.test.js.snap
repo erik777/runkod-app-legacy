@@ -19,7 +19,7 @@ exports[`1- render 1`] = `
       />
     </svg>
      
-    Drop files or folders here to upload
+    Drag and drop files or folders here to upload
   </div>
 </div>
 `;
