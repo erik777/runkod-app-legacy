@@ -233,6 +233,14 @@ class HomePage extends Component {
                       Console</Button>
                   })()}
                 </div>
+                <div className="ph-badge">
+                  <a
+                    href="https://www.producthunt.com/posts/runkod?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-runkod"
+                    target="_blank" rel="noopener noreferrer"><img
+                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=174044&theme=dark"
+                    alt="Runkod - Decentralized web hosting | Product Hunt Embed"
+                    style={{width: '250px', height: '54px',}} width="250px" height="54px"/></a>
+                </div>
               </Col>
               <Col lg={6} className="c-2">
                 <img src={cloudImg} alt="Hero"/>
@@ -258,7 +266,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{networkSvg}</span>
                   <h5>Decentralized</h5>
-                  <p>Runkod works on top of Blockstack's high-performance storage system "Gaia". It is decentralized and gives you full control of your data and storage.</p>
+                  <p>Runkod works on top of Blockstack's high-performance storage system "Gaia". It is decentralized and
+                    gives you full control of your data and storage.</p>
                 </div>
               </Col>
 
@@ -284,7 +293,8 @@ class HomePage extends Component {
                 <div className="feature">
                   <span className="icon">{shieldSvg}</span>
                   <h5>Instant SSL</h5>
-                  <p>Even SSL certificates are completely free. Whether you are using a custom domain or not, ssl certificate for
+                  <p>Even SSL certificates are completely free. Whether you are using a custom domain or not, ssl
+                    certificate for
                     your website is ready within seconds.</p>
                 </div>
               </Col>

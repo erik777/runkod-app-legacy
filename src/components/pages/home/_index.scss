@@ -74,8 +74,6 @@
 
 
   .row {
-
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,6 +114,19 @@
           @media (min-width: $md-break) {
             width: 300px;
           }
+        }
+      }
+
+      .ph-badge {
+        margin-top: 10px;
+        text-align: center;
+
+        @media (min-width: $md-break) {
+          margin-top: 40px;
+        }
+
+        @media (min-width: $lg-break) {
+          text-align: left;
         }
       }
     }
