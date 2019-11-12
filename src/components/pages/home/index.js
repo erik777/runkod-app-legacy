@@ -235,11 +235,13 @@ class HomePage extends Component {
                 </div>
                 <div className="ph-badge">
                   <a
-                    href="https://www.producthunt.com/posts/runkod?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-runkod"
+                    href="https://www.producthunt.com/posts/runkod?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-runkod"
                     target="_blank" rel="noopener noreferrer"><img
-                    src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=174044&theme=dark"
+                    src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=174044&theme=dark&period=daily"
                     alt="Runkod - Decentralized web hosting | Product Hunt Embed"
-                    style={{width: '250px', height: '54px',}} width="250px" height="54px"/></a>
+                    style={{width: '250px', height: '54px',}}
+                    width="250px" height="54px"/></a>
+
                 </div>
               </Col>
               <Col lg={6} className="c-2">
