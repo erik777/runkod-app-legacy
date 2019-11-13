@@ -112,19 +112,31 @@ class NewProjectDialog extends Component {
       return;
     }
 
+    let p;
+
     if (checkList.length > 0) {
-      this.setState({error: _t('new-project-dialog.error-not-available'), inProgress: false});
-      return;
+      p = checkList[0];
+      const {attrs: pAttrs} = p;
+
+      if (!(pAttrs.deleted && pAttrs.username === getUsername())) {
+        this.setState({error: _t('new-project-dialog.error-not-available'), inProgress: false});
+        return;
+      }
     }
 
-    const p = new Project({
-      name: fullName,
-      username: getUsername(),
-      custom,
-      tag: DEFAULT_TAG_NAME,
-      status: PROJECT_STATUS_ON,
-      deleted: false
-    });
+    if (p) {
+      p.update({deleted: false});
+    } else {
+      p = new Project({
+        name: fullName,
+        username: getUsername(),
+        custom,
+        tag: DEFAULT_TAG_NAME,
+        status: PROJECT_STATUS_ON,
+        deleted: false
+      });
+    }
+
     const [err,] = await to(p.save());
 
     if (err) {
