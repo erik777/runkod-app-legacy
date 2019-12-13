@@ -1,4 +1,4 @@
-import {Model} from 'radiks';
+import {Model} from 'radiks-patch';
 
 export class Project extends Model {
   static className = 'project';

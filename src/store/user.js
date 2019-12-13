@@ -1,6 +1,6 @@
 import to from 'await-to-js';
 
-import {User} from 'radiks';
+import {User} from 'radiks-patch';
 
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/USER_LOGOUT';

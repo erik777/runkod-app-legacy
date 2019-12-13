@@ -1,5 +1,5 @@
 import {UserSession, AppConfig} from 'blockstack';
-import {configure} from 'radiks';
+import {configure} from 'radiks-patch';
 import {decodeToken} from 'jsontokens';
 
 const RADIKS_URL = `https://${window.location.protocol === 'http:' ? 'radiks-dev.runkod.com' : 'radiks.runkod.com'}`;

@@ -8660,11 +8660,12 @@ querystringify@^2.1.1:
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
 
-radiks@^0.3.0-beta.1:
-  version "0.3.0-beta.1"
-  resolved "https://registry.yarnpkg.com/radiks/-/radiks-0.3.0-beta.1.tgz#41e1b2d648e7a6f3390dad0102dfc6e557dcf08e"
-  integrity sha512-0Jk/43sRi7dpxjwzPZF1PH+evOAWOfhLxZD5bc3eaMfXVNaA1lieOmfFCMS3UDuBqPg9+LHilCudzSY0dKBdNA==
+radiks-patch@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/radiks-patch/-/radiks-patch-0.2.1.tgz#114a5f3c4e127dd5c1057f570c6bfcea40ef272f"
+  integrity sha512-6M9wc6gp8FE2/SroTsLFFS/NB0dt/gdBhCUAFZSPIXdbLOAAa1Odp6dmviy0pUwIfDHeB4caF9UkoOmQYEeLUg==
   dependencies:
+    blueimp-md5 "^2.12.0"
     faker "^4.1.0"
     qs "^6.5.2"
     query-string "^6.2.0"
