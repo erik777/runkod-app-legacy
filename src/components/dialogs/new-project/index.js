@@ -118,7 +118,7 @@ class NewProjectDialog extends Component {
       p = checkList[0];
       const {attrs: pAttrs} = p;
 
-      if (!(pAttrs.deleted && pAttrs.username === getUsername())) {
+      if (!(pAttrs.deleted && p.isOwnedByUser())) {
         this.setState({error: _t('new-project-dialog.error-not-available'), inProgress: false});
         return;
       }
