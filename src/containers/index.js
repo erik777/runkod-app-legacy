@@ -5,10 +5,12 @@ import {Route} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import {HomePageContainer} from './home';
-import AuthContainer from './auth';
-import ManagerContainer from './manager'
 
-import {userSession} from '../blockstack-config';
+import AuthContainer from './auth';
+
+import ManagerContainer from './manager';
+
+import {userSession, getUsername} from '../blockstack-config';
 
 import {login} from '../store/user';
 
@@ -20,17 +22,14 @@ class App extends Component {
       const userData = userSession.loadUserData();
       const {store} = this.props;
 
-      if (userData.username) {
-
-        let image;
-        try {
-          image = userData.profile.image[0].contentUrl
-        } catch (e) {
-          image = '';
-        }
-
-        store.dispatch(login(userData.username, image));
+      let image;
+      try {
+        image = userData.profile.image[0].contentUrl
+      } catch (e) {
+        image = '';
       }
+
+      store.dispatch(login(getUsername(), image));
     }
   }
 
