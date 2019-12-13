@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
 
 import {userSession, getUsername} from '../../../blockstack-config';
 
-
 import logoImg from '../../../images/logo-blue.png'
 
 class AuthPage extends Component {
@@ -55,7 +54,13 @@ class AuthPage extends Component {
   };
 
   componentDidMount() {
-    this.doAuth().then();
+    fetch('/reserved-user-names.json')
+      .then(r => r.json())
+      .then(d => {
+        window._reservedUsersNames = d;
+
+        return this.doAuth();
+      });
   }
 
   signIn = (e) => {
