@@ -2,6 +2,8 @@ import to from 'await-to-js';
 
 import {User} from 'radiks-patch';
 
+import {getUserPublicKey} from '../blockstack-config';
+
 export const USER_LOGIN = '@user/LOGIN';
 export const USER_LOGOUT = '@user/USER_LOGOUT';
 export const USER_UPDATE = '@user/USER_UPDATE';
@@ -30,9 +32,9 @@ export const login = (username, image) => {
 
     dispatch(loginAct({username, image, createdAt}));
 
-    const [err, resp] = await to(User.fetchList({username: username}));
+    const [err, resp] = await to(User.fetchList({publicKey: getUserPublicKey()}));
 
-    if (!err) {
+    if (!err && resp.length > 0) {
       const {createdAt} = resp[0].attrs;
       dispatch(updateAct({createdAt}));
     }

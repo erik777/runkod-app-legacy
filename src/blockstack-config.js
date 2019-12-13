@@ -1,4 +1,5 @@
 import {UserSession, AppConfig} from 'blockstack';
+import {getPublicKeyFromPrivate} from 'blockstack/lib/keys';
 import {configure} from 'radiks-patch';
 import {decodeToken} from 'jsontokens';
 
@@ -24,4 +25,10 @@ export const decodeUserResponseToken = () => {
 export const getUsername = () => {
   const {username} = decodeUserResponseToken().payload;
   return username || `ID-${userSession.loadUserData().identityAddress}`;
+};
+
+export const getUserPublicKey = () => {
+  const {appPrivateKey} = userSession.loadUserData();
+
+  return getPublicKeyFromPrivate(appPrivateKey);
 };
