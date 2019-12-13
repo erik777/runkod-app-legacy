@@ -23,5 +23,5 @@ export const decodeUserResponseToken = () => {
 
 export const getUsername = () => {
   const {username} = decodeUserResponseToken().payload;
-  return username;
+  return username || `ID-${userSession.loadUserData().identityAddress}`;
 };
