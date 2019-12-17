@@ -44,6 +44,7 @@ class Icon extends Component {
         typeCls = 'icon-json';
         break;
       case 'text/javascript':
+      case 'application/javascript':
         typeContent = 'js';
         typeCls = 'icon-js';
         break;
