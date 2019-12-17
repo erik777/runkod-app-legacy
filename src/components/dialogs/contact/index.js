@@ -21,7 +21,6 @@ const propTypes = {
 class DialogContent extends Component {
   render() {
     return <>
-      <h5>{_t('contact-dialog.title')}</h5>
       <div className="buttons">
         <div className="button">
           <a href="mailto:hello@runkod.com" title="Email">
@@ -70,6 +69,9 @@ class ContactDialog extends Component {
   render() {
     return (
       <Modal show className="contact-dialog" onHide={this.hide}>
+        <Modal.Header closeButton>
+          <Modal.Title>{_t('contact-dialog.title')}</Modal.Title>
+        </Modal.Header>
         <Modal.Body>
           <DialogContent {...this.props} />
         </Modal.Body>

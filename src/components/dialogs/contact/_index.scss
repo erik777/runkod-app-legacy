@@ -1,16 +1,6 @@
 .contact-dialog {
-
   .modal-body {
-    h5 {
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 40px;
-      text-align: center;
-
-      @media (min-width: $sm-break) {
-        font-size: 24px;
-      }
-    }
+    padding-top: 40px;
 
     .buttons {
       display: flex;
