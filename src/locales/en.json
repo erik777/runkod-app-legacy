@@ -42,12 +42,8 @@
       "label": "Drag and drop files or folders here to upload"
     },
     "nav-bar": {
-      "example-project": "Starter Project",
       "contact": "Contact Us",
       "sign-out": "Logout"
-    },
-    "notify-bar": {
-      "starter-project": " Our Starter project helps you to understand how Runkod works. Click here to see instructions."
     }
   },
   "new-project-dialog": {
@@ -111,15 +107,5 @@
     "line2": "Then, Create an A record: type @ for \"Host\" and paste 178.128.141.114 under \"Value\" or \"Points to\".",
     "line3": "If you want to redirect www subdomain, add CNAME record like above.",
     "line4": "Please keep in mind, depending on your DNS provider it may take some time to activate new settings."
-  },
-  "example-project-dialog": {
-    "title": "Starter project",
-    "description": "Starter project provides a placeholder website for your project. Please follow the steps below to setup. ",
-    "step1-title": "Download",
-    "step1-content": "Click here to download Starter project.",
-    "step2-title": "Extract",
-    "step2-content": "Unzip the file on your computer.",
-    "step3-title": "Upload",
-    "step3-content": "Drag & drop extracted files to your project."
   }
 }
