@@ -124,8 +124,11 @@ class NewProjectDialog extends Component {
       }
     }
 
+    let isNew = true;
+
     if (p) {
       p.update({deleted: false});
+      isNew = false;
     } else {
       p = new Project({
         name: fullName,
@@ -151,7 +154,7 @@ class NewProjectDialog extends Component {
     invalidateUiFlag('fr');
 
     const {onSave} = this.props;
-    onSave();
+    onSave(isNew);
 
     this.hide();
   };

@@ -24,6 +24,8 @@ import UploadQueueDialog from '../../dialogs/upload-queue';
 
 import DeleteQueueDialog from '../../dialogs/delete-queue';
 
+import placeholderFiles from '../../../helper/placeholder-files';
+
 class ManagerPage extends Component {
 
   constructor(props) {
@@ -47,14 +49,23 @@ class ManagerPage extends Component {
     }
   }
 
-  newProjectCreated = () => {
+  newProjectCreated = async (isNew) => {
     const {fetchProjects, selectProject} = this.props;
-    fetchProjects().then(() => {
+    await fetchProjects().then(() => {
       // Pick first (new) project after project list refreshed
       const {projects} = this.props;
       const [project,] = projects.list;
       selectProject(project);
     });
+
+    if (isNew) {
+      // Upload placeholder files for new projects
+      const {setUploadQueue, startUploadQueue} = this.props;
+      const files = await placeholderFiles();
+
+      setUploadQueue(files);
+      startUploadQueue();
+    }
   };
 
   render() {
@@ -174,6 +185,8 @@ ManagerPage.propTypes = {
   project: PropTypes.instanceOf(Object),
   toggleUiProp: PropTypes.func.isRequired,
   selectProject: PropTypes.func.isRequired,
+  setUploadQueue: PropTypes.func.isRequired,
+  startUploadQueue: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- zip2files 1`] = `
+Array [
+  Object {
+    "buffer": ArrayBuffer [],
+    "name": "index.html",
+    "path": "",
+    "size": 290,
+    "type": "text/html",
+  },
+  Object {
+    "buffer": ArrayBuffer [],
+    "name": "main.js",
+    "path": "",
+    "size": 70,
+    "type": "application/javascript",
+  },
+  Object {
+    "buffer": ArrayBuffer [],
+    "name": "logo.png",
+    "path": "",
+    "size": 4542,
+    "type": "image/png",
+  },
+  Object {
+    "buffer": ArrayBuffer [],
+    "name": "style.css",
+    "path": "",
+    "size": 654,
+    "type": "text/css",
+  },
+]
+`;
