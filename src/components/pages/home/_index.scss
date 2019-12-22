@@ -209,8 +209,17 @@
   .video {
     width: 200px;
     height: 150px;
-    background: $gray-200;
     margin: auto;
+    background-image: url(../../../images/get-started.jpg);
+    background-position: center;
+    background-size: 100%;
+    cursor: pointer;
+    display: block;
+
+    &:hover {
+      background-image: url(../../../images/get-started-hover.jpg);
+    }
+
 
     @media (min-width: $sm-break) {
       width: 400px;

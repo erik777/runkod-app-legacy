@@ -318,11 +318,8 @@ class HomePage extends Component {
         <div className="get-started" id="get-started">
           <div className="container">
             <h2>Get Started</h2>
-            <div className="video">
-              <iframe title="Getting started with Runkod" src="https://www.youtube.com/embed/abWsiwslrrc"
-                      frameBorder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen/>
-            </div>
+            <a className="video" href="https://www.youtube.com/watch?v=abWsiwslrrc" target="_blank"
+               rel="noopener noreferrer"/>
           </div>
         </div>
         <div className="testimonials" id="testimonials">
