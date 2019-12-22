@@ -153,8 +153,11 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       }
     }
 
+    // empty files causes upload error. quick workaround.
+    const fileBuff = file.buffer.byteLength > 0 ? file.buffer : new ArrayBuffer(1);
+
     // Upload file to gaia
-    const [err2, address] = await to(userSession.putFile(gaiaFileName, file.buffer, {
+    const [err2, address] = await to(userSession.putFile(gaiaFileName, fileBuff, {
       encrypt: false,
       contentType: file.type
     }));
