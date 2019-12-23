@@ -77,7 +77,7 @@ class Project extends Component {
       disabled = all === 0
     }
 
-    const projectUrl = `https://${project.name}`;
+    const projectUrl = `${project.name}`;
 
     return (
       <div className="project">
@@ -93,9 +93,10 @@ class Project extends Component {
                   <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)} title={_t('manager.project.refresh')}>
                     <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
                   </div>
-                  <div className="open-btn" title={projectUrl}>
-                    <a className="inner-btn" href={projectUrl} target="_blank"
-                       rel="noopener noreferrer">{openSvg}</a>
+
+
+                  <div className="settings-btn" title={_t('manager.project.settings')}>
+                    <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
                   </div>
 
                   {path !== '/' &&
@@ -121,9 +122,12 @@ class Project extends Component {
                   </div>
                   }
                   <div className="h-space"/>
-                  <div className="settings-btn" title={_t('manager.project.settings')}>
-                    <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
-                  </div>
+
+
+                  <a className="open-btn" href={`https://${projectUrl}`} target="_blank"
+                     rel="noopener noreferrer">{projectUrl} {openSvg}</a>
+
+
                 </>
               )
             }
