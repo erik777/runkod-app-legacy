@@ -6,13 +6,14 @@ import React, {Component} from 'react';
 import {Link} from "react-router-dom";
 import PropTypes from 'prop-types';
 
-import {Button, Container, Row, Col, Nav, Navbar} from 'react-bootstrap';
+import {Button, Container, Row, Col, Nav, Navbar, Modal} from 'react-bootstrap';
 
 import ContactDialog from '../../dialogs/contact';
 
 import cloudImg from '../../../images/cloud.png';
 
 import logoImg from '../../../images/logo-white.png';
+import logoImgBlue from '../../../images/logo-blue.png';
 
 import PHSvg from '../../../images/ph.svg';
 
@@ -36,17 +37,66 @@ import {
 } from '../../../svg';
 
 
+class LoginInModal extends Component {
+  login = () => {
+    const {hide} = this.props;
+    hide();
+
+    setTimeout(() => {
+      userSession.redirectToSignIn();
+    }, 300);
+  };
+
+  render() {
+    const {hide} = this.props;
+
+    return <Modal show onHide={hide} centered size="lg" className="login-dialog">
+      <Modal.Header closeButton/>
+      <Modal.Body>
+        <div className="left-side">
+          <div className="logo">
+            <img src={logoImgBlue} alt="Logo" width={52}/>
+          </div>
+          <p>Login to get started.</p>
+          <Button onClick={this.login}>Continue with Blockstack</Button>
+        </div>
+        <div className="right-side">
+          <p className="title">What is Blockstack?</p>
+          <p>Runkod is built using Blockstack infrastructure, allowing us to provide decentralized storage.</p>
+          <p>Blockstack ID provides user-controlled login and storage that enable you to take back control of your identity and data.</p>
+        </div>
+      </Modal.Body>
+    </Modal>;
+  }
+}
+
 class LoginButton extends Component {
-  clicked = () => {
-    userSession.redirectToSignIn();
+  constructor(props) {
+    super(props);
+
+
+    this.state = {
+      login: false
+    }
+  }
+
+  toggleLogin = () => {
+    const {login} = this.state;
+    this.setState({login: !login});
   };
 
   render() {
     const {children} = this.props;
+    const {login} = this.state;
 
-    return React.cloneElement(children, {
-      onClick: this.clicked
+    const newChildren = React.cloneElement(children, {
+      onClick: this.toggleLogin
     });
+
+    return <>
+      {newChildren}
+      {login && <LoginInModal {...this.props} hide={this.toggleLogin}/>}
+    </>
   }
 }
 
@@ -75,6 +125,7 @@ LogoutButton.propTypes = {
   logout: PropTypes.func.isRequired
 };
 
+
 class Header extends Component {
   render() {
     const {user} = this.props;
@@ -94,10 +145,7 @@ class Header extends Component {
                 if (user === null) {
                   return <>
                     <LoginButton {...this.props}>
-                      <Button variant="primary" className="login-btn">Login</Button>
-                    </LoginButton>
-                    <LoginButton {...this.props}>
-                      <Button variant="info" className="sign-up-btn">Sign Up</Button>
+                      <Button variant="info" className="login-btn">Login</Button>
                     </LoginButton>
                   </>
                 }
