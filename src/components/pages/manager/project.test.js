@@ -200,6 +200,7 @@ test('3- loaded. with files and folders', () => {
   expect(renderer.toJSON()).toMatchSnapshot();
 });
 
+/*
 test('4- in sub folder', () => {
   const props = {
     project: {
@@ -296,6 +297,7 @@ test('4- in sub folder', () => {
 
   expect(renderer.toJSON()).toMatchSnapshot();
 });
+*/
 
 test('5- 1 item in checklist', () => {
   const props = {

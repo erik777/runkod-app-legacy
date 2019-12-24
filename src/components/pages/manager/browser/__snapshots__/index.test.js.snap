@@ -268,6 +268,44 @@ exports[`4- in sub folder 1`] = `
     </div>
   </div>
   <div
+    className="full-path"
+  >
+    <div
+      className="home-btn"
+      title="Home folder"
+    >
+      <span
+        className="inner-btn"
+        onClick={[Function]}
+      >
+        <svg
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M208 448V320h96v128h97.6V256H464L256 64 48 256h62.4v192z"
+          />
+        </svg>
+      </span>
+    </div>
+    <span
+      className="separator"
+    >
+      /
+    </span>
+    <span
+      className="path"
+      onClick={[Function]}
+    >
+      foo
+    </span>
+    <span
+      className="separator"
+    >
+      /
+    </span>
+  </div>
+  <div
     className="file-upload"
   >
     <div

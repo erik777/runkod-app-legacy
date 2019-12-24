@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -8,11 +8,22 @@ import {FileEntry, FolderEntry, ParentFolderEntry} from './entry';
 
 import UploadZone from './upload-zone';
 
+import {_t} from '../../../../i18n';
+
+import {BASE_PATH, PATH_SEPARATOR} from '../../../../constants';
+
+import {homeSvg} from '../../../../svg';
+
 class Browser extends Component {
   onDrop = (files) => {
     const {setUploadQueue, startUploadQueue} = this.props;
     setUploadQueue(files);
     startUploadQueue();
+  };
+
+  pathClicked = (path) => {
+    const {selectPath} = this.props;
+    selectPath(path);
   };
 
   render() {
@@ -38,6 +49,8 @@ class Browser extends Component {
       contents = map[path];
     }
 
+    const pathArr = fs.pathToArr(path);
+
     return (
       <div className="browser">
         <div className="browser-entries">
@@ -50,6 +63,28 @@ class Browser extends Component {
           {contents.folders.map((path) => <FolderEntry {...this.props} key={path} path={path}/>)}
           {contents.files.map((file) => <FileEntry {...this.props} key={file._id} file={file}/>)}
         </div>
+        {path !== '/' &&
+        <div className="full-path">
+          <div className="home-btn" title={_t('manager.project.root-folder')}>
+                        <span className="inner-btn" onClick={() => {
+                          this.pathClicked(BASE_PATH)
+                        }}>{homeSvg}</span>
+          </div>
+          <span className="separator">{PATH_SEPARATOR}</span>
+          {pathArr.map((p, i) => {
+              const path = fs.arrToPath(pathArr.slice(0, i + 1));
+              return (
+                <Fragment key={p}>
+                            <span onClick={() => {
+                              this.pathClicked(path)
+                            }} className="path">{p}</span>
+                  <span className="separator">{PATH_SEPARATOR}</span>
+                </Fragment>
+              )
+            }
+          )}
+        </div>
+        }
         {fileUpload}
       </div>
     );

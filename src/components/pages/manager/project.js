@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react';
+import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -8,15 +8,13 @@ import CheckBox from '../../helper/checkbox';
 
 import Browser from './browser';
 
-import ProjectSettingsDialog from '../../dialogs/project-settings'
+import ProjectSettingsDialog from '../../dialogs/project-settings';
 
 import fs from '../../../fs';
 
-import _c from '../../../utils/fix-class-names'
+import _c from '../../../utils/fix-class-names';
 
-import {BASE_PATH, PATH_SEPARATOR} from '../../../constants';
-
-import {refreshSvg, deleteSvg, settingsSvg, homeSvg, openSvg} from '../../../svg';
+import {refreshSvg, deleteSvg, settingsSvg, openSvg} from '../../../svg';
 
 class Project extends Component {
 
@@ -31,11 +29,6 @@ class Project extends Component {
 
     const itemsToAdd = [...map[path]['folders'], ...map[path]['files'].map(x => x._id)];
     checkListAdd(itemsToAdd);
-  };
-
-  pathClicked = (path) => {
-    const {selectPath} = this.props;
-    selectPath(path);
   };
 
   refresh = () => {
@@ -67,7 +60,6 @@ class Project extends Component {
   render() {
     const {project, files, path, checkList, ui} = this.props;
     const {map, loading} = files;
-    const pathArr = fs.pathToArr(path);
 
     let allChecked = false;
     let disabled = false;
@@ -89,45 +81,15 @@ class Project extends Component {
             if (checkList.length === 0) {
               return (
                 <>
-
                   <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)} title={_t('manager.project.refresh')}>
                     <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
                   </div>
-
-
                   <div className="settings-btn" title={_t('manager.project.settings')}>
                     <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
                   </div>
-
-                  {path !== '/' &&
-                  <div className="full-path">
-                    <div className="home-btn" title={_t('manager.project.root-folder')}>
-                        <span className="inner-btn" onClick={() => {
-                          this.pathClicked(BASE_PATH)
-                        }}>{homeSvg}</span>
-                    </div>
-
-                    {pathArr.map((p, i) => {
-                        const path = fs.arrToPath(pathArr.slice(0, i + 1));
-                        return (
-                          <Fragment key={p}>
-                            <span onClick={() => {
-                              this.pathClicked(path)
-                            }} className="path">{p}</span>
-                            <span className="separator">{PATH_SEPARATOR}</span>
-                          </Fragment>
-                        )
-                      }
-                    )}
-                  </div>
-                  }
                   <div className="h-space"/>
-
-
                   <a className="open-btn" href={`https://${projectUrl}`} target="_blank"
                      rel="noopener noreferrer">{projectUrl} {openSvg}</a>
-
-
                 </>
               )
             }
@@ -185,7 +147,6 @@ Project.propTypes = {
   path: PropTypes.string.isRequired,
   checkList: PropTypes.array.isRequired,
   fetchFiles: PropTypes.func.isRequired,
-  selectPath: PropTypes.func.isRequired,
   checkListAdd: PropTypes.func.isRequired,
   checkListReset: PropTypes.func.isRequired,
   setDeleteQueue: PropTypes.func.isRequired,

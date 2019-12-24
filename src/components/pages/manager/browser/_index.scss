@@ -1,10 +1,66 @@
 .browser {
   height: calc(100% - 44px);
+  display: flex;
+  flex-direction: column;
 
   .browser-entries {
-    height: calc(100% - 160px);
+    flex-grow: 1;
     overflow-y: auto;
   }
+
+  .full-path {
+    height: 36px;
+    color: $gray-600;
+    padding: 0 10px 0 0;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 13px;
+    background: lighten($gray-100, 1);
+    border-top: 1px solid $gray-100;
+
+    .home-btn {
+      width: 22px;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin-left: 14px;
+
+      .inner-btn {
+        width: 22px;
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+
+        svg {
+          margin-top: -2px;
+          width: 20px;
+          height: 20px;
+          fill: lighten($gray-600, 8);
+        }
+      }
+    }
+
+    .path {
+      cursor: pointer;
+
+      &:hover {
+        color: $primary;
+        text-decoration: underline;
+      }
+    }
+
+    .separator {
+      margin: 0 4px;
+    }
+  }
+
+
+
+
 
   .file-upload {
     height: 160px;
