@@ -13,6 +13,7 @@ export const READ_FLAGS = '@ui/READ_fLAGS';
 const readFlags = () => {
   return {
     frFlag: !localStorage.getItem('runkod-fr-flag'), // First run flag
+    epFlag: !localStorage.getItem('runkod-ep-flag'), // Example project flag
   }
 };
 
@@ -108,6 +109,10 @@ export const invalidateUiFlag = (what) => {
 
     if (what === 'fr') {
       localStorage.setItem('runkod-fr-flag', 1);
+    }
+
+    if (what === 'ep') {
+      localStorage.setItem('runkod-ep-flag', 1);
     }
 
     dispatch({

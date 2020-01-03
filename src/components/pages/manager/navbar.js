@@ -8,22 +8,39 @@ import PropTypes from 'prop-types';
 
 import ContactDialog from '../../dialogs/contact';
 
+import ExampleProjectDialog from '../../dialogs/example-project';
+
 import {_t} from '../../../i18n';
 
 import logo from '../../../images/logo-white.png';
 
-import {emailSvg, logOutSvg} from '../../../svg';
+import {emailSvg, logOutSvg, folderOpenSvg} from '../../../svg';
 
 import {userSession} from '../../../blockstack-config';
 
 import _c from '../../../utils/fix-class-names'
 
 class NavBar extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      ep: false
+    }
+  }
+
   logoClicked = () => {
     const {selectProject, history} = this.props;
     selectProject(null);
     history.push('/');
   };
+
+  toggleEP = () => {
+    const {ep} = this.state;
+    this.setState({ep: !ep})
+  };
+
 
   helpClicked = () => {
     const {toggleUiProp} = this.props;
@@ -38,6 +55,7 @@ class NavBar extends Component {
   };
 
   render() {
+    const {ep} = this.state;
     const {user, files, projects, ui} = this.props;
     const fLetter = user.username.split('')[0].toUpperCase();
 
@@ -56,6 +74,9 @@ class NavBar extends Component {
                style={user.image ? {backgroundImage: `url('${user.image}')`} : {}}>{!user.image ? fLetter : ''}</div>
           <div className="menu-list">
             <span className="username">{'@'}{user.username}</span>
+            <a className="menu-list-item" onClick={this.toggleEP}>
+              {_t('manager.nav-bar.example-project')} {folderOpenSvg}
+            </a>
             <a className="menu-list-item" onClick={this.helpClicked}>
               {_t('manager.nav-bar.contact')} {emailSvg}
             </a>
@@ -65,6 +86,7 @@ class NavBar extends Component {
           </div>
         </div>
         {ui.contact && <ContactDialog {...this.props} />}
+        {ep && <ExampleProjectDialog {...this.props} onHide={this.toggleEP}/>}
       </div>
     )
   }

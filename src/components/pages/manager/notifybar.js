@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 
-/*
-
 import PropTypes from 'prop-types';
+
+import ExampleProjectDialog from '../../dialogs/example-project';
 
 import {closeSvg, infoSvg} from '../../../svg';
 
@@ -24,6 +24,7 @@ class EpFlagBar extends Component {
   };
 
   render() {
+    const {modal} = this.state;
     const {invalidateUiFlag} = this.props;
 
     return (
@@ -40,7 +41,7 @@ class EpFlagBar extends Component {
           }}>{closeSvg}</span>
         </div>
 
-        { modal && <ExampleProjectDialog {...this.props} onHide={this.toggleModal}/> }
+        {modal && <ExampleProjectDialog {...this.props} onHide={this.toggleModal}/>}
       </div>
     )
   }
@@ -49,31 +50,26 @@ class EpFlagBar extends Component {
 EpFlagBar.propTypes = {
   invalidateUiFlag: PropTypes.func.isRequired,
 };
-*/
+
 
 class NotifyBar extends Component {
   render() {
-    /*
+
     const {ui} = this.props;
     if (ui.epFlag) {
       return <EpFlagBar {...this.props} />
     }
-    */
 
-    return <></>;
+    return null;
   }
 }
 
 NotifyBar.defaultProps = {};
 
-NotifyBar.propTypes = {};
-
-/*
 NotifyBar.propTypes = {
   ui: PropTypes.shape({
     epFlag: PropTypes.bool.isRequired,
   }).isRequired
 };
- */
 
 export default NotifyBar;

@@ -42,8 +42,12 @@
       "label": "Drag and drop files or folders here to upload"
     },
     "nav-bar": {
+      "example-project": "Starter Project",
       "contact": "Contact Us",
       "sign-out": "Logout"
+    },
+    "notify-bar": {
+      "starter-project": " Our Starter project helps you to understand how Runkod works. Click here to see instructions."
     }
   },
   "new-project-dialog": {
@@ -58,6 +62,16 @@
     "error-dns": "Please check DNS settings for the domain name. Click the button below to find out current DNS settings. If you have configured please keep in mind that it can take some time for those DNS to take effect across the internet.",
     "success": "New project created",
     "dns-info": "DNS Settings"
+  },
+  "example-project-dialog": {
+    "title": "Starter project",
+    "description": "Starter project provides a placeholder website for your project. Please follow the steps below to setup. ",
+    "step1-title": "Download",
+    "step1-content": "Click here to download Starter project.",
+    "step2-title": "Extract",
+    "step2-content": "Unzip the file on your computer.",
+    "step3-title": "Upload",
+    "step3-content": "Drag & drop extracted files to your project."
   },
   "upload-queue-dialog": {
     "progress-title": "Uploading",
