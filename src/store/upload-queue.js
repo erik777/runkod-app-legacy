@@ -2,6 +2,8 @@ import to from 'await-to-js';
 
 import md5 from 'blueimp-md5';
 
+import transformContent from '../core-utils/transform'
+
 import {userSession, getUsername} from '../blockstack-config';
 
 import {File} from '../model';
@@ -153,8 +155,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       }
     }
 
-    // empty files causes upload error. quick workaround.
-    const fileBuff = file.buffer.byteLength > 0 ? file.buffer : new ArrayBuffer(1);
+    const fileBuff = transformContent(file.buffer);
 
     // Upload file to gaia
     const [err2, address] = await to(userSession.putFile(gaiaFileName, fileBuff, {
