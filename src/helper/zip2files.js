@@ -1,3 +1,5 @@
+import mime from 'mime-types';
+
 import {DISABLED_FILES} from '../constants';
 
 const JSZip = require('jszip');
@@ -11,18 +13,8 @@ const fileName = (path) => {
 const fileType = (fileName) => {
   const sf = fileName.split('.');
   const ext = sf[sf.length - 1].toLowerCase();
-  switch (ext) {
-    case 'html':
-      return 'text/html';
-    case 'css':
-      return 'text/css';
-    case 'png':
-      return 'image/png';
-    case 'js':
-      return 'application/javascript';
-    default:
-      return '';
-  }
+
+  return mime.lookup(ext) || null;
 };
 
 const extractFile = async (z, root) => {

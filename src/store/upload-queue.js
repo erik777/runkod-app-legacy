@@ -2,6 +2,8 @@ import to from 'await-to-js';
 
 import md5 from 'blueimp-md5';
 
+import mime from 'mime-types';
+
 import transformContent from '../core-utils/transform'
 
 import {userSession, getUsername} from '../blockstack-config';
@@ -16,7 +18,6 @@ import {
   CONFLICT_FLAG_NO,
   CONFLICT_FLAG_NO_ALL
 } from '../constants';
-
 
 // Helper to switch conflict flag on FILE_OK, FILE_ERROR, FILE_SKIP
 const switchCF = (state) => {
@@ -127,6 +128,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     const fileS = file.name.split('.');
     const fileExt = fileS.length > 1 ? `.${fileS[fileS.length - 1]}`.toLowerCase() : '';
     const gaiaFileName = md5(`${project._id}-${Date.now()}`) + fileExt;
+    const mimeType = mime.lookup(fileExt) || null;
 
     // Check if file exists
     const [err1, fileRecs] = await to(File.fetchOwnList({
@@ -160,7 +162,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     // Upload file to gaia
     const [err2, address] = await to(userSession.putFile(gaiaFileName, fileBuff, {
       encrypt: false,
-      contentType: file.type
+      contentType: mimeType
     }));
 
     if (err2) {
@@ -185,8 +187,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
 
       // Delete old file on gaia. No need to handle error.
       await to(userSession.putFile(oldName, new ArrayBuffer(1), {
-        encrypt: false,
-        contentType: file.type
+        encrypt: false
       }));
 
       dispatch(fileOkAct());
@@ -204,7 +205,7 @@ export const startUploadQueue = () => async (dispatch, getState) => {
       label: file.name,
       address,
       size: file.size,
-      type: file.type,
+      type: mimeType,
       deleted: false
     };
     const f = new File(props);

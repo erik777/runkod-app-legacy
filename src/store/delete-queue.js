@@ -110,8 +110,7 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
 
     // Overwrite file (on gaia) with 1 byte array
     const [err2, ] = await to(userSession.putFile(file.name, new ArrayBuffer(1), {
-      encrypt: false,
-      contentType: file.type
+      encrypt: false
     }));
 
     if (err2) {
