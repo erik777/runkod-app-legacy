@@ -100,6 +100,7 @@
     "show-details": "show details"
   },
   "project-settings-dialog": {
+    "title": "Settings",
     "status": "Status",
     "status-on": "On",
     "status-maintenance": "Maintenance Mode",

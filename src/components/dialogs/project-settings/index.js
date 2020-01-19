@@ -172,11 +172,10 @@ class ProjectSettingsDialog extends Component {
   };
 
   render() {
-    const {project} = this.props;
     return (
       <Modal show className="project-settings-dialog" onHide={this.hide}>
         <Modal.Header closeButton>
-          <Modal.Title>{project.name}</Modal.Title>
+          <Modal.Title>{_t('project-settings-dialog.title')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <DialogContent {...this.props} />
