@@ -28,34 +28,34 @@ class Icon extends Component {
     let typeContent;
     let typeCls;
 
-    switch (type) {
-      case 'image/jpeg':
-      case 'image/png':
-      case 'image/gif':
-        typeContent = 'img';
-        typeCls = 'icon-image';
-        break;
-      case 'text/html':
-        typeContent = '</>';
-        typeCls = 'icon-html';
-        break;
-      case 'application/json':
-        typeContent = '{ }';
-        typeCls = 'icon-json';
-        break;
-      case 'text/javascript':
-      case 'application/javascript':
-        typeContent = 'js';
-        typeCls = 'icon-js';
-        break;
-      case 'text/css':
-        typeContent = 'css';
-        typeCls = 'icon-css';
-        break;
-      default:
-        typeContent = '';
-        typeCls = '';
+    if (type.indexOf('image') === 0) {
+      typeContent = 'img';
+      typeCls = 'icon-image';
+    } else {
+      switch (type) {
+        case 'text/html':
+          typeContent = '</>';
+          typeCls = 'icon-html';
+          break;
+        case 'application/json':
+          typeContent = '{ }';
+          typeCls = 'icon-json';
+          break;
+        case 'text/javascript':
+        case 'application/javascript':
+          typeContent = 'js';
+          typeCls = 'icon-js';
+          break;
+        case 'text/css':
+          typeContent = 'css';
+          typeCls = 'icon-css';
+          break;
+        default:
+          typeContent = '';
+          typeCls = '';
+      }
     }
+
 
     return <div className={_c(`entry-icon entry-icon-file ${typeCls}`)}>
       <div className="shape">
@@ -212,7 +212,7 @@ class FileEntry extends Component {
             {fileSize(file.size)}
           </div>
         </div>
-        {info && <FileInfoDialog {...this.props} file={file} onHide={this.toggleInfo} />}
+        {info && <FileInfoDialog {...this.props} file={file} onHide={this.toggleInfo}/>}
       </>
     )
   }

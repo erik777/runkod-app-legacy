@@ -29,11 +29,12 @@ class DialogContent extends Component {
     const fileUrl = `https://${project.name}${file.fullPath}`;
 
     return <div className="user-select">
-      <a href={fileUrl} title={fileUrl} target="_blank" className="file-url" rel="noopener noreferrer">{file.fullPath} {openSvg}</a>
+      <a href={fileUrl} title={fileUrl} target="_blank" className="file-url"
+         rel="noopener noreferrer">{file.fullPath} {openSvg}</a>
       <div className="file-extra-info">
         {file.type && <>{file.type} - </>}{fileSize(file.size)}
       </div>
-      {(file.type && file.type.indexOf('image') > -1) &&
+      {(file.type && file.type.indexOf('image') === 0) &&
       <img alt="file" className="file-image" src={file.address}/>
       }
     </div>
