@@ -8,7 +8,7 @@ import FileInfoDialog from '../../../../dialogs/file-info';
 
 import CheckBox from '../../../../helper/checkbox';
 
-import fs from '../../../../../fs';
+import fs from '../../../../../core-utils/fs';
 
 import _c from '../../../../../utils/fix-class-names';
 

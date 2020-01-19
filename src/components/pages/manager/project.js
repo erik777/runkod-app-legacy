@@ -10,7 +10,7 @@ import Browser from './browser';
 
 import ProjectSettingsDialog from '../../dialogs/project-settings';
 
-import fs from '../../../fs';
+import fs from '../../../core-utils/fs';
 
 import _c from '../../../utils/fix-class-names';
 

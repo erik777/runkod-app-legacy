@@ -1,4 +1,4 @@
-import {PATH_SEPARATOR, BASE_PATH} from './constants';
+import {PATH_SEPARATOR, BASE_PATH} from '../constants';
 
 
 const arrToPath = (arr) => `${PATH_SEPARATOR}${arr.join(PATH_SEPARATOR)}${PATH_SEPARATOR}`;

@@ -2,7 +2,7 @@ import to from 'await-to-js';
 
 import {File} from '../model';
 
-import fs from '../fs';
+import fs from '../core-utils/fs';
 
 import {USER_LOGOUT} from './user';
 import {SELECT as PROJECT_SELECT} from './project';

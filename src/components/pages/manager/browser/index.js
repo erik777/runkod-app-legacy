@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 
 import PropTypes from 'prop-types';
 
-import fs from '../../../../fs';
+import fs from '../../../../core-utils/fs';
 
 import {FileEntry, FolderEntry, ParentFolderEntry} from './entry';
 

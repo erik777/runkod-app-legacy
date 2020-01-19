@@ -1,4 +1,4 @@
-import fs from '../fs'
+import fs from './fs'
 
 import {utf8encode} from 'jszip/lib/utf8'
 
