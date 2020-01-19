@@ -28,7 +28,7 @@ class Icon extends Component {
     let typeContent;
     let typeCls;
 
-    if (type.indexOf('image') === 0) {
+    if (typeof type == 'string' && type.indexOf('image') === 0) {
       typeContent = 'img';
       typeCls = 'icon-image';
     } else {
