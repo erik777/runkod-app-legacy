@@ -1,7 +1,8 @@
 import fs from '../fs'
 
-import {utf8decode, utf8encode} from 'jszip/lib/utf8'
+import {utf8encode} from 'jszip/lib/utf8'
 
+// Not active. This will convert relative urls to absolute urls in css files
 export const cssTransform = (contents: string, parentPath, domainName) => {
   const re = /url\((?!['"]?(?:data:|#|https?:|\/\/))(['"]?)([^'")]*)\1\)/;
 
@@ -33,7 +34,7 @@ export const cssTransform = (contents: string, parentPath, domainName) => {
 };
 
 
-export default (buffer, parentPath, domainName) => {
+export default (buffer) => {
 
   // replace empty files with a space
   if (buffer.byteLength === 0) {
@@ -41,7 +42,4 @@ export default (buffer, parentPath, domainName) => {
   }
 
   return buffer;
-
-  // const contents = utf8decode(buffer);
-  // const buff = utf8encode(l);
 };
