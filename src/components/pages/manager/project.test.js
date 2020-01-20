@@ -15,6 +15,8 @@ test('1- files loading', () => {
     },
     ui: {
       projectSettings: false,
+      projectStatus: false,
+      projectDelete: false
     },
     path: '/',
     checkList: [],
@@ -65,6 +67,8 @@ test('2- loaded. no file', () => {
     },
     ui: {
       projectSettings: false,
+      projectStatus: false,
+      projectDelete: false
     },
     path: '/',
     checkList: [],
@@ -161,6 +165,8 @@ test('3- loaded. with files and folders', () => {
     },
     ui: {
       projectSettings: false,
+      projectStatus: false,
+      projectDelete: false
     },
     path: '/',
     checkList: [],
@@ -199,105 +205,6 @@ test('3- loaded. with files and folders', () => {
 
   expect(renderer.toJSON()).toMatchSnapshot();
 });
-
-/*
-test('4- in sub folder', () => {
-  const props = {
-    project: {
-      name: 'test.com'
-    },
-    files: {
-      list: [{
-        _id: 'fileid1',
-        label: 'file1.txt',
-        parent: '/',
-        size: 2891,
-        type: null
-      }, {
-        _id: 'fileid2',
-        label: 'file1.css',
-        parent: '/foo/',
-        size: 3121,
-        type: 'text/css'
-      }, {
-        _id: 'fileid3',
-        label: 'index.html',
-        parent: '/',
-        size: 12342,
-        type: 'text/html'
-      }],
-      loading: false,
-      map: {
-        '/': {
-          folders: ['/foo/'], files: [
-            {
-              _id: 'fileid1',
-              label: 'file1.txt',
-              parent: '/',
-              size: 2891
-            }, {
-              _id: 'fileid3',
-              label: 'index.html',
-              parent: '/',
-              size: 12342,
-              type: 'text/html'
-            }
-          ]
-        },
-        '/foo/': {
-          folders: [], files: [
-            {
-              _id: 'fileid2',
-              label: 'file1.css',
-              parent: '/foo/',
-              size: 3121,
-              type: 'text/css'
-            }
-          ]
-        }
-      }
-    },
-    ui: {
-      projectSettings: false,
-    },
-    path: '/foo/',
-    checkList: [],
-    fetchFiles: () => {
-
-    },
-    selectPath: () => {
-
-    },
-    checkListAdd: () => {
-
-    },
-    checkListReset: () => {
-
-    },
-    setDeleteQueue: () => {
-
-    },
-    toggleUiProp: () => {
-
-    },
-    // props for sub components
-    setUploadQueue: () => {
-
-    },
-    startUploadQueue: () => {
-
-    },
-    checkListDelete: () => {
-    }
-  };
-
-  const renderer = TestRenderer.create(
-    <Project {...props}/>
-  );
-
-  expect(renderer.toJSON()).toMatchSnapshot();
-});
-*/
 
 test('5- 1 item in checklist', () => {
   const props = {
@@ -357,6 +264,8 @@ test('5- 1 item in checklist', () => {
     },
     ui: {
       projectSettings: false,
+      projectStatus: false,
+      projectDelete: false
     },
     path: '/',
     checkList: ['fileid1'],
@@ -454,6 +363,8 @@ test('6- 2 items in checklist', () => {
     },
     ui: {
       projectSettings: false,
+      projectStatus: false,
+      projectDelete: false
     },
     path: '/',
     checkList: ['fileid1', 'fileid3'],
@@ -551,6 +462,8 @@ test('7- all items in checklist', () => {
     },
     ui: {
       projectSettings: false,
+      projectStatus: false,
+      projectDelete: false
     },
     path: '/',
     checkList: ['fileid1', 'fileid3', '/foo/'],

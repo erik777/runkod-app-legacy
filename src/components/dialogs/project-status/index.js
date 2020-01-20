@@ -102,12 +102,9 @@ class DialogContent extends Component {
           <option value={PROJECT_STATUS_OFF}>{_t('project-status.off')}</option>
         </Form.Control>
         <div className="dialog-controls">
-          <Button variant="secondary" size="sm" onClick={this.back}>&lt; {_t('g.back')}</Button>
-          {changed &&
-          <Button variant="primary" size="sm" disabled={saving} onClick={this.save}>
+          <Button variant="primary" disabled={!changed || saving} onClick={this.save}>
             {_t('g.save')} {saving && '..'}
           </Button>
-          }
         </div>
       </>
     )
@@ -122,13 +119,15 @@ export {DialogContent};
 class ProjectStatusDialog extends Component {
 
   hide = () => {
-
+    const {toggleUiProp} = this.props;
+    toggleUiProp('projectStatus');
+    toggleUiProp('projectSettings');
   };
 
   render() {
     return (
       <Modal show className="project-status-dialog" onHide={this.hide} backdrop="static">
-        <Modal.Header>
+        <Modal.Header closeButton>
           <Modal.Title>{_t('project-status-dialog.title')}</Modal.Title>
         </Modal.Header>
         <Modal.Body>

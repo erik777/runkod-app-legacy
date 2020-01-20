@@ -1,99 +1,58 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`1- default 1`] = `
-<form
-  className=""
+<div
+  className="setting-sections"
 >
   <div
-    className="form-group row"
+    className="setting-section"
   >
-    <label
-      className="form-label col-form-label col-sm-4"
+    <div
+      className="title"
     >
       Status
-    </label>
-    <div
-      className="col-sm-8"
-    >
-      <select
-        className="form-control"
-        onChange={[Function]}
-        value={1}
-      >
-        <option
-          value={1}
-        >
-          On
-        </option>
-        <option
-          value={2}
-        >
-          Maintenance Mode
-        </option>
-        <option
-          value={3}
-        >
-          Off
-        </option>
-      </select>
-    </div>
-  </div>
-  <div
-    className="form-group row"
-  >
-    <label
-      className="form-label col-form-label col-sm-4"
-    >
-      Authentication
-    </label>
-    <div
-      className="d-flex align-items-center col-sm-8"
-    >
+       
       <span
-        className="text-primary font-weight-light"
+        className="project-status status-on"
       >
-        coming soon
+        On
       </span>
     </div>
+    <div
+      className="description"
+    >
+      Control status of this project.
+    </div>
+    <button
+      className="btn btn-outline-primary btn-sm"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Change
+    </button>
   </div>
   <div
-    className="form-group row"
-  >
-    <label
-      className="form-label col-form-label col-sm-4"
-    >
-      Directory Listing
-    </label>
-    <div
-      className="d-flex align-items-center col-sm-8"
-    >
-      <span
-        className="text-primary font-weight-light"
-      >
-        coming soon
-      </span>
-    </div>
-  </div>
-  <div
-    className="form-group row"
-    style={
-      Object {
-        "marginBottom": 0,
-      }
-    }
+    className="setting-section"
   >
     <div
-      className="form-label col-form-label col-sm-12"
+      className="title"
     >
-      <button
-        className="btn btn-danger"
-        disabled={false}
-        onClick={[Function]}
-        type="button"
-      >
-        Delete Project
-      </button>
+      Delete this project
     </div>
+    <div
+      className="description"
+    >
+      This action might not be undone. Please be certain.
+    </div>
+    <button
+      className="btn btn-outline-danger btn-sm"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Delete
+    </button>
   </div>
-</form>
+</div>
 `;
