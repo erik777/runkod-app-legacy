@@ -3,12 +3,6 @@ import {DialogContent} from './index';
 import TestRenderer from 'react-test-renderer';
 
 const fnProps = {
-  selectProject: () => {
-  },
-  fetchProjects: () => {
-  },
-  setProjectStatus: () => {
-  },
   toggleUiProp: () => {
   },
 };
