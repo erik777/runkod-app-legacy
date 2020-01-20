@@ -2,19 +2,33 @@ import React, {Component} from 'react';
 
 import PropTypes from 'prop-types';
 
-import {Modal, Button, Form, Row, Col} from 'react-bootstrap';
-
-import to from 'await-to-js';
-
-import {Project} from '../../../model';
-
-import ConfirmDialog from '../confirm';
+import {Modal, Button} from 'react-bootstrap';
 
 import {_t} from '../../../i18n';
 
-import message from '../../helper/message'
-
 import {PROJECT_STATUS_ON, PROJECT_STATUS_MAINTENANCE, PROJECT_STATUS_OFF} from '../../../constants';
+
+class StatusLabel extends Component {
+
+  render() {
+    const {status} = this.props;
+
+    switch (status) {
+      case PROJECT_STATUS_ON:
+        return <span className="project-status status-on">{_t('project-status.on')}</span>;
+      case PROJECT_STATUS_MAINTENANCE:
+        return <span className="project-status status-maintenance">{_t('project-status.maintenance')}</span>;
+      case PROJECT_STATUS_OFF:
+        return <span className="project-status status-off">{_t('project-status.off')}</span>;
+      default:
+        return null;
+    }
+  }
+}
+
+StatusLabel.propTypes = {
+  status: PropTypes.number.isRequired
+};
 
 const defaultProps = {};
 const propTypes = {
@@ -25,135 +39,76 @@ const propTypes = {
   }).isRequired,
   selectProject: PropTypes.func.isRequired,
   fetchProjects: PropTypes.func.isRequired,
-  setProjectStatus: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired
 };
 
 class DialogContent extends Component {
 
-  constructor(props) {
-    super(props);
-
-    const {project} = this.props;
-
-    this.state = {
-      status: project.status,
-      saving: false,
-      deleting: false
-    }
+  shouldComponentUpdate() {
+    return false;
   }
 
-  statusChanged = (e) => {
-    this.setState({status: parseInt(e.target.value, 10)});
+  showStatus = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('projectSettings');
+    toggleUiProp('projectStatus');
   };
 
-  updateProject = (data) => {
-    return new Promise(async (resolve, reject) => {
-      const {project} = this.props;
-      const [err1, pRecs] = await to(Project.fetchList({_id: project._id}));
-
-      if (err1) {
-        reject();
-      }
-
-      const [pRec,] = pRecs;
-
-      pRec.update(data);
-
-      const [err2,] = await to(pRec.save());
-
-      this.setState({saving: false});
-
-      if (err2) {
-        reject();
-      }
-
-      resolve();
-    });
-  };
-
-  saveStatus = async () => {
-    const {setProjectStatus} = this.props;
-    const {status} = this.state;
-
-    this.setState({saving: true});
-    const [err,] = await to(this.updateProject({status}));
-    this.setState({saving: false});
-
-    if (err) {
-      message.error(_t('g.server-error'));
-    } else {
-      setProjectStatus(status);
-      message.success(_t('project-settings-dialog.success'));
-    }
-  };
-
-  delete = async () => {
-    const {toggleUiProp, selectProject, fetchProjects} = this.props;
-
-    this.setState({deleting: true});
-    const [err,] = await to(this.updateProject({deleted: true}));
-    this.setState({deleting: false});
-
-    if (err) {
-      message.error(_t('g.server-error'));
-    } else {
-      toggleUiProp('projectSettings');
-      selectProject(null);
-      fetchProjects();
-      message.success(_t('project-settings-dialog.deleted'));
-    }
+  showDelete = () => {
+    const {toggleUiProp} = this.props;
+    toggleUiProp('projectSettings');
+    toggleUiProp('projectDelete');
   };
 
   render() {
     const {project} = this.props;
-    const {status, saving, deleting} = this.state;
-    const showSave = project.status !== status;
 
     return (
       <>
-        <Form>
-          <Form.Group as={Row}>
-            <Form.Label column sm="4">
-              {_t('project-settings-dialog.status')}
-            </Form.Label>
-            <Col sm={showSave ? '6' : '8'}>
-              <Form.Control as="select" onChange={this.statusChanged} value={status}>
-                <option value={PROJECT_STATUS_ON}>{_t('project-settings-dialog.status-on')}</option>
-                <option value={PROJECT_STATUS_MAINTENANCE}>{_t('project-settings-dialog.status-maintenance')}</option>
-                <option value={PROJECT_STATUS_OFF}>{_t('project-settings-dialog.status-off')}</option>
-              </Form.Control>
-            </Col>
-            {showSave &&
-            <Col sm="2">
-              <Button disabled={saving} onClick={this.saveStatus}>{_t('g.save')}</Button>
-            </Col>
-            }
-          </Form.Group>
-          <Form.Group as={Row}>
-            <Form.Label column sm="4">
-              {_t('project-settings-dialog.auth')}
-            </Form.Label>
-            <Col sm="8" className="d-flex align-items-center">
-              <span className="text-primary font-weight-light">{_t('project-settings-dialog.coming-soon')}</span>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row}>
-            <Form.Label column sm="4">
-              {_t('project-settings-dialog.dir-list')}
-            </Form.Label>
-            <Col sm="8" className="d-flex align-items-center">
-              <span className="text-primary font-weight-light">{_t('project-settings-dialog.coming-soon')}</span>
-            </Col>
-          </Form.Group>
-          <Form.Group as={Row} style={{marginBottom: 0}}>
-            <div className="form-label col-form-label col-sm-12">
-              <ConfirmDialog onConfirm={this.delete} title={_t('project-settings-dialog.delete-message')}>
-                <Button variant="danger" disabled={deleting}>{_t('project-settings-dialog.delete')}</Button>
-              </ConfirmDialog>
+        <div className="setting-sections">
+          <div className="setting-section">
+            <div className="title">
+              {_t('project-settings-dialog.status-label')} <StatusLabel status={project.status}/>
             </div>
-          </Form.Group>
-        </Form>
+            <div className="description">
+              {_t('project-settings-dialog.status-description')}
+            </div>
+            <Button variant="outline-primary" size="sm"
+                    onClick={this.showStatus}>{_t('project-settings-dialog.status-btn-label')}</Button>
+          </div>
+          {/*
+            <div className="setting-section">
+              <div className="title">
+                Authentication
+              </div>
+              <div className="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+              <Button variant="primary" size="sm">Set Credentials</Button>
+            </div>
+
+            <div className="setting-section">
+              <div className="title">
+                Redirect to project
+              </div>
+              <div className="description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </div>
+              <Button variant="primary" size="sm">Select Project</Button>
+            </div>
+            */}
+          <div className="setting-section">
+            <div className="title">
+              {_t('project-settings-dialog.delete-label')}
+            </div>
+            <div className="description">
+              {_t('project-settings-dialog.delete-description')}
+            </div>
+            <Button variant="outline-danger" size="sm" onClick={this.showDelete}>
+              {_t('project-settings-dialog.delete-btn-label')}
+            </Button>
+          </div>
+        </div>
       </>
     )
   }
@@ -173,7 +128,7 @@ class ProjectSettingsDialog extends Component {
 
   render() {
     return (
-      <Modal show className="project-settings-dialog" onHide={this.hide}>
+      <Modal size="lg" show className="project-settings-dialog" onHide={this.hide}>
         <Modal.Header closeButton>
           <Modal.Title>{_t('project-settings-dialog.title')}</Modal.Title>
         </Modal.Header>

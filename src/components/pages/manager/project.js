@@ -9,6 +9,8 @@ import CheckBox from '../../helper/checkbox';
 import Browser from './browser';
 
 import ProjectSettingsDialog from '../../dialogs/project-settings';
+import ProjectStatusDialog from '../../dialogs/project-status';
+import ProjectDeleteDialog from '../../dialogs/project-delete';
 
 import fs from '../../../core-utils/fs';
 
@@ -126,6 +128,8 @@ class Project extends Component {
         </div>
         <Browser {...this.props} />
         {ui.projectSettings && <ProjectSettingsDialog {...this.props} />}
+        {ui.projectStatus && <ProjectStatusDialog {...this.props} />}
+        {ui.projectDelete && <ProjectDeleteDialog {...this.props} />}
       </div>
     )
   }
@@ -142,7 +146,9 @@ Project.propTypes = {
     map: PropTypes.shape({})
   }).isRequired,
   ui: PropTypes.shape({
-    projectSettings: PropTypes.bool.isRequired
+    projectSettings: PropTypes.bool.isRequired,
+    projectStatus: PropTypes.bool.isRequired,
+    projectDelete: PropTypes.bool.isRequired
   }).isRequired,
   path: PropTypes.string.isRequired,
   checkList: PropTypes.array.isRequired,

@@ -6,6 +6,8 @@ export const TOGGLE_UPLOAD_SUMMARY_DETAIL = '@ui/TOGGLE_UPLOAD_SUMMARY_DETAIL';
 export const TOGGLE_DELETE_DETAIL = '@ui/TOGGLE_DELETE_DETAIL';
 export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
 export const TOGGLE_PROJECT_SETTINGS = '@ui/TOGGLE_PROJECT_SETTINGS';
+export const TOGGLE_PROJECT_STATUS = '@ui/TOGGLE_PROJECT_STATUS';
+export const TOGGLE_PROJECT_DELETE = '@ui/TOGGLE_PROJECT_DELETE';
 export const TOGGLE_CONTACT = '@ui/TOGGLE_CONTACT';
 export const TOGGLE_DNS_INFO = '@ui/TOGGLE_DNS_INFO';
 export const READ_FLAGS = '@ui/READ_fLAGS';
@@ -25,6 +27,8 @@ const initialState = {
   deleteDetail: false,
   deleteSummaryDetail: false,
   projectSettings: false,
+  projectStatus: false,
+  projectDelete: false,
   contact: false,
   dnsInfo: false
 };
@@ -47,6 +51,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {deleteSummaryDetail: action.payload.what});
     case TOGGLE_PROJECT_SETTINGS:
       return Object.assign({}, state, {projectSettings: action.payload.what});
+    case TOGGLE_PROJECT_STATUS:
+      return Object.assign({}, state, {projectStatus: action.payload.what});
+    case TOGGLE_PROJECT_DELETE:
+      return Object.assign({}, state, {projectDelete: action.payload.what});
     case TOGGLE_CONTACT:
       return Object.assign({}, state, {contact: action.payload.what});
     case TOGGLE_DNS_INFO:
@@ -84,6 +92,12 @@ export const toggleUiProp = (what) => {
         break;
       case 'projectSettings':
         act = TOGGLE_PROJECT_SETTINGS;
+        break;
+      case 'projectStatus':
+        act = TOGGLE_PROJECT_STATUS;
+        break;
+      case 'projectDelete':
+        act = TOGGLE_PROJECT_DELETE;
         break;
       case 'contact':
         act = TOGGLE_CONTACT;

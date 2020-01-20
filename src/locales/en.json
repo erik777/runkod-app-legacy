@@ -8,7 +8,13 @@
     "close": "Close",
     "delete": "Delete",
     "save": "Save",
+    "back": "Back",
     "server-error": "An error has occurred"
+  },
+  "project-status": {
+    "on": "On",
+    "maintenance": "Maintenance Mode",
+    "off": "Off"
   },
   "manager": {
     "no-project": {
@@ -101,17 +107,22 @@
   },
   "project-settings-dialog": {
     "title": "Settings",
-    "status": "Status",
-    "status-on": "On",
-    "status-maintenance": "Maintenance Mode",
-    "status-off": "Off",
-    "auth": "Authentication",
-    "dir-list": "Directory Listing",
-    "coming-soon": "coming soon",
-    "success": "Settings updated",
-    "delete": "Delete Project",
-    "delete-message": "!! WARNING !! This action is irreversible! Are you sure?",
-    "deleted": "Project deleted"
+    "status-label": "Status",
+    "status-description": "Control status of this project.",
+    "status-btn-label": "Change",
+    "delete-label": "Delete this project",
+    "delete-description": "This action might not be undone. Please be certain.",
+    "delete-btn-label": "Delete"
+  },
+  "project-status-dialog": {
+    "title": "Project Status",
+    "success": "Project status updated"
+  },
+  "project-delete-dialog": {
+    "title": "Are you absolutely sure?",
+    "confirmation": "Please type <strong>{{n}}</strong> to confirm.",
+    "delete": "Delete",
+    "success": "Project deleted"
   },
   "contact-dialog": {
     "title": "You can reach us on these channels"
