@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+<div
+  className="delete-confirmation user-select"
+>
+  <p
+    dangerouslySetInnerHTML={
+      Object {
+        "__html": "Please type <strong>test.com</strong> to confirm.",
+      }
+    }
+  />
+  <p>
+    <input
+      autoComplete="off"
+      className="form-control"
+      onChange={[Function]}
+      value=""
+    />
+  </p>
+  <button
+    className="btn btn-danger btn-block"
+    disabled={true}
+    onClick={[Function]}
+    type="button"
+  >
+    Delete
+     
+    
+  </button>
+</div>
+`;

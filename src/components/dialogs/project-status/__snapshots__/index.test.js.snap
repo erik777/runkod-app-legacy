@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+Array [
+  <select
+    className="form-control"
+    onChange={[Function]}
+    value={1}
+  >
+    <option
+      value={1}
+    >
+      On
+    </option>
+    <option
+      value={2}
+    >
+      Maintenance Mode
+    </option>
+    <option
+      value={3}
+    >
+      Off
+    </option>
+  </select>,
+  <div
+    className="dialog-controls"
+  >
+    <button
+      className="btn btn-primary"
+      disabled={true}
+      onClick={[Function]}
+      type="button"
+    >
+      Save
+       
+    </button>
+  </div>,
+]
+`;
