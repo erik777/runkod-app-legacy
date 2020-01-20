@@ -34,11 +34,8 @@ const defaultProps = {};
 const propTypes = {
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
     status: PropTypes.number.isRequired
   }).isRequired,
-  selectProject: PropTypes.func.isRequired,
-  fetchProjects: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired
 };
 
