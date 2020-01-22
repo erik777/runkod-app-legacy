@@ -60,6 +60,22 @@ class DialogContent extends Component {
 
     this.setState({inProgress: true});
 
+    // Make sure selected project doesn't redirect to another project
+    if (selected) {
+      const [err0, rRecs] = await to(Project.fetchOwnList({_id: selected}));
+      if (err0) {
+        this.setState({inProgress: false});
+        message.error(_t('g.server-error'));
+      }
+
+      const [rRec,] = rRecs;
+      if (rRec.attrs.redirectTo) {
+        message.error(_t('project-redirect-dialog.error-selected-redirects'));
+        this.setState({inProgress: false});
+        return;
+      }
+    }
+
     // Find
     const [err1, pRecs] = await to(Project.fetchOwnList({_id: project._id}));
     if (err1) {
@@ -106,6 +122,10 @@ class DialogContent extends Component {
     const changed = project.redirectTo !== selected;
 
     const projectList = list.filter(x => x._id !== project._id);
+
+    if (projectList.length === 0) {
+      return 'There is no project to redirect'
+    }
 
     return (
       <>

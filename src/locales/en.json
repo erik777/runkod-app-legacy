@@ -130,6 +130,7 @@
   "project-redirect-dialog": {
     "title": "Redirect Project",
     "empty-item": "No Redirect",
+    "error-selected-redirects": "The project you selected redirects itself to another project.",
     "success": "Project settings updated"
   },
   "contact-dialog": {
