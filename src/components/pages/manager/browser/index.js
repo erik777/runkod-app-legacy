@@ -32,11 +32,9 @@ class Browser extends Component {
     if (project.redirectTo) {
       const {projects} = this.props;
       const p = projects.list.find(x => x._id === project.redirectTo);
-      if (p) {
-        return <div className="browser redirected">
-          Redirected to {p.name}
-        </div>
-      }
+      return <div className="browser redirected">
+        Redirected to {p.name}
+      </div>
     }
 
     const {list, map, loading} = files;

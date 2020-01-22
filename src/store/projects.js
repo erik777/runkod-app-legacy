@@ -4,13 +4,12 @@ import {USER_LOGOUT} from './user';
 
 import {Project} from '../model';
 
-const projectMapFn = (x) => {
-  let attrs = {...x.attrs};
+const mapper = (project, projects) => {
+  let attrs = {...project.attrs};
 
   // Check for newly added fields
-  if (!attrs.redirectTo) {
-    attrs = Object.assign({}, attrs, {redirectTo: ''});
-  }
+  const redirectTo = attrs.redirectTo && projects.find(x => x._id === attrs.redirectTo) ? attrs.redirectTo : '';
+  attrs = Object.assign({}, attrs, {redirectTo});
 
   return attrs;
 };
@@ -33,7 +32,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {loading: true});
     case FETCHED:
       const {projects} = action.payload;
-      return Object.assign({}, state, {loading: false, list: projects.map(x => projectMapFn(x))});
+      return Object.assign({}, state, {loading: false, list: projects.map(x => mapper(x, projects))});
     case FETCH_ERROR:
       return initialState;
     case USER_LOGOUT:
