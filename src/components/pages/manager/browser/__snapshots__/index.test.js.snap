@@ -332,3 +332,12 @@ exports[`4- in sub folder 1`] = `
   </div>
 </div>
 `;
+
+exports[`5- redirected project 1`] = `
+<div
+  className="browser redirected"
+>
+  Redirected to 
+  foo.com
+</div>
+`;

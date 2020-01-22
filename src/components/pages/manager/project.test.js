@@ -6,7 +6,11 @@ import Project from './project';
 test('1- files loading', () => {
   const props = {
     project: {
-      name: 'test.com'
+      name: 'test.com',
+      redirectTo: ''
+    },
+    projects: {
+      list: []
     },
     files: {
       loading: true,
@@ -16,7 +20,8 @@ test('1- files loading', () => {
     ui: {
       projectSettings: false,
       projectStatus: false,
-      projectDelete: false
+      projectDelete: false,
+      projectRedirect: false
     },
     path: '/',
     checkList: [],
@@ -54,11 +59,14 @@ test('1- files loading', () => {
   expect(renderer.toJSON()).toMatchSnapshot();
 });
 
-
 test('2- loaded. no file', () => {
   const props = {
     project: {
-      name: 'test.com'
+      name: 'test.com',
+      redirectTo: ''
+    },
+    projects: {
+      list: []
     },
     files: {
       loading: false,
@@ -68,7 +76,8 @@ test('2- loaded. no file', () => {
     ui: {
       projectSettings: false,
       projectStatus: false,
-      projectDelete: false
+      projectDelete: false,
+      projectRedirect: false
     },
     path: '/',
     checkList: [],
@@ -106,11 +115,14 @@ test('2- loaded. no file', () => {
   expect(renderer.toJSON()).toMatchSnapshot();
 });
 
-
 test('3- loaded. with files and folders', () => {
   const props = {
     project: {
-      name: 'test.com'
+      name: 'test.com',
+      redirectTo: ''
+    },
+    projects: {
+      list: []
     },
     files: {
       list: [{
@@ -166,7 +178,8 @@ test('3- loaded. with files and folders', () => {
     ui: {
       projectSettings: false,
       projectStatus: false,
-      projectDelete: false
+      projectDelete: false,
+      projectRedirect: false
     },
     path: '/',
     checkList: [],
@@ -209,7 +222,11 @@ test('3- loaded. with files and folders', () => {
 test('5- 1 item in checklist', () => {
   const props = {
     project: {
-      name: 'test.com'
+      name: 'test.com',
+      redirectTo: ''
+    },
+    projects: {
+      list: []
     },
     files: {
       list: [{
@@ -265,7 +282,8 @@ test('5- 1 item in checklist', () => {
     ui: {
       projectSettings: false,
       projectStatus: false,
-      projectDelete: false
+      projectDelete: false,
+      projectRedirect: false
     },
     path: '/',
     checkList: ['fileid1'],
@@ -308,7 +326,11 @@ test('5- 1 item in checklist', () => {
 test('6- 2 items in checklist', () => {
   const props = {
     project: {
-      name: 'test.com'
+      name: 'test.com',
+      redirectTo: ''
+    },
+    projects: {
+      list: []
     },
     files: {
       list: [{
@@ -364,7 +386,8 @@ test('6- 2 items in checklist', () => {
     ui: {
       projectSettings: false,
       projectStatus: false,
-      projectDelete: false
+      projectDelete: false,
+      projectRedirect: false
     },
     path: '/',
     checkList: ['fileid1', 'fileid3'],
@@ -407,7 +430,11 @@ test('6- 2 items in checklist', () => {
 test('7- all items in checklist', () => {
   const props = {
     project: {
-      name: 'test.com'
+      name: 'test.com',
+      redirectTo: ''
+    },
+    projects: {
+      list: []
     },
     files: {
       list: [{
@@ -463,7 +490,8 @@ test('7- all items in checklist', () => {
     ui: {
       projectSettings: false,
       projectStatus: false,
-      projectDelete: false
+      projectDelete: false,
+      projectRedirect: false
     },
     path: '/',
     checkList: ['fileid1', 'fileid3', '/foo/'],
@@ -493,6 +521,65 @@ test('7- all items in checklist', () => {
 
     },
     checkListDelete: () => {
+    }
+  };
+
+  const renderer = TestRenderer.create(
+    <Project {...props}/>
+  );
+
+  expect(renderer.toJSON()).toMatchSnapshot();
+});
+
+test('8- redirected project', () => {
+  const props = {
+    project: {
+      name: 'test.com',
+      redirectTo: 'foobar1'
+    },
+    projects: {
+      list: [{
+        _id: 'foobar1',
+        name: 'foo.com'
+      }]
+    },
+    files: {
+      loading: false,
+      list: [],
+      map: {'/': {folders: [], files: []}}
+    },
+    ui: {
+      projectSettings: false,
+      projectStatus: false,
+      projectDelete: false,
+      projectRedirect: false
+    },
+    path: '/',
+    checkList: [],
+    fetchFiles: () => {
+
+    },
+    selectPath: () => {
+
+    },
+    checkListAdd: () => {
+
+    },
+    checkListReset: () => {
+
+    },
+    setDeleteQueue: () => {
+
+    },
+    toggleUiProp: () => {
+
+    },
+    // props for sub components
+    setUploadQueue: () => {
+
+    },
+    startUploadQueue: () => {
+
     }
   };
 

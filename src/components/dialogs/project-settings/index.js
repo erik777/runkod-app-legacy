@@ -9,7 +9,6 @@ import {_t} from '../../../i18n';
 import {PROJECT_STATUS_ON, PROJECT_STATUS_MAINTENANCE, PROJECT_STATUS_OFF} from '../../../constants';
 
 class StatusLabel extends Component {
-
   render() {
     const {status} = this.props;
 
@@ -30,31 +29,56 @@ StatusLabel.propTypes = {
   status: PropTypes.number.isRequired
 };
 
+class RedirectLabel extends Component {
+  render() {
+    const {to, projects} = this.props;
+
+    if (!to) {
+      return null;
+    }
+
+    const {list} = projects;
+    const project = list.find(x => x._id === to);
+
+    if (project) {
+      return <span className="redirect-to">{project.name}</span>;
+    }
+
+    return null;
+  }
+}
+
+RedirectLabel.propTypes = {
+  to: PropTypes.string.isRequired,
+  projects: PropTypes.shape({
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired
+  }).isRequired
+};
+
 const defaultProps = {};
 const propTypes = {
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired,
-    status: PropTypes.number.isRequired
+    status: PropTypes.number.isRequired,
+    redirectTo: PropTypes.string.isRequired
   }).isRequired,
   toggleUiProp: PropTypes.func.isRequired
 };
 
 class DialogContent extends Component {
-
   shouldComponentUpdate() {
     return false;
   }
 
-  showStatus = () => {
+  show = (what) => {
     const {toggleUiProp} = this.props;
     toggleUiProp('projectSettings');
-    toggleUiProp('projectStatus');
-  };
-
-  showDelete = () => {
-    const {toggleUiProp} = this.props;
-    toggleUiProp('projectSettings');
-    toggleUiProp('projectDelete');
+    toggleUiProp(what);
   };
 
   render() {
@@ -70,8 +94,11 @@ class DialogContent extends Component {
             <div className="description">
               {_t('project-settings-dialog.status-description')}
             </div>
-            <Button variant="outline-primary" size="sm"
-                    onClick={this.showStatus}>{_t('project-settings-dialog.status-btn-label')}</Button>
+            <Button variant="outline-primary" size="sm" onClick={() => {
+              this.show('projectStatus')
+            }}>
+              {_t('project-settings-dialog.status-btn-label')}
+            </Button>
           </div>
           {/*
             <div className="setting-section">
@@ -83,17 +110,20 @@ class DialogContent extends Component {
               </div>
               <Button variant="primary" size="sm">Set Credentials</Button>
             </div>
-
-            <div className="setting-section">
-              <div className="title">
-                Redirect to project
-              </div>
-              <div className="description">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              </div>
-              <Button variant="primary" size="sm">Select Project</Button>
+          */}
+          <div className="setting-section">
+            <div className="title">
+              {_t('project-settings-dialog.redirect-label')} <RedirectLabel to={project.redirectTo} {...this.props}/>
             </div>
-            */}
+            <div className="description">
+              {_t('project-settings-dialog.redirect-description')}
+            </div>
+            <Button variant="outline-primary" size="sm" onClick={() => {
+              this.show('projectRedirect')
+            }}>
+              {_t('project-settings-dialog.redirect-btn-label')}
+            </Button>
+          </div>
           <div className="setting-section">
             <div className="title">
               {_t('project-settings-dialog.delete-label')}
@@ -101,7 +131,9 @@ class DialogContent extends Component {
             <div className="description">
               {_t('project-settings-dialog.delete-description')}
             </div>
-            <Button variant="outline-danger" size="sm" onClick={this.showDelete}>
+            <Button variant="outline-danger" size="sm" onClick={() => {
+              this.show('projectDelete')
+            }}>
               {_t('project-settings-dialog.delete-btn-label')}
             </Button>
           </div>

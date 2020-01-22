@@ -33,6 +33,10 @@ export class Project extends Model {
       type: Boolean,
       decrypted: true
     },
+    redirectTo: {
+      type: String,
+      decrypted: true
+    },
   }
 }
 

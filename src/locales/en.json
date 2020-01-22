@@ -112,7 +112,10 @@
     "status-btn-label": "Change",
     "delete-label": "Delete this project",
     "delete-description": "This action might not be undone. Please be certain.",
-    "delete-btn-label": "Delete"
+    "delete-btn-label": "Delete",
+    "redirect-label": "Redirect to project",
+    "redirect-description": "Redirect this project to one of your other projects.",
+    "redirect-btn-label": "Select Project"
   },
   "project-status-dialog": {
     "title": "Project Status",
@@ -123,6 +126,11 @@
     "confirmation": "Please type <strong>{{n}}</strong> to confirm.",
     "delete": "Delete",
     "success": "Project deleted"
+  },
+  "project-redirect-dialog": {
+    "title": "Redirect Project",
+    "empty-item": "No Redirect",
+    "success": "Project settings updated"
   },
   "contact-dialog": {
     "title": "You can reach us on these channels"

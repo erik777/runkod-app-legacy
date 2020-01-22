@@ -14,7 +14,9 @@ test('1- default', () => {
       _id: 'unique_id',
       name: 'test.com',
       status: 1,
+      redirectTo: ''
     },
+    projects: {list: []}
   }, fnProps);
 
   const renderer = TestRenderer.create(

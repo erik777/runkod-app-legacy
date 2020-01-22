@@ -27,7 +27,18 @@ class Browser extends Component {
   };
 
   render() {
-    const {files, path} = this.props;
+    const {project, files, path} = this.props;
+
+    if (project.redirectTo) {
+      const {projects} = this.props;
+      const p = projects.list.find(x => x._id === project.redirectTo);
+      if (p) {
+        return <div className="browser redirected">
+          Redirected to {p.name}
+        </div>
+      }
+    }
+
     const {list, map, loading} = files;
 
     if (loading) {
@@ -94,6 +105,17 @@ class Browser extends Component {
 Browser.defaultProps = {};
 
 Browser.propTypes = {
+  project: PropTypes.shape({
+    redirectTo: PropTypes.string.isRequired
+  }).isRequired,
+  projects: PropTypes.shape({
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+      })
+    ).isRequired
+  }).isRequired,
   files: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     list: PropTypes.arrayOf(

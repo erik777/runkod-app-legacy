@@ -112,5 +112,12 @@
     .h-space {
       flex-grow: 1;
     }
+
+    &.redirected{
+      .settings-btn{
+        border-right: none;
+        width: auto;
+      }
+    }
   }
 }

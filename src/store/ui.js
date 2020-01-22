@@ -8,6 +8,7 @@ export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
 export const TOGGLE_PROJECT_SETTINGS = '@ui/TOGGLE_PROJECT_SETTINGS';
 export const TOGGLE_PROJECT_STATUS = '@ui/TOGGLE_PROJECT_STATUS';
 export const TOGGLE_PROJECT_DELETE = '@ui/TOGGLE_PROJECT_DELETE';
+export const TOGGLE_PROJECT_REDIRECT = '@ui/TOGGLE_PROJECT_REDIRECT';
 export const TOGGLE_CONTACT = '@ui/TOGGLE_CONTACT';
 export const TOGGLE_DNS_INFO = '@ui/TOGGLE_DNS_INFO';
 export const READ_FLAGS = '@ui/READ_fLAGS';
@@ -29,6 +30,7 @@ const initialState = {
   projectSettings: false,
   projectStatus: false,
   projectDelete: false,
+  projectRedirect: false,
   contact: false,
   dnsInfo: false
 };
@@ -55,6 +57,8 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {projectStatus: action.payload.what});
     case TOGGLE_PROJECT_DELETE:
       return Object.assign({}, state, {projectDelete: action.payload.what});
+    case TOGGLE_PROJECT_REDIRECT:
+      return Object.assign({}, state, {projectRedirect: action.payload.what});
     case TOGGLE_CONTACT:
       return Object.assign({}, state, {contact: action.payload.what});
     case TOGGLE_DNS_INFO:
@@ -98,6 +102,9 @@ export const toggleUiProp = (what) => {
         break;
       case 'projectDelete':
         act = TOGGLE_PROJECT_DELETE;
+        break;
+      case 'projectRedirect':
+        act = TOGGLE_PROJECT_REDIRECT;
         break;
       case 'contact':
         act = TOGGLE_CONTACT;

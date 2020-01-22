@@ -29,9 +29,11 @@ Object {
   "list": Array [
     Object {
       "_id": "project1",
+      "redirectTo": "",
     },
     Object {
       "_id": "project2",
+      "redirectTo": "",
     },
   ],
   "loading": false,

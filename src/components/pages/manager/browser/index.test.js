@@ -5,6 +5,12 @@ import Browser from './index';
 
 test('1- loading', () => {
   const props = {
+    project: {
+      redirectTo: ''
+    },
+    projects: {
+      list: []
+    },
     files: {
       list: [],
       loading: true,
@@ -32,6 +38,12 @@ test('1- loading', () => {
 
 test('2- no file', () => {
   const props = {
+    project: {
+      redirectTo: ''
+    },
+    projects: {
+      list: []
+    },
     files: {
       list: [],
       loading: false,
@@ -59,6 +71,12 @@ test('2- no file', () => {
 
 test('3- with files and folders', () => {
   const props = {
+    project: {
+      redirectTo: ''
+    },
+    projects: {
+      list: []
+    },
     files: {
       list: [{
         _id: 'fileid1',
@@ -138,6 +156,12 @@ test('3- with files and folders', () => {
 
 test('4- in sub folder', () => {
   const props = {
+    project: {
+      redirectTo: ''
+    },
+    projects: {
+      list: []
+    },
     files: {
       list: [{
         _id: 'fileid1',
@@ -190,6 +214,48 @@ test('4- in sub folder', () => {
       }
     },
     path: '/foo/',
+    selectPath: () => {
+
+    },
+    setUploadQueue: () => {
+
+    },
+    startUploadQueue: () => {
+
+    },
+    // props for sub components
+    checkList: [],
+    checkListAdd: () => {
+    },
+    checkListDelete: () => {
+    }
+  };
+
+  const renderer = TestRenderer.create(
+    <Browser {...props}/>
+  );
+
+  expect(renderer.toJSON()).toMatchSnapshot();
+});
+
+
+test('5- redirected project', () => {
+  const props = {
+    project: {
+      redirectTo: 'fooid'
+    },
+    projects: {
+      list: [{
+        _id: 'fooid',
+        name: 'foo.com'
+      }]
+    },
+    files: {
+      list: [],
+      loading: false,
+      map: {}
+    },
+    path: '/',
     selectPath: () => {
 
     },

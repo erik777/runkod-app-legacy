@@ -11,6 +11,7 @@ import Browser from './browser';
 import ProjectSettingsDialog from '../../dialogs/project-settings';
 import ProjectStatusDialog from '../../dialogs/project-status';
 import ProjectDeleteDialog from '../../dialogs/project-delete';
+import ProjectRedirectDialog from '../../dialogs/project-redirect';
 
 import fs from '../../../core-utils/fs';
 
@@ -18,7 +19,7 @@ import _c from '../../../utils/fix-class-names';
 
 import {refreshSvg, deleteSvg, settingsSvg, openSvg} from '../../../svg';
 
-class Project extends Component {
+class Toolbar extends Component {
 
   checked = (checked) => {
     const {files, path, checkListAdd, checkListReset} = this.props;
@@ -60,7 +61,7 @@ class Project extends Component {
   };
 
   render() {
-    const {project, files, path, checkList, ui} = this.props;
+    const {project, files, path, checkList} = this.props;
     const {map, loading} = files;
 
     let allChecked = false;
@@ -73,82 +74,83 @@ class Project extends Component {
 
     const projectUrl = `${project.name}`;
 
-    return (
-      <div className="project">
-        <div className="toolbar">
-          <div className="select-input" title={_t('manager.project.select-all')}>
-            <CheckBox checked={allChecked} disabled={disabled || loading} onChange={this.checked}/>
-          </div>
-          {(() => {
-            if (checkList.length === 0) {
-              return (
-                <>
-                  <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)} title={_t('manager.project.refresh')}>
-                    <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
-                  </div>
-                  <div className="settings-btn" title={_t('manager.project.settings')}>
-                    <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
-                  </div>
-                  <div className="h-space"/>
-                  <a className="open-btn" href={`https://${projectUrl}`} target="_blank"
-                     rel="noopener noreferrer">{projectUrl} {openSvg}</a>
-                </>
-              )
+    const redirected = !!project.redirectTo;
+
+    if (redirected) {
+      return <div className="toolbar redirected">
+        <div className="settings-btn" title={_t('manager.project.settings')}>
+          <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
+        </div>
+        <div className="h-space"/>
+        <a className="open-btn" href={`https://${projectUrl}`} target="_blank"
+           rel="noopener noreferrer">{projectUrl} {openSvg}</a>
+      </div>
+    }
+
+    return <div className="toolbar">
+      <div className="select-input" title={_t('manager.project.select-all')}>
+        <CheckBox checked={allChecked} disabled={disabled || loading} onChange={this.checked}/>
+      </div>
+      {(() => {
+        if (checkList.length === 0) {
+          return (
+            <>
+              <div className={_c(`refresh-btn ${loading ? 'disabled' : ''}`)} title={_t('manager.project.refresh')}>
+                <span className="inner-btn" onClick={this.refresh}>{refreshSvg}</span>
+              </div>
+              <div className="settings-btn" title={_t('manager.project.settings')}>
+                <span className="inner-btn" onClick={this.showSettings}>{settingsSvg}</span>
+              </div>
+              <div className="h-space"/>
+              <a className="open-btn" href={`https://${projectUrl}`} target="_blank"
+                 rel="noopener noreferrer">{projectUrl} {openSvg}</a>
+            </>
+          )
+        }
+
+        if (checkList.length > 0) {
+          let label = '';
+
+          if (allChecked) {
+            label = _t('manager.project.all-items-selected');
+          } else {
+            if (checkList.length === 1) {
+              label = _t('manager.project.item-selected');
+            } else {
+              label = _t('manager.project.items-selected', {n: checkList.length});
             }
+          }
 
-            if (checkList.length > 0) {
-              let label = '';
-
-              if (allChecked) {
-                label = _t('manager.project.all-items-selected');
-              } else {
-                if (checkList.length === 1) {
-                  label = _t('manager.project.item-selected');
-                } else {
-                  label = _t('manager.project.items-selected', {n: checkList.length});
-                }
+          return (
+            <div className="items-selected">
+              {allChecked &&
+              <span className="selected-label">{label}</span>
+              }
+              {!allChecked &&
+              <span className="selected-label">{label}</span>
               }
 
-              return (
-                <div className="items-selected">
-                  {allChecked &&
-                  <span className="selected-label">{label}</span>
-                  }
-                  {!allChecked &&
-                  <span className="selected-label">{label}</span>
-                  }
-
-                  <div className="delete-btn" title={_t('manager.project.delete')}>
-                    <span className="inner-btn" onClick={this.delete}>{deleteSvg}</span>
-                  </div>
-                </div>
-              )
-            }
-          })()}
-        </div>
-        <Browser {...this.props} />
-        {ui.projectSettings && <ProjectSettingsDialog {...this.props} />}
-        {ui.projectStatus && <ProjectStatusDialog {...this.props} />}
-        {ui.projectDelete && <ProjectDeleteDialog {...this.props} />}
-      </div>
-    )
+              <div className="delete-btn" title={_t('manager.project.delete')}>
+                <span className="inner-btn" onClick={this.delete}>{deleteSvg}</span>
+              </div>
+            </div>
+          )
+        }
+      })()}
+    </div>
   }
 }
 
-Project.defaultProps = {};
+Toolbar.defaultProps = {};
 
-Project.propTypes = {
+Toolbar.propTypes = {
   project: PropTypes.shape({
     name: PropTypes.string.isRequired,
+    redirectTo: PropTypes.string.isRequired,
   }).isRequired,
   files: PropTypes.shape({
     loading: PropTypes.bool.isRequired,
     map: PropTypes.shape({})
-  }).isRequired,
-  ui: PropTypes.shape({
-    projectSettings: PropTypes.bool.isRequired,
-    projectStatus: PropTypes.bool.isRequired,
-    projectDelete: PropTypes.bool.isRequired
   }).isRequired,
   path: PropTypes.string.isRequired,
   checkList: PropTypes.array.isRequired,
@@ -157,6 +159,35 @@ Project.propTypes = {
   checkListReset: PropTypes.func.isRequired,
   setDeleteQueue: PropTypes.func.isRequired,
   toggleUiProp: PropTypes.func.isRequired,
+};
+
+
+class Project extends Component {
+  render() {
+    const {ui} = this.props;
+
+    return (
+      <div className="project">
+        <Toolbar {...this.props} />
+        <Browser {...this.props} />
+        {ui.projectSettings && <ProjectSettingsDialog {...this.props} />}
+        {ui.projectStatus && <ProjectStatusDialog {...this.props} />}
+        {ui.projectDelete && <ProjectDeleteDialog {...this.props} />}
+        {ui.projectRedirect && <ProjectRedirectDialog {...this.props} />}
+      </div>
+    )
+  }
+}
+
+Project.defaultProps = {};
+
+Project.propTypes = {
+  ui: PropTypes.shape({
+    projectSettings: PropTypes.bool.isRequired,
+    projectStatus: PropTypes.bool.isRequired,
+    projectDelete: PropTypes.bool.isRequired,
+    projectRedirect: PropTypes.bool.isRequired
+  }).isRequired
 };
 
 export default Project;

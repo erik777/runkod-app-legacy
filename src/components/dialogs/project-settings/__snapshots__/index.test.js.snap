@@ -38,6 +38,29 @@ exports[`1- default 1`] = `
     <div
       className="title"
     >
+      Redirect to project
+       
+    </div>
+    <div
+      className="description"
+    >
+      Redirect this project to one of your other projects.
+    </div>
+    <button
+      className="btn btn-outline-primary btn-sm"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Select Project
+    </button>
+  </div>
+  <div
+    className="setting-section"
+  >
+    <div
+      className="title"
+    >
       Delete this project
     </div>
     <div
