@@ -124,7 +124,7 @@ class DialogContent extends Component {
     const projectList = list.filter(x => x._id !== project._id);
 
     if (projectList.length === 0) {
-      return 'There is no project to redirect'
+      return _t('project-redirect-dialog.no-project');
     }
 
     return (

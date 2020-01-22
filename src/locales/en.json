@@ -128,8 +128,9 @@
     "success": "Project deleted"
   },
   "project-redirect-dialog": {
-    "title": "Redirect Project",
+    "title": "Redirect to Project",
     "empty-item": "No Redirect",
+    "no-project": "There is no project to redirect",
     "error-selected-redirects": "The project you selected redirects itself to another project.",
     "success": "Project settings updated"
   },
