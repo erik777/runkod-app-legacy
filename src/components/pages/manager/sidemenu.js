@@ -26,10 +26,11 @@ class MenuItem extends Component {
   };
 
   render() {
-    const {project, item} = this.props;
+    const {projects, project, item} = this.props;
     const active = project && project._id === item._id;
+    const redirected = item.redirectTo && projects.list.find(x => x._id === item.redirectTo);
 
-    const cls = _c(`menu-item ${item.redirectTo ? 'redirected' : ''} ${active ? 'active' : ''}`);
+    const cls = _c(`menu-item ${redirected ? 'redirected' : ''} ${active ? 'active' : ''}`);
     return <div className={cls} key={item._id} onClick={() => {
       this.clicked(item);
     }}>{item.name}</div>;
@@ -39,6 +40,13 @@ class MenuItem extends Component {
 MenuItem.defaultProps = {};
 
 MenuItem.propTypes = {
+  projects: PropTypes.shape({
+    list: PropTypes.arrayOf(
+      PropTypes.shape({
+        _id: PropTypes.string.isRequired
+      })
+    ).isRequired
+  }).isRequired,
   project: PropTypes.shape({
     _id: PropTypes.string.isRequired
   }),
@@ -81,7 +89,8 @@ class SideMenu extends Component {
           <div className="menu-items">
             {
               list.map((i) => {
-                if (i.redirectTo) {
+                // don't render redirected projects
+                if (i.redirectTo && list.find(x => x._id === i.redirectTo)) {
                   return null;
                 }
 
