@@ -1,3 +1,7 @@
+/*
+eslint-disable no-extend-native
+*/
+
 Object.defineProperty(Array.prototype, 'chunk', {
   value: function (chunkSize) {
     var temporal = [];

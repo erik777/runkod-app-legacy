@@ -11,7 +11,6 @@ const defaultProps = {};
 
 const propTypes = {
   deleteQueue: PropTypes.shape({
-    current: PropTypes.string.isRequired,
     inProgress: PropTypes.bool.isRequired,
     files: PropTypes.arrayOf(PropTypes.shape({
       parent: PropTypes.string.isRequired,
@@ -86,7 +85,7 @@ class DialogContent extends Component {
 
   render() {
     const {deleteQueue: queue, ui} = this.props;
-    const {current, files, completed, failed, inProgress, log} = queue;
+    const {files, completed, failed, inProgress, log} = queue;
     const [file,] = files;
 
     const all = files.length + completed.length + failed.length;
@@ -137,7 +136,7 @@ class DialogContent extends Component {
           if (inProgress) {
             return <div className="delete-progress">
               <div className="title">{_t('delete-queue-dialog.progress-title')}</div>
-              <div className="description">{current}</div>
+              <div className="description">{done} / {all}</div>
               <div className="controls">
                 <ProgressBar animated max={all} now={done}/>
               </div>
@@ -185,9 +184,13 @@ DialogContent.propTypes = propTypes;
 export {DialogContent};
 
 class DeleteQueueDialog extends Component {
+  hide = () => {
+
+  };
+
   render() {
     return (
-      <Modal show className="delete-queue-dialog">
+      <Modal show className="delete-queue-dialog" onHide={this.hide}>
         <Modal.Body>
           <DialogContent {...this.props} />
         </Modal.Body>

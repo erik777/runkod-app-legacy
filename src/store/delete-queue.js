@@ -1,7 +1,8 @@
+import {File} from '../model';
+
 import to from 'await-to-js';
 
 import {USER_LOGOUT} from './user';
-import {File} from "../model";
 
 import {userSession} from '../blockstack-config';
 
@@ -118,7 +119,8 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
   const {deleteQueue: queue} = getState();
   const {files} = queue;
 
-  const chunkSize = navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 2;
+  // 2 promises for each processor core
+  const chunkSize = (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 1) * 2;
 
   const chunks = files.chunk(chunkSize);
 
@@ -129,66 +131,6 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
 
   dispatch(finishAct());
 };
-
-
-/*
-export const startDeleteQueue = () => async (dispatch, getState) => {
-  dispatch(startAct());
-
-  while (true) {
-
-    const {deleteQueue: queue} = getState();
-    const {files} = queue;
-
-    if (files.length === 0) {
-      dispatch(finishAct());
-      break;
-    }
-
-    const { project} = getState();
-
-    const [file,] = files;
-
-    dispatch(fileStartAct());
-
-    // Get radiks record of file
-    const [err1, fileRecs] = await to(File.fetchOwnList({project: project._id, name: file.name}));
-
-    if (err1) {
-      dispatch(fileErrorAct());
-      continue;
-    }
-
-    if (fileRecs.length === 0) {
-      dispatch(fileErrorAct());
-      continue;
-    }
-
-    const fileRec = fileRecs[0];
-
-    // Overwrite file (on gaia) with 1 byte array
-    const [err2, ] = await to(userSession.putFile(file.name, new ArrayBuffer(1), {
-      encrypt: false
-    }));
-
-    if (err2) {
-      dispatch(fileErrorAct());
-      continue;
-    }
-
-    // Save radiks record
-    fileRec.update({deleted: true});
-
-    const [err3,] = await to(fileRec.save());
-    if (err3) {
-      dispatch(fileErrorAct());
-      continue;
-    }
-
-    dispatch(fileOkAct());
-  }
-};
-*/
 
 export const resetDeleteQueue = () => (dispatch) => {
   dispatch(resetAct());
