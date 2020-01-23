@@ -134,7 +134,9 @@ exports[`3- in progress 1`] = `
   <div
     className="description"
   >
-    /file1.json
+    0
+     / 
+    2
   </div>
   <div
     className="controls"

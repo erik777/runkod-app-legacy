@@ -2,7 +2,6 @@ import reducer, {
   setAct,
   startAct,
   finishAct,
-  fileStartAct,
   fileOkAct,
   fileErrorAct,
   resetAct
@@ -16,7 +15,7 @@ it('1- default state', () => {
 
 it('2- set. 2 items in "files".', () => {
   const files = [
-    {parent: '/', label: 'style.css'}, {parent: '/', label: 'main.js'}
+    {_id: 'foo', parent: '/', label: 'style.css'}, {_id: 'bar', parent: '/', label: 'main.js'}
   ];
   const act = setAct(files);
   state = reducer(state, act);
@@ -29,26 +28,14 @@ it('3- start', () => {
   expect(state).toMatchSnapshot();
 });
 
-it('4- file start ', () => {
-  const act = fileStartAct();
-  state = reducer(state, act);
-  expect(state).toMatchSnapshot();
-});
-
 it('5- file ok. 1 item in "files", 1 items in "completed".', () => {
-  const act = fileOkAct();
-  state = reducer(state, act);
-  expect(state).toMatchSnapshot();
-});
-
-it('6- file start.', () => {
-  const act = fileStartAct();
+  const act = fileOkAct({_id: 'foo', parent: '/', label: 'style.css'});
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
 
 it('7- file error. 0 item in "files", 1 items in "completed", 1 item in "failed". ', () => {
-  const act = fileErrorAct();
+  const act = fileErrorAct({_id: 'bar', parent: '/', label: 'main.js'});
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
