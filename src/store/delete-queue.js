@@ -6,6 +6,8 @@ import {USER_LOGOUT} from './user';
 
 import {userSession} from '../blockstack-config';
 
+import arrayChunk from '../utils/array-chunk';
+
 const initialState = {
   files: [],
   completed: [],
@@ -122,7 +124,7 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
   // 2 promises for each processor core
   const chunkSize = (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 1) * 2;
 
-  const chunks = files.chunk(chunkSize);
+  const chunks = arrayChunk(files, chunkSize);
 
   for (let x = 0; x < chunks.length; x++) {
     const ps = chunks[x].map(x => deleteFile(x).catch(x => x));
