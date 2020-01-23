@@ -10,7 +10,6 @@ const initialState = {
   completed: [],
   failed: [],
   log: [],
-  current: '',
   show: false,
   inProgress: false
 };
@@ -20,7 +19,6 @@ const initialState = {
 export const SET = '@delete-queue/SET';
 export const START = '@delete-queue/START';
 export const FINISH = '@delete-queue/FINISHED';
-export const FILE_START = '@delete-queue/FILE_STARTED';
 export const FILE_OK = '@delete-queue/FILE_OK';
 export const FILE_ERROR = '@delete-queue/FILE_ERROR';
 export const RESET = '@delete-queue/RESET';
@@ -40,24 +38,25 @@ export default (state = initialState, action) => {
     case FINISH: {
       return Object.assign({}, state, {inProgress: false});
     }
-    case FILE_START: {
-      const [file,] = state.files;
-      const path = `${file.parent}${file.label}`;
-      return Object.assign({}, state, {current: path});
-    }
     case FILE_OK: {
-      const [file, ...files] = state.files;
+      // const [file, ...files] = state.files;
+      const {file} = action.payload;
+      const files = state.files.filter(x => x._id !== file._id);
+
       const completed = [...state.completed, file];
       const path = `${file.parent}${file.label}`;
       const log = [...state.log, {type: 'success', msg: `${path} deleted`}];
-      return Object.assign({}, state, {files, completed, current: '', log});
+      return Object.assign({}, state, {files, completed, log});
     }
     case FILE_ERROR: {
-      const [file, ...files] = state.files;
+      // const [file, ...files] = state.files;
+      const {file} = action.payload;
+      const files = state.files.filter(x => x._id !== file._id);
+
       const failed = [...state.failed, file];
       const path = `${file.parent}${file.label}`;
       const log = [...state.log, {type: 'error', msg: `${path} could not delete`}];
-      return Object.assign({}, state, {files, failed, current: '', log});
+      return Object.assign({}, state, {files, failed, log});
     }
     case RESET:
       return initialState;
@@ -74,6 +73,65 @@ export const setDeleteQueue = (files) => (dispatch) => {
   dispatch(setAct(files));
 };
 
+export const startDeleteQueue = () => async (dispatch, getState) => {
+  dispatch(startAct());
+
+  const {project} = getState();
+
+  const deleteFile = async (file) => {
+    const [err1, fileRecs] = await to(File.fetchOwnList({project: project._id, name: file.name}));
+
+    if (err1) {
+      dispatch(fileErrorAct(file));
+      throw new Error('Error while fetching file record');
+    }
+
+    if (fileRecs.length === 0) {
+      dispatch(fileErrorAct(file));
+      throw new Error('File not found');
+    }
+
+    const fileRec = fileRecs[0];
+
+    // Overwrite file (on gaia) with 1 byte array
+    const [err2,] = await to(userSession.putFile(file.name, new ArrayBuffer(1), {
+      encrypt: false
+    }));
+
+    if (err2) {
+      dispatch(fileErrorAct(file));
+      throw new Error('Could not update file');
+    }
+
+    // Save record
+    fileRec.update({deleted: true});
+
+    const [err3,] = await to(fileRec.save());
+    if (err3) {
+      dispatch(fileErrorAct(file));
+      throw new Error('Could not update file record');
+    }
+
+    dispatch(fileOkAct(file));
+  };
+
+  const {deleteQueue: queue} = getState();
+  const {files} = queue;
+
+  const chunkSize = navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 2;
+
+  const chunks = files.chunk(chunkSize);
+
+  for (let x = 0; x < chunks.length; x++) {
+    const ps = chunks[x].map(x => deleteFile(x).catch(x => x));
+    await Promise.all(ps);
+  }
+
+  dispatch(finishAct());
+};
+
+
+/*
 export const startDeleteQueue = () => async (dispatch, getState) => {
   dispatch(startAct());
 
@@ -130,6 +188,7 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
     dispatch(fileOkAct());
   }
 };
+*/
 
 export const resetDeleteQueue = () => (dispatch) => {
   dispatch(resetAct());
@@ -149,22 +208,23 @@ export const startAct = () => ({
   type: START
 });
 
-
 export const finishAct = () => ({
   type: FINISH
 });
 
 
-export const fileStartAct = () => ({
-  type: FILE_START
+export const fileOkAct = (file) => ({
+  type: FILE_OK,
+  payload: {
+    file
+  }
 });
 
-export const fileOkAct = () => ({
-  type: FILE_OK
-});
-
-export const fileErrorAct = () => ({
-  type: FILE_ERROR
+export const fileErrorAct = (file) => ({
+  type: FILE_ERROR,
+  payload: {
+    file
+  }
 });
 
 

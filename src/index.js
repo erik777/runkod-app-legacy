@@ -9,6 +9,8 @@ import * as serviceWorker from './serviceWorker';
 
 import './style/style.scss';
 
+import './polyfill';
+
 import './window';
 
 import 'typeface-ibm-plex-sans';
