@@ -8,44 +8,31 @@ import transformContent from '../core-utils/transform'
 
 import {userSession, getUsername} from '../blockstack-config';
 
+import arrayChunk from '../utils/array-chunk';
+
+import uniqueId from '../utils/unique-id';
+
 import {File} from '../model';
 
 import {USER_LOGOUT} from './user';
 
-import {
-  CONFLICT_FLAG_NONE,
-  CONFLICT_FLAG_YES,
-  CONFLICT_FLAG_NO,
-  CONFLICT_FLAG_NO_ALL
-} from '../constants';
-
-// Helper to switch conflict flag on FILE_OK, FILE_ERROR, FILE_SKIP
-const switchCF = (state) => {
-  return [CONFLICT_FLAG_YES, CONFLICT_FLAG_NO].includes(state.conflictFlag) ? CONFLICT_FLAG_NONE : state.conflictFlag;
-};
-
+import {FILE_CONCURRENCY} from '../constants';
 
 const initialState = {
-  files: [],
+  pending: [],
   completed: [],
   failed: [],
-  skipped: [],
   log: [],
-  current: '',
-  conflict: false,
-  conflictFlag: CONFLICT_FLAG_NONE,
-  show: false
+  show: false,
+  inProgress: false
 };
 
 /* Action types */
 export const SET = '@upload-queue/SET';
+export const START = '@upload-queue/START';
 export const FINISH = '@upload-queue/FINISH';
-export const FILE_START = '@upload-queue/FILE_START';
-export const FILE_OK = '@upload-queue/FILE_OK';
-export const FILE_ERROR = '@upload-queue/FILE_ERROR';
-export const FILE_SKIP = '@upload-queue/FILE_SKIP';
-export const FILE_CONFLICT = '@upload-queue/FILE_CONFLICT';
-export const CONFLICT_FLAG_SET = '@upload-queue/CONFLICT_FLAG_SET';
+export const OK = '@upload-queue/OK';
+export const ERROR = '@upload-queue/ERROR';
 export const RESET = '@upload-queue/RESET';
 
 
@@ -54,39 +41,39 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET: {
       const {files} = action.payload;
-      return Object.assign({}, state, {files, show: true});
+      return Object.assign({}, state, {pending: files, show: true});
     }
-    case FILE_START: {
-      const {path} = action.payload;
-      return Object.assign({}, state, {current: path});
+    case START: {
+      const log = [...state.log, {type: 'info', msg: `Upload started`}];
+      return Object.assign({}, state, {inProgress: true, log});
     }
-    case FILE_OK: {
-      const [file, ...files] = state.files;
+    case FINISH: {
+      let msg = `${state.completed.length} files uploaded 🎉`;
+
+      if (state.failed.length > 0) {
+        msg = `${state.completed.length} files uploaded, ${state.failed.length} failed  👀`;
+      }
+
+      const log = [...state.log, {type: 'info', msg}];
+      return Object.assign({}, state, {inProgress: false, log});
+    }
+    case OK: {
+      const {file} = action.payload;
+      const pending = state.pending.filter(x => x._id !== file._id);
+
       const completed = [...state.completed, file];
       const path = `${file.path}${file.name}`;
-      const log = [...state.log, {type: 'success', msg: `${path} uploaded`}];
-      return Object.assign({}, state, {files, completed, current: '', conflictFlag: switchCF(state), log});
+      const log = [...state.log, {type: 'success', msg: `/${path} uploaded`}];
+      return Object.assign({}, state, {pending, completed, log});
     }
-    case FILE_ERROR: {
-      const [file, ...files] = state.files;
+    case ERROR: {
+      const {file} = action.payload;
+      const pending = state.pending.filter(x => x._id !== file._id);
+
       const failed = [...state.failed, file];
       const path = `${file.path}${file.name}`;
-      const log = [...state.log, {type: 'error', msg: `${path} could not uploaded`}];
-      return Object.assign({}, state, {files, failed, current: '', conflictFlag: switchCF(state), log});
-    }
-    case FILE_SKIP: {
-      const [file, ...files] = state.files;
-      const skipped = [...state.skipped, file];
-      const path = `${file.path}${file.name}`;
-      const log = [...state.log, {type: 'info', msg: `${path} skipped`}];
-      return Object.assign({}, state, {files, skipped, current: '', conflictFlag: switchCF(state), log});
-    }
-    case FILE_CONFLICT: {
-      return Object.assign({}, state, {conflict: true});
-    }
-    case CONFLICT_FLAG_SET: {
-      const {flag} = action.payload;
-      return Object.assign({}, state, {conflict: false, current: '', conflictFlag: flag});
+      const log = [...state.log, {type: 'error', msg: `/${path} could not uploaded`}];
+      return Object.assign({}, state, {pending, failed, log});
     }
     case RESET:
       return initialState;
@@ -97,37 +84,30 @@ export default (state = initialState, action) => {
   }
 }
 
-
 /* Actions */
 export const setUploadQueue = (files) => (dispatch) => {
-  dispatch(setAct(files));
+  // Create a virtual unique id for each entry
+  const files_ = files.map(x => Object.assign({}, x, {_id: uniqueId()}));
+
+  dispatch(setAct(files_));
 };
 
-export const startUploadQueue = () => async (dispatch, getState) => {
+export const resetUploadQueue = () => (dispatch) => {
+  dispatch(resetAct());
+};
 
-  while (true) {
+export const processUploadQueue = () => async (dispatch, getState) => {
+  dispatch(startAct());
 
-    const {uploadQueue: queue} = getState();
-    const {files} = queue;
+  const {path, project} = getState();
 
-    if (files.length === 0) {
-      dispatch(finishAct());
-      break;
-    }
-
-    const {path, project} = getState();
-    const {conflictFlag} = queue;
-
-    const [file,] = files;
-
+  const uploadFile = async (file) => {
     const parent = `${path}${file.path}`;
     const fullPath = `${parent}${file.name}`;
 
-    dispatch(fileStartAct(fullPath));
-
     const fileS = file.name.split('.');
     const fileExt = fileS.length > 1 ? `.${fileS[fileS.length - 1]}`.toLowerCase() : '';
-    const gaiaFileName = md5(`${project._id}-${Date.now()}`) + fileExt;
+    const gaiaFileName = md5(`${project._id}-${uniqueId()}`) + fileExt;
     const mimeType = mime.lookup(fileExt) || null;
 
     // Check if file exists
@@ -140,21 +120,8 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     }));
 
     if (err1) {
-      dispatch(fileErrorAct());
-      continue;
-    }
-
-    // Stop loop if conflicted
-    if (fileRecs.length > 0) {
-      if (conflictFlag === CONFLICT_FLAG_NONE) {
-        dispatch(fileConflictAct());
-        break;
-      }
-
-      if ([CONFLICT_FLAG_NO, CONFLICT_FLAG_NO_ALL].includes(conflictFlag)) {
-        dispatch(fileSkipAct());
-        continue;
-      }
+      dispatch(errorAct(file));
+      throw new Error('Could not get file info');
     }
 
     const fileBuff = transformContent(file.buffer);
@@ -166,14 +133,14 @@ export const startUploadQueue = () => async (dispatch, getState) => {
     }));
 
     if (err2) {
-      dispatch(fileErrorAct());
-      continue;
+      dispatch(errorAct(file));
+      throw new Error('Could not upload file to gaia');
     }
 
     if (fileRecs.length > 0) {
-      // Handle rewrite
+      // Overwrite
 
-      const fileRec = fileRecs[0];
+      const [fileRec,] = fileRecs;
       const {name: oldName} = fileRec.attrs;
 
       // Update record
@@ -181,8 +148,8 @@ export const startUploadQueue = () => async (dispatch, getState) => {
 
       const [err1,] = await to(fileRec.save());
       if (err1) {
-        dispatch(fileErrorAct());
-        continue;
+        dispatch(errorAct(file));
+        throw new Error('Could not update file record');
       }
 
       // Delete old file on gaia. No need to handle error.
@@ -190,8 +157,8 @@ export const startUploadQueue = () => async (dispatch, getState) => {
         encrypt: false
       }));
 
-      dispatch(fileOkAct());
-      continue;
+      dispatch(okAct(file));
+      return;
     }
 
     // Create file record
@@ -212,20 +179,24 @@ export const startUploadQueue = () => async (dispatch, getState) => {
 
     const [err3,] = await to(f.save());
     if (err3) {
-      dispatch(fileErrorAct());
-      continue;
+      dispatch(errorAct(file));
+      throw new Error('Could not create file record');
     }
 
-    dispatch(fileOkAct());
+    dispatch(okAct(file));
+  };
+
+  const {uploadQueue: queue} = getState();
+  const {pending} = queue;
+
+  const chunks = arrayChunk(pending, FILE_CONCURRENCY);
+
+  for (let x = 0; x < chunks.length; x++) {
+    const ps = chunks[x].map(x => uploadFile(x).catch(x => x));
+    await Promise.all(ps);
   }
-};
 
-export const resetUploadQueue = () => (dispatch) => {
-  dispatch(resetQueueAct());
-};
-
-export const setUploadQueueConflictFlag = (flag) => (dispatch) => {
-  dispatch(conflictFlagAct(flag));
+  dispatch(finishAct());
 };
 
 
@@ -238,42 +209,28 @@ export const setAct = (files) => ({
   }
 });
 
+export const resetAct = () => ({
+  type: RESET
+});
+
+export const startAct = () => ({
+  type: START
+});
 
 export const finishAct = () => ({
   type: FINISH
 });
 
-export const fileStartAct = (path) => ({
-  type: FILE_START,
+export const okAct = (file) => ({
+  type: OK,
   payload: {
-    path
+    file
   }
 });
 
-export const fileOkAct = () => ({
-  type: FILE_OK
-});
-
-export const fileErrorAct = () => ({
-  type: FILE_ERROR
-});
-
-
-export const fileSkipAct = () => ({
-  type: FILE_SKIP
-});
-
-export const fileConflictAct = () => ({
-  type: FILE_CONFLICT
-});
-
-export const conflictFlagAct = (flag) => ({
-  type: CONFLICT_FLAG_SET,
+export const errorAct = (file) => ({
+  type: ERROR,
   payload: {
-    flag
+    file
   }
-});
-
-export const resetQueueAct = () => ({
-  type: RESET
 });

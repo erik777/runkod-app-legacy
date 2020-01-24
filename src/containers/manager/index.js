@@ -10,7 +10,7 @@ import {fetchProjects} from '../../store/projects';
 import {selectProject, setProjectStatus, setProjectRedirect} from '../../store/project';
 import {fetchFiles} from '../../store/files';
 import {selectPath} from '../../store/path';
-import {setUploadQueue, startUploadQueue, setUploadQueueConflictFlag, resetUploadQueue} from '../../store/upload-queue';
+import {setUploadQueue, processUploadQueue, resetUploadQueue} from '../../store/upload-queue';
 import {checkListAdd, checkListDelete, checkListReset} from '../../store/check-list';
 import {setDeleteQueue, startDeleteQueue, resetDeleteQueue} from '../../store/delete-queue';
 
@@ -47,8 +47,7 @@ const mapDispatchToProps = dispatch =>
       fetchFiles,
       selectPath,
       setUploadQueue,
-      startUploadQueue,
-      setUploadQueueConflictFlag,
+      processUploadQueue,
       resetUploadQueue,
       checkListAdd,
       checkListDelete,

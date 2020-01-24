@@ -60,11 +60,11 @@ class ManagerPage extends Component {
 
     if (isNew) {
       // Upload placeholder files for new projects
-      const {setUploadQueue, startUploadQueue} = this.props;
+      const {setUploadQueue, processUploadQueue} = this.props;
       const files = await placeholderFiles();
 
       setUploadQueue(files);
-      startUploadQueue();
+      processUploadQueue();
     }
   };
 
@@ -186,7 +186,7 @@ ManagerPage.propTypes = {
   toggleUiProp: PropTypes.func.isRequired,
   selectProject: PropTypes.func.isRequired,
   setUploadQueue: PropTypes.func.isRequired,
-  startUploadQueue: PropTypes.func.isRequired,
+  processUploadQueue: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   })

@@ -80,19 +80,7 @@
     "step3-content": "Drag & drop extracted files to your project."
   },
   "upload-queue-dialog": {
-    "progress-title": "Uploading",
-    "conflict-message": "{{name}} already exists",
-    "conflict-question": "Do you want to overwrite it?",
-    "conflict-option-yes-all": "Yes to All",
-    "conflict-option-no-all": "No to All",
-    "done-title": "Done",
-    "summary-completed": "1 file uploaded",
-    "n-summary-completed": "{{n}} files uploaded",
-    "summary-failed": "1 file failed",
-    "n-summary-failed": "{{n}} files failed",
-    "summary-skipped": "1 file skipped",
-    "n-summary-skipped": "{{n}} files skipped",
-    "show-details": "show details"
+    "progress-title": "Uploading"
   },
   "delete-queue-dialog": {
     "confirm": "1 file will be deleted",

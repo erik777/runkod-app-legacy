@@ -16,9 +16,9 @@ import {homeSvg} from '../../../../svg';
 
 class Browser extends Component {
   onDrop = (files) => {
-    const {setUploadQueue, startUploadQueue} = this.props;
+    const {setUploadQueue, processUploadQueue} = this.props;
     setUploadQueue(files);
-    startUploadQueue();
+    processUploadQueue();
   };
 
   pathClicked = (path) => {
@@ -124,7 +124,7 @@ Browser.propTypes = {
   path: PropTypes.string.isRequired,
   selectPath: PropTypes.func.isRequired,
   setUploadQueue: PropTypes.func.isRequired,
-  startUploadQueue: PropTypes.func.isRequired,
+  processUploadQueue: PropTypes.func.isRequired,
 };
 
 export default Browser;
