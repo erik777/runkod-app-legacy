@@ -64,7 +64,8 @@ class DialogContent extends Component {
       <>
         {(() => {
           // Deleting
-          if (inProgress || (pending.length === 0 && failed.length === 0)) {
+          // Deleting or Completed or 1 failed
+          if (inProgress || (pending.length === 0 && failed.length === 0) || failed.length > 0) {
             return <div className="delete-progress">
               <div className="description">{done} / {all}</div>
               <div className="progress-percent">

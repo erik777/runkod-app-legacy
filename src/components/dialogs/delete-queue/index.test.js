@@ -3,32 +3,16 @@ import {DialogContent} from './index';
 import TestRenderer from 'react-test-renderer';
 
 
-test('1- default', () => {
+it('1- default', () => {
   const props = {
     deleteQueue: {
-      current: '',
       inProgress: false,
-      files: [
-        {
-          parent: '/',
-          label: 'file1.json'
-        },
-        {
-          parent: '/',
-          label: 'file2.json'
-        }
-      ],
+      pending: [{}, {}],
       completed: [],
       failed: [],
       log: []
     },
-    ui: {
-      deleteDetail: false,
-      deleteSummaryDetail: false
-    },
-    toggleUiProp: () => {
-    },
-    startDeleteQueue: () => {
+    processDeleteQueue: () => {
     },
     resetDeleteQueue: () => {
     },
@@ -43,199 +27,23 @@ test('1- default', () => {
   expect(renderer.toJSON()).toMatchSnapshot();
 });
 
-
-test('2- show details', () => {
+it('2- deleting', () => {
   const props = {
     deleteQueue: {
-      current: '',
-      inProgress: false,
-      files: [
-        {
-          parent: '/',
-          label: 'file1.json'
-        },
-        {
-          parent: '/',
-          label: 'file2.json'
-        }
-      ],
-      completed: [],
-      failed: [],
-      log: []
-    },
-    ui: {
-      deleteDetail: true,
-      deleteSummaryDetail: false
-    },
-    toggleUiProp: () => {
-    },
-    startDeleteQueue: () => {
-    },
-    resetDeleteQueue: () => {
-    },
-    fetchFiles: () => {
-    }
-  };
-
-  const renderer = TestRenderer.create(
-    <DialogContent {...props}/>
-  );
-
-  expect(renderer.toJSON()).toMatchSnapshot();
-});
-
-
-test('3- in progress', () => {
-  const props = {
-    deleteQueue: {
-      current: '/file1.json',
       inProgress: true,
-      files: [
-        {
-          parent: '/',
-          label: 'file1.json'
-        },
-        {
-          parent: '/',
-          label: 'file2.json'
-        }
-      ],
-      completed: [],
-      failed: [],
-      log: []
-    },
-    ui: {
-      deleteDetail: false,
-      deleteSummaryDetail: false
-    },
-    toggleUiProp: () => {
-    },
-    startDeleteQueue: () => {
-    },
-    resetDeleteQueue: () => {
-    },
-    fetchFiles: () => {
-    }
-  };
-
-  const renderer = TestRenderer.create(
-    <DialogContent {...props}/>
-  );
-
-  expect(renderer.toJSON()).toMatchSnapshot();
-});
-
-test('4- completed', () => {
-  const props = {
-    deleteQueue: {
-      current: '',
-      inProgress: false,
-      files: [],
-      completed: [{
-        parent: '/',
-        label: 'file1.json'
-      }, {
-        parent: '/',
-        label: 'file2.json'
-      }],
-      failed: [],
-      log: []
-    },
-    ui: {
-      deleteDetail: false,
-      deleteSummaryDetail: false
-    },
-    toggleUiProp: () => {
-    },
-    startDeleteQueue: () => {
-    },
-    resetDeleteQueue: () => {
-    },
-    fetchFiles: () => {
-    }
-  };
-
-  const renderer = TestRenderer.create(
-    <DialogContent {...props}/>
-  );
-
-  expect(renderer.toJSON()).toMatchSnapshot();
-});
-
-test('5- completed. show detail', () => {
-  const props = {
-    deleteQueue: {
-      current: '',
-      inProgress: false,
-      files: [],
-      completed: [{
-        parent: '/',
-        label: 'file1.json'
-      }],
+      pending: [{}],
+      completed: [{}],
       failed: [],
       log: [{
-        type: 'success',
-        msg: '/file1.json deleted'
-      }]
-    },
-    ui: {
-      deleteDetail: false,
-      deleteSummaryDetail: true
-    },
-    toggleUiProp: () => {
-    },
-    startDeleteQueue: () => {
-    },
-    resetDeleteQueue: () => {
-    },
-    fetchFiles: () => {
-    }
-  };
-
-  const renderer = TestRenderer.create(
-    <DialogContent {...props}/>
-  );
-
-  expect(renderer.toJSON()).toMatchSnapshot();
-});
-
-test('6- show details with error', () => {
-  const props = {
-    deleteQueue: {
-      current: '',
-      inProgress: false,
-      files: [],
-      completed: [{
-        parent: '/',
-        label: 'file1.json'
+        type: 'info',
+        msg: 'Deleting...'
       },
         {
-          parent: '/',
-          label: 'file3.json'
-        }],
-      failed: [ {
-        parent: '/',
-        label: 'file2.json'
-      }],
-      log: [{
-        type: 'success',
-        msg: '/file1.json deleted'
-      },
-        {
-        type: 'error',
-        msg: '/file2.json could not delete'
-      },{
           type: 'success',
-          msg: '/file1.json deleted'
+          msg: '/foo.png deleted'
         }]
     },
-    ui: {
-      deleteDetail: false,
-      deleteSummaryDetail: true
-    },
-    toggleUiProp: () => {
-    },
-    startDeleteQueue: () => {
+    processDeleteQueue: () => {
     },
     resetDeleteQueue: () => {
     },
@@ -249,3 +57,69 @@ test('6- show details with error', () => {
 
   expect(renderer.toJSON()).toMatchSnapshot();
 });
+
+it('2- done', () => {
+  const props = {
+    deleteQueue: {
+      inProgress: false,
+      pending: [],
+      completed: [{}, {}],
+      failed: [],
+      log: [{
+        type: 'info',
+        msg: 'Deleting...'
+      },
+        {
+          type: 'success',
+          msg: '/foo.png deleted'
+        }]
+    },
+    processDeleteQueue: () => {
+    },
+    resetDeleteQueue: () => {
+    },
+    fetchFiles: () => {
+    }
+  };
+
+  const renderer = TestRenderer.create(
+    <DialogContent {...props}/>
+  );
+
+  expect(renderer.toJSON()).toMatchSnapshot();
+});
+
+
+it('3- failed', () => {
+  const props = {
+    deleteQueue: {
+      inProgress: false,
+      pending: [],
+      completed: [{}],
+      failed: [{}],
+      log: [
+        {
+          type: 'info',
+          msg: 'Deleting...'
+        },
+        {
+          type: 'success',
+          msg: '/foo.png deleted'
+        }
+      ]
+    },
+    processDeleteQueue: () => {
+    },
+    resetDeleteQueue: () => {
+    },
+    fetchFiles: () => {
+    }
+  };
+
+  const renderer = TestRenderer.create(
+    <DialogContent {...props}/>
+  );
+
+  expect(renderer.toJSON()).toMatchSnapshot();
+});
+

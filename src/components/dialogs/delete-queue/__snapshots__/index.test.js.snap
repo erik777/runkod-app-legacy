@@ -10,16 +10,6 @@ exports[`1- default 1`] = `
     2 files will be deleted
   </div>
   <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
-  </div>
-  <div
     className="controls"
   >
     <button
@@ -45,101 +35,19 @@ exports[`1- default 1`] = `
 </div>
 `;
 
-exports[`2- show details 1`] = `
-<div
-  className="delete-confirm"
->
-  <div
-    className="title"
-  >
-    2 files will be deleted
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
-    <div
-      className="detail-list"
-    >
-      <div
-        className="detail-list-item"
-      >
-        <div
-          className="index"
-        >
-          1
-        </div>
-        <div
-          className="path"
-        >
-          /file1.json
-        </div>
-      </div>
-      <div
-        className="detail-list-item"
-      >
-        <div
-          className="index"
-        >
-          2
-        </div>
-        <div
-          className="path"
-        >
-          /file2.json
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-primary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Delete
-    </button>
-    <span
-      className="separator"
-    />
-    <button
-      className="btn btn-outline-info btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Cancel
-    </button>
-  </div>
-</div>
-`;
-
-exports[`3- in progress 1`] = `
+exports[`2- deleting 1`] = `
 <div
   className="delete-progress"
 >
   <div
-    className="title"
-  >
-    Deleting
-  </div>
-  <div
     className="description"
   >
-    0
+    1
      / 
     2
   </div>
   <div
-    className="controls"
+    className="progress-percent"
   >
     <div
       className="progress"
@@ -147,172 +55,132 @@ exports[`3- in progress 1`] = `
       <div
         aria-valuemax={2}
         aria-valuemin={0}
-        aria-valuenow={0}
+        aria-valuenow={1}
         className="progress-bar progress-bar-animated progress-bar-striped"
         role="progressbar"
         style={
           Object {
-            "width": "0%",
+            "width": "50%",
           }
         }
       />
     </div>
   </div>
-</div>
-`;
-
-exports[`4- completed 1`] = `
-<div
-  className="delete-done"
->
   <div
-    className="title"
+    className="queue-log"
   >
-    Done
-  </div>
-  <div
-    className="summary"
-  >
-    <span
-      className="summary-item completed"
-    >
-      2 files deleted
-    </span>
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Close
-    </button>
-  </div>
-</div>
-`;
-
-exports[`5- completed. show detail 1`] = `
-<div
-  className="delete-done"
->
-  <div
-    className="title"
-  >
-    Done
-  </div>
-  <div
-    className="summary"
-  >
-    <span
-      className="summary-item completed"
-    >
-      1 file deleted
-    </span>
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
     <div
-      className="detail-list user-select"
+      className="list-item list-item-info"
+    >
+      Deleting...
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      /foo.png deleted
+    </div>
+  </div>
+</div>
+`;
+
+exports[`2- done 1`] = `
+<div
+  className="delete-progress"
+>
+  <div
+    className="description"
+  >
+    2
+     / 
+    2
+  </div>
+  <div
+    className="progress-percent"
+  >
+    <div
+      className="progress"
     >
       <div
-        className="detail-list-item success"
-      >
-        /file1.json deleted
-      </div>
+        aria-valuemax={2}
+        aria-valuemin={0}
+        aria-valuenow={2}
+        className="progress-bar progress-bar-animated progress-bar-striped"
+        role="progressbar"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="queue-log"
+  >
+    <div
+      className="list-item list-item-info"
+    >
+      Deleting...
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      /foo.png deleted
+    </div>
+  </div>
+</div>
+`;
+
+exports[`3- failed 1`] = `
+<div
+  className="delete-progress"
+>
+  <div
+    className="description"
+  >
+    2
+     / 
+    2
+  </div>
+  <div
+    className="progress-percent"
+  >
+    <div
+      className="progress"
+    >
+      <div
+        aria-valuemax={2}
+        aria-valuemin={0}
+        aria-valuenow={2}
+        className="progress-bar progress-bar-animated progress-bar-striped"
+        role="progressbar"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+  </div>
+  <div
+    className="queue-log"
+  >
+    <div
+      className="list-item list-item-info"
+    >
+      Deleting...
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      /foo.png deleted
     </div>
   </div>
   <div
     className="controls"
   >
     <button
-      className="btn btn-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Close
-    </button>
-  </div>
-</div>
-`;
-
-exports[`6- show details with error 1`] = `
-<div
-  className="delete-done"
->
-  <div
-    className="title"
-  >
-    Done
-  </div>
-  <div
-    className="summary"
-  >
-    <span
-      className="summary-item completed"
-    >
-      2 files deleted
-    </span>
-    <span
-      className="summary-item failed"
-    >
-      1 file failed
-    </span>
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
-    <div
-      className="detail-list user-select"
-    >
-      <div
-        className="detail-list-item success"
-      >
-        /file1.json deleted
-      </div>
-      <div
-        className="detail-list-item error"
-      >
-        /file2.json could not delete
-      </div>
-      <div
-        className="detail-list-item success"
-      >
-        /file1.json deleted
-      </div>
-    </div>
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-secondary btn-sm"
+      className="btn btn-outline-info btn-sm"
       disabled={false}
       onClick={[Function]}
       type="button"
