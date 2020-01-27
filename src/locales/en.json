@@ -80,7 +80,6 @@
     "step3-content": "Drag & drop extracted files to your project."
   },
   "upload-queue-dialog": {
-    "progress-title": "Uploading"
   },
   "delete-queue-dialog": {
     "confirm": "1 file will be deleted",

@@ -74,7 +74,6 @@ class DialogContent extends Component {
 
     return (
       <>
-        <div className="title">{_t('upload-queue-dialog.progress-title')}</div>
         <div className="progress-num">
           {done} / {all}
         </div>

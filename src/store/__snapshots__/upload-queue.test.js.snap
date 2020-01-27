@@ -50,7 +50,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
   ],
@@ -93,7 +93,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -140,7 +140,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -192,7 +192,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -248,7 +248,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -302,7 +302,7 @@ Object {
   "inProgress": false,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -392,7 +392,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
   ],
@@ -435,7 +435,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -482,7 +482,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -533,7 +533,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -588,7 +588,7 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {
@@ -641,7 +641,7 @@ Object {
   "inProgress": false,
   "log": Array [
     Object {
-      "msg": "Upload started",
+      "msg": "Uploading...",
       "type": "info",
     },
     Object {

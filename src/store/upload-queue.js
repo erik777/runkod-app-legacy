@@ -44,7 +44,7 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {pending: files, show: true});
     }
     case START: {
-      const log = [...state.log, {type: 'info', msg: `Upload started`}];
+      const log = [...state.log, {type: 'info', msg: `Uploading...`}];
       return Object.assign({}, state, {inProgress: true, log});
     }
     case FINISH: {

@@ -3,11 +3,6 @@
 exports[`1- dialog visible but upload not started. 1`] = `
 Array [
   <div
-    className="title"
-  >
-    Uploading
-  </div>,
-  <div
     className="progress-num"
   >
     0
@@ -43,11 +38,6 @@ Array [
 exports[`2- upload started. 1`] = `
 Array [
   <div
-    className="title"
-  >
-    Uploading
-  </div>,
-  <div
     className="progress-num"
   >
     0
@@ -82,11 +72,6 @@ Array [
 
 exports[`3- 2 files uploaded. 1`] = `
 Array [
-  <div
-    className="title"
-  >
-    Uploading
-  </div>,
   <div
     className="progress-num"
   >
@@ -133,11 +118,6 @@ Array [
 
 exports[`4- all files uploaded. 1`] = `
 Array [
-  <div
-    className="title"
-  >
-    Uploading
-  </div>,
   <div
     className="progress-num"
   >
@@ -194,11 +174,6 @@ Array [
 
 exports[`5- finished with 1 fail. 1`] = `
 Array [
-  <div
-    className="title"
-  >
-    Uploading
-  </div>,
   <div
     className="progress-num"
   >
