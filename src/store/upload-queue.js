@@ -72,7 +72,7 @@ export default (state = initialState, action) => {
 
       const failed = [...state.failed, file];
       const path = `${file.path}${file.name}`;
-      const log = [...state.log, {type: 'error', msg: `/${path} could not uploaded`}];
+      const log = [...state.log, {type: 'error', msg: `/${path} could not upload`}];
       return Object.assign({}, state, {pending, failed, log});
     }
     case RESET:
