@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`1- default state 1`] = `
+exports[`Scenario 1 - Ends up with one fail 1- default state 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],
@@ -11,7 +11,7 @@ Object {
 }
 `;
 
-exports[`2- set. 2 items in "files". 1`] = `
+exports[`Scenario 1 - Ends up with one fail 2- set. 2 items in "pending". 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],
@@ -33,12 +33,17 @@ Object {
 }
 `;
 
-exports[`3- start 1`] = `
+exports[`Scenario 1 - Ends up with one fail 3- startAct 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],
   "inProgress": true,
-  "log": Array [],
+  "log": Array [
+    Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
+  ],
   "pending": Array [
     Object {
       "_id": "foo",
@@ -55,7 +60,7 @@ Object {
 }
 `;
 
-exports[`5- file ok. 1 item in "files", 1 items in "completed". 1`] = `
+exports[`Scenario 1 - Ends up with one fail 5- okAct. 1 item in "pending", 1 items in "completed". 1`] = `
 Object {
   "completed": Array [
     Object {
@@ -67,6 +72,10 @@ Object {
   "failed": Array [],
   "inProgress": true,
   "log": Array [
+    Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
     Object {
       "msg": "/style.css deleted",
       "type": "success",
@@ -83,7 +92,7 @@ Object {
 }
 `;
 
-exports[`7- file error. 0 item in "files", 1 items in "completed", 1 item in "failed".  1`] = `
+exports[`Scenario 1 - Ends up with one fail 7- errorAct. 0 item in "pending", 1 items in "completed", 1 item in "failed".  1`] = `
 Object {
   "completed": Array [
     Object {
@@ -102,6 +111,10 @@ Object {
   "inProgress": true,
   "log": Array [
     Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
+    Object {
       "msg": "/style.css deleted",
       "type": "success",
     },
@@ -115,7 +128,7 @@ Object {
 }
 `;
 
-exports[`8- finish 1`] = `
+exports[`Scenario 1 - Ends up with one fail 8- finishAct 1`] = `
 Object {
   "completed": Array [
     Object {
@@ -134,6 +147,10 @@ Object {
   "inProgress": false,
   "log": Array [
     Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
+    Object {
       "msg": "/style.css deleted",
       "type": "success",
     },
@@ -141,13 +158,194 @@ Object {
       "msg": "/main.js could not delete",
       "type": "error",
     },
+    Object {
+      "msg": "1 file(s) deleted, 1 file(s) failed  👀",
+      "type": "info",
+    },
   ],
   "pending": Array [],
   "show": true,
 }
 `;
 
-exports[`9- reset 1`] = `
+exports[`Scenario 1 - Ends up with one fail 9- resetAct 1`] = `
+Object {
+  "completed": Array [],
+  "failed": Array [],
+  "inProgress": false,
+  "log": Array [],
+  "pending": Array [],
+  "show": false,
+}
+`;
+
+exports[`Scenario 2 - All success 1- default state 1`] = `
+Object {
+  "completed": Array [],
+  "failed": Array [],
+  "inProgress": false,
+  "log": Array [],
+  "pending": Array [],
+  "show": false,
+}
+`;
+
+exports[`Scenario 2 - All success 2- setAct. 2 items in "pending". 1`] = `
+Object {
+  "completed": Array [],
+  "failed": Array [],
+  "inProgress": false,
+  "log": Array [],
+  "pending": Array [
+    Object {
+      "_id": "foo",
+      "label": "style.css",
+      "parent": "/",
+    },
+    Object {
+      "_id": "bar",
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "show": true,
+}
+`;
+
+exports[`Scenario 2 - All success 3- startAct 1`] = `
+Object {
+  "completed": Array [],
+  "failed": Array [],
+  "inProgress": true,
+  "log": Array [
+    Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
+  ],
+  "pending": Array [
+    Object {
+      "_id": "foo",
+      "label": "style.css",
+      "parent": "/",
+    },
+    Object {
+      "_id": "bar",
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "show": true,
+}
+`;
+
+exports[`Scenario 2 - All success 5- okAct. 1 item in "pending", 1 items in "completed". 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "_id": "foo",
+      "label": "style.css",
+      "parent": "/",
+    },
+  ],
+  "failed": Array [],
+  "inProgress": true,
+  "log": Array [
+    Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
+    Object {
+      "msg": "/style.css deleted",
+      "type": "success",
+    },
+  ],
+  "pending": Array [
+    Object {
+      "_id": "bar",
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "show": true,
+}
+`;
+
+exports[`Scenario 2 - All success 7- okAct. 0 item in "pending", 2 items in "completed". 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "_id": "foo",
+      "label": "style.css",
+      "parent": "/",
+    },
+    Object {
+      "_id": "bar",
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "failed": Array [],
+  "inProgress": true,
+  "log": Array [
+    Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
+    Object {
+      "msg": "/style.css deleted",
+      "type": "success",
+    },
+    Object {
+      "msg": "/main.js deleted",
+      "type": "success",
+    },
+  ],
+  "pending": Array [],
+  "show": true,
+}
+`;
+
+exports[`Scenario 2 - All success 8- finishAct 1`] = `
+Object {
+  "completed": Array [
+    Object {
+      "_id": "foo",
+      "label": "style.css",
+      "parent": "/",
+    },
+    Object {
+      "_id": "bar",
+      "label": "main.js",
+      "parent": "/",
+    },
+  ],
+  "failed": Array [],
+  "inProgress": false,
+  "log": Array [
+    Object {
+      "msg": "Deleting...",
+      "type": "info",
+    },
+    Object {
+      "msg": "/style.css deleted",
+      "type": "success",
+    },
+    Object {
+      "msg": "/main.js deleted",
+      "type": "success",
+    },
+    Object {
+      "msg": "2 file(s) deleted 🆗",
+      "type": "info",
+    },
+  ],
+  "pending": Array [],
+  "show": true,
+}
+`;
+
+exports[`Scenario 2 - All success 9- reset 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],

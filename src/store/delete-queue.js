@@ -20,7 +20,6 @@ const initialState = {
 };
 
 /* Action types */
-
 export const SET = '@delete-queue/SET';
 export const START = '@delete-queue/START';
 export const FINISH = '@delete-queue/FINISHED';
@@ -30,7 +29,6 @@ export const RESET = '@delete-queue/RESET';
 
 
 /* Reducer */
-
 export default (state = initialState, action) => {
   switch (action.type) {
     case SET: {
