@@ -322,7 +322,7 @@ Object {
       "type": "success",
     },
     Object {
-      "msg": "3 files uploaded, 1 failed  👀",
+      "msg": "3 file(s) uploaded, 1 file(s) failed  👀",
       "type": "info",
     },
   ],
@@ -661,7 +661,7 @@ Object {
       "type": "success",
     },
     Object {
-      "msg": "4 files uploaded 🎉",
+      "msg": "4 file(s) uploaded 🎉",
       "type": "info",
     },
   ],

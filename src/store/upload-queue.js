@@ -48,10 +48,10 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {inProgress: true, log});
     }
     case FINISH: {
-      let msg = `${state.completed.length} files uploaded 🎉`;
+      let msg = `${state.completed.length} file(s) uploaded 🎉`;
 
       if (state.failed.length > 0) {
-        msg = `${state.completed.length} files uploaded, ${state.failed.length} failed  👀`;
+        msg = `${state.completed.length} file(s) uploaded, ${state.failed.length} file(s) failed  👀`;
       }
 
       const log = [...state.log, {type: 'info', msg}];

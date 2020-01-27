@@ -1,21 +1,21 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`1- uploading 1`] = `
-<div
-  className="upload-progress"
->
+exports[`1- dialog visible but upload not started. 1`] = `
+Array [
   <div
     className="title"
   >
     Uploading
-  </div>
+  </div>,
   <div
-    className="description"
+    className="progress-num"
   >
-    /file1.json
-  </div>
+    0
+     / 
+    5
+  </div>,
   <div
-    className="controls"
+    className="progress-percent"
   >
     <div
       className="progress"
@@ -33,26 +33,69 @@ exports[`1- uploading 1`] = `
         }
       />
     </div>
-  </div>
-</div>
+  </div>,
+  <div
+    className="upload-log-list"
+  />,
+]
 `;
 
-exports[`2- uploading 2 1`] = `
-<div
-  className="upload-progress"
->
+exports[`2- upload started. 1`] = `
+Array [
   <div
     className="title"
   >
     Uploading
-  </div>
+  </div>,
   <div
-    className="description"
+    className="progress-num"
   >
-    /file3.json
-  </div>
+    0
+     / 
+    5
+  </div>,
   <div
-    className="controls"
+    className="progress-percent"
+  >
+    <div
+      className="progress"
+    >
+      <div
+        aria-valuemax={5}
+        aria-valuemin={0}
+        aria-valuenow={0}
+        className="progress-bar progress-bar-animated progress-bar-striped"
+        role="progressbar"
+        style={
+          Object {
+            "width": "0%",
+          }
+        }
+      />
+    </div>
+  </div>,
+  <div
+    className="upload-log-list"
+  />,
+]
+`;
+
+exports[`3- 2 files uploaded. 1`] = `
+Array [
+  <div
+    className="title"
+  >
+    Uploading
+  </div>,
+  <div
+    className="progress-num"
+  >
+    2
+     / 
+    5
+  </div>,
+  <div
+    className="progress-percent"
   >
     <div
       className="progress"
@@ -70,345 +113,154 @@ exports[`2- uploading 2 1`] = `
         }
       />
     </div>
-  </div>
-</div>
-`;
-
-exports[`3- conflicted 1`] = `
-<div
-  className="upload-conflict"
->
+  </div>,
   <div
-    className="message"
+    className="upload-log-list"
   >
-    /file3.json already exists
-  </div>
-  <div
-    className="question"
-  >
-    Do you want to overwrite it?
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-primary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Yes
-    </button>
-    <button
-      className="btn btn-outline-primary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Yes to All
-    </button>
-    <span
-      className="separator"
-    />
-    <button
-      className="btn btn-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      No
-    </button>
-    <button
-      className="btn btn-outline-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      No to All
-    </button>
-    <span
-      className="separator"
-    />
-    <button
-      className="btn btn-outline-info btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Cancel
-    </button>
-  </div>
-</div>
-`;
-
-exports[`3- conflicted with single file 1`] = `
-<div
-  className="upload-conflict"
->
-  <div
-    className="message"
-  >
-    /file3.json already exists
-  </div>
-  <div
-    className="question"
-  >
-    Do you want to overwrite it?
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-primary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Yes
-    </button>
-    <span
-      className="separator"
-    />
-    <button
-      className="btn btn-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      No
-    </button>
-    <span
-      className="separator"
-    />
-    <button
-      className="btn btn-outline-info btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Cancel
-    </button>
-  </div>
-</div>
-`;
-
-exports[`4- completed single file 1`] = `
-<div
-  className="upload-done"
->
-  <div
-    className="title"
-  >
-    Done
-  </div>
-  <div
-    className="summary"
-  >
-    <span
-      className="summary-item completed"
-    >
-      1 file uploaded
-    </span>
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Close
-    </button>
-  </div>
-</div>
-`;
-
-exports[`5- completed multi file 1`] = `
-<div
-  className="upload-done"
->
-  <div
-    className="title"
-  >
-    Done
-  </div>
-  <div
-    className="summary"
-  >
-    <span
-      className="summary-item completed"
-    >
-      2 files uploaded
-    </span>
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Close
-    </button>
-  </div>
-</div>
-`;
-
-exports[`6- completed mixed 1`] = `
-<div
-  className="upload-done"
->
-  <div
-    className="title"
-  >
-    Done
-  </div>
-  <div
-    className="summary"
-  >
-    <span
-      className="summary-item completed"
-    >
-      2 files uploaded
-    </span>
-    <span
-      className="summary-item failed"
-    >
-      2 files failed
-    </span>
-    <span
-      className="summary-item skipped"
-    >
-      1 file skipped
-    </span>
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
-  </div>
-  <div
-    className="controls"
-  >
-    <button
-      className="btn btn-secondary btn-sm"
-      disabled={false}
-      onClick={[Function]}
-      type="button"
-    >
-      Close
-    </button>
-  </div>
-</div>
-`;
-
-exports[`7- show details 1`] = `
-<div
-  className="upload-done"
->
-  <div
-    className="title"
-  >
-    Done
-  </div>
-  <div
-    className="summary"
-  >
-    <span
-      className="summary-item completed"
-    >
-      2 files uploaded
-    </span>
-    <span
-      className="summary-item failed"
-    >
-      2 files failed
-    </span>
-    <span
-      className="summary-item skipped"
-    >
-      1 file skipped
-    </span>
-  </div>
-  <div
-    className="details"
-  >
-    <span
-      className="show-details"
-      onClick={[Function]}
-    >
-      show details
-    </span>
     <div
-      className="detail-list user-select"
+      className="list-item list-item-success"
+    >
+      file2.json uploaded
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      file4.json uploaded
+    </div>
+  </div>,
+]
+`;
+
+exports[`4- all files uploaded. 1`] = `
+Array [
+  <div
+    className="title"
+  >
+    Uploading
+  </div>,
+  <div
+    className="progress-num"
+  >
+    3
+     / 
+    3
+  </div>,
+  <div
+    className="progress-percent"
+  >
+    <div
+      className="progress"
     >
       <div
-        className="detail-list-item success"
-      >
-        file2.json uploaded
-      </div>
-      <div
-        className="detail-list-item success"
-      >
-        file3.json uploaded
-      </div>
-      <div
-        className="detail-list-item error"
-      >
-        file4.json could not uploaded
-      </div>
-      <div
-        className="detail-list-item error"
-      >
-        file5.json could not uploaded
-      </div>
-      <div
-        className="detail-list-item info"
-      >
-        file6.json skipped
-      </div>
+        aria-valuemax={3}
+        aria-valuemin={0}
+        aria-valuenow={3}
+        className="progress-bar progress-bar-animated progress-bar-striped"
+        role="progressbar"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      />
     </div>
-  </div>
+  </div>,
+  <div
+    className="upload-log-list"
+  >
+    <div
+      className="list-item list-item-success"
+    >
+      file2.json uploaded
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      file4.json uploaded
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      file1.json uploaded
+    </div>
+    <div
+      className="list-item list-item-info"
+    >
+      3 files uploaded 🎉
+    </div>
+  </div>,
+]
+`;
+
+exports[`5- finished with 1 fail. 1`] = `
+Array [
+  <div
+    className="title"
+  >
+    Uploading
+  </div>,
+  <div
+    className="progress-num"
+  >
+    3
+     / 
+    3
+  </div>,
+  <div
+    className="progress-percent"
+  >
+    <div
+      className="progress"
+    >
+      <div
+        aria-valuemax={3}
+        aria-valuemin={0}
+        aria-valuenow={3}
+        className="progress-bar progress-bar-animated progress-bar-striped"
+        role="progressbar"
+        style={
+          Object {
+            "width": "100%",
+          }
+        }
+      />
+    </div>
+  </div>,
+  <div
+    className="upload-log-list"
+  >
+    <div
+      className="list-item list-item-success"
+    >
+      file2.json uploaded
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      file4.json uploaded
+    </div>
+    <div
+      className="list-item list-item-success"
+    >
+      file1.json could not upload
+    </div>
+    <div
+      className="list-item list-item-info"
+    >
+      2 files uploaded, 1 failed  👀
+    </div>
+  </div>,
   <div
     className="controls"
   >
     <button
-      className="btn btn-secondary btn-sm"
+      className="btn btn-outline-info btn-sm"
       disabled={false}
       onClick={[Function]}
       type="button"
     >
       Close
     </button>
-  </div>
-</div>
+  </div>,
+]
 `;
