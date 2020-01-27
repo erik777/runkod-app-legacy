@@ -23,7 +23,7 @@ test('1- loading', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     }
   };
@@ -56,7 +56,7 @@ test('2- no file', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     }
   };
@@ -135,7 +135,7 @@ test('3- with files and folders', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     },
     // props for sub components
@@ -220,7 +220,7 @@ test('4- in sub folder', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     },
     // props for sub components
@@ -262,7 +262,7 @@ test('5- redirected project', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     },
     // props for sub components

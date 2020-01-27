@@ -47,7 +47,7 @@ test('1- files loading', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     }
   };
@@ -103,7 +103,7 @@ test('2- loaded. no file', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     }
   };
@@ -205,7 +205,7 @@ test('3- loaded. with files and folders', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     },
     checkListDelete: () => {
@@ -309,7 +309,7 @@ test('5- 1 item in checklist', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     },
     checkListDelete: () => {
@@ -413,7 +413,7 @@ test('6- 2 items in checklist', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     },
     checkListDelete: () => {
@@ -517,7 +517,7 @@ test('7- all items in checklist', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     },
     checkListDelete: () => {
@@ -578,7 +578,7 @@ test('8- redirected project', () => {
     setUploadQueue: () => {
 
     },
-    startUploadQueue: () => {
+    processUploadQueue: () => {
 
     }
   };
