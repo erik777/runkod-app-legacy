@@ -118,30 +118,5 @@ test('4 redirected projects', () => {
 });
 
 
-test('5 redirected projects with broken link', () => {
-  const props = {
-    projects: {
-      list: [
-        {_id: 'uniqueid1', name: 'project 1', redirectTo: ''},
-        {_id: 'uniqueid2', name: 'project 2', redirectTo: 'uniqueid4'}
-      ]
-    },
-    project: {_id: 'uniqueid1'},
-    ui: {
-      sideProjectsVisible: true
-    },
-    selectProject: () => {
-    },
-    fetchFiles: () => {
-    },
-    toggleUiProp: () => {
-    }
-  };
 
-  const renderer = TestRenderer.create(
-    <SideMenu {...props}/>
-  );
-
-  expect(renderer.toJSON()).toMatchSnapshot();
-});
 
