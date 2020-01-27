@@ -12,7 +12,7 @@ import {fetchFiles} from '../../store/files';
 import {selectPath} from '../../store/path';
 import {setUploadQueue, processUploadQueue, resetUploadQueue} from '../../store/upload-queue';
 import {checkListAdd, checkListDelete, checkListReset} from '../../store/check-list';
-import {setDeleteQueue, startDeleteQueue, resetDeleteQueue} from '../../store/delete-queue';
+import {setDeleteQueue, processDeleteQueue, resetDeleteQueue} from '../../store/delete-queue';
 
 
 class ManagerContainer extends Component {
@@ -52,7 +52,7 @@ const mapDispatchToProps = dispatch =>
       checkListAdd,
       checkListDelete,
       setDeleteQueue,
-      startDeleteQueue,
+      processDeleteQueue,
       resetDeleteQueue,
       checkListReset
     },

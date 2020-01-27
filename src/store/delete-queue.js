@@ -8,8 +8,10 @@ import {userSession} from '../blockstack-config';
 
 import arrayChunk from '../utils/array-chunk';
 
+import {FILE_CONCURRENCY} from '../constants';
+
 const initialState = {
-  files: [],
+  pending: [],
   completed: [],
   failed: [],
   log: [],
@@ -22,8 +24,8 @@ const initialState = {
 export const SET = '@delete-queue/SET';
 export const START = '@delete-queue/START';
 export const FINISH = '@delete-queue/FINISHED';
-export const FILE_OK = '@delete-queue/FILE_OK';
-export const FILE_ERROR = '@delete-queue/FILE_ERROR';
+export const OK = '@delete-queue/OK';
+export const ERROR = '@delete-queue/ERROR';
 export const RESET = '@delete-queue/RESET';
 
 
@@ -33,33 +35,39 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SET: {
       const {files} = action.payload;
-      return Object.assign({}, state, {files, show: true});
+      return Object.assign({}, state, {pending: files, show: true});
     }
     case START: {
-      return Object.assign({}, state, {inProgress: true});
+      const log = [...state.log, {type: 'info', msg: `Deleting...`}];
+      return Object.assign({}, state, {inProgress: true, log});
     }
     case FINISH: {
-      return Object.assign({}, state, {inProgress: false});
+      let msg = `${state.completed.length} file(s) deleted 🆗`;
+
+      if (state.failed.length > 0) {
+        msg = `${state.completed.length} file(s) deleted, ${state.failed.length} file(s) failed  👀`;
+      }
+
+      const log = [...state.log, {type: 'info', msg}];
+      return Object.assign({}, state, {inProgress: false, log});
     }
-    case FILE_OK: {
-      // const [file, ...files] = state.files;
+    case OK: {
       const {file} = action.payload;
-      const files = state.files.filter(x => x._id !== file._id);
+      const pending = state.pending.filter(x => x._id !== file._id);
 
       const completed = [...state.completed, file];
       const path = `${file.parent}${file.label}`;
       const log = [...state.log, {type: 'success', msg: `${path} deleted`}];
-      return Object.assign({}, state, {files, completed, log});
+      return Object.assign({}, state, {pending, completed, log});
     }
-    case FILE_ERROR: {
-      // const [file, ...files] = state.files;
+    case ERROR: {
       const {file} = action.payload;
-      const files = state.files.filter(x => x._id !== file._id);
+      const pending = state.pending.filter(x => x._id !== file._id);
 
       const failed = [...state.failed, file];
       const path = `${file.parent}${file.label}`;
       const log = [...state.log, {type: 'error', msg: `${path} could not delete`}];
-      return Object.assign({}, state, {files, failed, log});
+      return Object.assign({}, state, {pending, failed, log});
     }
     case RESET:
       return initialState;
@@ -76,7 +84,7 @@ export const setDeleteQueue = (files) => (dispatch) => {
   dispatch(setAct(files));
 };
 
-export const startDeleteQueue = () => async (dispatch, getState) => {
+export const processDeleteQueue = () => async (dispatch, getState) => {
   dispatch(startAct());
 
   const {project} = getState();
@@ -85,12 +93,12 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
     const [err1, fileRecs] = await to(File.fetchOwnList({project: project._id, name: file.name}));
 
     if (err1) {
-      dispatch(fileErrorAct(file));
+      dispatch(errorAct(file));
       throw new Error('Error while fetching file record');
     }
 
     if (fileRecs.length === 0) {
-      dispatch(fileErrorAct(file));
+      dispatch(errorAct(file));
       throw new Error('File not found');
     }
 
@@ -102,7 +110,7 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
     }));
 
     if (err2) {
-      dispatch(fileErrorAct(file));
+      dispatch(errorAct(file));
       throw new Error('Could not update file');
     }
 
@@ -111,20 +119,17 @@ export const startDeleteQueue = () => async (dispatch, getState) => {
 
     const [err3,] = await to(fileRec.save());
     if (err3) {
-      dispatch(fileErrorAct(file));
+      dispatch(errorAct(file));
       throw new Error('Could not update file record');
     }
 
-    dispatch(fileOkAct(file));
+    dispatch(okAct(file));
   };
 
   const {deleteQueue: queue} = getState();
-  const {files} = queue;
+  const {pending} = queue;
 
-  // 2 promises for each processor core
-  const chunkSize = (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 1) * 2;
-
-  const chunks = arrayChunk(files, chunkSize);
+  const chunks = arrayChunk(pending, FILE_CONCURRENCY);
 
   for (let x = 0; x < chunks.length; x++) {
     const ps = chunks[x].map(x => deleteFile(x).catch(x => x));
@@ -157,15 +162,15 @@ export const finishAct = () => ({
 });
 
 
-export const fileOkAct = (file) => ({
-  type: FILE_OK,
+export const okAct = (file) => ({
+  type: OK,
   payload: {
     file
   }
 });
 
-export const fileErrorAct = (file) => ({
-  type: FILE_ERROR,
+export const errorAct = (file) => ({
+  type: ERROR,
   payload: {
     file
   }

@@ -4,9 +4,9 @@ exports[`1- default state 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],
-  "files": Array [],
   "inProgress": false,
   "log": Array [],
+  "pending": Array [],
   "show": false,
 }
 `;
@@ -15,7 +15,9 @@ exports[`2- set. 2 items in "files". 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],
-  "files": Array [
+  "inProgress": false,
+  "log": Array [],
+  "pending": Array [
     Object {
       "_id": "foo",
       "label": "style.css",
@@ -27,8 +29,6 @@ Object {
       "parent": "/",
     },
   ],
-  "inProgress": false,
-  "log": Array [],
   "show": true,
 }
 `;
@@ -37,7 +37,9 @@ exports[`3- start 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],
-  "files": Array [
+  "inProgress": true,
+  "log": Array [],
+  "pending": Array [
     Object {
       "_id": "foo",
       "label": "style.css",
@@ -49,8 +51,6 @@ Object {
       "parent": "/",
     },
   ],
-  "inProgress": true,
-  "log": Array [],
   "show": true,
 }
 `;
@@ -65,18 +65,18 @@ Object {
     },
   ],
   "failed": Array [],
-  "files": Array [
-    Object {
-      "_id": "bar",
-      "label": "main.js",
-      "parent": "/",
-    },
-  ],
   "inProgress": true,
   "log": Array [
     Object {
       "msg": "/style.css deleted",
       "type": "success",
+    },
+  ],
+  "pending": Array [
+    Object {
+      "_id": "bar",
+      "label": "main.js",
+      "parent": "/",
     },
   ],
   "show": true,
@@ -99,7 +99,6 @@ Object {
       "parent": "/",
     },
   ],
-  "files": Array [],
   "inProgress": true,
   "log": Array [
     Object {
@@ -111,6 +110,7 @@ Object {
       "type": "error",
     },
   ],
+  "pending": Array [],
   "show": true,
 }
 `;
@@ -131,7 +131,6 @@ Object {
       "parent": "/",
     },
   ],
-  "files": Array [],
   "inProgress": false,
   "log": Array [
     Object {
@@ -143,6 +142,7 @@ Object {
       "type": "error",
     },
   ],
+  "pending": Array [],
   "show": true,
 }
 `;
@@ -151,9 +151,9 @@ exports[`9- reset 1`] = `
 Object {
   "completed": Array [],
   "failed": Array [],
-  "files": Array [],
   "inProgress": false,
   "log": Array [],
+  "pending": Array [],
   "show": false,
 }
 `;

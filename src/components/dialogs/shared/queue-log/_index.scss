@@ -1,0 +1,24 @@
+.queue-log {
+  height: 140px;
+  overflow: auto;
+  border: 1px solid $gray-200;
+
+  .list-item {
+    padding: 4px;
+    font-size: 12px;
+    font-family: "Courier New";
+    line-height: 120%;
+
+    &.list-item-error {
+      color: $danger;
+    }
+
+    &.list-item-success {
+      color: $success;
+    }
+
+    &.list-item-info {
+      color: $gray-600;
+    }
+  }
+}

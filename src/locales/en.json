@@ -84,14 +84,7 @@
   },
   "delete-queue-dialog": {
     "confirm": "1 file will be deleted",
-    "n-confirm": "{{n}} files will be deleted",
-    "progress-title": "Deleting",
-    "done-title": "Done",
-    "summary-completed": "1 file deleted",
-    "n-summary-completed": "{{n}} files deleted",
-    "summary-failed": "1 file failed",
-    "n-summary-failed": "{{n}} files failed",
-    "show-details": "show details"
+    "n-confirm": "{{n}} files will be deleted"
   },
   "project-settings-dialog": {
     "title": "Settings",

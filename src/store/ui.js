@@ -2,7 +2,6 @@ import {USER_LOGOUT} from './user';
 
 export const TOGGLE_NEW_PROJECT = '@ui/TOGGLE_NEW_PROJECT';
 export const TOGGLE_SIDE_PROJECTS_VISIBLE = '@ui/TOGGLE_SIDE_PROJECTS_VISIBLE';
-export const TOGGLE_DELETE_DETAIL = '@ui/TOGGLE_DELETE_DETAIL';
 export const TOGGLE_DELETE_SUMMARY_DETAIL = '@ui/TOGGLE_DELETE_SUMMARY_DETAIL';
 export const TOGGLE_PROJECT_SETTINGS = '@ui/TOGGLE_PROJECT_SETTINGS';
 export const TOGGLE_PROJECT_STATUS = '@ui/TOGGLE_PROJECT_STATUS';
@@ -23,7 +22,6 @@ const initialState = {
   ...readFlags(),
   newProject: false,
   sideProjectsVisible: true,
-  deleteDetail: false,
   deleteSummaryDetail: false,
   projectSettings: false,
   projectStatus: false,
@@ -43,8 +41,6 @@ export default (state = initialState, action) => {
       return Object.assign({}, state, {newProject: action.payload.what});
     case TOGGLE_SIDE_PROJECTS_VISIBLE:
       return Object.assign({}, state, {sideProjectsVisible: action.payload.what});
-    case TOGGLE_DELETE_DETAIL:
-      return Object.assign({}, state, {deleteDetail: action.payload.what});
     case TOGGLE_DELETE_SUMMARY_DETAIL:
       return Object.assign({}, state, {deleteSummaryDetail: action.payload.what});
     case TOGGLE_PROJECT_SETTINGS:
@@ -80,9 +76,6 @@ export const toggleUiProp = (what) => {
         break;
       case 'sideProjectsVisible':
         act = TOGGLE_SIDE_PROJECTS_VISIBLE;
-        break;
-      case 'deleteDetail':
-        act = TOGGLE_DELETE_DETAIL;
         break;
       case 'deleteSummaryDetail':
         act = TOGGLE_DELETE_SUMMARY_DETAIL;

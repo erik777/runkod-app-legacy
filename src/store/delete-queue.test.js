@@ -2,8 +2,8 @@ import reducer, {
   setAct,
   startAct,
   finishAct,
-  fileOkAct,
-  fileErrorAct,
+  okAct,
+  errorAct,
   resetAct
 } from "./delete-queue"
 
@@ -29,13 +29,13 @@ it('3- start', () => {
 });
 
 it('5- file ok. 1 item in "files", 1 items in "completed".', () => {
-  const act = fileOkAct({_id: 'foo', parent: '/', label: 'style.css'});
+  const act = okAct({_id: 'foo', parent: '/', label: 'style.css'});
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
 
 it('7- file error. 0 item in "files", 1 items in "completed", 1 item in "failed". ', () => {
-  const act = fileErrorAct({_id: 'bar', parent: '/', label: 'main.js'});
+  const act = errorAct({_id: 'bar', parent: '/', label: 'main.js'});
   state = reducer(state, act);
   expect(state).toMatchSnapshot();
 });
