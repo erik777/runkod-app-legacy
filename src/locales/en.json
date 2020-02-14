@@ -9,6 +9,9 @@
     "delete": "Delete",
     "save": "Save",
     "back": "Back",
+    "next": "Next",
+    "done": "Done",
+    "finish": "Finish",
     "server-error": "An error has occurred"
   },
   "project-status": {
@@ -65,9 +68,17 @@
     "error-not-valid-name": "Only letters and numbers are allowed",
     "error-not-valid-name-custom": "Not a valid domain name",
     "error-not-available": "Name is not available. Please choose another!",
-    "error-dns": "Please check DNS settings for the domain name. Click the button below to find out current DNS settings. If you have configured please keep in mind that it can take some time for those DNS to take effect across the internet.",
-    "success": "New project created",
-    "dns-info": "DNS Settings"
+    "verification-main-title": "Verification",
+    "verification-title": "Add a new TXT record to <span>{{n}}</span>",
+    "verification-description": "TXT records are simple text notes for your domain and won't affect your email or website.",
+    "verification-record-name-label": "Name / Host",
+    "verification-record-value-label": "Value / Answer / Destination",
+    "verification-confirm-label": "I added the TXT verification record.",
+    "verification-error": "Couldn't verify. Make sure you added the TXT record.",
+    "verification-error-note": "Please keep in mind that it can take a couple minutes for new DNS settings to take effect.",
+    "custom-done-title": "DNS Configuration",
+    "custom-done-description": "Configure A record of <u>{{n}}</u> that will resolve our ip address like shown below.",
+    "success": "Your new project has been created."
   },
   "example-project-dialog": {
     "title": "Starter project",
@@ -116,12 +127,5 @@
   },
   "contact-dialog": {
     "title": "You can reach us on these channels"
-  },
-  "dns-info-dialog": {
-    "title": "DNS settings for custom domains",
-    "line1": "First, go to the DNS settings page of your domain provider.",
-    "line2": "Then, Create an A record: type @ for \"Host\" and paste 178.128.141.114 under \"Value\" or \"Points to\".",
-    "line3": "If you want to redirect www subdomain, add CNAME record like above.",
-    "line4": "Please keep in mind, depending on your DNS provider it may take some time to activate new settings."
   }
 }

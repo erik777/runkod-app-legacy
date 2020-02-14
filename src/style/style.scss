@@ -67,7 +67,6 @@ body{
 @import '../components/dialogs/upload-queue/index';
 @import '../components/dialogs/delete-queue/index';
 @import '../components/dialogs/contact/index';
-@import '../components/dialogs/dns-info/index';
 @import '../components/dialogs/file-info/index';
 @import '../components/dialogs/example-project/index';
 @import '../components/dialogs/project-settings/index';
@@ -78,3 +77,4 @@ body{
 
 @import '../components/helper/message/index';
 @import '../components/helper/checkbox/index';
+@import '../components/helper/dns-record/index';

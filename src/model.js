@@ -115,7 +115,21 @@ export class File extends Model {
     deleted: {
       type: Number,
       decrypted: true
+    },
+    uid: {
+      type: String,
+      decrypted: true
     }
   }
 }
 
+export class Msg extends Model {
+  static className = 'msg';
+
+  static schema = {
+    payload: {
+      type: Object,
+      decrypted: true
+    },
+  }
+}

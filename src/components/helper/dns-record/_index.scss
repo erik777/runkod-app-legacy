@@ -1,0 +1,16 @@
+.dns-record {
+  .record-row {
+    font-size: 90%;
+    margin-bottom: 20px;
+    color: $gray-600;
+
+    .record-label {
+      margin-bottom: 4px;
+    }
+
+    .record-value {
+      background: $gray-200;
+      padding: 8px;
+    }
+  }
+}
