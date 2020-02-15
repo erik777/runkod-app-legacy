@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`1- default 1`] = `
+<div
+  className="new-project-form"
+>
+  <div
+    className="name-input"
+  >
+    <div
+      className="input-group"
+    >
+      <input
+        autoComplete="off"
+        autoFocus={true}
+        className="form-control"
+        id="txt-name"
+        maxLength={16}
+        onChange={[Function]}
+        placeholder="e.g., super-project"
+        value=""
+      />
+      <div
+        className="input-group-append"
+      >
+        <span
+          className="input-group-text"
+        >
+          .runkodapps.com
+        </span>
+      </div>
+    </div>
+    <div
+      className="form-feedback"
+    >
+      
+    </div>
+  </div>
+  <div
+    className="d-flex justify-content-between"
+  >
+    <button
+      className="btn btn-link btn-sm"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      <u>
+        Custom Domain
+      </u>
+    </button>
+    <button
+      className="btn btn-primary"
+      disabled={false}
+      onClick={[Function]}
+      type="button"
+    >
+      Next
+    </button>
+  </div>
+</div>
+`;
